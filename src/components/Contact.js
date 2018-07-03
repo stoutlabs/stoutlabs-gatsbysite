@@ -2,14 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 
 import HomeForm from './HomeForm';
-//import HelloImg from '../assets/images/undraw_hello.svg';
+import HelloImg from '../assets/images/undraw_hello.svg';
 
 const ContactSection = styled.section`
+  background-image: url(${HelloImg});
+  object-fit: contain;
+
   p {
     width: 80%;
   }
-
-  background-image: url('../assets/images/undraw_hello.svg');
 
   div.contact-inner {
     display: flex;
@@ -25,6 +26,10 @@ const ContactSection = styled.section`
       @media screen and (min-width: 960px) {
         width: 50%;
       }
+
+      p {
+        margin-bottom: 1rem;
+      }
     }
   }
 `;
@@ -34,8 +39,8 @@ export default () => {
     <ContactSection>
       <h3>Let's Talk!</h3>
       <p>
-        Have a question? Want an estimate? Or maybe you just want to discuss an
-        idea, and see what's involved? I would love to hear from you!
+        Have a question? Want to discuss your next website or app? I would love
+        to hear from you!
       </p>
       <div className="contact-inner">
         <div className="box form">

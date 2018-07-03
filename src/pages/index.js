@@ -9,6 +9,14 @@ import CTA from '../components/CTA';
 
 import SVGWorking from '../assets/images/undraw_working.svg';
 
+const StyledHeadline = styled.h2`
+  text-align: center;
+
+  @media screen and (min-width: 960px) {
+    text-align: left;
+  }
+`;
+
 const StyledIntroDiv = styled.div`
   border-bottom: 1px solid #ddd;
   color: #888;
@@ -35,7 +43,7 @@ const StyledIntroDiv = styled.div`
 
 const IndexPage = () => (
   <Layout>
-    <h2>Let's Build Something!</h2>
+    <StyledHeadline>Let's Build Something!</StyledHeadline>
 
     <StyledIntroDiv>
       <img src={SVGWorking} alt="workspace" />

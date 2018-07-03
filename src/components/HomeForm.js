@@ -33,7 +33,11 @@ const StyledForm = styled.form`
 
 export const HomeForm = () => {
   return (
-    <StyledForm>
+    <StyledForm
+      onSubmit={() => {
+        console.log('submitted form here');
+      }}
+    >
       <fieldset>
         <input type="text" name="name" placeholder="Your Name" />
         <input type="email" name="email" placeholder="Email Address" />
