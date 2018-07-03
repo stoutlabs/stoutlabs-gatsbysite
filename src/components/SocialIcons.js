@@ -24,6 +24,7 @@ export const SocialIcons = () => {
         href="https://github.com/stoutlabs"
         target="_blank"
         rel="noopener noreferrer"
+        title="Github"
       >
         <FontAwesomeIcon icon={faGithub} />
       </a>
@@ -31,6 +32,7 @@ export const SocialIcons = () => {
         href="https://twitter.com/stoutlabs"
         target="_blank"
         rel="noopener noreferrer"
+        title="Twitter"
       >
         <FontAwesomeIcon icon={faTwitter} />
       </a>
@@ -38,14 +40,11 @@ export const SocialIcons = () => {
         href="https://github.com/stoutlabs"
         target="_blank"
         rel="noopener noreferrer"
+        title="Facebook"
       >
         <FontAwesomeIcon icon={faFacebook} />
       </a>
-      <a
-        href="https://github.com/stoutlabs"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <a href="mailto:daniel@stoutlabs.com" title="Email">
         <FontAwesomeIcon icon={faEnvelope} />
       </a>
     </StyledIcons>

@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: 'StoutLabs - Gatsby v2 Edition'
+    title: 'StoutLabs - Gatsby v2 Edition',
+    siteUrl: `https://www.stoutlabs.com/`
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -13,13 +14,8 @@ module.exports = {
       }
     },
     `gatsby-transformer-remark`,
-    //  {
-    //    resolve: `gatsby-plugin-typography`,
-    //    options: {
-    //      pathToConfigModule: `src/utils/typography.js`
-    //    }
-    //  },
-
-    `gatsby-plugin-styled-components`
+    `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify`,
+    `gatsby-plugin-sitemap`
   ]
 };

@@ -9,8 +9,10 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
     "gatsby": "next",
+    "gatsby-plugin-netlify": "^1.0.21",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
+    "gatsby-plugin-sitemap": "^1.2.25",
     "gatsby-plugin-styled-components": "^2.0.11",
     "gatsby-source-filesystem": "^1.5.39",
     "gatsby-transformer-remark": "^1.7.44",
@@ -18,7 +20,6 @@
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-helmet": "^5.2.0",
-    "react-typography": "^0.16.13",
     "styled-components": "^3.3.3"
   },
   "keywords": [
