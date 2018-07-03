@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
     "gatsby": "next",
-    "gatsby-plugin-netlify": "^1.0.21",
+    "gatsby-plugin-netlify": "^2.0.0-beta.2",
     "gatsby-plugin-react-helmet": "next",
     "gatsby-plugin-sass": "next",
     "gatsby-plugin-sitemap": "^1.2.25",
