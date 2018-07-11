@@ -4,29 +4,47 @@ section {
 }
 
 h2 {
+  font-family: 'Emilys Candy', sans-serif;
   font-size: 3.2rem;
   font-weight: 700;
-  color: #6a6a6a;
+  color: $color4;
   margin: 0;
 }
 
 h3 {
+  font-family: 'Emilys Candy', sans-serif;
   font-size: 2.4rem;
   line-height: 3.3rem;
   font-weight: 700;
-  color: #6a6a6a;
+  color: $color5;
   margin: 0 0 2.5rem;
   width: 100%;
 }
 
 h4 {
+  font-family: 'Merriweather', sans-serif;
   font-size: 1.25rem;
   font-weight: 700;
   margin: 0 0 1rem;
 }
 
+h5 {
+  font-family: 'Merriweather', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+}
+
 p {
   font-size: 1.1rem;
-  line-height: 1.5rem;
+  line-height: 1.5;
   margin: 0 0 2rem;
+  color: #e5ca8f;
+}
+
+li {
+  font-size: 1.1rem;
+  line-height: 1.4;
+  margin: 0 0 1.5rem;
+  color: #c5ac78;
 }

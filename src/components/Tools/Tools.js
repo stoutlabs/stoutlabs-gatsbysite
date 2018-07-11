@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ReactLogo from '../assets/images/react.svg';
-import GatsbyLogo from '../assets/images/gatsby.svg';
-import NodeLogo from '../assets/images/nodejs.svg';
-import GraphQLogo from '../assets/images/graphql.svg';
+import ReactLogo from '../../assets/images/react.svg';
+import GatsbyLogo from '../../assets/images/gatsby.svg';
+import NodeLogo from '../../assets/images/nodejs.svg';
+import GraphQLogo from '../../assets/images/graphql.svg';
+
+import theme from '../../utils/theme';
 
 const ToolsSection = styled.section`
   display: flex;
@@ -19,36 +21,40 @@ const ToolsSection = styled.section`
 
   div.tools {
     margin: 0 1.5rem 1.5rem 0;
-    background-color: #fafafa;
+    background-color: ${props => props.theme.colorWhite};
     padding: 0;
     width: 100%;
+    box-shadow: 1px 2px 2px rgba(10, 10, 10, 0.1);
 
     @media screen and (min-width: 768px) {
       width: calc(50% - 1.5rem);
     }
 
     @media screen and (min-width: 1300px) {
-      width: calc(33% - 1.5rem);
+      width: calc(50% - 1.5rem);
     }
 
     h4 {
-      background-color: #eee;
+      background-color: ${props => props.theme.colorAccent2};
       padding: 1.6rem 1.4rem;
       margin: 0;
       font-size: 1.1rem;
-      color: #888;
+      color: ${props => props.theme.colorAccent1};
       text-align: center;
+
+      text-transform: uppercase;
     }
 
     p {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
+      color: ${props => props.theme.colorDarkest};
     }
 
     ul {
       li {
         margin: 0;
-        padding: 0.7rem 1rem;
-        border-bottom: 1px solid #ddd;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid #eee;
 
         &:last-child {
           border-bottom: none;
@@ -60,7 +66,7 @@ const ToolsSection = styled.section`
 
         p {
           margin: 0;
-          color: #999;
+          line-height: 2;
           text-align: center;
         }
       }
@@ -93,7 +99,7 @@ const ToolsSection = styled.section`
 
 export const Tools = () => {
   return (
-    <ToolsSection>
+    <ToolsSection theme={theme}>
       <h3>My Toolbelt:</h3>
 
       <div className="tools faves">
@@ -130,7 +136,7 @@ export const Tools = () => {
         <h4>Javascript:</h4>
         <ul>
           <li>
-            <p>ES6/ES7</p>
+            <p>ES5/ES6/ES7</p>
           </li>
 
           <li>
@@ -146,13 +152,17 @@ export const Tools = () => {
           </li>
 
           <li>
-            <p>Testing: Jest, Mocha</p>
+            <p>CSS-in-JS</p>
+          </li>
+
+          <li>
+            <p>Testing with Jest & Mocha</p>
           </li>
 
           <li>
             <p>
-              APIs: Axios, Moment.js, Stripe API, Sendgrid API, Mailchimp API,
-              Twitch API, Reddit API, Discord API, DarkSky, much more
+              APIs: Stripe, Sendgrid, Mailchimp, Twitch, Reddit, Discord,
+              DarkSky, and many more
             </p>
           </li>
         </ul>
@@ -174,10 +184,10 @@ export const Tools = () => {
             <p>Frameworks: Bootstrap, Bulma, Materialize</p>
           </li>
           <li>
-            <p>Familiar with accessibility techniques</p>
+            <p>Familiarity with accessibility techniques</p>
           </li>
           <li>
-            <p>Familiar with BEM</p>
+            <p>Familiarity with BEM</p>
           </li>
         </ul>
       </div>
@@ -190,7 +200,7 @@ export const Tools = () => {
           </li>
 
           <li>
-            <p>Webpack, Parcel</p>
+            <p>Webpack</p>
           </li>
 
           <li>
@@ -221,19 +231,25 @@ export const Tools = () => {
       </div>
 
       <div className="tools sub prevgen">
-        <h4>Also Years Of:</h4>
+        <h4>And Also:</h4>
         <ul>
           <li>
-            <p>Communication Skills</p>
+            <p>Excellent Communication Skills</p>
           </li>
           <li>
             <p>PHP & MySql</p>
+          </li>
+          <li>
+            <p>Firebase</p>
           </li>
           <li>
             <p>jQuery, MooTools</p>
           </li>
           <li>
             <p>WordPress</p>
+          </li>
+          <li>
+            <p>MongoDB</p>
           </li>
           <li>
             <p>CakePHP</p>

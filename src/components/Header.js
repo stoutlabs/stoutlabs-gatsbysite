@@ -2,12 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
+import theme from '../utils/theme';
+
 import BioPic from './BioPic';
 // import Nav from './Nav';
 import SocialIcons from './SocialIcons';
 
 const StyledHeader = styled.div`
-  background: linear-gradient(0deg, #105662, #3096a7);
+  background: linear-gradient(${props => props.theme.colorAccent1}, #eb5e55);
   box-sizing: border-box;
   color: #dadada;
   padding: 2rem;
@@ -15,7 +17,7 @@ const StyledHeader = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 85vh;
+  height: 100vh;
   text-align: center;
 
   @media screen and (min-width: 960px) {
@@ -31,26 +33,27 @@ const StyledHeader = styled.div`
   }
 
   h1 {
-    font-family: 'Oswald', sans-serif;
-    font-weight: 700;
-    font-size: 3.2rem;
+    font-family: 'Shrikhand', sans-serif;
+
+    font-size: 3rem;
     margin: 0 0 0.2rem;
     text-shadow: 1.5px 2.598px 1px rgba(0, 10, 15, 0.17);
     letter-spacing: -1px;
 
     a {
-      color: white;
+      color: #fef1f1;
       text-decoration: none;
     }
 
     @media screen and (min-width: 960px) {
-      font-size: 3.5rem;
+      font-size: 4rem;
     }
   }
 
   h2 {
-    color: #fff;
-    font-size: 1.2rem;
+    color: #fef1f1;
+    font-family: 'Merriweather', serif;
+    font-size: 1.1rem;
     margin: 0 0 2rem;
     opacity: 0.75;
     padding: 0;
@@ -67,6 +70,8 @@ const StyledHeader = styled.div`
       font-size: 1.4rem;
       line-height: 1.5;
       margin: 0 0 1.6rem;
+      color: #febcb8;
+
       em {
         color: #ffffff;
       }
@@ -80,13 +85,13 @@ const StyledHeader = styled.div`
 `;
 
 const Header = ({ siteTitle }) => (
-  <StyledHeader className="header">
+  <StyledHeader className="header" theme={theme}>
     <div className="inner">
       <h1>
         <Link to="/">StoutLabs</Link>
       </h1>
 
-      <h2>Web Development & Design</h2>
+      <h2>Web Development Services</h2>
 
       <div className="header-photo">
         <BioPic />
