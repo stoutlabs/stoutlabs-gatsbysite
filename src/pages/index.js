@@ -49,15 +49,15 @@ const StyledIntroDiv = styled.div`
   h3 {
     color: #3096a7;
     margin: 0 0 1rem;
-    padding: 2rem 0 0;
+    padding: 1rem 0 0.1rem;
     border-bottom: 1px solid #3096a7;
     width: auto;
     display: inline-block;
   }
 
   p {
-    font-size: 1.5rem;
-    line-height: 1.65;
+    font-size: 1.4rem;
+    line-height: 1.6;
     margin: 0 0 2rem;
 
     b,
@@ -76,11 +76,12 @@ const StyledIntroDiv = styled.div`
 
   ul {
     list-style: disc;
-    margin: 0 0 3rem 2rem;
+    margin: 0 0 0 2rem;
+    padding: 1rem 0;
 
     li {
       font-size: 1.3rem;
-      line-height: 1.4;
+      line-height: 1.5;
       color: #ebd9b1;
       padding: 0 0 1;
     }
@@ -103,14 +104,15 @@ const IndexPage = () => (
       <h3>You Are:</h3>
       <ul>
         <li>
-          A small to medium sized business, start-up, or individual seeking more
-          than "site builders" and cookie-cutter options.
+          An individual, start-up, or small to medium sized business seeking
+          blazing-fast websites and apps.
         </li>
         <li>
           A company looking to hire a remote React developer, full or part time.
         </li>
         <li>
-          An art director and/or web designer who would rather avoid coding.
+          An art director and/or web designer who would prefer to avoid coding,
+          and needs their projects expertly and efficiently crafted.
         </li>
       </ul>
 
@@ -120,7 +122,7 @@ const IndexPage = () => (
         consulting... I will craft and develop <b>solutions</b> that work.
       </p>
 
-      <CTA url={'/page-2/'} title="View Work" />
+      <CTA url={'/page-2/'} title="View My Work" />
     </StyledIntroDiv>
     <RecentsList />
     <Tools />
