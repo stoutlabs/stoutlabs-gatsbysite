@@ -156,7 +156,11 @@ export const Tools = () => {
           </li>
 
           <li>
-            <p>Testing with Jest & Mocha</p>
+            <p>Testing with Jest, Enzyme, and Mocha</p>
+          </li>
+
+          <li>
+            <p>Socket.io</p>
           </li>
 
           <li>

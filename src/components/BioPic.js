@@ -1,20 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import SmBioPic from '../assets/images/profile_pic_alt.jpg';
+// import SmBioPic from '../assets/images/profile_pic_alt.jpg';
 
 const StyledBioPic = styled.div`
   img {
     border-radius: 50%;
-    max-width: 150px;
-    border: 2px solid #fcfcfc;
+    max-width: 125px;
+    border: 3px solid #fcfcfc;
   }
 `;
 
-export default () => {
+export default props => {
   return (
-    <StyledBioPic className="bio-pic">
-      <img src={SmBioPic} alt="" />
+    <StyledBioPic className={`${props.className} bio-pic`}>
+      <img src={props.imgSrc} alt="" />
     </StyledBioPic>
   );
 };

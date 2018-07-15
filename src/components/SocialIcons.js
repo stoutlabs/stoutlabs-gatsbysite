@@ -11,11 +11,12 @@ import styled from 'styled-components';
 
 const StyledIcons = styled.div`
   a {
-    margin: 0 0.75rem 0 0;
+    margin: 0 0 0 0.66rem;
     color: #fef1f1;
-    font-size: 1.25rem;
+    font-size: 1.6rem;
     opacity: 0.85;
     transition: opacity 200ms ease-out;
+    max-width: 50px;
 
     &:hover {
       opacity: 0.6;

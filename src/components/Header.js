@@ -4,15 +4,15 @@ import styled from 'styled-components';
 
 import theme from '../utils/theme';
 
-import BioPic from './BioPic';
+//import BioPic from './BioPic';
 // import Nav from './Nav';
+import Logo from '../assets/images/logo_svg_2018.svg';
 import SocialIcons from './SocialIcons';
 
 const StyledHeader = styled.div`
   background: linear-gradient(${props => props.theme.colorAccent1}, #eb5e55);
   box-sizing: border-box;
   color: #dadada;
-  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -23,7 +23,6 @@ const StyledHeader = styled.div`
   @media screen and (min-width: 960px) {
     align-items: flex-end;
     justify-content: space-between;
-    padding: 8rem 4rem;
     position: fixed;
     width: 35%;
     height: 100vh;
@@ -32,7 +31,42 @@ const StyledHeader = styled.div`
     text-align: right;
   }
 
-  h1 {
+  div.inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding: 1rem 2rem 2rem;
+
+    @media screen and (min-width: 960px) {
+      height: 100vh;
+      align-items: flex-end;
+    }
+  }
+
+  div.logo {
+    overflow: hidden;
+    img {
+      width: 100%;
+
+      @media screen and (min-width: 960px) {
+        width: 100%;
+        max-width: 370px;
+      }
+    }
+
+    h1,
+    h2 {
+      text-indent: -2000px;
+      display: none;
+      position: absolute;
+    }
+  }
+
+  div.header-content {
+  }
+
+  ${'' /* h1 {
     font-family: 'Shrikhand', sans-serif;
 
     font-size: 3rem;
@@ -45,8 +79,12 @@ const StyledHeader = styled.div`
       text-decoration: none;
     }
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 768px) {
       font-size: 4rem;
+    }
+
+    @media screen and (min-width: 960px) {
+      font-size: 3rem;
     }
   }
 
@@ -57,9 +95,7 @@ const StyledHeader = styled.div`
     margin: 0 0 2rem;
     opacity: 0.75;
     padding: 0;
-  }
-
-  div.header-photo {
+  } */} div.header-photo {
     margin: 0;
   }
 
@@ -71,6 +107,10 @@ const StyledHeader = styled.div`
       line-height: 1.5;
       margin: 0 0 1.6rem;
       color: #febcb8;
+
+      @media screen and (min-width: 960px) {
+        font-size: 1.3rem;
+      }
 
       em {
         color: #ffffff;
@@ -87,26 +127,32 @@ const StyledHeader = styled.div`
 const Header = ({ siteTitle }) => (
   <StyledHeader className="header" theme={theme}>
     <div className="inner">
-      <h1>
-        <Link to="/">StoutLabs</Link>
-      </h1>
+      <div className="logo">
+        <h1>
+          <Link to="/">StoutLabs</Link>
+        </h1>
 
-      <h2>Web Development Services</h2>
+        <h2>Web Development Services</h2>
+        <Link to="/">
+          <img src={Logo} alt="StoutLabs logo" className="logosvg" />
+        </Link>
+      </div>
 
-      <div className="header-photo">
+      {/* <div className="header-photo">
         <BioPic />
+      </div> */}
+      <div className="header-content">
+        <div className="header-intro-text">
+          <p>
+            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
+            hobbyist chef, disc golfer, and music nerd living in East TN.
+          </p>
+        </div>
+
+        {/* <Nav /> */}
+
+        <SocialIcons />
       </div>
-
-      <div className="header-intro-text">
-        <p>
-          Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
-          hobbyist chef, disc golfer, and music nerd living in East TN.
-        </p>
-      </div>
-
-      {/* <Nav /> */}
-
-      <SocialIcons />
     </div>
   </StyledHeader>
 );
