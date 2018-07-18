@@ -17,10 +17,6 @@ const StyledHeadline = styled.h2`
     font-size: 3.5rem;
     margin-top: 0rem;
   }
-
-  @media screen and (min-width: 1600px) {
-    font-size: 3rem;
-  }
 `;
 
 const IndexPage = () => (

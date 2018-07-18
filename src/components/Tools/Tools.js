@@ -144,15 +144,11 @@ export const Tools = () => {
           </li>
 
           <li>
-            <p>Express.js</p>
-          </li>
-
-          <li>
             <p>GraphQL and RESTful APIs (creation + usage)</p>
           </li>
 
           <li>
-            <p>CSS-in-JS</p>
+            <p>Express.js</p>
           </li>
 
           <li>
@@ -180,6 +176,9 @@ export const Tools = () => {
           </li>
           <li>
             <p>Responsive design</p>
+          </li>
+          <li>
+            <p>CSS-in-JS</p>
           </li>
           <li>
             <p>Preprocessors: SASS & LESS</p>
