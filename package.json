@@ -17,6 +17,7 @@
     "gatsby-plugin-sharp": "next",
     "gatsby-plugin-sitemap": "next",
     "gatsby-plugin-styled-components": "next",
+    "gatsby-remark-images": "next",
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",

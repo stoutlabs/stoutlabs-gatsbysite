@@ -32,7 +32,7 @@ exports.createPages = async ({ actions, graphql }) => {
       const id = node.id;
 
       createPage({
-        path: node.fields.slug,
+        path: node.frontmatter.path || node.fields.slug,
         tags: node.frontmatter.tags,
         component: path.resolve(
           `src/templates/${String(node.frontmatter.templateKey)}.js`
