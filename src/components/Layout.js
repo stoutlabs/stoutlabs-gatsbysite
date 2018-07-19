@@ -8,7 +8,7 @@ import Container from './Container';
 
 import '../assets/styles/index.scss';
 
-export const Layout = ({ children, data }) => (
+export default (Layout = ({ children, data }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -33,10 +33,8 @@ export const Layout = ({ children, data }) => (
       </>
     )}
   />
-);
+));
 
 // Layout.propTypes = {
 //   children: PropTypes.element.isRequired
 // };
-
-export default Layout;
