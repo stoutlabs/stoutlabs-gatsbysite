@@ -1,7 +1,11 @@
 ---
+templateKey: blog-post
 path: "/blog/2018-06-21/test-post"
-date: "2018-06-21"
-title: "Test Post"
+title: Test Post
+date: '2018-06-21'
+description: This is only a test!
+tags:
+  - test
 ---
 
 This is a test paragraph. Lorem ipsum dolor sit amet. Beans, potatoes, carrots, onions, and celery.

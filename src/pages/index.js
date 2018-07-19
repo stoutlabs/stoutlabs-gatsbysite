@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 import Contact from '../components/Contact';
 import IntroContent from '../components/IntroContent';
-import Layout from '../components/layout';
+import Layout from '../components/Layout';
 import RecentsList from '../components/Projects/RecentsList';
 import Tools from '../components/Tools/Tools.js';
 

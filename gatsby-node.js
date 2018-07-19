@@ -1,9 +1,9 @@
+const _ = require('lodash');
 const path = require('path');
+const { createFilePath } = require('gatsby-source-filesystem');
 
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
-
-  const blogPostTemplate = path.resolve(`src/templates/blogTemplate.js`);
 
   const allBlogPosts = await graphql(`
     {
@@ -13,23 +13,71 @@ exports.createPages = async ({ actions, graphql }) => {
       ) {
         edges {
           node {
+            id
+            fields {
+              slug
+            }
             frontmatter {
-              path
+              templateKey
+              tags
             }
           }
         }
       }
     }
   `);
+
   try {
     allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      const id = node.id;
+
       createPage({
-        path: node.frontmatter.path,
-        component: blogPostTemplate,
-        context: {} // additional data can be passed via context
+        path: node.fields.slug,
+        tags: node.frontmatter.tags,
+        component: path.resolve(
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
+        ),
+        context: {
+          id
+        } // additional data can be passed via context
+      });
+    });
+
+    let tags = [];
+
+    allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
+      if (node.frontmatter.tags !== undefined) {
+        tags = tags.concat(node.frontmatter.tags);
+      }
+    });
+
+    const uniqueTags = [...new Set(tags)];
+
+    uniqueTags.forEach(tag => {
+      const tagPath = `/tags/${_.kebabCase(tag)}/`;
+
+      createPage({
+        path: tagPath,
+        component: path.resolve(`src/templates/tags.js`),
+        context: {
+          tag
+        }
       });
     });
   } catch (e) {
     console.log('Error: ', e);
+  }
+};
+
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value
+    });
   }
 };

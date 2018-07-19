@@ -22,16 +22,15 @@ collections:
   - name: "projects"
     label: "Project"
     folder: "src/pages/projects"
+    create: true
+    slug: "{{slug}}"
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "date"}
       - {label: "Thumbnail", name: "thumbnail", widget: "image"}
       - {label: "Description", name: "description", widget: "text"}
-      - label: "Tools"
-        name: "tools"
-        widget: "list"
-        field:
-          - {label: "Tool Name", name: "tool_name", widget: string}
+      - {label: "Tools", name: "tools", widget: "list"}
+        
 
   - name: "pages"
     label: "Pages"

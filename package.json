@@ -1,8 +1,8 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "stoutlabs-gatsbysite",
+  "description": "StoutLabs.com website, built with Gatsby v2(beta)",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Daniel Stout <daniel@stoutlabs.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.0-14",
     "@fortawesome/free-brands-svg-icons": "^5.1.0-11",
@@ -20,6 +20,7 @@
     "gatsby-source-filesystem": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
+    "lodash": "^4.17.10",
     "netlify-cms": "^1.9.3",
     "node-sass": "^4.9.2",
     "react": "^16.4.1",
