@@ -7,3 +7,5 @@ tags:
   - test
 ---
 This is the body content for the test post. Here is some **bold** and _italic_ text.
+
+![](/img/fb_profilepic.png)
