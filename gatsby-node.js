@@ -8,6 +8,7 @@ exports.createPages = async ({ actions, graphql }) => {
   const allBlogPosts = await graphql(`
     {
       allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
         sort: { order: DESC, fields: [frontmatter___date] }
         limit: 1000
       ) {
@@ -27,6 +28,30 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
+  const allProjects = await graphql(`
+    {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "project" } } }
+        sort: { order: DESC, fields: [frontmatter___date] }
+        limit: 1000
+      ) {
+        edges {
+          node {
+            id
+            fields {
+              slug
+            }
+            frontmatter {
+              templateKey
+              tags
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  //create blog pages, tag pages
   try {
     allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
       const id = node.id;

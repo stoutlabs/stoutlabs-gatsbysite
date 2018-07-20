@@ -15,17 +15,17 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/assets/images/`,
-        name: 'images'
+        path: `${__dirname}/src/pages/projects/`,
+        name: `projects`
       }
     },
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        path: `${__dirname}/static/assets/`,
-        name: 'uploads'
+        path: `${__dirname}/src/assets/images/`,
+        name: 'images'
       }
     },
     `gatsby-plugin-sharp`,
@@ -47,14 +47,6 @@ module.exports = {
       }
     },
     `gatsby-plugin-sitemap`,
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.js`,
-        publicPath: `admin`,
-        htmlTitle: `CMS, Mang.`
-      }
-    },
     `gatsby-plugin-netlify`
   ]
 };
