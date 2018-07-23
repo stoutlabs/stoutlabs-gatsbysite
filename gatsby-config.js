@@ -1,6 +1,11 @@
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+});
+
 module.exports = {
   siteMetadata: {
-    title: 'StoutLabs - Gatsby v2 Edition',
+    title:
+      'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
     siteUrl: `https://www.stoutlabs.com/`
   },
   plugins: [
@@ -15,17 +20,51 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: 'gatsby-source-prismic',
       options: {
-        path: `${__dirname}/src/pages/projects/`,
-        name: `projects`
-      }
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        path: `${__dirname}/src/assets/images/`,
-        name: 'images'
+        repositoryName: 'stoutlabs2018',
+        accessToken: `${process.env.API_KEY}`,
+        linkResolver: ({ node, key, value }) => doc => {
+          // console.log("doc.type:", doc.type);
+          // Your link resolver
+          //if (doc.type === "theproject") return "/project/" + doc.uid;
+          //if (doc.type === "page") return "/" + doc.uid;
+          // Fallback for other types, in case new custom types get created
+          return '/doc/' + doc.id;
+        },
+        htmlSerializer: ({ node, key, value }) => (
+          type,
+          element,
+          content,
+          children
+        ) => {
+          //  switch (type) {
+          //    // Add a class to paragraph elements
+          //    case Elements.paragraph:
+          //      return '<p class="paragraph-class">' + children.join('') + '</p>'
+          //    // Don't wrap images in a <p> tag
+          //    case Elements.image:
+          //      return '<img src="' + element.url + '" alt="' + element.alt + '">'
+          //    // Add a class to hyperlinks
+          //    case Elements.hyperlink:
+          //      var target = element.data.target
+          //        ? 'target="' + element.data.target + '" rel="noopener"'
+          //        : ''
+          //      var linkUrl = PrismicDOM.Link.url(element.data, linkResolver)
+          //      return (
+          //        '<a class="some-link"' +
+          //        target +
+          //        ' href="' +
+          //        linkUrl +
+          //        '">' +
+          //        content +
+          //        '</a>'
+          //      )
+          //    // Return null to stick with the default behavior for all other elements
+          //    default:
+          //      return null
+          //  }
+        }
       }
     },
     `gatsby-plugin-sharp`,
@@ -40,13 +79,32 @@ module.exports = {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 590
+              maxWidth: 600,
+              linkImagesToOriginal: false,
+              quality: 85,
+              withWebp: {
+                quality: 85
+              }
             }
           }
         ]
       }
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: `UA-1076375-4`,
+        // Puts tracking script in the head instead of the body
+        head: false
+        // Setting this parameter is optional
+        //anonymize: true,
+        // Setting this parameter is also optional
+        //respectDNT: true,
+        // Avoids sending pageview hits from custom paths
+        //exclude: ["/preview/**", "/do-not-track/me/too/"],
+      }
+    },
     `gatsby-plugin-netlify`
   ]
 };

@@ -1,6 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
 const StyledForm = styled.form`
   fieldset {
     padding: 0 0 2rem;
@@ -30,21 +33,23 @@ const StyledForm = styled.form`
     min-height: 200px;
   }
 
-  button {
-    background: #fff;
-    border: 2px solid #2a899a;
+  button[type='submit'] {
+    border: 2px solid #febcb8;
+    background: #971640;
     border-radius: 8px;
-    color: #2a899a;
+    color: #fff;
     display: inline-block;
     font-size: 1.3rem;
-    padding: 1rem 2.25rem;
+    font-family: 'Merriweather', sans-serif;
+    padding: 1.1rem 2.5rem;
     text-decoration: none;
     text-transform: uppercase;
+    outline: none;
 
     &:hover {
-      color: #fbfbfb;
-      border-color: #fff;
-      background: #2a899a;
+      color: #fef1f1;
+      border-color: #fef1f1;
+      background-color: #e95c54;
     }
   }
 `;
@@ -68,7 +73,9 @@ export const HomeForm = () => {
         />
       </fieldset>
 
-      <button type="submit">Send</button>
+      <button type="submit">
+        Send <FontAwesomeIcon icon={faEnvelope} />
+      </button>
     </StyledForm>
   );
 };

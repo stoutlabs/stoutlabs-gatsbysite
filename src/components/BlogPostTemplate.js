@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
+//import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
 import Content from './Content';
 import styled from 'styled-components';
@@ -92,8 +92,7 @@ BlogPostTemplate.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  date: PropTypes.string,
-  helmet: PropTypes.instanceOf(Helmet)
+  date: PropTypes.string
 };
 
 export default BlogPostTemplate;

@@ -10,3 +10,5 @@ tags:
 ---
 
 This is a test paragraph. Lorem ipsum dolor sit amet. Beans, potatoes, carrots, onions, and celery.
+
+![](fb_profilepic.png)

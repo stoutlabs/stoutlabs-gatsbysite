@@ -39,7 +39,7 @@ const ContactSection = styled.section`
 
 export default () => {
   return (
-    <ContactSection className="contact">
+    <ContactSection className="contact" id="contact">
       <h3>Contact Me</h3>
 
       <p>

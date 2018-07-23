@@ -7,5 +7,12 @@ yarn-error.log
 /public
 .DS_Store
 
+# dotenv config
+.env.development
+.env.production
+
+# vs code settings
+.vscode
+
 # Dev stuff
 dev

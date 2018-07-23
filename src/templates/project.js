@@ -32,6 +32,7 @@ Project.propTypes = {
 
 export default Project;
 
+/*
 export const projectQuery = graphql`
   query ProjectByID($id: String!) {
     markdownRemark(id: { eq: $id }) {
@@ -46,3 +47,4 @@ export const projectQuery = graphql`
     }
   }
 `;
+*/

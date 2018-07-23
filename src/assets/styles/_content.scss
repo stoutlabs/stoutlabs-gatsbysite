@@ -19,6 +19,11 @@ h3 {
   color: #3096a7;
   margin: 0 0 2.5rem;
   width: 100%;
+  text-align: center;
+
+  @media screen and (min-width: 960px) {
+    text-align: left;
+  }
 }
 
 h4 {

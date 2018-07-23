@@ -2,6 +2,19 @@ const _ = require('lodash');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+exports.onCreateNode = ({ node, actions, getNode }) => {
+  const { createNodeField } = actions;
+
+  if (node.internal.type === 'MarkdownRemark') {
+    const value = createFilePath({ node, getNode });
+    createNodeField({
+      name: `slug`,
+      node,
+      value
+    });
+  }
+};
+
 exports.createPages = async ({ actions, graphql }) => {
   const { createPage } = actions;
 
@@ -28,28 +41,11 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  const allProjects = await graphql(`
-    {
-      allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "project" } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
-        limit: 1000
-      ) {
-        edges {
-          node {
-            id
-            fields {
-              slug
-            }
-            frontmatter {
-              templateKey
-              tags
-            }
-          }
-        }
-      }
-    }
-  `);
+  // const allHomePageContent = await graphql(`
+  //   {
+
+  //   }
+  // `);
 
   //create blog pages, tag pages
   try {
@@ -91,18 +87,5 @@ exports.createPages = async ({ actions, graphql }) => {
     });
   } catch (e) {
     console.log('Error: ', e);
-  }
-};
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === 'MarkdownRemark') {
-    const value = createFilePath({ node, getNode });
-    createNodeField({
-      name: `slug`,
-      node,
-      value
-    });
   }
 };
