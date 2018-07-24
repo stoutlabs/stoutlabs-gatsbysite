@@ -1,0 +1,20 @@
+.BigGear {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  top: -33px;
+  right: -10px;
+}
+
+.BigGear img {
+  animation: BigGear-spin infinite 40s linear;
+}
+
+@keyframes BigGear-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,6 +1,6 @@
 section {
   margin: 2rem 0;
-  padding: 2rem 0 4rem;
+  padding: 2rem 0 3rem;
 }
 
 h2 {
@@ -53,4 +53,14 @@ li {
   line-height: 1.4;
   margin: 0 0 1.5rem;
   color: #c5ac78;
+}
+
+a {
+  color: #ea5d55;
+  text-decoration: none;
+  transition: color 125ms ease-in;
+
+  &:hover {
+    color: #ed726b;
+  }
 }

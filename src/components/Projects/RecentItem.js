@@ -22,10 +22,17 @@ const StyledRecentItem = styled.article`
 
   div.thumbnail {
     position: relative;
+    cursor: pointer;
+    transition: opacity 150ms ease-in;
+
     img {
       max-width: 100%;
     }
     z-index: 5;
+
+    &:hover {
+      opacity: 0.85;
+    }
   }
 
   h5 {

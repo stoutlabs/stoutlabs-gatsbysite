@@ -7,6 +7,8 @@ import Header from './Header';
 import Container from './Container';
 
 import '../assets/styles/index.scss';
+import favicon from '../assets/favicon.ico';
+import appleTouchIcon from '../assets/apple-touch-icon.png';
 
 const Layout = ({ children, data }) => (
   <StaticQuery
@@ -27,7 +29,10 @@ const Layout = ({ children, data }) => (
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' }
           ]}
-        />
+        >
+          <link rel="shortcut icon" href={favicon} />
+          <link rel="apple-touch-icon" href={appleTouchIcon} />
+        </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <Container>{children}</Container>
       </>

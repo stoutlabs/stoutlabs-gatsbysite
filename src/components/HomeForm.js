@@ -20,12 +20,13 @@ const StyledForm = styled.form`
     font-size: 1rem;
     color: #999;
     outline: none;
-    border: 2px solid #ccc;
+    border: 2px solid rgba(48, 150, 167, 0.1);
     transition: border 250ms ease-out, background-color 250ms ease-out;
 
     &:focus {
-      border: 2px solid #61a9b3;
-      background: #fdfdfd;
+      border: 2px solid rgba(48, 150, 167, 1);
+      background: #d7eff3;
+      color: #216571;
     }
   }
 
@@ -45,6 +46,7 @@ const StyledForm = styled.form`
     text-decoration: none;
     text-transform: uppercase;
     outline: none;
+    transition: background-color 200ms ease-out;
 
     &:hover {
       color: #fef1f1;

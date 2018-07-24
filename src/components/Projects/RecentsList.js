@@ -18,6 +18,14 @@ const StyledRecents = styled.section`
       align-items: baseline;
     }
   }
+
+  p.other-projects {
+    font-size: 0.85rem;
+    text-align: center;
+    font-style: italic;
+    padding-top: 2rem;
+    opacity: 0.5;
+  }
 `;
 
 const ProjectOverlay = styled.div`
@@ -101,6 +109,11 @@ export class RecentsList extends Component {
               );
             })}
         </div>
+
+        <p className="other-projects">
+          Note: Older projects (mostly WordPress and CakePHP) projects available
+          upon request.
+        </p>
 
         <ProjectOverlay
           className={this.state.isViewing ? 'show' : 'hide'}

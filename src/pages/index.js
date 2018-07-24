@@ -6,6 +6,7 @@ import Contact from '../components/Contact';
 import IntroContent from '../components/IntroContent';
 import Layout from '../components/Layout';
 import RecentsList from '../components/Projects/RecentsList';
+import Seo from '../components/Seo';
 import Tools from '../components/Tools/Tools.js';
 
 const StyledHeadline = styled.h2`
@@ -36,8 +37,15 @@ const IndexPage = props => {
     boxes: content.tools_boxes
   };
 
+  const seoData = {
+    frontmatter: {
+      title: null
+    }
+  };
+
   return (
     <Layout>
+      <Seo postData={seoData} />
       <StyledHeadline>{title}</StyledHeadline>
       <IntroContent content={introData} />
       <RecentsList projects={featured_projects} />

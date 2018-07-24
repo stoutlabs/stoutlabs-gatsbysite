@@ -21,6 +21,10 @@ const StyledIcons = styled.div`
     &:hover {
       opacity: 0.6;
     }
+
+    svg {
+      max-width: 50px;
+    }
   }
 `;
 

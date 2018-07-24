@@ -11,7 +11,7 @@ import theme from '../../utils/theme';
 const ToolsSection = styled.section`
   display: flex;
   flex-direction: column;
-  border-bottom: 1px solid #ddd;
+
   align-items: baseline;
 
   @media screen and (min-width: 768px) {

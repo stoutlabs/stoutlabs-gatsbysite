@@ -22,6 +22,7 @@ const CTAdiv = styled.div`
     text-decoration: none;
     text-transform: uppercase;
     outline: none;
+    transition: background-color 200ms ease-out;
 
     &:hover {
       color: #fef1f1;
