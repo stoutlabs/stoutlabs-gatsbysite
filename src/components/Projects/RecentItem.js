@@ -53,7 +53,7 @@ const StyledRecentItem = styled.article`
   }
 
   &.active {
-    background: #eee;
+    background: rgba(240, 240, 240, 0.1);
   }
 `;
 

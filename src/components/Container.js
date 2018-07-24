@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const ContainerDiv = styled.div`
   padding: 3rem 2rem;
   box-sizing: border-box;
+  overflow: hidden;
 
   @media screen and (min-width: 768px) {
     padding: 3rem;

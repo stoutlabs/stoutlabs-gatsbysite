@@ -30,12 +30,12 @@ const ProjectOverlay = styled.div`
   background-color: #111;
   visibility: hidden;
   opacity: 0.3;
-  transition: visibility 0ms linear 300ms, opacity 250ms ease-in;
+  transition: visibility 0ms linear 0, opacity 250ms ease-in;
 
   &.show {
     visibility: visible;
     opacity: 0.9;
-    transition-delay: 0ms;
+    transition: visibility 0ms linear 300ms, opacity 250ms ease-in;
   }
 `;
 
@@ -109,6 +109,7 @@ export class RecentsList extends Component {
         <DetailsBox
           details={this.state.activeDetails}
           className={this.state.isViewing ? 'active' : ''}
+          handleClose={this.hideDetails}
         />
       </StyledRecents>
     );
