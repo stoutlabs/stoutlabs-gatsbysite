@@ -1,6 +1,8 @@
 import React from 'react';
-
+import Scrollspy from 'react-scrollspy';
 import styled from 'styled-components';
+
+import Scroll from './Scroll';
 
 const StyledNav = styled.nav`
   ul {
@@ -32,33 +34,78 @@ const StyledNav = styled.nav`
         opacity: 0.85;
         text-decoration: none;
 
-        font-size: 1.3rem;
+        font-size: 1.2rem;
 
         &:hover {
           color: antiquewhite;
         }
       }
+
+      &.active a {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &.mininav {
+    background: linear-gradient(90deg, #ea5d55, #e65a54);
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    right: 0;
+    transform: translateY(-100px);
+    height: 50px;
+    width: 100vw;
+    opacity: 0;
+    z-index: 99;
+    transition: visibility 1ms 300ms linear, opacity 200ms 20ms linear,
+      transform 200ms 2ms linear;
+
+    &.sticky {
+      @media screen and (max-width: 767px) {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+        transition: visibility 1ms 300ms linear, opacity 200ms 300ms linear,
+          transform 200ms 300ms linear;
+      }
+    }
+
+    a {
+      font-size: 1.1rem;
     }
   }
 `;
 
-export const Nav = () => {
+export const Nav = ({ sticky, className }) => {
   return (
-    <StyledNav>
-      <ul>
+    <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
+      <Scrollspy
+        items={['intro', 'projects', 'tools', 'contact']}
+        currentClassName="active"
+        offset={0}
+      >
         <li>
-          <a href="#top">Home</a>
+          <Scroll type="id" element="intro" offset={sticky ? -10 : 0}>
+            <a href="#intro">Intro</a>
+          </Scroll>
         </li>
         <li>
-          <a href="#projects">Work</a>
+          <Scroll type="id" element="projects" offset={sticky ? -50 : 0}>
+            <a href="#projects">Work</a>
+          </Scroll>
         </li>
         <li>
-          <a href="#tools">Skills</a>
+          <Scroll type="id" element="tools" offset={sticky ? -50 : 0}>
+            <a href="#tools">Skills</a>
+          </Scroll>
         </li>
         <li>
-          <a href="#contact">Contact</a>
+          <Scroll type="id" element="contact" offset={sticky ? -50 : 0}>
+            <a href="#contact">Contact</a>
+          </Scroll>
         </li>
-      </ul>
+      </Scrollspy>
     </StyledNav>
   );
 };

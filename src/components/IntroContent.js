@@ -20,6 +20,18 @@ const StyledIntroDiv = styled.div`
     text-align: left;
   }
 
+  h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin: 2rem 0;
+
+    @media screen and (min-width: 960px) {
+      text-align: left;
+      font-size: 3.5rem;
+      margin-top: 3rem;
+    }
+  }
+
   div.intro-box {
     display: flex;
     flex-direction: column;
@@ -86,7 +98,7 @@ const StyledIntroDiv = styled.div`
 
   div.intro-summary {
     p {
-      font-size: 1.5rem;
+      font-size: 1.3rem;
       text-align: center;
 
       @media screen and (min-width: 960px) {
@@ -112,7 +124,9 @@ const StyledIntroDiv = styled.div`
 
 export const IntroContent = ({ content }) => {
   return (
-    <StyledIntroDiv theme={theme} className="intro">
+    <StyledIntroDiv theme={theme} className="intro" id="intro">
+      <h2>{content.title}</h2>
+
       <HTMLContent
         content={content.introSummary.html}
         className="intro-summary"
@@ -133,7 +147,7 @@ export const IntroContent = ({ content }) => {
         />
       </div>
 
-      <CTA url={'#projects'} title="View My Work" isAnchor />
+      <CTA url={'#projects'} element="projects" title="View My Work" isAnchor />
     </StyledIntroDiv>
   );
 };

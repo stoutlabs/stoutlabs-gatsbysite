@@ -59,6 +59,10 @@ const StyledForm = styled.form`
     margin: 0 auto;
     transition: background-color 200ms ease-out;
 
+    @media screen and (min-width: 960px) {
+      margin: 0;
+    }
+
     &:hover {
       color: #fef1f1;
       border-color: #fef1f1;

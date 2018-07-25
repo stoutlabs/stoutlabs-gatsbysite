@@ -23,7 +23,7 @@ const StyledIcons = styled.div`
     }
 
     svg {
-      max-width: 50px;
+      max-width: 30px;
     }
   }
 `;

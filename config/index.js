@@ -6,8 +6,8 @@ module.exports = {
   url: 'https://www.stoutlabs.com',
   image: 'https://www.stoutlabs.com/site-images/site-image.jpg',
   logo: 'https://www.stoutlabs.com/site-images/android-chrome-512x512.jpg',
-  //twitter: '@LAFPB',
-  fbAppID: '',
+  twitter: '@stoutlabs',
+  fbAppID: '422202044802398',
 
   author: {
     minibio: `

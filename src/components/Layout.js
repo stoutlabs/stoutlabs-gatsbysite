@@ -1,47 +1,58 @@
-import React from 'react';
-//import PropTypes from 'prop-types';
-import { graphql, StaticQuery } from 'gatsby';
+import React, { Component, Fragment } from 'react';
+//import { graphql, StaticQuery } from 'gatsby';
 import Helmet from 'react-helmet';
+import Waypoint from 'react-waypoint';
+
+import config from '../../config/index';
 
 import Header from './Header';
 import Container from './Container';
+import Nav from '../components/Nav';
 
 import '../assets/styles/index.scss';
 import favicon from '../assets/favicon.ico';
 import appleTouchIcon from '../assets/apple-touch-icon.png';
 
-const Layout = ({ children, data }) => (
-  <StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (
-      <>
+class Layout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stickyNav: false
+    };
+  }
+
+  _handleWaypointEnter = () => {
+    this.setState(() => ({ stickyNav: false }));
+  };
+
+  _handleWaypointLeave = () => {
+    this.setState(() => ({ stickyNav: true }));
+  };
+
+  render() {
+    return (
+      <Fragment>
         <Helmet
-          title={data.site.siteMetadata.title}
+          title={config.title}
           meta={[
-            { name: 'description', content: 'Sample' },
+            { name: 'description', content: config.description },
             { name: 'keywords', content: 'sample, something' }
           ]}
         >
           <link rel="shortcut icon" href={favicon} />
           <link rel="apple-touch-icon" href={appleTouchIcon} />
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
-        <Container>{children}</Container>
-      </>
-    )}
-  />
-);
+        <Header siteTitle={config.title} />
+        <Nav sticky={this.state.stickyNav} className="mininav" />
+        <Waypoint
+          onEnter={this._handleWaypointEnter}
+          onLeave={this._handleWaypointLeave}
+        />
 
-// Layout.propTypes = {
-//   children: PropTypes.element.isRequired
-// };
+        <Container>{this.props.children}</Container>
+      </Fragment>
+    );
+  }
+}
 
 export default Layout;

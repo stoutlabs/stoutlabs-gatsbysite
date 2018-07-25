@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
 
+import Scroll from './Scroll';
+
 const CTAdiv = styled.div`
   margin: 0;
   padding: 1.5rem 0;
@@ -32,13 +34,15 @@ const CTAdiv = styled.div`
   }
 `;
 
-export const CTA = ({ url, title, isAnchor }) => {
+export const CTA = ({ url, title, isAnchor, element }) => {
   if (isAnchor) {
     return (
       <CTAdiv>
-        <a href={url}>
-          {title} <FontAwesomeIcon icon={faArrowDown} />
-        </a>
+        <Scroll type="id" element={element} offset={-50}>
+          <a href={url}>
+            {title} <FontAwesomeIcon icon={faArrowDown} />
+          </a>
+        </Scroll>
       </CTAdiv>
     );
   } else {

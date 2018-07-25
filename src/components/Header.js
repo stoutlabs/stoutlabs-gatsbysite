@@ -2,15 +2,12 @@ import React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-import theme from '../utils/theme';
-
-//import BioPic from './BioPic';
 import Nav from './Nav';
 import Logo from '../assets/images/logo_svg_2018.svg';
 import SocialIcons from './SocialIcons';
 
 const StyledHeader = styled.div`
-  background: linear-gradient(${props => props.theme.colorAccent1}, #eb5e55);
+  background: linear-gradient(#971640, #eb5e55);
   box-sizing: border-box;
   color: #dadada;
   display: flex;
@@ -36,7 +33,7 @@ const StyledHeader = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    padding: 1rem 2rem 2rem;
+    padding: 1rem 1rem 2rem;
 
     @media screen and (min-width: 960px) {
       height: 100vh;
@@ -60,6 +57,13 @@ const StyledHeader = styled.div`
       text-indent: -2000px;
       display: none;
       position: absolute;
+    }
+
+    a {
+      display: block;
+      img {
+        max-width: 100%;
+      }
     }
   }
 
@@ -95,23 +99,16 @@ const StyledHeader = styled.div`
   }
 `;
 
-const Header = ({ siteTitle }) => (
-  <StyledHeader className="header" theme={theme}>
+const Header = () => (
+  <StyledHeader className="header">
     <div className="inner">
       <div className="logo">
-        <h1>
-          <Link to="/">StoutLabs</Link>
-        </h1>
-
-        <h2>Web Development Services</h2>
+        <h1>Web Development Services</h1>
         <Link to="/">
           <img src={Logo} alt="StoutLabs logo" className="logosvg" />
         </Link>
       </div>
 
-      {/* <div className="header-photo">
-        <BioPic />
-      </div> */}
       <div className="header-content">
         <div className="header-intro-text">
           <p>
