@@ -83,7 +83,7 @@ export const Nav = ({ sticky, className }) => {
       <Scrollspy
         items={['intro', 'projects', 'tools', 'contact']}
         currentClassName="active"
-        offset={0}
+        offset={sticky ? -50 : 0}
       >
         <li>
           <Scroll type="id" element="intro" offset={sticky ? -10 : 0}>
