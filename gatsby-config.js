@@ -1,6 +1,7 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 });
+const config = require('./config/index');
 
 module.exports = {
   siteMetadata: {
@@ -105,6 +106,30 @@ module.exports = {
         //exclude: ["/preview/**", "/do-not-track/me/too/"],
       }
     },
-    `gatsby-plugin-netlify`
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: config.title,
+        short_name: config.titleShort,
+        description: config.description,
+        start_url: '/',
+        background_color: '#141313',
+        theme_color: '#99d7e1',
+        display: 'minimal-ui',
+        icons: [
+          {
+            src: `/site-images/android-chrome-192x192.jpg`,
+            sizes: `192x192`,
+            type: `image/png`
+          },
+          {
+            src: `/site-images/android-chrome-512x512.jpg`,
+            sizes: `512x512`,
+            type: `image/png`
+          }
+        ]
+      }
+    },
+    `gatsby-plugin-offline`
   ]
 };
