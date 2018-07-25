@@ -32,9 +32,15 @@ const ContactSection = styled.section`
       }
 
       p.contact-intro {
-        font-size: 1.25rem;
-        padding-right: 2rem;
+        font-size: 1.35rem;
+        padding-right: 0;
         margin-bottom: 2rem;
+        text-align: center;
+
+        @media screen and (min-width: 960px) {
+          text-align: left;
+          padding-right: 2rem;
+        }
       }
 
       @media screen and (min-width: 1024px) {

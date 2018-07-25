@@ -2,7 +2,12 @@ import React from 'react';
 import Img from 'gatsby-image';
 import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTimes } from '@fortawesome/free-solid-svg-icons';
+import {
+  faTimes,
+  faWrench,
+  faExternalLinkAlt
+} from '@fortawesome/free-solid-svg-icons';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 import { HTMLContent } from '../Content';
 
@@ -33,6 +38,7 @@ const StyledDetails = styled.div`
       justify-content: flex-end;
       background-color: rgba(230,220,200, 0.1);
       padding: 0.75rem;
+      margin-bottom: 1rem;
 
       button.closer-btn {
         font-size: 1.6rem;
@@ -41,6 +47,7 @@ const StyledDetails = styled.div`
         background-color: #971640;
         color: #fff;
         transition: background-color 150ms linear;
+        
 
         &:hover {
           background-color: #e95c54;
@@ -59,31 +66,61 @@ const StyledDetails = styled.div`
       text-align: center;
       font-size: 1.75rem;
       font-family: Merriweather, serif;
+      margin: 0 0 1rem;
     }
 
-    div.details-body {
+    div.details-boxes {
       display: flex;
       flex-direction: column;
+      padding: 0 1rem;
       
-      @media screen and (min-width: 768px) {
+      
+      @media screen and (min-width: 960px) {
         flex-direction: row;
+        
       }
     }
 
-    div.tools-used {
+    div.tools-list, div.source-url {
       text-align: center;
-      padding: 2rem;
+      padding: 1.5rem 1rem;
+      background: rgba(250, 250, 250, 0.05);
+      border: 1px solid rgba(153, 215, 225, 0.25);
+      margin-bottom: 1rem;
+      order: 1;
+      
+      
+      @media screen and (min-width: 960px) {
+        padding: 2rem 1rem;
+        width: 50%;
+        order: 2;
+      }
+
+
       h4 {
         color: #3096a7;
       }
       p {
         margin: 0;
         color: #fdf0d5;
+        font-size: 1rem;
+      }
+    }
+    
+    div.source-url {
+      width: 100%;
+
+      @media screen and (min-width: 960px) {
+        order: 1;
+        width: 50%;
       }
     }
 
     div.desc {
       padding: 2rem;
+      order: 3;
+
+      
 
       p {
         font-size: 1rem;
@@ -105,7 +142,7 @@ const StyledDetails = styled.div`
 
     div.big-pic {
       max-width: 700px;
-      margin: 0 auto;
+      margin: 0 auto 2rem;
     }
   }
 
@@ -128,7 +165,11 @@ export const DetailsBox = ({ details, className, handleClose }) => {
         <div className="inner">
           <div className="closer">
             <span>close</span>
-            <button className="closer-btn" onClick={handleClose}>
+            <button
+              className="closer-btn"
+              onClick={handleClose}
+              aria-label="Close details"
+            >
               <FontAwesomeIcon icon={faTimes} />
             </button>
           </div>
@@ -147,14 +188,44 @@ export const DetailsBox = ({ details, className, handleClose }) => {
             )}
           </div>
 
-          <div className="details-body">
-            <HTMLContent content={details.body.html} className="desc" />
-
-            <div className="tools-used">
-              <h4>Tools Used</h4>
+          <div className="details-boxes">
+            <div className="tools-list">
+              <h4>
+                <FontAwesomeIcon icon={faWrench} /> Tools Used:
+              </h4>
               <p>{details.tools}</p>
             </div>
+
+            <div className="source-url">
+              <h4>
+                <FontAwesomeIcon icon={faExternalLinkAlt} /> Links:
+              </h4>
+              {details.source ? (
+                <p>
+                  <a
+                    href={details.source.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    view source on <FontAwesomeIcon icon={faGithub} />
+                  </a>
+                </p>
+              ) : null}
+              {details.url ? (
+                <p>
+                  <a
+                    href={details.url.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    launch project <FontAwesomeIcon icon={faExternalLinkAlt} />
+                  </a>
+                </p>
+              ) : null}
+            </div>
           </div>
+
+          <HTMLContent content={details.body.html} className="desc" />
         </div>
       </StyledDetails>
     );

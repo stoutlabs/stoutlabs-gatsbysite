@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import theme from '../utils/theme';
 
 //import BioPic from './BioPic';
-// import Nav from './Nav';
+import Nav from './Nav';
 import Logo from '../assets/images/logo_svg_2018.svg';
 import SocialIcons from './SocialIcons';
 
@@ -66,36 +66,7 @@ const StyledHeader = styled.div`
   div.header-content {
   }
 
-  ${'' /* h1 {
-    font-family: 'Shrikhand', sans-serif;
-
-    font-size: 3rem;
-    margin: 0 0 0.2rem;
-    text-shadow: 1.5px 2.598px 1px rgba(0, 10, 15, 0.17);
-    letter-spacing: -1px;
-
-    a {
-      color: #fef1f1;
-      text-decoration: none;
-    }
-
-    @media screen and (min-width: 768px) {
-      font-size: 4rem;
-    }
-
-    @media screen and (min-width: 960px) {
-      font-size: 3rem;
-    }
-  }
-
-  h2 {
-    color: #fef1f1;
-    font-family: 'Merriweather', serif;
-    font-size: 1.1rem;
-    margin: 0 0 2rem;
-    opacity: 0.75;
-    padding: 0;
-  } */} div.header-photo {
+  div.header-photo {
     margin: 0;
   }
 
@@ -149,7 +120,7 @@ const Header = ({ siteTitle }) => (
           </p>
         </div>
 
-        {/* <Nav /> */}
+        <Nav />
 
         <SocialIcons />
       </div>

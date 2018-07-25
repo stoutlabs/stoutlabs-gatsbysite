@@ -35,7 +35,7 @@ const ToolsSection = styled.section`
     h4 {
       background: linear-gradient(180deg, #3096a7, 80%, #216571);
       padding: 1.6rem 1.4rem;
-      margin: 0;
+      margin: 0 0 0.4rem;
       font-size: 1.1rem;
       color: #d7eff3;
       text-align: center;
@@ -45,7 +45,7 @@ const ToolsSection = styled.section`
 
     p {
       font-size: 0.95rem;
-      color: ${props => props.theme.colorDarkest};
+      color: #216571;
     }
 
     ul {

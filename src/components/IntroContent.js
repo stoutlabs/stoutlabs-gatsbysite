@@ -49,7 +49,11 @@ const StyledIntroDiv = styled.div`
     padding: 1rem 0 0.1rem;
     border-bottom: 1px solid #3096a7;
     width: auto;
-    text-align: left;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
 
     @media screen and (min-width: 960px) {
       display: inline-block;
@@ -60,7 +64,11 @@ const StyledIntroDiv = styled.div`
     font-size: 1.1rem;
     line-height: 1.6;
     margin: 0 0 2rem;
-    text-align: left;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
 
     b,
     strong {
@@ -125,7 +133,7 @@ export const IntroContent = ({ content }) => {
         />
       </div>
 
-      <CTA url={'#recent-projects'} title="View My Work" isAnchor />
+      <CTA url={'#projects'} title="View My Work" isAnchor />
     </StyledIntroDiv>
   );
 };

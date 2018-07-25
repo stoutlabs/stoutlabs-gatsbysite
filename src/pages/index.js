@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 import { graphql } from 'gatsby';
+import Waypoint from 'react-waypoint';
 
 import Contact from '../components/Contact';
 import IntroContent from '../components/IntroContent';
@@ -8,6 +9,7 @@ import Layout from '../components/Layout';
 import RecentsList from '../components/Projects/RecentsList';
 import Seo from '../components/Seo';
 import Tools from '../components/Tools/Tools.js';
+import Nav from '../components/Nav';
 
 const StyledHeadline = styled.h2`
   text-align: center;
@@ -21,39 +23,78 @@ const StyledHeadline = styled.h2`
   }
 `;
 
-const IndexPage = props => {
-  const content = props.data.prismicHomepage.data;
-  const { main_title: title, featured_projects } = content;
-
-  //console.log('projects_index: ', content.featured_projects);
-  const introData = {
-    introBox1: content.intro_content_1,
-    introBox2: content.intro_content_2,
-    introSummary: content.intro_summary
-  };
-
-  const toolData = {
-    faves: content.best_tools,
-    boxes: content.tools_boxes
-  };
-
-  const seoData = {
-    frontmatter: {
-      title: null
-    }
-  };
-
-  return (
-    <Layout>
-      <Seo postData={seoData} />
-      <StyledHeadline>{title}</StyledHeadline>
-      <IntroContent content={introData} />
-      <RecentsList projects={featured_projects} />
-      <Tools content={toolData} />
-      <Contact />
-    </Layout>
+const StyledHR = styled.hr`
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(
+    90deg,
+    rgba(153, 215, 225, 0),
+    rgba(153, 215, 225, 0.66),
+    rgba(153, 215, 225, 0)
   );
-};
+  margin: 0.5rem 0;
+`;
+
+class IndexPage extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      stickyNav: false
+    };
+  }
+
+  _handleWaypointEnter = () => {
+    this.setState(() => ({ stickyNav: false }));
+  };
+
+  _handleWaypointLeave = () => {
+    this.setState(() => ({ stickyNav: true }));
+  };
+
+  render() {
+    const content = this.props.data.prismicHomepage.data;
+    const { main_title: title, featured_projects } = content;
+
+    //console.log('projects_index: ', content.featured_projects);
+    const introData = {
+      introBox1: content.intro_content_1,
+      introBox2: content.intro_content_2,
+      introSummary: content.intro_summary
+    };
+
+    const toolData = {
+      faves: content.best_tools,
+      boxes: content.tools_boxes
+    };
+
+    const seoData = {
+      frontmatter: {
+        title: null
+      }
+    };
+
+    return (
+      <Layout>
+        <Seo postData={seoData} />
+        <StyledHeadline>{title}</StyledHeadline>
+        <Waypoint
+          onEnter={this._handleWaypointEnter}
+          onLeave={this._handleWaypointLeave}
+        />
+        <IntroContent content={introData} />
+
+        <Nav sticky={this.state.stickyNav} />
+        <StyledHR />
+        <RecentsList projects={featured_projects} />
+        <StyledHR />
+        <Tools content={toolData} />
+        <StyledHR />
+        <Contact />
+      </Layout>
+    );
+  }
+}
 
 export default IndexPage;
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'gatsby';
+
 import styled from 'styled-components';
 
 const StyledNav = styled.nav`
@@ -7,20 +7,32 @@ const StyledNav = styled.nav`
     list-style: none;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
-    margin: 0;
+    margin: 0 0 1.5rem;
     padding: 1rem 0 0;
+
+    @media screen and (min-width: 960px) {
+      justify-content: flex-end;
+    }
 
     li {
       margin: 0 1rem 0 0;
+      padding-right: 1rem;
+      border-right: 1px solid rgba(254, 241, 241, 0.5);
+
       &:last-child {
         margin-right: 0;
+        border-right: none;
+        padding-right: 0;
       }
 
       a {
-        color: #ffffff;
+        color: #fef1f1;
+        opacity: 0.85;
         text-decoration: none;
+
+        font-size: 1.3rem;
 
         &:hover {
           color: antiquewhite;
@@ -35,16 +47,16 @@ export const Nav = () => {
     <StyledNav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <a href="#top">Home</a>
         </li>
         <li>
-          <Link to="/about/">About</Link>
+          <a href="#projects">Work</a>
         </li>
         <li>
-          <Link to="/page-2/">Projects</Link>
+          <a href="#tools">Skills</a>
         </li>
         <li>
-          <Link to="/page-2/">Contact</Link>
+          <a href="#contact">Contact</a>
         </li>
       </ul>
     </StyledNav>

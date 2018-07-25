@@ -67,7 +67,6 @@ export class RecentsList extends Component {
   };
 
   handleClick = (id, details = null) => {
-    console.log(`id: ${id} was clicked.`);
     this.setState(() => {
       return {
         activeItem: id,
@@ -78,7 +77,6 @@ export class RecentsList extends Component {
   };
 
   hideDetails = () => {
-    console.log(`hide details clicked.`);
     this.setState(() => {
       return {
         activeItem: null,
@@ -89,7 +87,7 @@ export class RecentsList extends Component {
 
   render() {
     return (
-      <StyledRecents id="recent-projects">
+      <StyledRecents id="projects">
         <h3>Recent Projects</h3>
 
         <div className="recents-list">
