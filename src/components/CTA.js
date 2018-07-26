@@ -25,11 +25,16 @@ const CTAdiv = styled.div`
     text-transform: uppercase;
     outline: none;
     transition: background-color 200ms ease-out;
+    max-width: 300px;
 
     &:hover {
       color: #fef1f1;
       border-color: #fef1f1;
       background-color: #e95c54;
+    }
+
+    svg {
+      max-width: 40px;
     }
   }
 `;
