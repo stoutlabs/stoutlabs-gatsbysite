@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import styled from 'styled-components';
 
 import RecentItem from './RecentItem';
@@ -66,8 +65,6 @@ export class RecentsList extends Component {
   };
 
   handleClick = (id, details = null) => {
-    const refs = ReactDOM.findDOMNode('node');
-    console.log(refs);
     this.setState(() => {
       return {
         activeItem: id,
