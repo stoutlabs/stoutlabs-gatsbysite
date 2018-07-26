@@ -87,20 +87,21 @@ export const HomeForm = () => {
           name="name"
           placeholder="Your Name"
           aria-label="Name"
-          required
+          required="true"
         />
         <input
           type="email"
           name="email"
           placeholder="Email Address"
           aria-label="Email"
-          required
+          required="true"
         />
         <input
           type="phone"
           name="phone"
           placeholder="Phone Number"
           aria-label="Phone"
+          required="true"
         />
         <textarea
           name="message"
@@ -108,7 +109,7 @@ export const HomeForm = () => {
           rows="5"
           cols="80"
           aria-label="Message"
-          required
+          required="true"
         />
       </fieldset>
       <input type="hidden" name="bot-field" />
