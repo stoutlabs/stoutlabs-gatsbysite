@@ -18,11 +18,11 @@ const StyledRecents = styled.section`
   }
 
   p.other-projects {
-    font-size: 0.85rem;
+    font-size: 0.95rem;
     text-align: center;
     font-style: italic;
     padding-top: 2rem;
-    opacity: 0.5;
+    opacity: 0.8;
   }
 `;
 
@@ -107,8 +107,8 @@ export class RecentsList extends Component {
         </div>
 
         <p className="other-projects">
-          Note: Older projects (mostly WordPress and CakePHP) available upon
-          request.
+          <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP)
+          available upon request.
         </p>
 
         <ProjectOverlay
