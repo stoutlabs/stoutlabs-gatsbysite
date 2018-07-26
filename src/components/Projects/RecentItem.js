@@ -57,6 +57,10 @@ const StyledRecentItem = styled.article`
     opacity: 0;
     position: absolute;
     z-index: 4;
+    top: 0;
+    height: 1px;
+    width: 1px;
+    overflow: hidden;
   }
 
   &.active {
