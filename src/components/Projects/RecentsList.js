@@ -6,8 +6,6 @@ import RecentItem from './RecentItem';
 import DetailsBox from './DetailsBox';
 
 const StyledRecents = styled.section`
-  position: relative;
-
   div.recents-list {
     display: flex;
     flex-direction: column;
