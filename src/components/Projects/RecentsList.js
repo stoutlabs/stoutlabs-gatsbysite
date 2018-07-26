@@ -107,8 +107,8 @@ export class RecentsList extends Component {
         </div>
 
         <p className="other-projects">
-          Note: Older projects (mostly WordPress and CakePHP) projects available
-          upon request.
+          Note: Older projects (mostly WordPress and CakePHP) available upon
+          request.
         </p>
 
         <ProjectOverlay
