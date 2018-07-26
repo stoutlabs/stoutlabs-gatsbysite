@@ -20,7 +20,7 @@
     "gatsby-plugin-sitemap": "next",
     "gatsby-plugin-styled-components": "next",
     "gatsby-remark-images": "next",
-    "gatsby-source-filesystem": "^1.5.39",
+    "gatsby-source-filesystem": "^2.0.1-beta.10",
     "gatsby-source-prismic": "next",
     "gatsby-transformer-remark": "next",
     "gatsby-transformer-sharp": "next",
