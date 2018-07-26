@@ -38,7 +38,7 @@ export const CTA = ({ url, title, isAnchor, element }) => {
   if (isAnchor) {
     return (
       <CTAdiv>
-        <Scroll type="id" element={element} offset={-50}>
+        <Scroll type="id" element={element} offset={0}>
           <a href={url}>
             {title} <FontAwesomeIcon icon={faArrowDown} />
           </a>
