@@ -74,9 +74,10 @@ const StyledForm = styled.form`
 export const HomeForm = () => {
   return (
     <StyledForm
-      onSubmit={() => {
-        console.log('submitted form here');
-      }}
+      name="contact"
+      method="post"
+      data-netlify="true"
+      data-netlify-honeypot="bot-field"
     >
       <fieldset>
         <input
@@ -105,6 +106,7 @@ export const HomeForm = () => {
           aria-label="Message"
         />
       </fieldset>
+      <input type="hidden" name="bot-field" />
 
       <button type="submit">
         Send <FontAwesomeIcon icon={faEnvelope} />
