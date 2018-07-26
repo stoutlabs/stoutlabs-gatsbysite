@@ -2,7 +2,7 @@ module.exports = {
   title:
     'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
   titleshort: 'Daniel Stout: Tri-Cities TN Web Developer',
-  description: `Providing quality web development services in the Tri-Cities, TN area since 2004. Prefers modern JavaScript tools: React, Node, JAMstack.`,
+  description: `Providing quality web development services in the Tri-Cities, TN area since 2004. Specializing in websites and apps built with modern JavaScript tools like React, Node. JAMstack ftw.`,
   url: 'https://www.stoutlabs.com',
   image: 'https://www.stoutlabs.com/site-images/site-image.jpg',
   logo: 'https://www.stoutlabs.com/site-images/android-chrome-512x512.jpg',
