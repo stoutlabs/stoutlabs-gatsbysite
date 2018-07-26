@@ -110,7 +110,7 @@ module.exports = {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: config.title,
-        short_name: config.titleShort,
+        short_name: config.titleshort,
         description: config.description,
         start_url: '/',
         background_color: '#141313',
