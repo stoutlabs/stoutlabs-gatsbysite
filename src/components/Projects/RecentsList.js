@@ -36,12 +36,12 @@ const ProjectOverlay = styled.div`
   background-color: #111;
   visibility: hidden;
   opacity: 0.3;
-  transition: visibility 0ms linear 0, opacity 250ms ease-in;
+  transition: visibility 1ms linear 550ms, opacity 200ms ease-in 350ms;
 
   &.show {
     visibility: visible;
     opacity: 0.9;
-    transition: visibility 0ms linear 300ms, opacity 250ms ease-in;
+    transition: visibility 1ms linear 1ms, opacity 200ms ease-in 1ms;
   }
 `;
 

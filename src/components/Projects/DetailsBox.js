@@ -21,8 +21,19 @@ const StyledDetails = styled.div`
     left: 0;
     transform: translateX(100%);
     z-index: 100;
-    transition: transform 300ms ease-out 100ms, opacity 100ms ease-out 200ms;
+    transition: transform 350ms ease-in 1ms, opacity 300ms ease-in 50ms;
     overflow: auto;
+
+    &.active {
+    
+        opacity: 1;
+        transition: transform 350ms ease-out 1ms, opacity 300ms ease-out 50ms;
+        transform: translateX(0);
+        
+        ${'' /* width: 80vw;
+        height: 80vh; */}
+      
+    }
     
     div.inner {
       padding: 0;
@@ -146,16 +157,7 @@ const StyledDetails = styled.div`
     }
   }
 
-  &.active {
-    
-      opacity: 1;
-      transition: transform 400ms ease-in 0, opacity 300ms ease-out 0;
-      transform: translateX(0);
-      
-      ${'' /* width: 80vw;
-      height: 80vh; */}
-    
-  }
+  
 `;
 
 export const DetailsBox = ({ details, className, handleClose }) => {
