@@ -80,6 +80,7 @@ export const HomeForm = () => {
       data-netlify-honeypot="bot-field"
       action="/success"
     >
+      <input type="hidden" name="form-name" value="contact" />
       <fieldset>
         <input
           type="text"
