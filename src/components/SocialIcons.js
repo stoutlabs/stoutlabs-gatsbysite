@@ -48,7 +48,7 @@ export const SocialIcons = () => {
         <FontAwesomeIcon icon={faTwitter} />
       </a>
       <a
-        href="https://twitter.com/stoutlabs"
+        href="https://www.linkedin.com/in/dstout/"
         target="_blank"
         rel="noopener noreferrer"
         title="LinkedIn"
@@ -56,7 +56,7 @@ export const SocialIcons = () => {
         <FontAwesomeIcon icon={faLinkedin} />
       </a>
       <a
-        href="https://github.com/stoutlabs"
+        href="https://www.facebook.com/stoutlabs/"
         target="_blank"
         rel="noopener noreferrer"
         title="Facebook"
