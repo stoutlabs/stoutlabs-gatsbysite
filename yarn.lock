@@ -4773,7 +4773,7 @@ gatsby-plugin-react-helmet@next:
   dependencies:
     "@babel/runtime" "7.0.0-beta.51"
 
-gatsby-plugin-sass@^2.0.0-beta.6:
+gatsby-plugin-sass@next:
   version "2.0.0-beta.6"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.0.0-beta.6.tgz#d137bb32ae4164c54710e0655121ca5267f8093b"
   dependencies:
@@ -4830,23 +4830,6 @@ gatsby-remark-images@next:
     lodash "^4.17.4"
     slash "^1.0.0"
     unist-util-select "^1.5.0"
-
-gatsby-source-filesystem@^2.0.1-beta.10:
-  version "2.0.1-beta.10"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.1-beta.10.tgz#f357ac909bc97aea2a99e8cca9d6bd31da8bdc2b"
-  dependencies:
-    "@babel/runtime" "7.0.0-beta.52"
-    better-queue "^3.8.7"
-    bluebird "^3.5.0"
-    chokidar "^1.7.0"
-    fs-extra "^5.0.0"
-    got "^7.1.0"
-    md5-file "^3.1.1"
-    mime "^2.2.0"
-    pretty-bytes "^4.0.2"
-    slash "^1.0.0"
-    valid-url "^1.0.9"
-    xstate "^3.1.0"
 
 gatsby-source-filesystem@next:
   version "2.0.1-beta.5"
