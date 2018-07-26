@@ -185,6 +185,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
                 alt={details.title}
                 className="featured-img"
                 style={{ margin: '0' }}
+                key={details.title}
                 // imgStyle={{}}
               />
             )}
