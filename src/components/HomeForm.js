@@ -78,6 +78,7 @@ export const HomeForm = () => {
       method="post"
       data-netlify="true"
       data-netlify-honeypot="bot-field"
+      action="/success"
     >
       <fieldset>
         <input
@@ -85,12 +86,14 @@ export const HomeForm = () => {
           name="name"
           placeholder="Your Name"
           aria-label="Name"
+          required
         />
         <input
           type="email"
           name="email"
           placeholder="Email Address"
           aria-label="Email"
+          required
         />
         <input
           type="phone"
@@ -104,6 +107,7 @@ export const HomeForm = () => {
           rows="5"
           cols="80"
           aria-label="Message"
+          required
         />
       </fieldset>
       <input type="hidden" name="bot-field" />
