@@ -7,7 +7,7 @@ module.exports = {
   siteMetadata: {
     title:
       'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
-    siteUrl: `https://www.stoutlabs.com/`
+    siteUrl: `https://www.stoutlabs.com`
   },
   plugins: [
     'gatsby-plugin-react-helmet',
