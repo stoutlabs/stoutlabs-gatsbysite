@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
 const ContainerDiv = styled.div`
@@ -14,16 +14,8 @@ const ContainerDiv = styled.div`
   }
 `;
 
-class Container extends Component {
-  render() {
-    return (
-      <ContainerDiv className={`container`}>{this.props.children}</ContainerDiv>
-    );
-  }
-}
-
-// export const Container = ({ children }) => {
-
-// };
+export const Container = ({ children }) => {
+  return <ContainerDiv className={`container`}>{children}</ContainerDiv>;
+};
 
 export default Container;
