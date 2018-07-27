@@ -112,8 +112,8 @@ export default () => {
       <div className="contact-inner">
         <div className="box form">
           <p className="contact-intro">
-            Have a question or comment, or want to discuss a project/job? Let's
-            talk!
+            Have a question or comment, or want to discuss a project/job? I
+            would love to hear from you!
           </p>
 
           <HomeForm />
