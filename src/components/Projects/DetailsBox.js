@@ -24,6 +24,7 @@ const StyledDetails = styled.div`
     transition: transform 350ms ease-in 1ms, opacity 300ms ease-in 50ms;
     overflow: auto;
     overscroll-behavior: contain;
+    
 
     &.active {
     
