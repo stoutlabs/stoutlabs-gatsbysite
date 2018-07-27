@@ -20,6 +20,4 @@ Uses Prismic.io as a headless CMS, with gatsby-source-prismic to bring in the da
 
 ### To-Do(s):
 
-- Need to prevent the main site from scrolling underneath when a "project details" window is opened. (It scrolls when hitting the top/bottom boundries.)
-
 **_Note:_** The code is a bit messy in places...sorry! I will probably come back soon to clean up & refactor things a bit.
