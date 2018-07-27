@@ -24,7 +24,7 @@ const StyledDetails = styled.div`
     transition: transform 350ms ease-in 1ms, opacity 300ms ease-in 50ms;
     overflow: auto;
     overscroll-behavior: contain;
-    
+
 
     &.active {
     
@@ -186,8 +186,11 @@ const StyledDetails = styled.div`
 export const DetailsBox = ({ details, className, handleClose }) => {
   if (details) {
     return (
-      <StyledDetails className={`project-details ${className}`}>
-        <div className="inner">
+      <StyledDetails
+        className={`project-details ${className}`}
+        onClick={handleClose}
+      >
+        <div className="inner" onClick={e => e.stopPropagation()}>
           <div className="closer">
             <span>close</span>
             <button
