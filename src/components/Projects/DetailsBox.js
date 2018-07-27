@@ -36,10 +36,11 @@ const StyledDetails = styled.div`
     }
     
     div.inner {
-      padding: 0;
+      padding: 0 0 1rem;
       max-width: 1100px;
       margin: 0 auto;
       background: rgba(250,250,250,0.01);
+      overflow: auto;
     }
     
     div.closer {
@@ -92,6 +93,26 @@ const StyledDetails = styled.div`
       }
     }
 
+    div.closer-lower {
+      
+      width: 100%;
+      text-align: center;
+      
+      span {
+        padding: 0.5rem;
+        line-height: 1.5;
+        color: #ea5d55;
+        font-size: 1.25rem;
+
+        &:hover {
+          color: #ed726b;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+      
+    }
+
     div.tools-list, div.source-url {
       text-align: center;
       padding: 1.5rem 1rem;
@@ -128,7 +149,7 @@ const StyledDetails = styled.div`
     }
 
     div.desc {
-      padding: 2rem;
+      padding: 2rem 2rem 1rem;
       order: 3;
 
       
@@ -229,6 +250,12 @@ export const DetailsBox = ({ details, className, handleClose }) => {
           </div>
 
           <HTMLContent content={details.body.html} className="desc" />
+
+          <div className="closer-lower">
+            <span onClick={handleClose}>
+              close <FontAwesomeIcon icon={faTimes} />
+            </span>
+          </div>
         </div>
       </StyledDetails>
     );

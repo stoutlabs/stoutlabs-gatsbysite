@@ -12,7 +12,7 @@ const StyledRecentItem = styled.article`
   position: relative;
 
   @media screen and (min-width: 768px) {
-    margin: 0 1rem 1rem 0;
+    margin: 0 2rem 2rem 0;
     width: calc(50% - 2rem);
   }
 
@@ -36,15 +36,16 @@ const StyledRecentItem = styled.article`
   }
 
   h5 {
-    padding: 1.4rem 0 0.2rem;
+    font-size: 1.1rem;
+    padding: 1.4rem 0 0.4rem;
   }
 
   p.tools-used {
-    font-size: 0.9rem;
-    line-height: 1.5;
+    font-size: 1rem;
+    line-height: 1.4;
     color: #3096a7;
 
-    padding: 0.5rem 0;
+    padding: 0 0 0.5rem;
 
     b {
       color: #99d7e1;

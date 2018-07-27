@@ -30,12 +30,13 @@ const ProjectOverlay = styled.div`
   width: 100vw;
   height: 100vh;
   position: fixed;
+  overflow: hidden;
   top: 0;
   left: 0;
   z-index: 90;
-  background-color: #111;
+  background-color: #141313;
   visibility: hidden;
-  opacity: 0.3;
+  opacity: 0.4;
   transition: visibility 1ms linear 550ms, opacity 200ms ease-in 350ms;
 
   &.show {

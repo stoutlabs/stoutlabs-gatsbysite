@@ -107,7 +107,7 @@ const ContactSection = styled.section`
 export default () => {
   return (
     <ContactSection className="contact" id="contact">
-      <h3>Get in Touch:</h3>
+      <h3>Let's Talk!</h3>
 
       <div className="contact-inner">
         <div className="box form">
