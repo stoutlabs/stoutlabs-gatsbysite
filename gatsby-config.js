@@ -16,7 +16,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages/blog/`,
+        path: `${__dirname}/src/pages/blog`,
         name: `blog-pages`
       }
     },
@@ -75,12 +75,18 @@ module.exports = {
       options: {
         plugins: [
           {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'images'
+            }
+          },
+          {
             resolve: `gatsby-remark-images`,
             options: {
               // It's important to specify the maxWidth (in pixels) of
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
-              maxWidth: 600,
+              maxWidth: 750,
               linkImagesToOriginal: false,
               quality: 85,
               withWebp: {

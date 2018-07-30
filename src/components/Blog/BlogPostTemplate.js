@@ -1,15 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
-//import Helmet from 'react-helmet';
 import { Link } from 'gatsby';
-import Content from './Content';
 import styled from 'styled-components';
+import Content from '../Content';
 
 const StyledPostContainer = styled.div`
   div.blog-post {
-    h2 {
+    h2,
+    h3,
+    h4 {
       font-size: 2.66rem;
+      font-family: 'Merriweather', serif;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1.4rem;
+    }
+
+    h4 {
+      font-size: 1.6rem;
     }
 
     p.post-date {
@@ -25,9 +36,15 @@ const StyledPostContainer = styled.div`
 
     div.post-content {
       padding: 2rem 0;
+
       p {
         font-size: 1.1rem;
         line-height: 1.65;
+      }
+
+      ul {
+        list-style: disc;
+        margin: 0 0 1rem 1.5rem;
       }
     }
 
@@ -36,10 +53,18 @@ const StyledPostContainer = styled.div`
         font-size: 1.2rem;
         color: #3096a7;
       }
-
-      a {
-        color: #fff;
-        text-decoration: none;
+      ul {
+        li {
+          display: inline-block;
+          margin: 0 0.4rem 0 0;
+          a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.4rem 0.6rem;
+            background: rgba(250, 250, 250, 0.1);
+            border-radius: 8px;
+          }
+        }
       }
     }
   }
@@ -52,9 +77,11 @@ const BlogPostTemplate = ({
   tags,
   title,
   date,
-  helmet
+  helmet,
+  pageContext
 }) => {
   const PostContent = contentComponent || Content;
+  //const { previous, next } = pageContext;
 
   return (
     <section className="section">
@@ -64,8 +91,6 @@ const BlogPostTemplate = ({
         <div className="blog-post">
           <h2>{title}</h2>
           <p className="post-date">{date}</p>
-
-          <p className="post-description">{description}</p>
 
           <PostContent content={content} className="post-content" />
 
@@ -81,6 +106,32 @@ const BlogPostTemplate = ({
               </ul>
             </div>
           ) : null}
+
+          {/* <ul
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              listStyle: 'none',
+              padding: 0
+            }}
+          >
+            {previous && (
+              <li>
+                <Link to={previous.fields.slug} rel="prev">
+                  ← {previous.frontmatter.title}
+                </Link>
+              </li>
+            )}
+
+            {next && (
+              <li>
+                <Link to={next.fields.slug} rel="next">
+                  {next.frontmatter.title} →
+                </Link>
+              </li>
+            )}
+          </ul> */}
         </div>
       </StyledPostContainer>
     </section>

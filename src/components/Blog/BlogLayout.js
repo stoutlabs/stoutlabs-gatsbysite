@@ -2,14 +2,14 @@ import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import Waypoint from 'react-waypoint';
 
-import Container from './Container';
-import Header from './Header';
-import Nav from '../components/Nav';
+import BlogContainer from './BlogContainer';
+import BlogHeader from './BlogHeader';
+import Nav from '../../components/Nav';
 
-import '../assets/styles/index.scss';
-import config from '../../config/index';
-import appleTouchIcon from '../assets/apple-touch-icon.png';
-import favicon from '../assets/favicon.ico';
+import '../../assets/styles/index.scss';
+import config from '../../../config/index';
+import appleTouchIcon from '../../assets/apple-touch-icon.png';
+import favicon from '../../assets/favicon.ico';
 
 class Layout extends Component {
   constructor(props) {
@@ -40,14 +40,14 @@ class Layout extends Component {
           <link rel="shortcut icon" href={favicon} />
           <link rel="apple-touch-icon" href={appleTouchIcon} />
         </Helmet>
-        <Header siteTitle={config.title} />
+        <BlogHeader siteTitle={config.title} />
         <Nav sticky={this.state.stickyNav} className="mininav" />
         <Waypoint
           onEnter={this._handleWaypointEnter}
           onLeave={this._handleWaypointLeave}
         />
 
-        <Container>{this.props.children}</Container>
+        <BlogContainer>{this.props.children}</BlogContainer>
       </Fragment>
     );
   }

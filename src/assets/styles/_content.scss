@@ -64,3 +64,16 @@ a {
     color: #ed726b;
   }
 }
+
+hr {
+  border: none;
+  height: 1px;
+  width: 95%;
+  background: linear-gradient(
+    90deg,
+    rgba(153, 215, 225, 0),
+    rgba(153, 215, 225, 0.66),
+    rgba(153, 215, 225, 0)
+  );
+  margin: 1rem auto;
+}

@@ -2,25 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import BlogPostTemplate from '../components/BlogPostTemplate';
+import BlogLayout from '../components/Blog/BlogLayout';
+import BlogPostTemplate from '../components/Blog/BlogPostTemplate';
 import { HTMLContent } from '../components/Content';
 
-const BlogPost = ({ data }) => {
+const BlogPost = ({ data }, ...props) => {
   const { markdownRemark: post } = data;
-
+  console.log('context: ', props.context);
   return (
-    <Layout>
+    <BlogLayout>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
+        helmet={<Helmet title={`${post.frontmatter.title} | StoutLabs`} />}
         tags={post.frontmatter.tags}
         date={post.frontmatter.date}
         title={post.frontmatter.title}
       />
-    </Layout>
+    </BlogLayout>
   );
 };
 
