@@ -6,6 +6,7 @@ import config from '../../config';
 
 const getSchemaOrgJSONLD = ({
   isProjectPage,
+  isBlogPage,
   url,
   title,
   image,
@@ -22,54 +23,100 @@ const getSchemaOrgJSONLD = ({
     }
   ];
 
-  return isProjectPage
-    ? [
-        ...schemaOrgJSONLD,
-        {
-          '@context': 'http://schema.org',
-          '@type': 'BreadcrumbList',
-          itemListElement: [
-            {
-              '@type': 'ListItem',
-              position: 1,
-              item: {
-                '@id': url,
-                name: title,
-                image
-              }
+  if (isBlogPage) {
+    return [
+      ...schemaOrgJSONLD,
+      {
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@id': url,
+              name: title,
+              image
             }
-          ]
+          }
+        ]
+      },
+      {
+        '@context': 'http://schema.org',
+        '@type': 'WebPage',
+        url,
+        name: title,
+        alternateName: config.title,
+        headline: title,
+        image: {
+          '@type': 'ImageObject',
+          url: image
         },
-        {
-          '@context': 'http://schema.org',
-          '@type': 'WebPage',
-          url,
-          name: title,
-          alternateName: config.title,
-          headline: title,
-          image: {
-            '@type': 'ImageObject',
-            url: image
-          },
-          description,
-          author: {
-            '@type': 'Person',
-            name: 'Daniel Stout'
-          },
-          mainEntityOfPage: {
-            '@type': 'WebSite',
-            '@id': config.url
-          },
-          datePublished
-        }
-      ]
-    : schemaOrgJSONLD;
+        description,
+        author: {
+          '@type': 'Person',
+          name: 'Daniel Stout'
+        },
+        mainEntityOfPage: {
+          '@type': 'WebSite',
+          '@id': config.url
+        },
+        datePublished
+      }
+    ];
+  }
+
+  if (isProjectPage) {
+    return [
+      ...schemaOrgJSONLD,
+      {
+        '@context': 'http://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            item: {
+              '@id': url,
+              name: title,
+              image
+            }
+          }
+        ]
+      },
+      {
+        '@context': 'http://schema.org',
+        '@type': 'WebPage',
+        url,
+        name: title,
+        alternateName: config.title,
+        headline: title,
+        image: {
+          '@type': 'ImageObject',
+          url: image
+        },
+        description,
+        author: {
+          '@type': 'Person',
+          name: 'Daniel Stout'
+        },
+        mainEntityOfPage: {
+          '@type': 'WebSite',
+          '@id': config.url
+        },
+        datePublished
+      }
+    ];
+  }
+
+  return schemaOrgJSONLD;
 };
 
-const SEO = ({ postData, postImage, isProjectPage }) => {
+const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
   const postMeta = postData.frontmatter || {};
 
-  const title = postMeta.title || config.title;
+  //const title = postMeta.title || config.title;
+  const title = isBlogPage ? postMeta.title + ' | StoutLabs' : config.title;
   const description =
     postMeta.description || postData.excerpt || config.description;
   const image = postImage ? `${config.url}${postImage}` : config.image;

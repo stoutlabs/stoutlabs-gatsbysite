@@ -1,15 +1,24 @@
 import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import Waypoint from 'react-waypoint';
+import styled from 'styled-components';
 
 import BlogContainer from './BlogContainer';
 import BlogHeader from './BlogHeader';
-import Nav from '../../components/Nav';
+import BlogNav from './BlogNav';
 
 import '../../assets/styles/index.scss';
 import config from '../../../config/index';
-import appleTouchIcon from '../../assets/apple-touch-icon.png';
-import favicon from '../../assets/favicon.ico';
+
+const StyledHeading = styled.h1`
+  font-size: 1.66rem;
+  font-family: Merriweather, serif;
+  text-align: center;
+  padding: 1.5rem 0;
+  background: rgba(250, 250, 250, 0.1);
+  margin: 0;
+  color: #3096a7;
+`;
 
 class Layout extends Component {
   constructor(props) {
@@ -31,22 +40,21 @@ class Layout extends Component {
     return (
       <Fragment>
         <Helmet
-          title={config.title}
+          title="Web Design and Development Blog | StoutLabs"
           meta={[
             { name: 'description', content: config.description },
             { name: 'keywords', content: config.keywords }
           ]}
-        >
-          <link rel="shortcut icon" href={favicon} />
-          <link rel="apple-touch-icon" href={appleTouchIcon} />
-        </Helmet>
+        />
         <BlogHeader siteTitle={config.title} />
-        <Nav sticky={this.state.stickyNav} className="mininav" />
+        <BlogNav sticky={this.state.stickyNav} className="mininav" />
         <Waypoint
           onEnter={this._handleWaypointEnter}
           onLeave={this._handleWaypointLeave}
         />
-
+        <StyledHeading>
+          StoutLabs Blog: (Mostly) Web Development &amp; Design
+        </StyledHeading>
         <BlogContainer>{this.props.children}</BlogContainer>
       </Fragment>
     );

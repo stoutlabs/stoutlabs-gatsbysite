@@ -3,7 +3,9 @@ import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+
 import Content from '../Content';
+import PrevNext from './PrevNext';
 
 const StyledPostContainer = styled.div`
   div.blog-post {
@@ -35,11 +37,14 @@ const StyledPostContainer = styled.div`
     }
 
     div.post-content {
-      padding: 2rem 0;
+      padding: 0;
+      margin: 0;
 
-      p {
-        font-size: 1.1rem;
-        line-height: 1.65;
+      p,
+      li {
+        font-size: 1.2rem;
+        line-height: 1.75;
+        letter-spacing: 0.01rem;
       }
 
       ul {
@@ -70,7 +75,7 @@ const StyledPostContainer = styled.div`
   }
 `;
 
-const BlogPostTemplate = ({
+const Post = ({
   content,
   contentComponent,
   description,
@@ -78,15 +83,13 @@ const BlogPostTemplate = ({
   title,
   date,
   helmet,
-  pageContext
+  prev,
+  next
 }) => {
   const PostContent = contentComponent || Content;
-  //const { previous, next } = pageContext;
 
   return (
     <section className="section">
-      {helmet || ''}
-
       <StyledPostContainer className="blog-post-container">
         <div className="blog-post">
           <h2>{title}</h2>
@@ -107,6 +110,7 @@ const BlogPostTemplate = ({
             </div>
           ) : null}
 
+          <PrevNext prev={prev} next={next} />
           {/* <ul
             style={{
               display: 'flex',
@@ -116,21 +120,21 @@ const BlogPostTemplate = ({
               padding: 0
             }}
           >
-            {previous && (
+            {prev !== null ? (
               <li>
-                <Link to={previous.fields.slug} rel="prev">
-                  ← {previous.frontmatter.title}
+                <Link to={'/blog' + prev.fields.slug} rel="prev">
+                  ← {prev.frontmatter.title}
                 </Link>
               </li>
-            )}
+            ) : null}
 
-            {next && (
+            {next !== null ? (
               <li>
-                <Link to={next.fields.slug} rel="next">
+                <Link to={'/blog' + next.fields.slug} rel="next">
                   {next.frontmatter.title} →
                 </Link>
               </li>
-            )}
+            ) : null}
           </ul> */}
         </div>
       </StyledPostContainer>
@@ -138,7 +142,7 @@ const BlogPostTemplate = ({
   );
 };
 
-BlogPostTemplate.propTypes = {
+Post.propTypes = {
   content: PropTypes.string.isRequired,
   contentComponent: PropTypes.func,
   description: PropTypes.string,
@@ -146,4 +150,4 @@ BlogPostTemplate.propTypes = {
   date: PropTypes.string
 };
 
-export default BlogPostTemplate;
+export default Post;

@@ -2,16 +2,20 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import BlogLayout from '../components/Blog/BlogLayout';
-import BlogPostTemplate from '../components/Blog/BlogPostTemplate';
-import { HTMLContent } from '../components/Content';
 
-const BlogPost = ({ data }, ...props) => {
+import BlogLayout from '../components/Blog/BlogLayout';
+import Post from '../components/Blog/Post';
+import { HTMLContent } from '../components/Content';
+import Seo from '../components/Seo';
+import '../assets/styles/prism-twilight.css';
+
+const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
-  console.log('context: ', props.context);
+  console.log('context: ', pageContext);
   return (
     <BlogLayout>
-      <BlogPostTemplate
+      <Seo postData={post} isBlogPage />
+      <Post
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -19,6 +23,8 @@ const BlogPost = ({ data }, ...props) => {
         tags={post.frontmatter.tags}
         date={post.frontmatter.date}
         title={post.frontmatter.title}
+        prev={pageContext.previous}
+        next={pageContext.next}
       />
     </BlogLayout>
   );
