@@ -2,7 +2,7 @@ module.exports = {
   title:
     'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
   titleshort: 'Stout WebDev',
-  description: `Offering high quality website design and development services in the Tri-Cities, TN area since 2004. Services include Websites, apps, digital marketing, and more.`,
+  description: `Providing high quality website design and web development services in the Tri-Cities, TN area since 2004. Offering websites, apps, digital marketing services, and more.`,
   keywords: `web design, web development, gatsbyjs, react, kingsport, tri-cities, tri cities, tn, johnson city, website design, programming`,
   url: 'https://www.stoutlabs.com',
   image: 'https://www.stoutlabs.com/site-images/site_image.jpg',
