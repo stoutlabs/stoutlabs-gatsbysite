@@ -16,7 +16,7 @@ const BlogPost = ({ data, pageContext }) => {
       <Seo
         postData={post}
         isBlogPage={true}
-        postImage={post.frontMatter.featureimg.childImageSharp.fluid.src}
+        postImage={post.frontmatter.featureimg.childImageSharp.fluid.src}
       />
       <Post
         content={post.html}
