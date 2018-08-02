@@ -126,8 +126,8 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
 
   const image = postImage ? `${config.url}${postImage}` : config.image;
 
-  const url = postData.fields.slug
-    ? `${config.url}${path.sep}${postData.fields.slug}`
+  const url = isBlogPage
+    ? `${config.url}${path.sep}blog${postData.fields.slug}`
     : config.url;
 
   const datePublished = isBlogPage ? postMeta.datePublished : false;
