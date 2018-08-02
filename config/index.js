@@ -1,7 +1,7 @@
 module.exports = {
   title:
-    'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
-  titleshort: 'Stout WebDev',
+    'Daniel Stout: Web Development and Design, Apps, Web Consulting | Tri-Cites TN and Remote',
+  titleshort: 'StoutLabs',
   description: `Providing high quality website design and web development services in the Tri-Cities, TN area since 2004. Offering websites, apps, digital marketing services, and more.`,
   keywords: `web design, web development, gatsbyjs, react, kingsport, tri-cities, tri cities, tn, johnson city, website design, programming`,
   url: 'https://www.stoutlabs.com',
@@ -14,8 +14,9 @@ module.exports = {
     minibio: `
     I'm Daniel Stout, and I have provided professional freelance/contract web development and web design services nationwide
     since 2004! After several years of PHP-based development work, I made the move over to a full JavaScript "stack" in 2017. I now
-    make use of (and really enjoy) amazing tools like React, Node, and Express. I'm available to help you or your company in many areas, 
-    including: websites, tracked marketing/landing pages, progressive web apps (PWAs), email campaigns, automated bots, and much more!
+    make use of (and really enjoy) amazing tools like React and Node, and open source projects like Gatsby. I'm available to help you 
+    or your company in many areas, including: websites, tracked marketing/landing pages, progressive web apps (PWAs), email campaigns, 
+    automated bots, and much more!
     `
   }
 };
