@@ -13,7 +13,11 @@ const BlogPost = ({ data, pageContext }) => {
   //console.log('context: ', pageContext);
   return (
     <BlogLayout>
-      <Seo postData={post} isBlogPage />
+      <Seo
+        postData={post}
+        isBlogPage={true}
+        postImage={post.frontMatter.featureimg.childImageSharp.fluid.src}
+      />
       <Post
         content={post.html}
         contentComponent={HTMLContent}
