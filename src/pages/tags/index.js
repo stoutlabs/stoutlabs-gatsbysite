@@ -1,8 +1,37 @@
 import React from 'react';
 import { kebabCase } from 'lodash';
-import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
+import styled from 'styled-components';
+
 import BlogLayout from '../../components/Blog/BlogLayout';
+import Seo from '../../components/Seo';
+
+const TagIndexSection = styled.section`
+  h2 {
+    font-size: 2rem;
+    font-family: Merriweather, serif;
+    margin: 0 0 2rem;
+    color: #3096a7;
+  }
+
+  ul.taglist {
+    li {
+      border-bottom: 1px solid rgba(250, 250, 250, 0.1);
+      padding-bottom: 0.5rem;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+`;
+
+const seoData = {
+  frontmatter: {
+    title: `All Tags | StoutLabs Web Design & Development Blog`,
+    description: 'List of all tags used in my blog.'
+  }
+};
 
 const TagsPage = ({
   data: {
@@ -13,29 +42,24 @@ const TagsPage = ({
   }
 }) => (
   <BlogLayout>
-    <section className="section">
-      <Helmet title={`Tags | ${title}`} />
-      <div className="container content">
-        <div className="columns">
-          <div
-            className="column is-10 is-offset-1"
-            style={{ marginBottom: '6rem' }}
-          >
-            <h2 className="title is-size-2 is-bold-light">All Tags:</h2>
+    <TagIndexSection>
+      <Seo postData={seoData} />
+      <div className="content">
+        <div>
+          <h2 className="title is-size-2 is-bold-light">All Tags:</h2>
 
-            <ul className="taglist">
-              {group.map(tag => (
-                <li key={tag.fieldValue}>
-                  <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
-                    {tag.fieldValue} ({tag.totalCount})
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <ul className="taglist">
+            {group.map(tag => (
+              <li key={tag.fieldValue}>
+                <Link to={`/tags/${kebabCase(tag.fieldValue)}/`}>
+                  {tag.fieldValue} ({tag.totalCount})
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </section>
+    </TagIndexSection>
   </BlogLayout>
 );
 

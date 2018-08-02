@@ -116,17 +116,21 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
   const postMeta = postData.frontmatter || {};
 
   //const title = postMeta.title || config.title;
-  const title = isBlogPage ? postMeta.title + ' | StoutLabs' : config.title;
+  const title = isBlogPage
+    ? postMeta.title + ' | StoutLabs Blog'
+    : postMeta.title
+      ? postMeta.title
+      : config.title;
   const description =
     postMeta.description || postData.excerpt || config.description;
   const image = postImage ? `${config.url}${postImage}` : config.image;
   const url = postMeta.slug
     ? `${config.url}${path.sep}${postMeta.slug}`
     : config.url;
-  //const datePublished = isProjectPage ? postMeta.datePublished : false;
-  const datePublished = false;
+  const datePublished = isBlogPage ? postMeta.datePublished : false;
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
+    isBlogPage,
     isProjectPage,
     url,
     title,

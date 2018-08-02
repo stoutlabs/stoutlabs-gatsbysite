@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 
 import BlogLayout from '../components/Blog/BlogLayout';
@@ -11,7 +10,7 @@ import '../assets/styles/prism-twilight.css';
 
 const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;
-  console.log('context: ', pageContext);
+  //console.log('context: ', pageContext);
   return (
     <BlogLayout>
       <Seo postData={post} isBlogPage />
@@ -19,12 +18,12 @@ const BlogPost = ({ data, pageContext }) => {
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
-        helmet={<Helmet title={`${post.frontmatter.title} | StoutLabs`} />}
         tags={post.frontmatter.tags}
         date={post.frontmatter.date}
         title={post.frontmatter.title}
         prev={pageContext.previous}
         next={pageContext.next}
+        featureimg={post.frontmatter.featureimg}
       />
     </BlogLayout>
   );
@@ -48,6 +47,13 @@ export const pageQuery = graphql`
         title
         description
         tags
+        featureimg {
+          childImageSharp {
+            fluid(maxWidth: 900) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
       }
     }
   }

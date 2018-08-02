@@ -66,21 +66,6 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     });
 
-    // allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    //   const id = node.id;
-
-    //   createPage({
-    //     path: `blog${node.frontmatter.path || node.fields.slug}`,
-    //     tags: node.frontmatter.tags,
-    //     component: path.resolve(
-    //       `src/templates/${String(node.frontmatter.templateKey)}.js`
-    //     ),
-    //     context: {
-    //       id
-    //     }
-    //   });
-    // });
-
     let tags = [];
 
     allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
@@ -89,7 +74,6 @@ exports.createPages = async ({ actions, graphql }) => {
       }
     });
 
-    // slick ES6 way to get unique values of an array
     const uniqueTags = [...new Set(tags)];
 
     uniqueTags.forEach(tag => {

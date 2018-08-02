@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { kebabCase } from 'lodash';
 import { Link } from 'gatsby';
+import Img from 'gatsby-image';
 import styled from 'styled-components';
 
 import Content from '../Content';
@@ -31,9 +32,8 @@ const StyledPostContainer = styled.div`
       padding: 0.5rem 0 0;
     }
 
-    p.post-description {
-      font-size: 1.3rem;
-      line-height: 1.8;
+    div.featured-image {
+      margin: 0 0 2.5rem;
     }
 
     div.post-content {
@@ -84,7 +84,8 @@ const Post = ({
   date,
   helmet,
   prev,
-  next
+  next,
+  featureimg
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -94,6 +95,12 @@ const Post = ({
         <div className="blog-post">
           <h2>{title}</h2>
           <p className="post-date">{date}</p>
+
+          {featureimg && (
+            <div className="featured-image">
+              <Img fluid={featureimg.childImageSharp.fluid} />
+            </div>
+          )}
 
           <PostContent content={content} className="post-content" />
 
@@ -111,31 +118,6 @@ const Post = ({
           ) : null}
 
           <PrevNext prev={prev} next={next} />
-          {/* <ul
-            style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'space-between',
-              listStyle: 'none',
-              padding: 0
-            }}
-          >
-            {prev !== null ? (
-              <li>
-                <Link to={'/blog' + prev.fields.slug} rel="prev">
-                  ← {prev.frontmatter.title}
-                </Link>
-              </li>
-            ) : null}
-
-            {next !== null ? (
-              <li>
-                <Link to={'/blog' + next.fields.slug} rel="next">
-                  {next.frontmatter.title} →
-                </Link>
-              </li>
-            ) : null}
-          </ul> */}
         </div>
       </StyledPostContainer>
     </section>

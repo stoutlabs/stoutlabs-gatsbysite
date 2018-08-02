@@ -24,7 +24,7 @@ export class BlogIndex extends Component {
   render() {
     const seoData = {
       frontmatter: {
-        title: 'Web Design and Development Blog | StoutLabs'
+        title: 'StoutLabs Web Design & Development Blog'
       }
     };
 

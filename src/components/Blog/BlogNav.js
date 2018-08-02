@@ -1,9 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import Scrollspy from 'react-scrollspy';
 import styled from 'styled-components';
-
-import Scroll from '../Scroll';
 
 const StyledNav = styled.nav`
   ul {
@@ -81,23 +78,18 @@ const StyledNav = styled.nav`
 export const BlogNav = ({ sticky, className }) => {
   return (
     <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
-      <Scrollspy
-        items={['intro', 'projects', 'tools', 'contact']}
-        currentClassName="active"
-        offset={sticky ? -50 : 0}
-      >
+      <ul>
         <li>
-          <Link to="/blog">All Posts</Link>
+          <Link to="/blog" activeClassName="active">
+            All Posts
+          </Link>
         </li>
         <li>
-          <Link to="/tags">All Tags</Link>
+          <Link to="/tags" activeClassName="active">
+            All Tags
+          </Link>
         </li>
-        <li>
-          <Scroll type="id" element="contact" offset={sticky ? -50 : 0}>
-            <a href="#contact">Contact</a>
-          </Scroll>
-        </li>
-      </Scrollspy>
+      </ul>
     </StyledNav>
   );
 };
