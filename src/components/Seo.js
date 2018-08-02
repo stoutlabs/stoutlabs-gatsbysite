@@ -115,18 +115,21 @@ const getSchemaOrgJSONLD = ({
 const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
   const postMeta = postData.frontmatter || {};
 
-  //const title = postMeta.title || config.title;
   const title = isBlogPage
     ? postMeta.title + ' | StoutLabs Blog'
     : postMeta.title
       ? postMeta.title
       : config.title;
+
   const description =
     postMeta.description || postData.excerpt || config.description;
+
   const image = postImage ? `${config.url}${postImage}` : config.image;
+
   const url = postData.fields.slug
     ? `${config.url}${path.sep}${postData.fields.slug}`
     : config.url;
+
   const datePublished = isBlogPage ? postMeta.datePublished : false;
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
