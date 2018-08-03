@@ -156,7 +156,7 @@ export class HomeForm extends Component {
           sitekey={RECAPTCHA_KEY}
           onChange={this.handleRecaptcha}
         /> */}
-        <input name="monkey-field" />
+        <input name="monkey-field" type="hidden" />
 
         <button type="submit">
           Send <FontAwesomeIcon icon={faEnvelope} />
