@@ -48,6 +48,7 @@ const getSchemaOrgJSONLD = ({
         name: 'StoutLabs',
         telephone: '423-343-4274',
         openingHours: 'Mo,Tu,We,Th,Fr 10:00-18:00',
+        image: config.image,
         geo: {
           '@type': 'GeoCoordinates',
           latitude: '36.542',
