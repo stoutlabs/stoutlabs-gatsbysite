@@ -103,8 +103,14 @@ const getSchemaOrgJSONLD = ({
         },
         datePublished: datePublished,
         publisher: {
-          '@type': 'Person',
-          name: 'Daniel Stout'
+          '@type': 'Organization',
+          name: 'StoutLabs',
+          logo: {
+            '@type': 'ImageObject',
+            width: 500,
+            height: 500,
+            url: config.logo
+          }
         }
       }
     ];
