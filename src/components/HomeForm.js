@@ -91,20 +91,20 @@ export class HomeForm extends Component {
     this.setState({ 'g-recaptcha-response': value });
   };
 
-  handleSubmit = e => {
-    e.preventDefault();
-    const form = e.target;
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({
-        'form-name': form.getAttribute('name'),
-        ...this.state
-      })
-    })
-      .then(() => navigateTo(form.getAttribute('action')))
-      .catch(error => alert(error));
-  };
+  // handleSubmit = e => {
+  //   e.preventDefault();
+  //   const form = e.target;
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: encode({
+  //       'form-name': form.getAttribute('name'),
+  //       ...this.state
+  //     })
+  //   })
+  //     .then(() => navigateTo(form.getAttribute('action')))
+  //     .catch(error => alert(error));
+  // };
 
   render() {
     return (
@@ -113,8 +113,7 @@ export class HomeForm extends Component {
         method="post"
         data-netlify="true"
         action="/success"
-        data-netlify-recaptcha="true"
-        onSubit={this.handleSubmit}
+        data-netlify-honeypot="monkey-field"
       >
         <input type="hidden" name="form-name" value="contact" />
         <fieldset>
@@ -152,11 +151,12 @@ export class HomeForm extends Component {
             onChange={this.handleChange}
           />
         </fieldset>
-        <Recaptcha
+        {/* <Recaptcha
           ref="recaptcha"
           sitekey={RECAPTCHA_KEY}
           onChange={this.handleRecaptcha}
-        />
+        /> */}
+        <input name="monkey-field" />
 
         <button type="submit">
           Send <FontAwesomeIcon icon={faEnvelope} />
