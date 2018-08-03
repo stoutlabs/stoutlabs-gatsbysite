@@ -4,13 +4,18 @@ import styled from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
-const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
-
 const StyledForm = styled.form`
   margin-bottom: 2rem;
 
   fieldset {
     padding: 0 0 1rem;
+  }
+
+  div.monkeyproof {
+    display: none;
+    position: absolute;
+    height: 1px;
+    width: 1px;
   }
 
   input,
@@ -73,11 +78,11 @@ const StyledForm = styled.form`
   }
 `;
 
-function encode(data) {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
-}
+// function encode(data) {
+//   return Object.keys(data)
+//     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+//     .join('&');
+// }
 
 export class HomeForm extends Component {
   state = {};
@@ -155,7 +160,9 @@ export class HomeForm extends Component {
           sitekey={RECAPTCHA_KEY}
           onChange={this.handleRecaptcha}
         /> */}
-        <input name="monkey-field" type="hidden" />
+        <div className="monkeyproof">
+          <input name="monkey-field" aria-label="Must leave blank" />
+        </div>
 
         <button type="submit">
           Send <FontAwesomeIcon icon={faEnvelope} />
