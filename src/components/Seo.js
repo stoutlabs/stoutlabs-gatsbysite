@@ -102,7 +102,10 @@ const getSchemaOrgJSONLD = ({
           '@id': url
         },
         datePublished: datePublished,
-        publisher: 'StoutLabs'
+        publisher: {
+          '@type': 'Person',
+          name: 'Daniel Stout'
+        }
       }
     ];
   }
