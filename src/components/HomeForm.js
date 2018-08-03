@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+
+const RECAPTCHA_KEY = process.env.SITE_RECAPTCHA_KEY;
 
 const StyledForm = styled.form`
   margin-bottom: 2rem;
@@ -71,55 +73,96 @@ const StyledForm = styled.form`
   }
 `;
 
-export const HomeForm = () => {
-  return (
-    <StyledForm
-      name="contact"
-      method="post"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      action="/success"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <fieldset>
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          aria-label="Name"
-          required="true"
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Email Address"
-          aria-label="Email"
-          required="true"
-        />
-        <input
-          type="phone"
-          name="phone"
-          placeholder="Phone Number"
-          aria-label="Phone"
-          required="true"
-        />
-        <textarea
-          name="message"
-          placeholder="Your message"
-          rows="5"
-          cols="80"
-          aria-label="Message"
-          required="true"
-        />
-        <div data-netlify-recaptcha />
-      </fieldset>
-      <input type="hidden" name="bot-field" />
+function encode(data) {
+  return Object.keys(data)
+    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+    .join('&');
+}
 
-      <button type="submit">
-        Send <FontAwesomeIcon icon={faEnvelope} />
-      </button>
-    </StyledForm>
-  );
-};
+export class HomeForm extends Component {
+  state = {};
+
+  handleChange = e => {
+    this.setState({ [e.target.name]: e.target.value });
+  };
+
+  handleRecaptcha = value => {
+    this.setState({ 'g-recaptcha-response': value });
+  };
+
+  handleSubmit = e => {
+    e.preventDefault();
+    const form = e.target;
+    fetch('/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: encode({
+        'form-name': form.getAttribute('name'),
+        ...this.state
+      })
+    })
+      .then(() => navigateTo(form.getAttribute('action')))
+      .catch(error => alert(error));
+  };
+
+  render() {
+    return (
+      <StyledForm
+        name="contact"
+        method="post"
+        data-netlify="true"
+        action="/success"
+        data-netlify-recaptcha="true"
+        onSubit={this.handleSubmit}
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <fieldset>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            aria-label="Name"
+            required="true"
+            onChange={this.handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            aria-label="Email"
+            required="true"
+            onChange={this.handleChange}
+          />
+          <input
+            type="phone"
+            name="phone"
+            placeholder="Phone Number"
+            aria-label="Phone"
+            required="true"
+            onChange={this.handleChange}
+          />
+          <textarea
+            name="message"
+            placeholder="Your message"
+            rows="5"
+            cols="80"
+            aria-label="Message"
+            required="true"
+            onChange={this.handleChange}
+          />
+        </fieldset>
+        <Recaptcha
+          ref="recaptcha"
+          sitekey={RECAPTCHA_KEY}
+          onChange={this.handleRecaptcha}
+        />
+
+        <button type="submit">
+          Send <FontAwesomeIcon icon={faEnvelope} />
+        </button>
+      </StyledForm>
+    );
+  }
+}
 
 export default HomeForm;
