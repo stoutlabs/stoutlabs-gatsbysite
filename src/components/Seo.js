@@ -101,7 +101,8 @@ const getSchemaOrgJSONLD = ({
           '@type': 'WebPage',
           '@id': url
         },
-        datePublished
+        datePublished: datePublished,
+        publisher: 'StoutLabs'
       }
     ];
   }
@@ -144,7 +145,7 @@ const getSchemaOrgJSONLD = ({
           '@type': 'WebSite',
           '@id': config.url
         },
-        datePublished
+        datePublished: datePublished
       }
     ];
   }
@@ -170,7 +171,7 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
     ? `${config.url}${path.sep}blog${postData.fields.slug}`
     : config.url;
 
-  const datePublished = isBlogPage ? postMeta.datePublished : false;
+  const datePublished = isBlogPage ? postMeta.date : false;
 
   const schemaOrgJSONLD = getSchemaOrgJSONLD({
     isBlogPage,
