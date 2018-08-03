@@ -1,8 +1,8 @@
 module.exports = {
   title:
-    'Daniel Stout: Web Development and Design, Apps, Web Consulting | Tri-Cites TN and Remote',
+    'StoutLabs | Web Development & Design • Bristol, Johnson City, Kingsport TN',
   titleshort: 'StoutLabs',
-  description: `Providing high quality website design and web development services in the Tri-Cities, TN area since 2004. Offering websites, apps, digital marketing services, and more.`,
+  description: `Providing quality web design and development services in the Bristol, Johnson City, and Kingsport TN area since 2004. Offering websites, apps, digital marketing services, and more.`,
   keywords: `web design, web development, gatsbyjs, react, kingsport, tri-cities, tri cities, tn, johnson city, website design, programming`,
   url: 'https://www.stoutlabs.com',
   image: 'https://www.stoutlabs.com/site-images/site_image.jpg',

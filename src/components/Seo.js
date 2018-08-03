@@ -43,7 +43,7 @@ const getSchemaOrgJSONLD = ({
       },
       {
         '@context': 'http://schema.org',
-        '@type': 'WebPage',
+        '@type': 'Article',
         url,
         name: title,
         alternateName: config.title,
@@ -58,8 +58,8 @@ const getSchemaOrgJSONLD = ({
           name: 'Daniel Stout'
         },
         mainEntityOfPage: {
-          '@type': 'WebSite',
-          '@id': config.url
+          '@type': 'WebPage',
+          '@id': url
         },
         datePublished
       }
