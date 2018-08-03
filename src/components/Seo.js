@@ -107,9 +107,9 @@ const getSchemaOrgJSONLD = ({
           name: 'StoutLabs',
           logo: {
             '@type': 'ImageObject',
-            width: 500,
-            height: 500,
-            url: config.logo
+            width: 226,
+            height: 60,
+            url: config.publisherlogo
           }
         }
       }
