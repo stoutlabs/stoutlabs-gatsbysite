@@ -111,6 +111,7 @@ export const HomeForm = () => {
           aria-label="Message"
           required="true"
         />
+        <div data-netlify-recaptcha />
       </fieldset>
       <input type="hidden" name="bot-field" />
 
