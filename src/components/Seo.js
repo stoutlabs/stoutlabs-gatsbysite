@@ -17,11 +17,50 @@ const getSchemaOrgJSONLD = ({
     {
       '@context': 'http://schema.org',
       '@type': 'WebSite',
-      url,
+      url: url,
       name: title,
-      alternateName: config.title
+      alternateName: config.title,
+      author: {
+        '@type': 'Person',
+        name: 'Daniel Stout'
+      },
+      description:
+        'StoutLabs is a web development and design company in Kingsport, TN.',
+      publisher: 'StoutLabs'
     }
   ];
+
+  if (url === config.url) {
+    return [
+      ...schemaOrgJSONLD,
+      {
+        '@context': 'http://schema.org',
+        '@type': 'LocalBusiness',
+        address: {
+          '@type': 'PostalAddress',
+          addressLocality: 'Kingsport',
+          addressRegion: 'TN',
+          postalCode: '37664',
+          streetAddress: '1509 Lamont St.'
+        },
+        description:
+          'Web design and development, digital marketing, and consulting. Located in the Tri-Cities, TN.',
+        name: 'StoutLabs',
+        telephone: '423-343-4274',
+        openingHours: 'Mo,Tu,We,Th,Fr 10:00-18:00',
+        geo: {
+          '@type': 'GeoCoordinates',
+          latitude: '36.542',
+          longitude: '-82.536'
+        },
+        sameAs: [
+          'http://www.facebook.com/stoutlabs',
+          'http://www.twitter.com/stoutlabs',
+          'https://plus.google.com/u/1/117064599559622613582'
+        ]
+      }
+    ];
+  }
 
   if (isBlogPage) {
     return [
