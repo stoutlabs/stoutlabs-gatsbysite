@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import Contact from '../components/Contact';
+import Footer from '../components/Footer';
 import IntroContent from '../components/IntroContent';
 import Layout from '../components/Layout';
 import RecentsList from '../components/Projects/RecentsList';
@@ -63,6 +64,7 @@ class IndexPage extends Component {
         <Tools content={toolData} />
         <StyledHR />
         <Contact />
+        <Footer />
       </Layout>
     );
   }

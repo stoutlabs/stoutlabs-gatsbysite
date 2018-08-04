@@ -50,9 +50,10 @@ const ContactSection = styled.section`
       &.info {
         padding: 3rem 1rem;
         background: rgba(250, 250, 250, 0.05);
-        border: 1px solid rgba(153, 215, 225, 0.25);
 
-        @media screen and (min-width: 1024px) {
+        ${'' /* 
+        border: 1px solid rgba(153, 215, 225, 0.25); 
+        */} @media screen and (min-width: 1024px) {
           width: 38%;
         }
 

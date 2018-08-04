@@ -96,7 +96,7 @@ const ToolsSection = styled.section`
           align-items: center;
           justify-content: space-around;
           border: none;
-          padding: 2rem;
+          padding: 1rem;
 
           img {
             padding: 0 0.4rem 0 0;
@@ -120,7 +120,8 @@ export const Tools = ({ content }) => {
           Currently{' '}
           <span role="img" aria-label="heart">
             💗
-          </span>s:
+          </span>
+          s:
         </h4>
         <ul>
           {faves.toolbelt_item.map(item => {

@@ -58,8 +58,8 @@ const StyledIntroDiv = styled.div`
     color: #3096a7;
     font-size: 2.5rem;
     margin: 0 0 1rem;
-    padding: 1rem 0 0.1rem;
-    border-bottom: 1px solid #3096a7;
+    padding: 1rem 0 0;
+
     width: auto;
     text-align: center;
 
@@ -73,7 +73,7 @@ const StyledIntroDiv = styled.div`
   }
 
   p {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     line-height: 1.6;
     margin: 0 0 2rem;
     text-align: center;
@@ -85,13 +85,12 @@ const StyledIntroDiv = styled.div`
     b,
     strong {
       font-weight: 700;
-      color: #fff;
+      color: #fdf8ec;
     }
 
     em {
       font-style: italic;
-      font-size: 1.1rem;
-      opacity: 0.7;
+      color: #fdf8ec;
     }
   }
 
@@ -109,14 +108,15 @@ const StyledIntroDiv = styled.div`
   ul {
     list-style: square;
     margin: 0 0 0 1rem;
-    padding: 0.5rem 0;
+    padding: 0 0 1rem;
 
     li {
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       line-height: 1.5;
       color: #e5ca8f;
-      padding: 0 0 1;
+      padding: 0 0 0.75rem;
       text-align: left;
+      margin: 0 0 0 1rem;
     }
   }
 `;
