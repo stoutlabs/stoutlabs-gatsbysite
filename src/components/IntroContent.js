@@ -90,9 +90,8 @@ const StyledIntroDiv = styled.div`
 
     em {
       font-style: italic;
-      font-size: 1.3rem;
+      font-size: 1.1rem;
       opacity: 0.7;
-      color: ${props => props.theme.colorAccent2};
     }
   }
 
