@@ -33,7 +33,7 @@ const ToolsSection = styled.section`
     }
 
     h4 {
-      background: linear-gradient(180deg, #3096a7, 80%, #216571);
+      background: linear-gradient(180deg, #3096a7, #216571 80%);
       padding: 1.6rem 1.4rem;
       margin: 0 0 0.4rem;
       font-size: 1.1rem;
@@ -92,7 +92,7 @@ const ToolsSection = styled.section`
 
         li {
           display: flex;
-          flex-direction: flex-row;
+          flex-direction: row;
           align-items: center;
           justify-content: space-around;
           border: none;

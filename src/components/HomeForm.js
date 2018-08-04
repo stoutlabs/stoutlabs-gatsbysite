@@ -138,7 +138,7 @@ export class HomeForm extends Component {
             onChange={this.handleChange}
           />
           <input
-            type="phone"
+            type="tel"
             name="phone"
             placeholder="Phone Number"
             aria-label="Phone"
