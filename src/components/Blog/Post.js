@@ -10,20 +10,41 @@ import PrevNext from './PrevNext';
 
 const StyledPostContainer = styled.div`
   div.blog-post {
+    padding: 0 1.25rem;
+
+    @media (min-width: 960px) {
+      padding: 0;
+    }
+
     h2,
     h3,
     h4 {
-      font-size: 2.66rem;
+      font-size: 2rem;
       font-family: 'Merriweather', serif;
+      line-height: 1.33;
+
+      @media screen and (min-width: 960px) {
+        font-size: 2.66rem;
+        line-height: 1.4;
+      }
     }
 
     h3 {
-      font-size: 1.8rem;
+      font-size: 1.66rem;
       margin-bottom: 1.4rem;
+      line-height: 1.33;
+
+      @media screen and (min-width: 960px) {
+        font-size: 1.8rem;
+      }
     }
 
     h4 {
-      font-size: 1.6rem;
+      font-size: 1.33rem;
+
+      @media screen and (min-width: 960px) {
+        font-size: 1.6rem;
+      }
     }
 
     p.post-date {
@@ -42,9 +63,13 @@ const StyledPostContainer = styled.div`
 
       p,
       li {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         line-height: 1.75;
         letter-spacing: 0.01rem;
+
+        @media screen and (min-width: 960px) {
+          font-size: 1.2rem;
+        }
       }
 
       ul {

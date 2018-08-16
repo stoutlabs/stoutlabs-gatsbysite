@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const ContainerDiv = styled.div`
-  padding: 2rem 0;
+  padding: 0;
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;

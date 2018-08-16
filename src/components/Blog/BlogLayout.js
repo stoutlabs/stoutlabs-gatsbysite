@@ -13,13 +13,17 @@ import appleTouchIcon from '../../assets/apple-touch-icon.png';
 import favicon from '../../assets/favicon.ico';
 
 const StyledHeading = styled.h1`
-  font-size: 1.66rem;
+  font-size: 1.4rem;
   font-family: Merriweather, serif;
   text-align: center;
   padding: 1.5rem 0;
   background: rgba(250, 250, 250, 0.1);
   margin: 0;
   color: #3096a7;
+
+  @media screen and (min-width: 960px) {
+    font-size: 1.66rem;
+  }
 `;
 
 class Layout extends Component {
