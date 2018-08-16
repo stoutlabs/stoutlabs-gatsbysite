@@ -9,6 +9,8 @@ import BlogNav from './BlogNav';
 
 import '../../assets/styles/index.scss';
 import config from '../../../config/index';
+import appleTouchIcon from '../../assets/apple-touch-icon.png';
+import favicon from '../../assets/favicon.ico';
 
 const StyledHeading = styled.h1`
   font-size: 1.66rem;
@@ -45,7 +47,11 @@ class Layout extends Component {
             { name: 'description', content: config.description },
             { name: 'keywords', content: config.keywords }
           ]}
-        />
+        >
+          <link rel="shortcut icon" href={favicon} />
+          <link rel="apple-touch-icon" href={appleTouchIcon} />
+        </Helmet>
+
         <BlogHeader siteTitle={config.title} />
         <BlogNav sticky={this.state.stickyNav} className="mininav" />
         <Waypoint
