@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import BlogContainer from './BlogContainer';
 import BlogHeader from './BlogHeader';
 import BlogNav from './BlogNav';
+import Footer from '../Footer';
 
 import '../../assets/styles/index.scss';
 import config from '../../../config/index';
@@ -21,7 +22,7 @@ const StyledHeading = styled.h1`
   margin: 0;
   color: #3096a7;
 
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: 768px) {
     font-size: 1.66rem;
   }
 `;
@@ -66,6 +67,7 @@ class Layout extends Component {
           StoutLabs Blog: (Mostly) Web Development &amp; Design
         </StyledHeading>
         <BlogContainer>{this.props.children}</BlogContainer>
+        <Footer />
       </Fragment>
     );
   }

@@ -6,7 +6,7 @@ const ContainerDiv = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
-  @media screen and (min-width: 960px) {
+  @media screen and (min-width: 768px) {
     margin: 0 auto;
     padding: 0 3rem;
     max-width: 900px;

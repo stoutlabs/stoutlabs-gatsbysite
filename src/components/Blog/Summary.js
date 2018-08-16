@@ -15,13 +15,22 @@ const StyledSummary = styled.article`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    width: 90%;
+    width: 95%;
     align-items: flex-start;
   }
 
   div.thumbnail {
-    width: 200px;
-    margin: 0.75rem 1.5rem 0 0;
+    width: 100%;
+    margin: 0 0 1rem;
+
+    @media screen and (min-width: 768px) {
+      margin: 0.75rem 1.5rem 0 0;
+      width: 300px;
+    }
+
+    img {
+      max-width: 100%;
+    }
   }
 
   div.summary-content {
@@ -33,6 +42,7 @@ const StyledSummary = styled.article`
       margin: 0;
       padding: 0;
       font-family: 'Merriweather', serif;
+      text-align: left;
     }
 
     div.post-meta {
@@ -85,7 +95,7 @@ export const Summary = ({ node, title }) => {
     <StyledSummary className="post-summary">
       <div className="thumbnail">
         <Link to={`/blog${node.fields.slug}`}>
-          <Img fixed={node.frontmatter.featureimg.childImageSharp.fixed} />
+          <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
         </Link>
       </div>
 
@@ -97,7 +107,8 @@ export const Summary = ({ node, title }) => {
         <div className="post-meta">
           <span className="date">{node.frontmatter.date}</span>
           <span className="readtime">
-            time to read: {node.timeToRead} min{node.timeToRead > 1 ? 's' : ''}
+            time to read: {node.timeToRead} min
+            {node.timeToRead > 1 ? 's' : ''}
           </span>
           <span className="tags">
             in:{' '}
