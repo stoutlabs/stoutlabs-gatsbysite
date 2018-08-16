@@ -5,7 +5,7 @@ title: 'Is Your Business Website Fast Enough?'
 date: '2018-08-15'
 description:
   'A slow website can rob your business of potential customers. Let me show you a quick and free way to test your website speed!'
-featureimg: './stoutlabs_audit_after_resized.png'
+featureimg: './biz-site-fast-enough-featured.jpg'
 tags:
   - website optimization
   - tips
