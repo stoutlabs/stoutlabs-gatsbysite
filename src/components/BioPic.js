@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 
-// import SmBioPic from '../assets/images/profile_pic_alt.jpg';
-
 const StyledBioPic = styled.div`
   img {
     border-radius: 50%;

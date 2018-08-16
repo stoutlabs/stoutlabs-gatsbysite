@@ -4,7 +4,8 @@ import {
   faFacebook,
   faGithub,
   faTwitter,
-  faLinkedin
+  faLinkedin,
+  faSpotify
 } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
@@ -14,12 +15,12 @@ const StyledIcons = styled.div`
     margin: 0 0 0 0.66rem;
     color: #fef1f1;
     font-size: 1.6rem;
-    opacity: 0.85;
-    transition: opacity 200ms ease-out;
+    opacity: 0.9;
+    transition: linear opacity 200ms;
     max-width: 50px;
 
     &:hover {
-      opacity: 0.6;
+      opacity: 0.8;
     }
 
     svg {
@@ -28,46 +29,63 @@ const StyledIcons = styled.div`
   }
 `;
 
+const myIcons = [
+  {
+    title: 'Github',
+    href: 'https://github.com/stoutlabs',
+    icon: faGithub
+  },
+  {
+    title: 'Twitter',
+    href: 'https://twitter.com/stoutlabs',
+    icon: faTwitter
+  },
+  {
+    title: 'LinkedIn',
+    href: 'https://www.linkedin.com/in/dstout/',
+    icon: faLinkedin
+  },
+  {
+    title: 'Facebook',
+    href: 'https://www.facebook.com/stoutlabs/',
+    icon: faFacebook
+  },
+  {
+    title: 'Spotify',
+    href: 'https://github.com/stoutlabs',
+    icon: faSpotify
+  },
+  {
+    title: 'Email',
+    href: 'mailto:daniel@stoutlabs.com',
+    icon: faEnvelope
+  }
+];
+
 export const SocialIcons = () => {
-  return (
-    <StyledIcons className="social-icons">
+  const renderIcons = myIcons.map((icon, index) => {
+    if (icon.title === 'Email') {
+      return (
+        <a href={icon.href} title={icon.title} key={index}>
+          <FontAwesomeIcon icon={icon.icon} />
+        </a>
+      );
+    }
+
+    return (
       <a
-        href="https://github.com/stoutlabs"
-        target="_blank"
+        href={icon.href}
+        target="blank"
         rel="noopener noreferrer"
-        title="Github"
+        title={icon.title}
+        key={index}
       >
-        <FontAwesomeIcon icon={faGithub} />
+        <FontAwesomeIcon icon={icon.icon} />
       </a>
-      <a
-        href="https://twitter.com/stoutlabs"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Twitter"
-      >
-        <FontAwesomeIcon icon={faTwitter} />
-      </a>
-      <a
-        href="https://www.linkedin.com/in/dstout/"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="LinkedIn"
-      >
-        <FontAwesomeIcon icon={faLinkedin} />
-      </a>
-      <a
-        href="https://www.facebook.com/stoutlabs/"
-        target="_blank"
-        rel="noopener noreferrer"
-        title="Facebook"
-      >
-        <FontAwesomeIcon icon={faFacebook} />
-      </a>
-      <a href="mailto:daniel@stoutlabs.com" title="Email">
-        <FontAwesomeIcon icon={faEnvelope} />
-      </a>
-    </StyledIcons>
-  );
+    );
+  });
+
+  return <StyledIcons className="social-icons">{renderIcons}</StyledIcons>;
 };
 
 export default SocialIcons;

@@ -28,10 +28,6 @@ const ToolsSection = styled.section`
       width: calc(50% - 1.5rem);
     }
 
-    @media screen and (min-width: 1300px) {
-      width: calc(50% - 1.5rem);
-    }
-
     h4 {
       background: linear-gradient(180deg, #3096a7, #216571 80%);
       padding: 1.6rem 1.4rem;
@@ -39,7 +35,6 @@ const ToolsSection = styled.section`
       font-size: 1.1rem;
       color: #d7eff3;
       text-align: center;
-
       text-transform: uppercase;
     }
 
