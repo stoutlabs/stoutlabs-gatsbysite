@@ -85,7 +85,8 @@ const Post = ({
   helmet,
   prev,
   next,
-  featureimg
+  featureimg,
+  timetoread
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -94,7 +95,13 @@ const Post = ({
       <StyledPostContainer className="blog-post-container">
         <div className="blog-post">
           <h2>{title}</h2>
-          <p className="post-date">{date}</p>
+          <p className="post-date">
+            {date} |{' '}
+            <span className="readtime">
+              time to read: {timetoread} min
+              {timetoread > 1 ? 's' : ''}
+            </span>
+          </p>
 
           {featureimg && (
             <div className="featured-image">

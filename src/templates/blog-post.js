@@ -28,6 +28,7 @@ const BlogPost = ({ data, pageContext }) => {
         prev={pageContext.previous}
         next={pageContext.next}
         featureimg={post.frontmatter.featureimg}
+        timetoread={post.timeToRead}
       />
     </BlogLayout>
   );
@@ -49,14 +50,16 @@ export const pageQuery = graphql`
       fields {
         slug
       }
+      timeToRead
       frontmatter {
         date(formatString: "MMMM DD, YYYY")
         title
+
         description
         tags
         featureimg {
           childImageSharp {
-            fluid(maxWidth: 900) {
+            fluid(maxWidth: 900, quality: 80) {
               ...GatsbyImageSharpFluid
             }
           }
