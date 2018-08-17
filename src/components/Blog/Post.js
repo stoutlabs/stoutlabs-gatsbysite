@@ -34,7 +34,7 @@ const StyledPostContainer = styled.div`
       line-height: 1.33;
 
       @media screen and (min-width: 960px) {
-        font-size: 2.66rem;
+        font-size: 2.5rem;
         line-height: 1.4;
       }
     }
