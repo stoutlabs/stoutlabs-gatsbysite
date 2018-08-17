@@ -80,6 +80,7 @@ const StyledSummary = styled.article`
           line-height: 1;
           padding: 0.5rem;
           margin-right: 0.3rem;
+          margin-bottom: 0.4rem;
         }
       }
     }

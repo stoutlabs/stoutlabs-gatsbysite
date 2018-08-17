@@ -39,6 +39,10 @@ const StyledPostContainer = styled.div`
       }
     }
 
+    h2 {
+      color: #e33f52;
+    }
+
     h3 {
       font-size: 1.66rem;
       margin-bottom: 1.4rem;
@@ -60,7 +64,7 @@ const StyledPostContainer = styled.div`
     }
 
     p.post-date {
-      color: #3096a7;
+      color: #99d7e1;
       font-size: 0.85rem;
       padding: 0.5rem 0 0;
     }
@@ -87,6 +91,17 @@ const StyledPostContainer = styled.div`
       ul {
         list-style: disc;
         margin: 0 0 1rem 1.5rem;
+      }
+
+      a {
+        color: #ff7485;
+
+        &:visited {
+          color: #ff7485;
+        }
+        &:hover {
+          color: #ea5d55;
+        }
       }
     }
 

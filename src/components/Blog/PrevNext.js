@@ -22,6 +22,14 @@ const StyledPrevNext = styled.div`
     a {
       display: inline-block;
       padding: 0.3rem;
+      color: #ff7485;
+
+      &:visited {
+        color: #ff7485;
+      }
+      &:hover {
+        color: #ea5d55;
+      }
     }
   }
 `;
