@@ -7,7 +7,7 @@ import {
   faLinkedin,
   faSpotify
 } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const StyledIcons = styled.div`
@@ -54,6 +54,11 @@ const myIcons = [
     title: 'Spotify',
     href: 'https://github.com/stoutlabs',
     icon: faSpotify
+  },
+  {
+    title: 'StoutLabs Blog',
+    href: 'https://www.stoutlabs.com/blog',
+    icon: faPenSquare
   },
   {
     title: 'Email',
