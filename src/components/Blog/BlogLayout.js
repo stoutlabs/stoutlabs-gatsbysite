@@ -18,9 +18,10 @@ const StyledHeading = styled.h1`
   font-family: Merriweather, serif;
   text-align: center;
   padding: 1.5rem 0;
-  background: rgba(250, 250, 250, 0.1);
+  background: rgba(40, 40, 110, 0.1);
   margin: 0;
   color: #3096a7;
+  border-bottom: 1px solid rgba(200, 200, 200, 0.1);
 
   @media screen and (min-width: 768px) {
     font-size: 1.66rem;

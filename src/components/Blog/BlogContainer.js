@@ -6,9 +6,10 @@ const ContainerDiv = styled.div`
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
+  background-color: rgba(240, 220, 240, 0.1);
   @media screen and (min-width: 768px) {
-    margin: 0 auto;
-    padding: 0 3rem;
+    margin: 2rem auto;
+
     max-width: 900px;
   }
 `;

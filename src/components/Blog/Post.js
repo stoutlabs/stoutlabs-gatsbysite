@@ -8,6 +8,16 @@ import styled from 'styled-components';
 import Content from '../Content';
 import PrevNext from './PrevNext';
 
+const StyledPostSection = styled.section`
+  margin: 2rem 0;
+  padding: 1rem 0;
+
+  @media screen and (min-width: 768px) {
+    margin: 2rem 1rem;
+    padding: 1rem 2rem;
+  }
+`;
+
 const StyledPostContainer = styled.div`
   div.blog-post {
     padding: 0 1.25rem;
@@ -32,10 +42,12 @@ const StyledPostContainer = styled.div`
     h3 {
       font-size: 1.66rem;
       margin-bottom: 1.4rem;
+      padding-top: 1rem;
       line-height: 1.33;
 
       @media screen and (min-width: 960px) {
         font-size: 1.8rem;
+        padding-top: 1.5rem;
       }
     }
 
@@ -116,7 +128,7 @@ const Post = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <StyledPostSection className="section-post">
       <StyledPostContainer className="blog-post-container">
         <div className="blog-post">
           <h2>{title}</h2>
@@ -152,7 +164,7 @@ const Post = ({
           <PrevNext prev={prev} next={next} />
         </div>
       </StyledPostContainer>
-    </section>
+    </StyledPostSection>
   );
 };
 
