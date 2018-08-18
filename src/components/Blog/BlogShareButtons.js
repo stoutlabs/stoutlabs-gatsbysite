@@ -68,7 +68,11 @@ export class BlogShareButtons extends Component {
           </TwitterShareButton>
 
           {shareImg && (
-            <PinterestShareButton url={url} title={post.title} media={shareImg}>
+            <PinterestShareButton
+              url={url}
+              title={post.title}
+              media={urljoin(config.url, shareImg)}
+            >
               <PinterestIcon round size={iconSize} />
               <PinterestShareCount url={url}>
                 {shareCount => renderShareCount(shareCount)}
