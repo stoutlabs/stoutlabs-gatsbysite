@@ -7,6 +7,7 @@ import styled from 'styled-components';
 
 import Content from '../Content';
 import PrevNext from './PrevNext';
+import BlogShareButtons from './BlogShareButtons';
 
 const StyledPostSection = styled.section`
   margin: 2rem 0;
@@ -43,26 +44,6 @@ const StyledPostContainer = styled.div`
       color: #e33f52;
     }
 
-    h3 {
-      font-size: 1.66rem;
-      margin-bottom: 1.4rem;
-      padding-top: 1rem;
-      line-height: 1.33;
-
-      @media screen and (min-width: 960px) {
-        font-size: 1.8rem;
-        padding-top: 1.5rem;
-      }
-    }
-
-    h4 {
-      font-size: 1.33rem;
-
-      @media screen and (min-width: 960px) {
-        font-size: 1.6rem;
-      }
-    }
-
     p.post-date {
       color: #99d7e1;
       font-size: 0.85rem;
@@ -76,6 +57,26 @@ const StyledPostContainer = styled.div`
     div.post-content {
       padding: 0;
       margin: 0;
+
+      h3 {
+        font-size: 1.66rem;
+        margin-bottom: 1.4rem;
+        padding-top: 1rem;
+        line-height: 1.33;
+
+        @media screen and (min-width: 960px) {
+          font-size: 1.8rem;
+          padding-top: 1.5rem;
+        }
+      }
+
+      h4 {
+        font-size: 1.33rem;
+
+        @media screen and (min-width: 960px) {
+          font-size: 1.6rem;
+        }
+      }
 
       p,
       li {
@@ -106,6 +107,8 @@ const StyledPostContainer = styled.div`
     }
 
     div.post-tags {
+      text-align: center;
+
       h4 {
         font-size: 1.2rem;
         color: #3096a7;
@@ -120,6 +123,13 @@ const StyledPostContainer = styled.div`
             padding: 0.4rem 0.6rem;
             background: rgba(250, 250, 250, 0.1);
             border-radius: 8px;
+            display: block;
+            font-size: 1rem;
+            letter-spacing: 0.01rem;
+          }
+
+          &:last-child {
+            margin: 0;
           }
         }
       }
@@ -138,7 +148,10 @@ const Post = ({
   prev,
   next,
   featureimg,
-  timetoread
+  timetoread,
+  slug,
+  allNode,
+  shareImg
 }) => {
   const PostContent = contentComponent || Content;
 
@@ -163,8 +176,15 @@ const Post = ({
 
           <PostContent content={content} className="post-content" />
 
+          <BlogShareButtons
+            postPath={slug}
+            postNode={allNode}
+            mobile={false}
+            shareImg={shareImg}
+          />
+
           {tags && tags.length ? (
-            <div style={{ marginTop: `4rem` }} className="post-tags">
+            <div className="post-tags">
               <h4>Tagged With:</h4>
               <ul className="taglist">
                 {tags.map(tag => (
@@ -188,7 +208,8 @@ Post.propTypes = {
   contentComponent: PropTypes.func,
   description: PropTypes.string,
   title: PropTypes.string,
-  date: PropTypes.string
+  date: PropTypes.string,
+  slug: PropTypes.string
 };
 
 export default Post;

@@ -29,6 +29,9 @@ const BlogPost = ({ data, pageContext }) => {
         next={pageContext.next}
         featureimg={post.frontmatter.featureimg}
         timetoread={post.timeToRead}
+        slug={post.fields.slug}
+        allNode={post}
+        shareImg={post.frontmatter.featureimg.childImageSharp.fluid.src}
       />
     </BlogLayout>
   );

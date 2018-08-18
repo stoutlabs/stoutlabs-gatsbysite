@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
@@ -56,8 +57,8 @@ const myIcons = [
     icon: faSpotify
   },
   {
-    title: 'StoutLabs Blog',
-    href: 'https://www.stoutlabs.com/blog',
+    title: 'Blog',
+    href: '/blog',
     icon: faPenSquare
   },
   {
@@ -74,6 +75,14 @@ export const SocialIcons = () => {
         <a href={icon.href} title={icon.title} key={index}>
           <FontAwesomeIcon icon={icon.icon} />
         </a>
+      );
+    }
+
+    if (icon.title === 'Blog') {
+      return (
+        <Link to={icon.href} title={icon.title} key={index}>
+          <FontAwesomeIcon icon={icon.icon} />
+        </Link>
       );
     }
 

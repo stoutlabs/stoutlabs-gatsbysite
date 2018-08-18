@@ -10,6 +10,7 @@ module.exports = {
   publisherlogo: 'https://www.stoutlabs.com/site-images/blog_logo_60h.png',
   twitter: '@stoutlabs',
   fbAppID: '422202044802398',
+  pathPrefix: '',
 
   author: {
     minibio: `
