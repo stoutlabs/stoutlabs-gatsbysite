@@ -51,7 +51,7 @@ export class BlogShareButtons extends Component {
   render() {
     const { postNode, postPath, mobile, shareImg = false } = this.props;
     const post = postNode.frontmatter;
-    const url = urljoin(config.url, config.pathPrefix, postPath);
+    const url = urljoin(config.url, config.pathPrefix, 'blog', postPath);
     const iconSize = mobile ? 36 : 48;
     const filter = count => (count > 0 ? count : '');
     const renderShareCount = count => (
