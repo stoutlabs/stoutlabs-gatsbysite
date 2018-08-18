@@ -34,15 +34,23 @@ const StyledShareButtons = styled.div`
     flex-wrap: wrap;
     justify-content: center;
     align-content: center;
-    align-items: center;
+    align-items: flex-start;
     margin: 15px 0;
 
     > div {
       margin: 5px 15px;
+      &:hover {
+        cursor: pointer;
+        opacity: 0.9;
+      }
     }
 
     .share-count {
       text-align: center;
+      color: #99d7e1;
+      opacity: 0.95;
+      font-size: 0.95rem;
+      padding: 0.33rem 0 0;
     }
   }
 `;
