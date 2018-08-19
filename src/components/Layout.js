@@ -27,6 +27,8 @@ class Layout extends Component {
     this.setState(() => ({ stickyNav: true }));
   };
 
+  // <meta name="google-site-verification" content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo" />
+
   render() {
     return (
       <Fragment>
@@ -34,7 +36,11 @@ class Layout extends Component {
           title={config.title}
           meta={[
             { name: 'description', content: config.description },
-            { name: 'keywords', content: config.keywords }
+            { name: 'keywords', content: config.keywords },
+            {
+              name: 'google-site-verification',
+              content: '1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo'
+            }
           ]}
         >
           <link rel="shortcut icon" href={favicon} />
