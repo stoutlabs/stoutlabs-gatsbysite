@@ -12,7 +12,7 @@ tags:
   - useful npm packages
 ---
 
-Since launching my new [Gatsby](https://github.com/gatsbyjs/gatsby)-powered website, I noticed that the last thing slowing down my initial load time was caused from loading fontfaces via Google Fonts. (In my case, I am using the fonts "Emily's Candy" and "Merriweather.") Even though they are relatively small files, they were still causing an extra trip to fetch the fonts from Google's servers... and as a result, this caused a tiny load-blocking delay. (Especially on mobile tests.)
+Since launching my new [Gatsby](https://next.gatsbyjs.org)-powered website, I noticed that the last thing slowing down my initial load time was caused from loading fontfaces via Google Fonts. (In my case, I am using the fonts "Emily's Candy" and "Merriweather.") Even though they are relatively small files, they were still causing an extra trip to fetch the fonts from Google's servers... and as a result, this caused a tiny load-blocking delay. (Especially on mobile tests.)
 
 ### Introducing Typefaces.js
 
