@@ -39,4 +39,11 @@ This is all you have to do:
    require('typeface-merriweather');
    ```
 
+   or, import in your top-level/layout component(s):
+
+   ```javascript
+   import 'typeface-emilys-candy';
+   import 'typeface-merriweather';
+   ```
+
 Do a fresh rebuild, and you're done! The entire process took me around 2 minutes total time, and I shaved an additional ~500ms off my mobile load times in the process. If you haven't already done this on your Gatsby site, I highly recommend it!

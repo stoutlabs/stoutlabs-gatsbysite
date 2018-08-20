@@ -6,6 +6,8 @@ import Container from './Container';
 import Header from './Header';
 import Nav from '../components/Nav';
 
+import 'typeface-emilys-candy';
+import 'typeface-merriweather';
 import '../assets/styles/index.scss';
 import config from '../../config/index';
 import appleTouchIcon from '../assets/apple-touch-icon.png';

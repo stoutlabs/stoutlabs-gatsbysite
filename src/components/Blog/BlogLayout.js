@@ -8,6 +8,8 @@ import BlogHeader from './BlogHeader';
 import BlogNav from './BlogNav';
 import Footer from '../Footer';
 
+import 'typeface-emilys-candy';
+import 'typeface-merriweather';
 import '../../assets/styles/index.scss';
 import config from '../../../config/index';
 import appleTouchIcon from '../../assets/apple-touch-icon.png';
