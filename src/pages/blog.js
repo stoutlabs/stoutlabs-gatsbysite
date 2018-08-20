@@ -7,7 +7,7 @@ import Seo from '../components/Seo';
 import Summary from '../components/Blog/Summary';
 
 const AllPostsList = styled.div`
-  margin: 3rem 0 0;
+  padding: 1rem;
 
   h2 {
     color: #3096a7;

@@ -3,10 +3,12 @@ templateKey: blog-post
 # path: "/blog/2018-07-26/first-post"
 title: New Website Launch!
 date: '2018-07-26'
-description: Just a short post to announce the re-launch of my website. Now built with a tasty GatsbyJS and Prismic flavored JAMstack!
-featureimg: "./thomas-charters-319031-unsplash.jpg"
+description:
+  Just a short post to announce the re-launch of my website. Now built with a tasty GatsbyJS and Prismic flavored JAMstack!
+featureimg: './thomas-charters-319031-unsplash.jpg'
 tags:
   - news
+  - gatsbyjs
   - jamstack
 ---
 

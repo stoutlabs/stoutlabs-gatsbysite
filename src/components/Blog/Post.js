@@ -63,6 +63,7 @@ const StyledPostContainer = styled.div`
         margin-bottom: 1.4rem;
         padding-top: 1rem;
         line-height: 1.33;
+        text-align: left;
 
         @media screen and (min-width: 960px) {
           font-size: 1.8rem;
@@ -94,6 +95,11 @@ const StyledPostContainer = styled.div`
         margin: 0 0 1rem 1.5rem;
       }
 
+      ol {
+        list-style: decimal;
+        margin: 0 0 1rem 1.5rem;
+      }
+
       a {
         color: #ff7485;
 
@@ -116,15 +122,15 @@ const StyledPostContainer = styled.div`
       ul {
         li {
           display: inline-block;
-          margin: 0 0.4rem 0 0;
+          margin: 0 0.5rem 0.5rem 0;
           a {
             color: #fff;
             text-decoration: none;
-            padding: 0.4rem 0.6rem;
+            padding: 0.3rem 0.4rem;
             background: rgba(250, 250, 250, 0.1);
             border-radius: 8px;
-            display: block;
-            font-size: 1rem;
+            display: inline-block;
+            font-size: 0.95rem;
             letter-spacing: 0.01rem;
           }
 

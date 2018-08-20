@@ -1,20 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const StyledFooter = styled.footer`
+  padding: 1.5rem 0;
+
+  p {
+    margin: 0;
+    font-size: 0.95rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.9;
+  }
+`;
 
 export const Footer = () => {
   return (
-    <footer>
-      <p
-        style={{
-          margin: '0 0 0.3rem',
-          fontSize: '0.95rem',
-          textAlign: 'center',
-          fontStyle: 'italic',
-          opacity: '0.9'
-        }}
-      >
-        &copy; {new Date().getFullYear()} StoutLabs
-      </p>
-    </footer>
+    <StyledFooter>
+      <p>&copy; {new Date().getFullYear()} StoutLabs</p>
+    </StyledFooter>
   );
 };
 

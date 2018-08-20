@@ -13,6 +13,10 @@ const StyledSummary = styled.article`
   border-bottom: 1px solid rgba(200, 230, 240, 0.4);
   width: 100%;
 
+  &:last-child {
+    border-bottom: 0;
+  }
+
   @media screen and (min-width: 768px) {
     flex-direction: row;
     width: 95%;
@@ -37,9 +41,10 @@ const StyledSummary = styled.article`
     flex: 1;
 
     h3 {
-      font-size: 1.9rem;
-      line-height: 1.4;
-      margin: 0;
+      font-size: 1.6rem;
+
+      line-height: 1.25;
+      margin: 0.3rem 0 0.25rem;
       padding: 0;
       font-family: 'Merriweather', serif;
       text-align: left;
@@ -52,7 +57,7 @@ const StyledSummary = styled.article`
       span.date {
         color: #3096a7;
 
-        font-size: 1.2rem;
+        font-size: 1.15rem;
         padding-right: 0.5rem;
         margin: 0 0.5rem 0.75rem 0;
 
@@ -87,6 +92,7 @@ const StyledSummary = styled.article`
 
     p.desc {
       margin: 0 0 1rem;
+      font-size: 1rem;
     }
   }
 `;

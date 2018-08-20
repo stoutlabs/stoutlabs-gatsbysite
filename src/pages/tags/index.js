@@ -7,6 +7,8 @@ import BlogLayout from '../../components/Blog/BlogLayout';
 import Seo from '../../components/Seo';
 
 const TagIndexSection = styled.section`
+  padding: 1rem;
+
   h2 {
     font-size: 2rem;
     font-family: Merriweather, serif;
@@ -17,7 +19,8 @@ const TagIndexSection = styled.section`
   ul.taglist {
     li {
       border-bottom: 1px solid rgba(250, 250, 250, 0.1);
-      padding-bottom: 0.5rem;
+      padding-bottom: 0.75rem;
+      margin: 0 0 0.75rem;
 
       &:last-child {
         border-bottom: none;

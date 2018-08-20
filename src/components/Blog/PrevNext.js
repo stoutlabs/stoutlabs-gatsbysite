@@ -10,7 +10,7 @@ const StyledPrevNext = styled.div`
   ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -19,16 +19,33 @@ const StyledPrevNext = styled.div`
 
   li {
     margin: 0;
+    width: 50%;
+
     a {
-      display: inline-block;
+      display: flex;
+      flex-direction: row;
       padding: 0.3rem;
       color: #ff7485;
+      text-align: left;
+      font-size: 0.95rem;
 
       &:visited {
         color: #ff7485;
       }
       &:hover {
         color: #ea5d55;
+      }
+
+      span {
+        padding: 0 1rem 0 0;
+      }
+    }
+
+    a.next {
+      text-align: right;
+
+      span {
+        padding: 0 0 0 1rem;
       }
     }
   }
@@ -37,19 +54,12 @@ const StyledPrevNext = styled.div`
 export const PrevNext = ({ prev, next }) => {
   return (
     <StyledPrevNext className="prevnext">
-      <ul
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          justifyContent: 'space-between',
-          listStyle: 'none',
-          padding: 0
-        }}
-      >
+      <ul>
         {prev !== null ? (
           <li>
-            <Link to={'/blog' + prev.fields.slug} rel="prev">
-              &lt; {prev.frontmatter.title}
+            <Link to={'/blog' + prev.fields.slug + '#top'} rel="prev">
+              <span>&larr;</span>
+              {prev.frontmatter.title}
             </Link>
           </li>
         ) : (
@@ -58,8 +68,13 @@ export const PrevNext = ({ prev, next }) => {
 
         {next !== null ? (
           <li>
-            <Link to={'/blog' + next.fields.slug} rel="next">
-              {next.frontmatter.title} &gt;
+            <Link
+              to={'/blog' + next.fields.slug + '#top'}
+              rel="next"
+              className="next"
+            >
+              {next.frontmatter.title}
+              <span>&rarr;</span>
             </Link>
           </li>
         ) : null}

@@ -6,17 +6,34 @@ import BlogLayout from '../components/Blog/BlogLayout';
 import Seo from '../components/Seo';
 
 const StyledTagsSection = styled.section`
-  h3 {
+  padding: 1rem;
+
+  h2 {
     font-family: Merriweather, serif;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
+    font-weight: normal;
+    line-height: 1.4;
   }
 
   ul.taglist {
-    margin: 0 0 2rem;
+    margin: 2rem 0;
 
-    h2 {
+    li {
+      margin: 0 0 0.75rem;
+      padding: 0 0 0.75rem;
+      border-bottom: 1px solid rgba(250, 250, 250, 0.1);
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    h3 {
       font-family: Merriweather, serif;
-      font-size: 2rem;
+      font-size: 1.2rem;
+      line-height: 1.2;
+      margin: 0;
+      text-align: left;
     }
   }
 `;
@@ -27,7 +44,7 @@ class TagRoute extends React.Component {
     const postLinks = posts.map(post => (
       <li key={post.node.fields.slug}>
         <Link to={'/blog' + post.node.fields.slug}>
-          <h2>{post.node.frontmatter.title}</h2>
+          <h3>{post.node.frontmatter.title}</h3>
         </Link>
       </li>
     ));
@@ -36,7 +53,7 @@ class TagRoute extends React.Component {
     const totalCount = this.props.data.allMarkdownRemark.totalCount;
     const tagHeader = `${totalCount} post${
       totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”`;
+    } tagged with “${tag}”:`;
 
     const seoData = {
       frontmatter: {
@@ -51,7 +68,7 @@ class TagRoute extends React.Component {
           <Seo postData={seoData} />
 
           <div className="content">
-            <h3>{tagHeader}</h3>
+            <h2>{tagHeader}</h2>
             <ul className="taglist">{postLinks}</ul>
             <p>
               <Link to="/tags">Browse all tags</Link> |{' '}
