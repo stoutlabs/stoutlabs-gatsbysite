@@ -176,7 +176,7 @@ module.exports = {
         ]
       }
     },
-    `gatsby-plugin-offline`,
+    // `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`
   ]
 };
