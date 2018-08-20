@@ -53,7 +53,7 @@ const myIcons = [
   },
   {
     title: 'Spotify',
-    href: 'https://github.com/stoutlabs',
+    href: 'https://open.spotify.com/user/stoutlabs?si=ziVoZ3QETdymrtBg5pcpwQ',
     icon: faSpotify
   },
   {
