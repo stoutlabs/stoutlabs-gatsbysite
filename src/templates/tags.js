@@ -32,7 +32,8 @@ const StyledTagsSection = styled.section`
       font-family: Merriweather, serif;
       font-size: 1.2rem;
       line-height: 1.2;
-      margin: 0;
+      margin: 0 0 1rem;
+      padding: 1rem 0 0;
       text-align: left;
     }
   }
