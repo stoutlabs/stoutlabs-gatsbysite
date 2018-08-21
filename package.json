@@ -9,7 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.1.0-11",
     "@fortawesome/react-fontawesome": "^0.1.0-11",
     "babel-plugin-styled-components": "^1.5.1",
-    "gatsby": "next",
+    "gatsby": "^2.0.0-rc.0",
     "gatsby-image": "next",
     "gatsby-plugin-google-analytics": "next",
     "gatsby-plugin-manifest": "next",

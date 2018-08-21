@@ -12,8 +12,8 @@ import SmBioPic from '../assets/images/profile_pic_alt.jpg';
 import MatchPic from '../assets/images/match_pic.png';
 
 const StyledIntroDiv = styled.div`
-  padding: 2rem 0 3rem;
-  margin: 0;
+  padding: 2rem 0;
+  margin: 0 0 1rem;
   ${'' /* min-height: 100vh; */} text-align: center;
 
   @media screen and (min-width: 960px) {
@@ -23,7 +23,8 @@ const StyledIntroDiv = styled.div`
   h2 {
     text-align: center;
     font-size: 2.4rem;
-    margin: 2rem 0;
+    margin: 1rem 0;
+    padding: 0 0 3rem;
 
     @media screen and (min-width: 960px) {
       text-align: left;

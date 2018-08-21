@@ -51,8 +51,9 @@ const StyledForm = styled.form`
   }
 
   button[type='submit'] {
-    border: 2px solid #febcb8;
     background: #971640;
+    border: none;
+    outline: none;
     border-radius: 8px;
     color: #fff;
     display: block;
@@ -72,7 +73,6 @@ const StyledForm = styled.form`
 
     &:hover {
       color: #fef1f1;
-      border-color: #fef1f1;
       background-color: #e95c54;
     }
   }

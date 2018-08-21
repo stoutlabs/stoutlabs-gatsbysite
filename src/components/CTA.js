@@ -13,7 +13,6 @@ const CTAdiv = styled.div`
   padding: 1.5rem 0;
 
   a {
-    border: 2px solid #febcb8;
     background: #971640;
     border-radius: 8px;
     color: #fff;
@@ -29,7 +28,6 @@ const CTAdiv = styled.div`
 
     &:hover {
       color: #fef1f1;
-      border-color: #fef1f1;
       background-color: #e95c54;
     }
 
