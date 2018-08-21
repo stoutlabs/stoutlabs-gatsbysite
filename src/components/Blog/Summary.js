@@ -19,7 +19,7 @@ const StyledSummary = styled.article`
 
   @media screen and (min-width: 768px) {
     flex-direction: row;
-    width: 95%;
+    width: 100%;
     align-items: flex-start;
   }
 
