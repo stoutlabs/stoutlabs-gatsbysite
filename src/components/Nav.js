@@ -19,9 +19,13 @@ const StyledNav = styled.nav`
     }
 
     li {
-      margin: 0 1rem 0 0;
-      padding-right: 1rem;
+      margin: 0 0.5rem 0 0;
+      padding-right: 0.5rem;
       border-right: 1px solid rgba(254, 241, 241, 0.5);
+
+      @media (min-width: 990px) {
+        padding-right: 1rem;
+      }
 
       &:last-child {
         margin-right: 0;

@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { graphql } from 'gatsby';
 
 import BlogLayout from '../components/Blog/BlogLayout';
+import PostsList from '../components/Blog/PostsList';
 import Seo from '../components/Seo';
-import Summary from '../components/Blog/Summary';
-
-const AllPostsList = styled.div`
-  padding: 1rem;
-
-  h2 {
-    color: #3096a7;
-    font-size: 2.2rem;
-    margin: 0 0 3rem;
-  }
-
-  div.posts-list {
-    margin: 1rem;
-  }
-`;
 
 export class BlogIndex extends Component {
   render() {
@@ -33,20 +18,7 @@ export class BlogIndex extends Component {
     return (
       <BlogLayout location={this.props.location}>
         <Seo postData={seoData} />
-
-        <AllPostsList className="blog">
-          <div className="posts-list">
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title
-                ? node.frontmatter.title
-                : node.fields.slug;
-
-              return (
-                <Summary node={node} key={node.fields.slug} title={title} />
-              );
-            })}
-          </div>
-        </AllPostsList>
+        <PostsList posts={posts} />
       </BlogLayout>
     );
   }
@@ -71,13 +43,17 @@ export const pageQuery = graphql`
           frontmatter {
             tags
             date(formatString: "DD MMMM, YYYY")
+            day: date(formatString: "DD")
+            month: date(formatString: "M")
+            year: date(formatString: "YYYY")
             title
             description
             featureimg {
               childImageSharp {
-                fluid(maxWidth: 600, quality: 81) {
+                fluid(maxWidth: 800, quality: 81) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
+                
               }
             }
           }

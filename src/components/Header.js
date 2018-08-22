@@ -32,7 +32,7 @@ const StyledHeader = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
     padding: 1rem 1rem 2rem;
 
     @media screen and (min-width: 960px) {
@@ -43,6 +43,8 @@ const StyledHeader = styled.div`
 
   div.logo {
     overflow: hidden;
+    padding: 2rem 0 0;
+
     img {
       width: 100%;
 
@@ -68,6 +70,7 @@ const StyledHeader = styled.div`
   }
 
   div.header-content {
+    padding: 0 0 2rem;
   }
 
   div.header-photo {

@@ -1,39 +1,21 @@
 import React from 'react';
-import Img from 'gatsby-image';
-import { Link } from 'gatsby';
 import styled from 'styled-components';
+import Img from 'gatsby-image';
+import { kebabCase } from 'lodash';
+import { Link } from 'gatsby';
 
-const StyledSummary = styled.article`
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin: 0 0 1rem;
-  padding: 0 0 1rem;
-  width: 100%;
-
-  @media screen and (min-width: 768px) {
-    align-items: flex-start;
-    width: calc(50% - 1rem);
-  }
-
+const StyledFeatureLarge = styled.div`
   div.thumbnail {
     width: 100%;
-    margin: 0;
-    padding: 0 0 1rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    img {
-      max-width: 100%;
-    }
+    padding: 0 0 1.5rem;
   }
 
   div.summary-content {
-    flex: 1;
+    width: 100%;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.6rem;
+
       line-height: 1.25;
       margin: 0.3rem 0 0.25rem;
       padding: 0 0 0.25rem;
@@ -43,12 +25,12 @@ const StyledSummary = styled.article`
 
     div.post-meta {
       color: #c5ac78;
-      margin: 0 0 1rem;
+      padding: 0 0 1rem;
 
       span.date {
         color: #3096a7;
 
-        font-size: 0.9rem;
+        font-size: 1.1rem;
         padding-right: 0.5rem;
         margin: 0 0.5rem 0.75rem 0;
 
@@ -57,7 +39,7 @@ const StyledSummary = styled.article`
 
       span.readtime {
         display: inline-block;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
         font-style: italic;
         line-height: 1;
       }
@@ -65,7 +47,7 @@ const StyledSummary = styled.article`
       span.tags {
         display: block;
         font-size: 0.9rem;
-        margin: 0.66rem 0;
+        padding: 0.66rem 0 0;
 
         a {
           background-color: rgba(250, 250, 250, 0.07);
@@ -74,7 +56,7 @@ const StyledSummary = styled.article`
           font-size: 0.9rem;
           font-style: italic;
           line-height: 1;
-          padding: 0.25rem;
+          padding: 0.25rem 0.5rem;
           margin-right: 0.3rem;
           margin-bottom: 0.4rem;
         }
@@ -83,14 +65,14 @@ const StyledSummary = styled.article`
 
     p.desc {
       margin: 0 0 1rem;
-      font-size: 0.975rem;
+      font-size: 1rem;
     }
   }
 `;
 
-export const Summary = ({ node, title }) => {
+export default ({ node, title }) => {
   return (
-    <StyledSummary className="post-summary">
+    <StyledFeatureLarge>
       <div className="thumbnail">
         <Link to={`/blog${node.fields.slug}`}>
           <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
@@ -98,21 +80,28 @@ export const Summary = ({ node, title }) => {
       </div>
 
       <div className="summary-content">
-        <div className="post-date" />
         <h3>
           <Link to={`/blog${node.fields.slug}`}>{title}</Link>
         </h3>
+
         <div className="post-meta">
           <span className="date">{node.frontmatter.date}</span>
           <span className="readtime">
             time to read: {node.timeToRead} min
             {node.timeToRead > 1 ? 's' : ''}
           </span>
+          <span className="tags">
+            in:{' '}
+            {node.frontmatter.tags.map(tag => (
+              <Link to={`/tags/${kebabCase(tag)}`} key={tag + `tag`}>
+                {tag}
+              </Link>
+            ))}
+          </span>
         </div>
+
         <p className="desc">{node.frontmatter.description} </p>
       </div>
-    </StyledSummary>
+    </StyledFeatureLarge>
   );
 };
-
-export default Summary;
