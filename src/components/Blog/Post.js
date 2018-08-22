@@ -74,7 +74,7 @@ const StyledPostContainer = styled.div`
       h4 {
         font-size: 1.33rem;
         margin: 0;
-        padding: 0 0 1rem;
+        padding: 0.5rem 0 0.75rem;
 
         @media screen and (min-width: 960px) {
           font-size: 1.6rem;
@@ -83,13 +83,9 @@ const StyledPostContainer = styled.div`
 
       p,
       li {
-        font-size: 1.1rem;
-        line-height: 1.75;
+        font-size: 1.15rem;
+        line-height: 1.8;
         letter-spacing: 0.01rem;
-
-        @media screen and (min-width: 960px) {
-          font-size: 1.2rem;
-        }
       }
 
       ul {

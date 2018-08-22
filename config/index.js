@@ -1,8 +1,8 @@
 module.exports = {
   title:
-    'StoutLabs Website Design & Development | Bristol, Johnson City, Kingsport TN and Remote',
+    'StoutLabs: Web Design & Marketing For Small Businesses - Kingsport TN',
   titleshort: 'StoutLabs',
-  description: `Expert web design and development services in the Bristol, Johnson City, and Kingsport TN area since 2004. Offering websites, apps, digital marketing, SEO, and more.`,
+  description: `Expertly crafted websites, apps, digital marketing, SEO, and consulting for small to medium-sized businesses. Located in the Kingsport, TN area. Since 2004.`,
   keywords: `web design, web development, kingsport, bristol, gatsbyjs, react, tri-cities, tn, johnson city, jamstack, seo, marketing, website design, programming`,
   url: 'https://www.stoutlabs.com',
   image: 'https://www.stoutlabs.com/site-images/site_image.jpg',

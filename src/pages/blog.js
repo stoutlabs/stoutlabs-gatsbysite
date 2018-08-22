@@ -43,9 +43,7 @@ export const pageQuery = graphql`
           frontmatter {
             tags
             date(formatString: "DD MMMM, YYYY")
-            day: date(formatString: "DD")
-            month: date(formatString: "M")
-            year: date(formatString: "YYYY")
+            rawdate: date(formatString: "YYYY-MMM-DD")
             title
             description
             featureimg {
@@ -53,7 +51,6 @@ export const pageQuery = graphql`
                 fluid(maxWidth: 800, quality: 81) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
-                
               }
             }
           }

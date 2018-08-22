@@ -2,6 +2,7 @@ import React from 'react';
 import Img from 'gatsby-image';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
+import { months } from 'moment';
 
 const StyledSummary = styled.article`
   display: flex;
@@ -89,6 +90,8 @@ const StyledSummary = styled.article`
 `;
 
 export const Summary = ({ node, title }) => {
+  //const [year, month, day] = node.frontmatter.rawdate.split('-');
+
   return (
     <StyledSummary className="post-summary">
       <div className="thumbnail">
@@ -98,7 +101,6 @@ export const Summary = ({ node, title }) => {
       </div>
 
       <div className="summary-content">
-        <div className="post-date" />
         <h3>
           <Link to={`/blog${node.fields.slug}`}>{title}</Link>
         </h3>
