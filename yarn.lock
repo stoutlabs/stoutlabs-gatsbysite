@@ -4805,9 +4805,9 @@ gatsby-remark-images@next:
     slash "^1.0.0"
     unist-util-select "^1.5.0"
 
-gatsby-remark-prismjs@^3.0.0-beta.5:
-  version "3.0.0-beta.5"
-  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.0.0-beta.5.tgz#8b478f411438c63b10f78b3899bc3b963631ccd4"
+gatsby-remark-prismjs@next:
+  version "3.0.0-rc.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-prismjs/-/gatsby-remark-prismjs-3.0.0-rc.0.tgz#e75db3f153aab154be652d130ac98941512b7404"
   dependencies:
     "@babel/runtime" "7.0.0-beta.52"
     parse-numeric-range "^0.0.2"
@@ -4873,7 +4873,7 @@ gatsby-transformer-sharp@next:
     fs-extra "^4.0.2"
     probe-image-size "^4.0.0"
 
-gatsby@^2.0.0-rc.0:
+gatsby@next:
   version "2.0.0-rc.0"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.0.0-rc.0.tgz#16f6160cc458d27702fd4197731c7c88974d9c6a"
   dependencies:

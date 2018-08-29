@@ -12,11 +12,13 @@ tags:
   - useful npm packages
 ---
 
-Since launching my new [Gatsby](https://next.gatsbyjs.org)-powered website, I noticed that the last thing slowing down my initial load time was caused from loading fontfaces via Google Fonts. (In my case, I am using the fonts "Emily's Candy" and "Merriweather.") Even though they are relatively small files, they were still causing an extra trip to fetch the fonts from Google's servers... and as a result, this caused a tiny load-blocking delay. (Especially on mobile tests.)
+Since launching my new [Gatsby](https://next.gatsbyjs.org)-powered website, I noticed that there was only one thing still slowing down the load times: importing fontfaces via Google Fonts! Even though font files are usually relatively small, these imports cause an extra trip to Google's servers... and as a result, a tiny load-blocking delay occurs. (Especially on slow connections.)
 
 ### Introducing Typefaces.js
 
-Self-hosting fonts has always been a bit of a mess in the past, so most folks (including myself) resorted to just importing straight from Google Fonts. (That's what they suggest, after all!) But thankfully, there's a more elegant JS soution available: the [Typefaces.js](https://github.com/KyleAMathews/typefaces) package from Kyle Mathews! (Yes, one of the creators of Gatsby.) Assuming your site or app's build process uses Webpack with loaders for CSS and fonts, it's ridiculously easy to use. In my case, I wanted to use it in Gatsby...and it was SUPER simple.
+Self-hosting fonts has always been a bit of a mess in the past, so most folks (including myself) resorted to just importing straight from Google Fonts. (That's what they suggest, after all!)
+
+Thankfully, there's a more elegant JS soution available: the [Typefaces.js](https://github.com/KyleAMathews/typefaces) package from Kyle Mathews. (Yes, one of the creators of Gatsby.) Assuming your site or app's build process uses Webpack with loaders for CSS and fonts, it's ridiculously easy to use. In my case, I wanted to use it in Gatsby...
 
 #### Using Typefaces.js In Gatsby
 
