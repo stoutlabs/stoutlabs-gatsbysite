@@ -117,7 +117,7 @@ export class HomeForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    if (!this.state.isSpammer) {
+    if (this.state.isSpammer === false) {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
