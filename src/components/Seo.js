@@ -198,6 +198,10 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
       <html lang="en" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
+      <meta
+        name="google-site-verification"
+        content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo"
+      />
 
       {/* Schema.org tags */}
       <script type="application/ld+json">
