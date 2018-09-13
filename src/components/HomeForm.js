@@ -117,7 +117,7 @@ export class HomeForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
-    if (this.state.isSpammer === false) {
+    if (!this.state.isSpammer && this.state.sky === 'blue') {
       fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -189,11 +189,7 @@ export class HomeForm extends Component {
             onChange={this.handleChange}
           />
         </fieldset>
-        {/* <Recaptcha
-          ref="recaptcha"
-          sitekey={RECAPTCHA_KEY}
-          onChange={this.handleRecaptcha}
-        /> */}
+
         <div className="nope-holder">
           <input name="nope-field" aria-label="Must leave blank" />
         </div>
