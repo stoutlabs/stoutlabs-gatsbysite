@@ -117,6 +117,7 @@ export class HomeForm extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
+
     if (!this.state.isSpammer && this.state.sky === 'blue') {
       fetch('/', {
         method: 'POST',
