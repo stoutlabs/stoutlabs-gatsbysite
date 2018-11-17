@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { navigate } from 'gatsby';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { navigate } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
 const StyledForm = styled.form`
   margin-bottom: 2rem;
@@ -31,7 +31,7 @@ const StyledForm = styled.form`
     margin: 0 0 1.6rem;
     padding: 0.75rem;
     width: 100%;
-    font-family: 'Merriweather', sans-serif;
+    font-family: "Merriweather", sans-serif;
     font-size: 1.25rem;
     color: #141313;
     outline: none;
@@ -56,7 +56,7 @@ const StyledForm = styled.form`
     line-height: 1.75;
   }
 
-  button[type='submit'] {
+  button[type="submit"] {
     background: #971640;
     border: none;
     outline: none;
@@ -64,7 +64,7 @@ const StyledForm = styled.form`
     color: #fff;
     display: block;
     font-size: 1.3rem;
-    font-family: 'Merriweather', sans-serif;
+    font-family: "Merriweather", sans-serif;
     padding: 1.1rem 2.5rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -86,8 +86,8 @@ const StyledForm = styled.form`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&');
+    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .join("&");
 }
 
 export class HomeForm extends Component {
@@ -97,40 +97,39 @@ export class HomeForm extends Component {
 
   handleChange = e => {
     //const stripLinksTags = '';
-    if (
-      e.target.name === 'sky' &&
-      e.target.value.toLowerCase().trim() === 'blue'
-    ) {
+    const val = e.target.value.trim();
+    const name = e.target.name;
+    if (name === "sky" && val.toLowerCase() === "blue") {
       this.setState({
-        [e.target.name]: e.target.value,
+        [`${name}`]: val,
         isSpammer: false
       });
     } else {
-      this.setState({ [e.target.name]: e.target.value });
+      this.setState({ [`${name}`]: val });
     }
   };
 
   handleRecaptcha = value => {
-    this.setState({ 'g-recaptcha-response': value });
+    this.setState({ "g-recaptcha-response": value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
 
-    if (!this.state.isSpammer && this.state.sky === 'blue') {
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    if (!this.state.isSpammer && this.state.sky === "blue") {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
-          'form-name': form.getAttribute('name'),
+          "form-name": form.getAttribute("name"),
           ...this.state
         })
       })
-        .then(() => navigate(form.getAttribute('action')))
+        .then(() => navigate(form.getAttribute("action")))
         .catch(error => alert(error));
     } else {
-      console.log('think again, roboprick.');
+      console.log("think again, roboprick.");
     }
   };
 
