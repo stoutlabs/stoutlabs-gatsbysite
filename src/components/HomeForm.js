@@ -90,20 +90,39 @@ function encode(data) {
     .join("&");
 }
 
+const spamQuestion = () => {
+  const vals = [3, 5, 2, 6];
+  const val1 = vals[Math.floor(Math.random() * 3)];
+  const val2 = vals[Math.floor(Math.random() * 3)];
+  const question = `What is ${val1} + ${val2}?`;
+  const answer = val1 + val2;
+  return { question, answer };
+};
+
 export class HomeForm extends Component {
-  state = {
-    isSpammer: true
-  };
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSpammer: true
+    };
+    this.spamvals = spamQuestion();
+  }
 
   handleChange = e => {
     //const stripLinksTags = '';
     const val = e.target.value.trim();
     const name = e.target.name;
-    if (name === "sky" && val.toLowerCase() === "blue") {
-      this.setState({
-        [`${name}`]: val,
-        isSpammer: false
-      });
+    if (name === "idiotremover") {
+      if (parseInt(val) === parseInt(this.spamvals.answer)) {
+        this.setState({
+          [`${name}`]: val,
+          isSpammer: false
+        });
+      } else {
+        this.setState({
+          isSpammer: true
+        });
+      }
     } else {
       this.setState({ [`${name}`]: val });
     }
@@ -117,7 +136,7 @@ export class HomeForm extends Component {
     e.preventDefault();
     const form = e.target;
 
-    if (!this.state.isSpammer && this.state.sky === "blue") {
+    if (!this.state.isSpammer) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -140,7 +159,7 @@ export class HomeForm extends Component {
         method="post"
         data-netlify="true"
         action="/success"
-        data-netlify-honeypot="nope-field"
+        data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
       >
         <input type="hidden" name="form-name" value="contact" />
@@ -150,7 +169,7 @@ export class HomeForm extends Component {
             name="name"
             placeholder="Your Name"
             aria-label="Name"
-            required="true"
+            required={true}
             onChange={this.handleChange}
           />
           <input
@@ -158,7 +177,7 @@ export class HomeForm extends Component {
             name="email"
             placeholder="Email Address"
             aria-label="Email"
-            required="true"
+            required={true}
             onChange={this.handleChange}
           />
           <input
@@ -166,16 +185,16 @@ export class HomeForm extends Component {
             name="phone"
             placeholder="Phone Number"
             aria-label="Phone"
-            required="true"
+            required={true}
             onChange={this.handleChange}
           />
           <div>
-            <label htmlFor="sky">Roses are red, violets are: </label>
             <input
               type="text"
-              name="sky"
-              aria-label="Sky"
-              required="true"
+              name="idiotremover"
+              aria-label="idiotremover"
+              required={true}
+              placeholder={this.spamvals.question}
               onChange={this.handleChange}
             />
           </div>
@@ -185,13 +204,13 @@ export class HomeForm extends Component {
             rows="5"
             cols="80"
             aria-label="Message"
-            required="true"
+            required={true}
             onChange={this.handleChange}
           />
         </fieldset>
 
         <div className="nope-holder">
-          <input name="nope-field" aria-label="Must leave blank" />
+          <input name="bot-field" aria-label="Must leave blank" />
         </div>
 
         <button type="submit">
