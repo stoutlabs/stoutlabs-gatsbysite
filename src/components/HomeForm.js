@@ -201,7 +201,6 @@ export class HomeForm extends Component {
               name="idiotremover"
               aria-label="idiotremover"
               required={true}
-              placeholder={this.state.spamvals.question}
               onChange={this.handleChange}
             />
           </div>
