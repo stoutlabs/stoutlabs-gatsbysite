@@ -91,9 +91,9 @@ function encode(data) {
 }
 
 const spamQuestion = () => {
-  const vals = [3, 5, 2, 6];
-  const val1 = vals[Math.floor(Math.random() * 3)];
-  const val2 = vals[Math.floor(Math.random() * 3)];
+  const vals = [3, 5, 2, 6, 1];
+  const val1 = vals[Math.floor(Math.random() * 5)];
+  const val2 = vals[Math.floor(Math.random() * 5)];
   const question = `What is ${val1} + ${val2}?`;
   const answer = val1 + val2;
   return { question, answer };
@@ -103,9 +103,9 @@ export class HomeForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isSpammer: true
+      isSpammer: true,
+      spamvals: spamQuestion()
     };
-    this.spamvals = spamQuestion();
   }
 
   handleChange = e => {
@@ -113,7 +113,7 @@ export class HomeForm extends Component {
     const val = e.target.value.trim();
     const name = e.target.name;
     if (name === "idiotremover") {
-      if (parseInt(val) === parseInt(this.spamvals.answer)) {
+      if (parseInt(val) === parseInt(this.state.spamvals.answer)) {
         this.setState({
           [`${name}`]: val,
           isSpammer: false
@@ -126,6 +126,12 @@ export class HomeForm extends Component {
     } else {
       this.setState({ [`${name}`]: val });
     }
+  };
+
+  handleSpammer = () => {
+    console.log("think again, roboprick.");
+    const newQuestion = spamQuestion();
+    this.setState(() => ({ spamvals: newQuestion }));
   };
 
   handleRecaptcha = value => {
@@ -148,7 +154,7 @@ export class HomeForm extends Component {
         .then(() => navigate(form.getAttribute("action")))
         .catch(error => alert(error));
     } else {
-      console.log("think again, roboprick.");
+      this.handleSpammer();
     }
   };
 
@@ -189,12 +195,13 @@ export class HomeForm extends Component {
             onChange={this.handleChange}
           />
           <div>
+            <label htmlFor="idiotremover">{this.state.spamvals.question}</label>
             <input
               type="text"
               name="idiotremover"
               aria-label="idiotremover"
               required={true}
-              placeholder={this.spamvals.question}
+              placeholder={this.state.spamvals.question}
               onChange={this.handleChange}
             />
           </div>
