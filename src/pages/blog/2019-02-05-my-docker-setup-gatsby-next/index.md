@@ -21,7 +21,7 @@ I'm probably late to the party on this one, but I recently started using [Docker
 
 However... while going through a couple of my recent Gatsby and NextJS projects this week to "Dockerize" them, I noticed that there didn't seem to be much information readily available on making Gatsby work with a node:alpine build. 
 
-Gatsby does offer [an extremely minimal Dockerfile](https://github.com/gatsbyjs/gatsby-docker) within their repo, based on alpine:edge, and it works perfectly well on a barebones build... but it will fail on a build if your project uses images with Gatsby's ***amazing*** built-in image handling functionality. (Due to Sharp's requirements, if I'm not mistaken.) This was obviously an issue for me...
+Gatsby does offer [an extremely minimal Dockerfile](https://github.com/gatsbyjs/gatsby-docker) within their repo (based on alpine:edge) but there is one glaring issue with it: it doesn't work. Even after some modifications – like installing node, gatsby-cli, and yarn – it definitely won't work if your project uses images with Gatsby's ***amazing*** built-in image handling functionality. (Mainly due to Sharp's requirements, if I'm not mistaken.) This was obviously an issue for me...
 
 ### Problem Solved!
 
