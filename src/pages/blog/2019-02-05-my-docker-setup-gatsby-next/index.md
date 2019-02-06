@@ -19,13 +19,15 @@ I'm probably late to the party on this one, but I recently started using [Docker
 
 ### But... There Was a Minor Hitch
 
-However... while going through a couple of my recent Gatsby and NextJS projects this week to "Dockerize" them, I noticed that there didn't seem to be much information readily available on making Gatsby work with a node:alpine build. 
+However... while going through a couple of my recent Gatsby and NextJS projects this week to "Dockerize" them, I noticed that there didn't seem to be much information readily available for making that happen. 
 
-Gatsby does offer [an extremely minimal Dockerfile](https://github.com/gatsbyjs/gatsby-docker) within their repo (based on alpine:edge) but there is one glaring issue with it: it doesn't work. Even after some modifications – like installing node, gatsby-cli, and yarn – it definitely won't work if your project uses images with Gatsby's ***amazing*** built-in image handling functionality. (Mainly due to Sharp's requirements, if I'm not mistaken.) This was obviously an issue for me...
+Gatsby does offer [a Docker setup](https://github.com/gatsbyjs/gatsby-docker) within their repo (based on alpine:edge), but to be blunt: it seemed needlessly complicated, and I could not make it work. I decided to create a custom one from an official node:alpine (latest) image... just something to use for a quick dev environment setup regardless of which computer I'm using. (If I wanted to deploy somewhere other than Netlify, I could quickly add an Nginx image/service in my docker-compose file and a super basic conf file.)
 
 ### Problem Solved!
 
-So... after hours of learning, research, and experimenting (and possibly some frustration), I present you with a working Dockerfile! It will create a fully functional Docker image that installs all the needed 'extras' in Apline Linux (latest) for building Gatsby (and NextJS) sites and apps.
+So... after hours of learning, research, and experimenting (and possibly some frustration), I present you with my version of a working Dockerfile! It will create a fully functional Docker image that installs all the needed 'extras' in Apline Linux (latest) for building Gatsby (and NextJS) sites and apps. Below that you'll find the docker-compose.yml file that I use along with it.
+
+Note: For NextJS sites, I simply change the final CMD and the port(s) to whatever I'm using for the site/app. (Usually 8080)
 
 ```docker
 FROM node:alpine
@@ -58,6 +60,8 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "8000:8000"
+      - "9929:9929"
+      - "9230:9230"
     volumes:
       - /app/node_modules
       - .:/app
