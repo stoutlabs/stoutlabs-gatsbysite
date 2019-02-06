@@ -21,7 +21,7 @@ I'm probably late to the party on this one, but I recently started using [Docker
 
 However... while going through a couple of my recent Gatsby and NextJS projects this week to "Dockerize" them, I noticed that there didn't seem to be much information readily available for making that happen. 
 
-Gatsby does offer [a Docker setup](https://github.com/gatsbyjs/gatsby-docker) within their repo (based on alpine:edge), but to be blunt: it seemed needlessly complicated, and I could not make it work. I decided to create a custom one from an official node:alpine (latest) image... just something to use for a quick dev environment setup regardless of which computer I'm using. (If I wanted to deploy somewhere other than Netlify, I could quickly add an Nginx image/service in my docker-compose file and a super basic conf file.)
+Gatsby does offer [a Docker setup](https://github.com/gatsbyjs/gatsby-docker) within their repo (based on alpine:edge), but to be blunt: it seemed needlessly complicated and vague, and I could not make it work for my purposes. I decided to create a custom one from an official node:alpine (latest) image... just something to use for a quick dev environment setup regardless of which computer I'm using. (If I wanted to deploy somewhere other than Netlify, I could quickly add on an Nginx image/service and a super basic conf file.)
 
 ### Problem Solved!
 
@@ -49,7 +49,7 @@ COPY . .
 CMD ["gatsby", "develop", "-H", "0.0.0.0" ]
 ```
 
-And my ```docker-compose.yml``` file:
+And my ```docker-compose.yml``` file. (Note the setting of ```GATSBY_WEBPACK_PUBLICPATH``` - this seemed to fix any HMR issues I was having when editing code.)
 
 ```yaml
 version: '3'
@@ -65,14 +65,9 @@ services:
     volumes:
       - /app/node_modules
       - .:/app
-  tests:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    volumes:
-      - /app/node_modules
-      - .:/app
-    command: ["yarn", "test"]
+    environment:
+      - NODE_ENV=development
+      - GATSBY_WEBPACK_PUBLICPATH=/
 ```
 
 So now, I just run ```docker-compose up``` and I'm ready to rock... whether I'm on my Macbook Pro or on my Windows desktop. Hopefully this helps you, too!
