@@ -25,7 +25,7 @@ const getSchemaOrgJSONLD = ({
         name: 'Daniel Stout'
       },
       description:
-        'StoutLabs is a web development and design company in Kingsport, TN.',
+        'Daniel Stout is a freelance JavaScript developer in Kingsport, TN.',
       publisher: 'StoutLabs'
     }
   ];
@@ -44,7 +44,7 @@ const getSchemaOrgJSONLD = ({
           streetAddress: '1509 Lamont St.'
         },
         description:
-          'Web design and development, digital marketing, and consulting. Located in the Tri-Cities, TN.',
+          'Freelance JavaScript web developer and consultant. Located in the Tri-Cities, TN.',
         name: 'StoutLabs',
         telephone: '423-343-4274',
         openingHours: 'Mo,Tu,We,Th,Fr 10:00-18:00',

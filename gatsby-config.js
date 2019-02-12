@@ -6,7 +6,7 @@ const config = require('./config/index');
 module.exports = {
   siteMetadata: {
     title:
-      'Daniel Stout: Web Developer - Websites, Apps, Programming • Tri-Cities TN and Remote',
+      'Daniel Stout: JavaScript Web Developer and Consultant - Tri-Cities TN and Remote',
     siteUrl: `https://www.stoutlabs.com`
   },
   plugins: [
