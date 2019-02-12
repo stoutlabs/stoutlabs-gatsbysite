@@ -40,7 +40,8 @@ class IndexPage extends Component {
       title: title,
       introBox1: content.intro_content_1,
       introBox2: content.intro_content_2,
-      introSummary: content.intro_summary
+      introSummary: content.intro_summary,
+      currently: content.currently
     };
 
     const toolData = {
@@ -84,6 +85,9 @@ export const query = graphql`
           html
         }
         intro_summary {
+          html
+        }
+        currently {
           html
         }
         featured_projects {

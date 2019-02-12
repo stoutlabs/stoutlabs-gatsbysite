@@ -147,6 +147,13 @@ export const IntroContent = ({ content }) => {
         />
       </div>
 
+      <div className="intro-box">
+        <HTMLContent
+          content={content.currently.html}
+          className="intro-content"
+        />
+      </div>
+
       <CTA url={'#projects'} element="projects" title="View My Work" isAnchor />
     </StyledIntroDiv>
   );
