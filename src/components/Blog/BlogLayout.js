@@ -1,19 +1,19 @@
-import React, { Component, Fragment } from 'react';
-import Helmet from 'react-helmet';
-import Waypoint from 'react-waypoint';
-import styled from 'styled-components';
+import React, { Component, Fragment } from "react";
+import Helmet from "react-helmet";
+import { Waypoint } from "react-waypoint";
+import styled from "styled-components";
 
-import BlogContainer from './BlogContainer';
-import BlogHeader from './BlogHeader';
-import BlogNav from './BlogNav';
-import Footer from '../Footer';
+import BlogContainer from "./BlogContainer";
+import BlogHeader from "./BlogHeader";
+import BlogNav from "./BlogNav";
+import Footer from "../Footer";
 
-import 'typeface-emilys-candy';
-import 'typeface-merriweather';
-import '../../assets/styles/index.scss';
-import config from '../../../config/index';
-import appleTouchIcon from '../../assets/apple-touch-icon.png';
-import favicon from '../../assets/favicon.ico';
+import "typeface-emilys-candy";
+import "typeface-merriweather";
+import "../../assets/styles/index.scss";
+import config from "../../../config/index";
+import appleTouchIcon from "../../assets/apple-touch-icon.png";
+import favicon from "../../assets/favicon.ico";
 
 const StyledHeading = styled.h1`
   font-size: 1.4rem;
@@ -52,8 +52,8 @@ class Layout extends Component {
         <Helmet
           title="Web Design and Development Blog | StoutLabs"
           meta={[
-            { name: 'description', content: config.description },
-            { name: 'keywords', content: config.keywords }
+            { name: "description", content: config.description },
+            { name: "keywords", content: config.keywords }
           ]}
         >
           <link rel="shortcut icon" href={favicon} />
@@ -62,13 +62,8 @@ class Layout extends Component {
 
         <BlogHeader siteTitle={config.title} />
         <BlogNav sticky={this.state.stickyNav} className="mininav" />
-        <Waypoint
-          onEnter={this._handleWaypointEnter}
-          onLeave={this._handleWaypointLeave}
-        />
-        <StyledHeading>
-          StoutLabs Blog: (Mostly) Web Development &amp; Design
-        </StyledHeading>
+        <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
+        <StyledHeading>StoutLabs Blog: (Mostly) Web Development &amp; Design</StyledHeading>
         <BlogContainer>{this.props.children}</BlogContainer>
         <Footer />
       </Fragment>
