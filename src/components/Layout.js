@@ -29,8 +29,6 @@ class Layout extends Component {
     this.setState(() => ({ stickyNav: true }));
   };
 
-  // <meta name="google-site-verification" content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo" />
-
   render() {
     return (
       <Fragment>
