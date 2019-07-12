@@ -1,4 +1,4 @@
-const _ = require('lodash');
+const slugify = require('slugify');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
@@ -22,7 +22,7 @@ exports.createPages = async ({ actions, graphql }) => {
     {
       allMarkdownRemark(
         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-        sort: { order: DESC, fields: [frontmatter___date] }
+        sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
         limit: 1000
       ) {
         edges {
@@ -46,10 +46,10 @@ exports.createPages = async ({ actions, graphql }) => {
   try {
     const posts = allBlogPosts.data.allMarkdownRemark.edges;
 
-    _.each(posts, (post, index) => {
-      const previous =
-        index === posts.length - 1 ? null : posts[index + 1].node;
-      const next = index === 0 ? null : posts[index - 1].node;
+    posts.forEach((post, index) => {
+      // set up prev/next links for each article
+      const previous = index === 0 ? null : posts[index - 1].node;
+      const next = index === posts.length - 1 ? null : posts[index + 1].node;
 
       createPage({
         path: `blog${post.node.fields.slug}`,
@@ -77,7 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const uniqueTags = [...new Set(tags)];
 
     uniqueTags.forEach(tag => {
-      const tagPath = `/tags/${_.kebabCase(tag)}/`;
+      const tagPath = `/tags/${slugify(tag)}/`;
 
       createPage({
         path: tagPath,
