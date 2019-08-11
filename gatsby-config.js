@@ -1,16 +1,15 @@
-require('dotenv').config({
+require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`
 });
-const config = require('./config/index');
+const config = require("./config/index");
 
 module.exports = {
   siteMetadata: {
-    title:
-      'Daniel Stout: JavaScript Web Developer and Consultant - Tri-Cities TN and Remote',
+    title: "Daniel Stout: JavaScript Web Developer and Consultant - Tri-Cities TN and Remote",
     siteUrl: `https://www.stoutlabs.com`
   },
   plugins: [
-    'gatsby-plugin-react-helmet',
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-styled-components`,
     {
@@ -21,51 +20,35 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-source-prismic',
+      resolve: "gatsby-source-prismic",
       options: {
-        repositoryName: 'stoutlabs2018',
+        repositoryName: "stoutlabs2018",
         accessToken: `${process.env.API_KEY}`,
-        linkResolver: ({ node, key, value }) => doc => {
-          // console.log("doc.type:", doc.type);
-          // Your link resolver
-          //if (doc.type === "theproject") return "/project/" + doc.uid;
-          //if (doc.type === "page") return "/" + doc.uid;
-          // Fallback for other types, in case new custom types get created
-          return '/doc/' + doc.id;
+        schemas: {
+          homepage: require("./src/schemas/homepage.json"),
+          project: require("./src/schemas/project.json"),
+          toolbelt: require("./src/schemas/toolbelt.json")
         },
-        htmlSerializer: ({ node, key, value }) => (
-          type,
-          element,
-          content,
-          children
-        ) => {
-          //  switch (type) {
-          //    // Add a class to paragraph elements
-          //    case Elements.paragraph:
-          //      return '<p class="paragraph-class">' + children.join('') + '</p>'
-          //    // Don't wrap images in a <p> tag
-          //    case Elements.image:
-          //      return '<img src="' + element.url + '" alt="' + element.alt + '">'
-          //    // Add a class to hyperlinks
-          //    case Elements.hyperlink:
-          //      var target = element.data.target
-          //        ? 'target="' + element.data.target + '" rel="noopener"'
-          //        : ''
-          //      var linkUrl = PrismicDOM.Link.url(element.data, linkResolver)
-          //      return (
-          //        '<a class="some-link"' +
-          //        target +
-          //        ' href="' +
-          //        linkUrl +
-          //        '">' +
-          //        content +
-          //        '</a>'
-          //      )
-          //    // Return null to stick with the default behavior for all other elements
-          //    default:
-          //      return null
-          //  }
-        }
+        linkResolver: ({ node, key, value }) => doc => {
+          // Your link resolver
+        },
+        fetchLinks: [
+          // Your list of links
+        ],
+        htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
+          // Your HTML serializer
+        },
+        lang: "*",
+        shouldNormalizeImage: ({ node, key, value }) => {
+          // Return true to normalize the image or false to skip.
+          // console.log("value: ", value);
+          // if (value.url && value.url.includes(".svg")) {
+          //   console.log("value: ", value);
+          //   return false;
+          // }
+          return true;
+        },
+        typePathsFilenamePrefix: "prismic-typepaths-stoutlabs"
       }
     },
     `gatsby-plugin-sharp`,
@@ -77,40 +60,22 @@ module.exports = {
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
-              // Class prefix for <pre> tags containing syntax highlighting;
-              // defaults to 'language-' (eg <pre class="language-js">).
-              // If your site loads Prism into the browser at runtime,
-              // (eg for use with libraries like react-live),
-              // you may use this to prevent Prism from re-processing syntax.
-              // This is an uncommon use-case though;
-              // If you're unsure, it's best to use the default value.
-              classPrefix: 'language-',
-              // This is used to allow setting a language for inline code
-              // (i.e. single backticks) by creating a separator.
-              // This separator is a string and will do no white-space
-              // stripping.
-              // A suggested value for English speakers is the non-ascii
-              // character '›'.
-              inlineCodeMarker: '›',
-              // This lets you set up language aliases.  For example,
-              // setting this to '{ sh: "bash" }' will let you use
-              // the language "sh" which will highlight using the
-              // bash highlighter.
-              aliases: {}
+              classPrefix: "language-",
+              inlineCodeMarker: "›",
+              aliases: {
+                js: "javascript"
+              }
             }
           },
           {
-            resolve: 'gatsby-remark-copy-linked-files',
+            resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: 'images'
+              destinationDir: "images"
             }
           },
           {
             resolve: `gatsby-remark-images`,
             options: {
-              // It's important to specify the maxWidth (in pixels) of
-              // the content container as this plugin uses this as the
-              // base for generating different widths of each image.
               maxWidth: 750,
               linkImagesToOriginal: false,
               quality: 85,
@@ -138,16 +103,16 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-robots-txt',
+      resolve: "gatsby-plugin-robots-txt",
       options: {
-        host: 'https://www.stoutlabs.com',
-        sitemap: 'https://www.stoutlabs.com/sitemap.xml',
+        host: "https://www.stoutlabs.com",
+        sitemap: "https://www.stoutlabs.com/sitemap.xml",
         env: {
           development: {
-            policy: [{ userAgent: '*', disallow: ['/'] }]
+            policy: [{ userAgent: "*", disallow: ["/"] }]
           },
           production: {
-            policy: [{ userAgent: '*', allow: '/' }]
+            policy: [{ userAgent: "*", allow: "/" }]
           }
         }
       }
@@ -158,10 +123,10 @@ module.exports = {
         name: config.title,
         short_name: config.titleshort,
         description: config.description,
-        start_url: '/',
-        background_color: '#141313',
-        theme_color: '#99d7e1',
-        display: 'minimal-ui',
+        start_url: "/",
+        background_color: "#141313",
+        theme_color: "#99d7e1",
+        display: "minimal-ui",
         icons: [
           {
             src: `/site-images/android-chrome-192x192.jpg`,

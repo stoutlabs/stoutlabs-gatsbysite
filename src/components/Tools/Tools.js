@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Img  from "gatsby-image";
 
 // import ReactLogo from '../../assets/images/react.svg';
 // import GatsbyLogo from '../../assets/images/gatsby.svg';
@@ -93,8 +94,8 @@ const ToolsSection = styled.section`
           border: none;
           padding: 1rem;
 
-          img {
-            padding: 0 0.4rem 0 0;
+          div.gatsby-image-wrapper {
+            margin: 0 0.4rem 0 0;
           }
         }
       }
@@ -103,7 +104,7 @@ const ToolsSection = styled.section`
 `;
 
 export const Tools = ({ content }) => {
-  const faves = content.faves.document[0].data;
+  const faves = content.faves.document.data;
   const boxes = content.boxes;
 
   return (
@@ -123,8 +124,10 @@ export const Tools = ({ content }) => {
             return (
               <li key={item.tool_name}>
                 {/* <img src={ReactLogo} alt="ReactJS" /> */}
+                <Img fixed={item.logo.localFile.childImageSharp.fixed} />
+                {/* <Img fluid={item.logo.localFile.childImageSharp.fluid} /> */}
 
-                <img src={item.logo.localFile.publicURL} alt={item.tool_name} />
+                {/* <img src={item.logo.localFile.publicURL} alt={item.tool_name} /> */}
                 <p>{item.tool_name}</p>
               </li>
             );
@@ -133,7 +136,7 @@ export const Tools = ({ content }) => {
       </div>
 
       {boxes.map(({ box }) => {
-        const boxContent = box.document[0].data;
+        const boxContent = box.document.data;
         return (
           <div className="tools sub" key={boxContent.toolbelt_title}>
             {/*  eslint-disable-next-line */}

@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import { graphql } from 'gatsby';
+import React, { Component } from "react";
+import styled from "styled-components";
+import { graphql } from "gatsby";
 
-import Contact from '../components/Contact';
-import Footer from '../components/Footer';
-import IntroContent from '../components/IntroContent';
-import Layout from '../components/Layout';
-import RecentsList from '../components/Projects/RecentsList';
-import Seo from '../components/Seo';
-import Tools from '../components/Tools/Tools.js';
+import Contact from "../components/Contact";
+import Footer from "../components/Footer";
+import IntroContent from "../components/IntroContent";
+import Layout from "../components/Layout";
+import RecentsList from "../components/Projects/RecentsList";
+import Seo from "../components/Seo";
+import Tools from "../components/Tools/Tools.js";
 
 const StyledHR = styled.hr`
   border: none;
@@ -93,36 +93,38 @@ export const query = graphql`
         featured_projects {
           project {
             document {
-              uid
-              data {
-                title
-                thumbnail {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 650, quality: 85) {
-                        ...GatsbyImageSharpFluid_withWebp
+              ... on PrismicProject {
+                uid
+                data {
+                  title
+                  thumbnail {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 650, quality: 85) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
                       }
                     }
                   }
-                }
-                full_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 800, quality: 81) {
-                        ...GatsbyImageSharpFluid_withWebp
+                  full_image {
+                    localFile {
+                      childImageSharp {
+                        fluid(maxWidth: 800, quality: 81) {
+                          ...GatsbyImageSharpFluid_withWebp
+                        }
                       }
                     }
                   }
-                }
-                body {
-                  html
-                }
-                tools
-                url {
-                  url
-                }
-                source {
-                  url
+                  body {
+                    html
+                  }
+                  tools
+                  url {
+                    url
+                  }
+                  source {
+                    url
+                  }
                 }
               }
             }
@@ -130,15 +132,22 @@ export const query = graphql`
         }
         best_tools {
           document {
-            data {
-              toolbelt_title
-              toolbelt_item {
-                logo {
-                  localFile {
-                    publicURL
+            ... on PrismicToolbelt {
+              id
+              data {
+                toolbelt_title
+                toolbelt_item {
+                  tool_name
+                  logo {
+                    localFile {
+                      childImageSharp {
+                        fixed(width: 40, quality: 90) {
+                          ...GatsbyImageSharpFixed
+                        }
+                      }
+                    }
                   }
                 }
-                tool_name
               }
             }
           }
@@ -146,10 +155,12 @@ export const query = graphql`
         tools_boxes {
           box {
             document {
-              data {
-                toolbelt_title
-                toolbelt_item {
-                  tool_name
+              ... on PrismicToolbelt {
+                data {
+                  toolbelt_title
+                  toolbelt_item {
+                    tool_name
+                  }
                 }
               }
             }

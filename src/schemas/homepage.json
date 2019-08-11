@@ -1,0 +1,84 @@
+{
+  "Main": {
+    "main_title": {
+      "type": "Text",
+      "config": {
+        "label": "Main Title"
+      }
+    },
+    "intro_summary": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Intro Summary"
+      }
+    },
+    "intro_content_1": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Intro Content 1",
+        "placeholder": "This is the \"I am:\" content..."
+      }
+    },
+    "intro_content_2": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, list-item, o-list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Intro Content 2",
+        "placeholder": "This is the \"You are:\" content..."
+      }
+    },
+    "currently": {
+      "type": "StructuredText",
+      "config": {
+        "multi": "paragraph, heading3, heading4, heading5, heading6, strong, em, hyperlink, image, list-item, o-list-item",
+        "allowTargetBlank": true,
+        "label": "Currently"
+      }
+    },
+    "featured_projects": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "project": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["project"],
+              "label": "Project"
+            }
+          }
+        },
+        "label": "Featured Projects"
+      }
+    },
+    "best_tools": {
+      "type": "Link",
+      "config": {
+        "select": "document",
+        "customtypes": ["toolbelt"],
+        "label": "Best Tools"
+      }
+    },
+    "tools_boxes": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "box": {
+            "type": "Link",
+            "config": {
+              "select": "document",
+              "customtypes": ["toolbelt"],
+              "label": "box"
+            }
+          }
+        },
+        "label": "Tools Boxes"
+      }
+    }
+  }
+}
