@@ -60,7 +60,7 @@ export class RecentsList extends Component {
       return {
         projects: this.props.projects,
         isLoaded: true,
-        activeDetails: this.props.projects[0].project.document[0].data
+        activeDetails: this.props.projects[0].project.document.data
       };
     });
   };
@@ -92,8 +92,8 @@ export class RecentsList extends Component {
         <div className="recents-list">
           {this.state.isLoaded &&
             this.state.projects.map((itemRaw, index) => {
-              const item = itemRaw.project.document[0].data;
-              const uid = itemRaw.project.document[0].uid;
+              const item = itemRaw.project.document.data;
+              const uid = itemRaw.project.document.uid;
 
               return (
                 <RecentItem

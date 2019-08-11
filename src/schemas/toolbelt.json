@@ -1,0 +1,32 @@
+{
+  "Main": {
+    "toolbelt_title": {
+      "type": "Text",
+      "config": {
+        "label": "Toolbelt Title"
+      }
+    },
+    "toolbelt_item": {
+      "type": "Group",
+      "config": {
+        "fields": {
+          "logo": {
+            "type": "Image",
+            "config": {
+              "constraint": {},
+              "thumbnails": [],
+              "label": "Logo"
+            }
+          },
+          "tool_name": {
+            "type": "Text",
+            "config": {
+              "label": "Tool Name"
+            }
+          }
+        },
+        "label": "Toolbelt Item"
+      }
+    }
+  }
+}

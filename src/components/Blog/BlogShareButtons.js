@@ -5,12 +5,6 @@ import {
   FacebookShareCount,
   TwitterIcon,
   TwitterShareButton,
-  LinkedinIcon,
-  LinkedinShareButton,
-  LinkedinShareCount,
-  PinterestIcon,
-  PinterestShareButton,
-  PinterestShareCount,
   EmailIcon,
   EmailShareButton
 } from 'react-share';
@@ -57,7 +51,7 @@ const StyledShareButtons = styled.div`
 
 export class BlogShareButtons extends Component {
   render() {
-    const { postNode, postPath, mobile, shareImg = false } = this.props;
+    const { postNode, postPath, mobile } = this.props;
     const post = postNode.frontmatter;
     const url = urljoin(config.url, config.pathPrefix, 'blog', postPath);
     const iconSize = mobile ? 36 : 48;
@@ -75,36 +69,12 @@ export class BlogShareButtons extends Component {
             <TwitterIcon round size={iconSize} />
           </TwitterShareButton>
 
-          {shareImg && (
-            <PinterestShareButton
-              url={url}
-              title={post.title}
-              media={urljoin(config.url, shareImg)}
-            >
-              <PinterestIcon round size={iconSize} />
-              <PinterestShareCount url={url}>
-                {shareCount => renderShareCount(shareCount)}
-              </PinterestShareCount>
-            </PinterestShareButton>
-          )}
-
           <FacebookShareButton url={url} quote={postNode.excerpt}>
             <FacebookIcon round size={iconSize} />
             <FacebookShareCount url={url}>
               {shareCount => renderShareCount(shareCount)}
             </FacebookShareCount>
           </FacebookShareButton>
-
-          <LinkedinShareButton
-            url={url}
-            title={post.title}
-            description={postNode.excerpt}
-          >
-            <LinkedinIcon round size={iconSize} />
-            <LinkedinShareCount url={url}>
-              {shareCount => renderShareCount(shareCount)}
-            </LinkedinShareCount>
-          </LinkedinShareButton>
 
           <EmailShareButton
             subject="Check Out This Link From StoutLabs.com"
