@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import Img from 'gatsby-image';
-import { kebabCase } from 'lodash';
-import { Link } from 'gatsby';
+import React from "react";
+import styled from "styled-components";
+import Img from "gatsby-image";
+import { kebabCase } from "lodash";
+import { Link } from "gatsby";
 
 const StyledFeatureLarge = styled.div`
   div.thumbnail {
@@ -48,7 +48,7 @@ const StyledFeatureLarge = styled.div`
         line-height: 1.25;
         margin: 0.3rem 0 0.25rem;
         padding: 0 0 0.25rem;
-        font-family: 'Merriweather', serif;
+        font-family: "Merriweather", serif;
         text-align: left;
       }
 
@@ -127,15 +127,17 @@ const StyledFeatureLarge = styled.div`
 `;
 
 export default ({ node, title }) => {
-  const [year, month, day] = node.frontmatter.rawdate.split('-');
+  const [year, month, day] = node.frontmatter.rawdate.split("-");
 
   return (
     <StyledFeatureLarge>
-      <div className="thumbnail">
-        <Link to={`/blog${node.fields.slug}`}>
-          <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
-        </Link>
-      </div>
+      {node.frontmatter.featureimg && (
+        <div className="thumbnail">
+          <Link to={`/blog${node.fields.slug}`}>
+            <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
+          </Link>
+        </div>
+      )}
 
       <div className="details">
         <div className="details-date">
@@ -152,7 +154,7 @@ export default ({ node, title }) => {
           <div className="meta">
             <span className="readtime">
               time to read: {node.timeToRead} min
-              {node.timeToRead > 1 ? 's' : ''}
+              {node.timeToRead > 1 ? "s" : ""}
             </span>
             <span className="tags">
               {node.frontmatter.tags.map(tag => (
