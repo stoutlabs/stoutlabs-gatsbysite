@@ -16,7 +16,7 @@ const BlogPost = ({ data, pageContext }) => {
       <Seo
         postData={post}
         isBlogPage={true}
-        postImage={post.frontmatter.featureimg.childImageSharp.fluid.src}
+        postImage={post.frontmatter.featureimg ?post.frontmatter.featureimg.childImageSharp.fluid.src : null}
       />
       <Post
         content={post.html}
@@ -27,11 +27,13 @@ const BlogPost = ({ data, pageContext }) => {
         title={post.frontmatter.title}
         prev={pageContext.previous}
         next={pageContext.next}
-        featureimg={post.frontmatter.featureimg}
+        featureimg={post.frontmatter.featureimg || null}
         timetoread={post.timeToRead}
         slug={post.fields.slug}
         allNode={post}
-        shareImg={post.frontmatter.featureimg.childImageSharp.fluid.src}
+        shareImg={
+          post.frontmatter.featureimg ? post.frontmatter.featureimg.childImageSharp.fluid.src : null
+        }
       />
     </BlogLayout>
   );
