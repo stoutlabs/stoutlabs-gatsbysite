@@ -3,9 +3,9 @@ templateKey: blog-post
 title: My Gatsby Articles on Alligator.io
 date: 2019-08-14
 description: I've been writing some developer posts on Gatsby over at Alliator.io, and you should go check 'em out!
-featureimg: 
+featureimg: gatsby_alligator.jpg
 tags:
-  - gatsby
+  - gatsbyjs
   - news
 ---
 
