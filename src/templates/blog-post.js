@@ -6,7 +6,7 @@ import BlogLayout from '../components/Blog/BlogLayout';
 import Post from '../components/Blog/Post';
 import { HTMLContent } from '../components/Content';
 import Seo from '../components/Seo';
-import '../assets/styles/prism-twilight.css';
+import '../assets/styles/dracula.css';
 
 const BlogPost = ({ data, pageContext }) => {
   const { markdownRemark: post } = data;

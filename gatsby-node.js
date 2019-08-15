@@ -48,8 +48,8 @@ exports.createPages = async ({ actions, graphql }) => {
 
     posts.forEach((post, index) => {
       // set up prev/next links for each article
-      const previous = index === 0 ? null : posts[index - 1].node;
       const next = index === posts.length - 1 ? null : posts[index + 1].node;
+      const previous = index === 0 ? null : posts[index - 1].node;
 
       createPage({
         path: `blog${post.node.fields.slug}`,
@@ -68,7 +68,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     let tags = [];
 
-    allBlogPosts.data.allMarkdownRemark.edges.forEach(({ node }) => {
+    posts.forEach(({ node }) => {
       if (node.frontmatter.tags !== undefined) {
         tags = tags.concat(node.frontmatter.tags);
       }
@@ -77,6 +77,7 @@ exports.createPages = async ({ actions, graphql }) => {
     const uniqueTags = [...new Set(tags)];
 
     uniqueTags.forEach(tag => {
+      // console.log("tag: ", tag);
       const tagPath = `/tags/${slugify(tag)}/`;
 
       createPage({

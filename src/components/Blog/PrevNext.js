@@ -9,25 +9,50 @@ const StyledPrevNext = styled.div`
 
   ul {
     display: flex;
+    flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     list-style: none;
     padding: 0;
     margin: 0;
     width: 100%;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      align-items: flex-start;
+    }
   }
 
   li {
     margin: 0;
     width: 50%;
+    text-align: center;
+    margin-bottom: 1rem;
+
+    @media screen and (min-width: 768px) {
+      text-align: left;
+    }
+
+    span.label {
+      font-size: 14px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
 
     a {
       display: flex;
       flex-direction: row;
       padding: 0.3rem;
       color: #ff7485;
-      text-align: left;
+      text-align: center;
       font-size: 0.95rem;
+      align-items: center;
+      justify-content: flex-start;
+
+      @media screen and (min-width: 768px) {
+        text-align: left;
+      }
 
       &:visited {
         color: #ff7485;
@@ -40,9 +65,20 @@ const StyledPrevNext = styled.div`
         padding: 0 1rem 0 0;
       }
     }
+  }
 
-    a.next {
+  li.next {
+    @media screen and (min-width: 768px) {
       text-align: right;
+    }
+
+    a {
+      text-align: center;
+      justify-content: flex-end;
+
+      @media screen and (min-width: 768px) {
+        text-align: right;
+      }
 
       span {
         padding: 0 0 0 1rem;
@@ -57,7 +93,8 @@ export const PrevNext = ({ prev, next }) => {
       <ul>
         {prev !== null ? (
           <li>
-            <Link to={'/blog' + prev.fields.slug + '#top'} rel="prev">
+            <span className="label">Older</span>
+            <Link to={"/blog" + prev.fields.slug + "#top"} rel="prev">
               <span>&larr;</span>
               {prev.frontmatter.title}
             </Link>
@@ -67,12 +104,9 @@ export const PrevNext = ({ prev, next }) => {
         )}
 
         {next !== null ? (
-          <li>
-            <Link
-              to={'/blog' + next.fields.slug + '#top'}
-              rel="next"
-              className="next"
-            >
+          <li className="next">
+            <span className="label">Newer</span>
+            <Link to={"/blog" + next.fields.slug + "#top"} rel="next">
               {next.frontmatter.title}
               <span>&rarr;</span>
             </Link>

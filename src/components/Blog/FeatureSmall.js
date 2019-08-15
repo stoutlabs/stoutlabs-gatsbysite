@@ -72,11 +72,13 @@ const StyledFeatureSmall = styled.div`
 export default ({ node, title }) => {
   return (
     <StyledFeatureSmall>
-      <div className="thumbnail">
-        <Link to={`/blog${node.fields.slug}`}>
-          <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
-        </Link>
-      </div>
+      {node.frontmatter.featureimg && (
+        <div className="thumbnail">
+          <Link to={`/blog${node.fields.slug}`}>
+            <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
+          </Link>
+        </div>
+      )}
 
       <div className="summary-content">
         <h3>
@@ -87,10 +89,10 @@ export default ({ node, title }) => {
           <span className="date">{node.frontmatter.date}</span>
           <span className="readtime">
             time to read: {node.timeToRead} min
-            {node.timeToRead > 1 ? 's' : ''}
+            {node.timeToRead > 1 ? "s" : ""}
           </span>
           <span className="tags">
-            in:{' '}
+            in:{" "}
             {node.frontmatter.tags.map(tag => (
               <Link to={`/tags/${kebabCase(tag)}`} key={tag + `tag`}>
                 {tag}
@@ -101,7 +103,7 @@ export default ({ node, title }) => {
 
         <p className="desc">{node.frontmatter.description} </p>
         <p>
-          <Link to={`/blog${node.fields.slug}`}>Read &gt;</Link>{' '}
+          <Link to={`/blog${node.fields.slug}`}>Read &gt;</Link>{" "}
         </p>
       </div>
     </StyledFeatureSmall>
