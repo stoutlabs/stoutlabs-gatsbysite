@@ -63,7 +63,8 @@ module.exports = {
               classPrefix: "language-",
               inlineCodeMarker: "›",
               aliases: {
-                js: "javascript"
+                js: "javascript",
+                sh: "bash"
               }
             }
           },

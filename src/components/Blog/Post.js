@@ -27,21 +27,29 @@ const StyledPostContainer = styled.div`
       padding: 0;
     }
 
+    h1,
     h2,
     h3,
     h4 {
-      font-size: 2rem;
-      font-family: 'Merriweather', serif;
+      font-size: 1.6rem;
+      font-family: "Merriweather", serif;
       line-height: 1.33;
 
       @media screen and (min-width: 960px) {
-        font-size: 2.5rem;
+        font-size: 1.9rem;
         line-height: 1.4;
       }
     }
 
+    h1 {
+      font-size: 2.2rem;
+      color: #e95d55;
+    }
+
     h2 {
       color: #e33f52;
+      margin: 0 0 1.8rem;
+      border-bottom: 1px solid #e33f52;
     }
 
     p.post-date {
@@ -59,14 +67,14 @@ const StyledPostContainer = styled.div`
       margin: 0;
 
       h3 {
-        font-size: 1.66rem;
+        font-size: 1.4rem;
         margin: 0;
         line-height: 1.33;
         text-align: left;
         padding: 0 0 1rem;
 
         @media screen and (min-width: 960px) {
-          font-size: 1.8rem;
+          font-size: 1.6rem;
           padding-top: 1.5rem;
         }
       }
@@ -77,7 +85,7 @@ const StyledPostContainer = styled.div`
         padding: 0.5rem 0 0.75rem;
 
         @media screen and (min-width: 960px) {
-          font-size: 1.6rem;
+          font-size: 1.45rem;
         }
       }
 
@@ -86,6 +94,22 @@ const StyledPostContainer = styled.div`
         font-size: 1.15rem;
         line-height: 1.8;
         letter-spacing: 0.01rem;
+      }
+
+      p.filelabel {
+        text-align: right;
+        padding: 0;
+        margin: 0 0 6px;
+        font-size: 15px;
+        font-weight: 600;
+        /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; */
+        font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+        color: #99d7e1;
+
+        span {
+          background: rgba(250,250,250,0.1);
+          padding: 0.33em 0.66em;
+        }
       }
 
       ul {
@@ -107,6 +131,14 @@ const StyledPostContainer = styled.div`
         &:hover {
           color: #ea5d55;
         }
+      }
+      strong,
+      b {
+        font-weight: bold;
+      }
+      em,
+      i {
+        font-style: italic;
       }
     }
 
@@ -163,7 +195,7 @@ const Post = ({
     <StyledPostSection className="section-post">
       <StyledPostContainer className="blog-post-container">
         <div className="blog-post">
-          <h2>{title}</h2>
+          <h1>{title}</h1>
           <p className="post-date">
             {date} |{' '}
             <span className="readtime">
