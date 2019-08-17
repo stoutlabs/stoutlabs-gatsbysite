@@ -229,7 +229,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
               <h4>
                 <FontAwesomeIcon icon={faExternalLinkAlt} /> Links:
               </h4>
-              {details.source ? (
+              {details.source && details.source.url ? (
                 <p>
                   <a
                     href={details.source.url}
