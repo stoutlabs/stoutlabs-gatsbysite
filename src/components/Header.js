@@ -81,13 +81,15 @@ const StyledHeader = styled.div`
     margin: 2rem 0;
 
     p {
-      font-size: 1.4rem;
+      font-size: 1.25rem;
       line-height: 1.5;
       margin: 0 0 1.6rem;
       color: #febcb8;
+      text-align: center;
 
-      @media screen and (min-width: 960px) {
-        font-size: 1.3rem;
+      @media screen and (min-width: 1200px) {
+        text-align: right;
+        font-size: 1.4rem;
       }
 
       em {

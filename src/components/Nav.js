@@ -1,6 +1,7 @@
 import React from 'react';
 import Scrollspy from 'react-scrollspy';
 import styled from 'styled-components';
+import { Link } from "gatsby";
 
 import Scroll from './Scroll';
 
@@ -13,13 +14,14 @@ const StyledNav = styled.nav`
     align-items: center;
     margin: 0 0 1.5rem;
     padding: 1rem 0 0;
+    flex-wrap: wrap;
 
-    @media screen and (min-width: 960px) {
+    @media screen and (min-width: 1200px) {
       justify-content: flex-end;
     }
 
     li {
-      margin: 0 0.5rem 0 0;
+      margin: 0 0.5rem 0.66rem 0;
       padding-right: 0.5rem;
       border-right: 1px solid rgba(254, 241, 241, 0.5);
 
@@ -85,7 +87,7 @@ export const Nav = ({ sticky, className }) => {
   return (
     <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
       <Scrollspy
-        items={['intro', 'projects', 'tools', 'contact']}
+        items={["intro", "projects", "tools", "contact"]}
         currentClassName="active"
         offset={sticky ? -50 : 0}
       >
@@ -108,6 +110,9 @@ export const Nav = ({ sticky, className }) => {
           <Scroll type="id" element="contact" offset={sticky ? -50 : 0}>
             <a href="#contact">Contact</a>
           </Scroll>
+        </li>
+        <li>
+          <Link to="/blog">Blog</Link>
         </li>
       </Scrollspy>
     </StyledNav>
