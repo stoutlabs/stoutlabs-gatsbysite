@@ -2,6 +2,14 @@ const slugify = require('slugify');
 const path = require('path');
 const { createFilePath } = require('gatsby-source-filesystem');
 
+exports.onCreateWebpackConfig = ({ stage, actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: { "react-dom": "@hot-loader/react-dom" }
+    }
+  });
+};
+
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 

@@ -12,6 +12,15 @@ import { faEnvelope, faPenSquare } from '@fortawesome/free-solid-svg-icons';
 import styled from 'styled-components';
 
 const StyledIcons = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  
+  @media screen and (min-width: 1200px) {
+    justify-content: flex-end;
+  }
+
   a {
     margin: 0 0 0 0.66rem;
     color: #fef1f1;

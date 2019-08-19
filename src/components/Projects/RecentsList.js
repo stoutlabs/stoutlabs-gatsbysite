@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
-import RecentItem from './RecentItem';
-import DetailsBox from './DetailsBox';
+import RecentItem from "./RecentItem";
+import DetailsBox from "./DetailsBox";
 
 const StyledRecents = styled.section`
   div.recents-list {
@@ -89,6 +89,11 @@ export class RecentsList extends Component {
       <StyledRecents id="projects">
         <h3>Recent Projects</h3>
 
+        <p>
+          Below are several of my <i>public-facing</i> projects. Please keep in mind that much of my
+          work is <b>privately</b> contracted, and is under NDA and/or not publicly accessible.
+        </p>
+
         <div className="recents-list">
           {this.state.isLoaded &&
             this.state.projects.map((itemRaw, index) => {
@@ -108,17 +113,16 @@ export class RecentsList extends Component {
         </div>
 
         <p className="other-projects">
-          <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP)
-          available upon request.
+          <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP) available upon request.
         </p>
 
         <ProjectOverlay
-          className={this.state.isViewing ? 'show' : 'hide'}
+          className={this.state.isViewing ? "show" : "hide"}
           onClick={this.hideDetails}
         />
         <DetailsBox
           details={this.state.activeDetails}
-          className={this.state.isViewing ? 'active' : ''}
+          className={this.state.isViewing ? "active" : ""}
           handleClose={this.hideDetails}
         />
       </StyledRecents>
