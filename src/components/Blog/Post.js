@@ -75,7 +75,7 @@ const StyledPostContainer = styled.div`
 
         @media screen and (min-width: 960px) {
           font-size: 1.6rem;
-          padding-top: 1.5rem;
+          padding-top: 0.5rem;
         }
       }
 
@@ -94,6 +94,10 @@ const StyledPostContainer = styled.div`
         font-size: 1.15rem;
         line-height: 1.8;
         letter-spacing: 0.01rem;
+      }
+
+      p {
+        margin-bottom: 1.6rem;
       }
 
       p.filelabel {
