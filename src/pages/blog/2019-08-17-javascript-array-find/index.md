@@ -43,9 +43,9 @@ The `find` method will iterate through each element in an array, using each elem
 Let's say we need to search this data for an element having the name `Erica` and works in `sales`:
 
 ```js
-const found = employees.find((el => el.name === `Erica` && el.department === "sales");
+const found = employees.find((el => el.name === "Erica" && el.department === "sales");
 ```
-or, the same thing in a more verbose form:
+or, you could do the same thing in a more verbose form:
 
 ```js
 const found = employees.find(el => {
