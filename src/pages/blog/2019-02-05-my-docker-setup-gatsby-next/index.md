@@ -33,6 +33,8 @@ So... after hours of learning, research, and experimenting (and possibly some fr
 
 Note: For NextJS sites, I simply change the final CMD and the port(s) to whatever I'm using for the site/app. (Usually 8080)
 
+<p class="filelabel"><span>Dockerfile</span></p>
+
 ```docker
 FROM node:alpine
 
@@ -55,13 +57,15 @@ CMD ["gatsby", "develop", "-H", "0.0.0.0" ]
 
 And my ```docker-compose.yml``` file. (Note the setting of ```GATSBY_WEBPACK_PUBLICPATH``` - this seemed to fix any HMR issues I was having when editing code.) Edit: This currently doesn't fix the issue in Windows.
 
+<p class="filelabel"><span>docker-compose.yml</span></p>
+
 ```yaml
 version: '3'
 services:
   web:
     build:
       context: .
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
       - "8000:8000"
       - "9929:9929"
