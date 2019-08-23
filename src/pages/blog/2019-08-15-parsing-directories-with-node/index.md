@@ -5,7 +5,7 @@ date: 2019-08-15
 description: This short how-to post demonstrates a method to parse a directory of files with Node.js
 featureimg: feat_parsingNode.jpg
 tags:
-  - how-to
+  - quick lesson
   - nodejs
   - javascript
   - file system
