@@ -32,11 +32,11 @@ const StyledPostContainer = styled.div`
     h3,
     h4 {
       font-size: 1.6rem;
-      font-family: "Merriweather", serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       line-height: 1.33;
 
       @media screen and (min-width: 960px) {
-        font-size: 1.9rem;
+        font-size: 2rem;
         line-height: 1.4;
       }
     }
@@ -74,7 +74,7 @@ const StyledPostContainer = styled.div`
         padding: 0 0 1rem;
 
         @media screen and (min-width: 960px) {
-          font-size: 1.6rem;
+          font-size: 1.5rem;
           padding-top: 0.5rem;
         }
       }
@@ -91,8 +91,8 @@ const StyledPostContainer = styled.div`
 
       p,
       li {
-        font-size: 1.15rem;
-        line-height: 1.8;
+        font-size: 1.10rem;
+        line-height: 1.75;
         letter-spacing: 0.01rem;
       }
 
