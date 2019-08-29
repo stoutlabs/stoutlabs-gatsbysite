@@ -34,11 +34,13 @@ const StyledSummary = styled.article`
     flex: 1;
 
     h3 {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       line-height: 1.25;
       margin: 0.3rem 0 0.25rem;
       padding: 0 0 0.25rem;
-      font-family: 'Merriweather', serif;
+      letter-spacing: unset;
+      /* font-family: 'Merriweather', serif; */
+      font-family: Arial, Helvetica, sans-serif;
       text-align: left;
     }
 
