@@ -245,7 +245,7 @@ Now we just need to edit the `Faq.js` component to add the animations. Below is 
 <p class="filelabel"><span>/src/components/Faqs/Faq.js</span></p>
 
 ```js
-{ /* highlight-range{2-3,10-15,23-24,28} */ }
+{ /* highlight-range{2-3,10-15,23-25,28} */ }
 import React, { useState } from "react";
 import { useSpring, animated } from "react-spring";
 import useResizeAware from "react-resize-aware";
