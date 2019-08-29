@@ -7,6 +7,7 @@ import BlogContainer from "./BlogContainer";
 import BlogHeader from "./BlogHeader";
 import BlogNav from "./BlogNav";
 import Footer from "../Footer";
+import CategoriesNav from "./CategoriesNav";
 
 import "typeface-emilys-candy";
 import "typeface-merriweather";
@@ -30,6 +31,8 @@ const StyledHeading = styled.h1`
   }
 `;
 
+
+
 class Layout extends Component {
   constructor(props) {
     super(props);
@@ -52,8 +55,7 @@ class Layout extends Component {
         <Helmet
           title="Web Design and Development Blog | StoutLabs"
           meta={[
-            { name: "description", content: config.description },
-            { name: "keywords", content: config.keywords }
+            { name: "description", content: config.description }
           ]}
         >
           <link rel="shortcut icon" href={favicon} />
@@ -64,6 +66,7 @@ class Layout extends Component {
         <BlogNav sticky={this.state.stickyNav} className="mininav" />
         <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
         <StyledHeading>StoutLabs Blog: (Mostly) Web Development &amp; Design</StyledHeading>
+        <CategoriesNav />
         <BlogContainer>{this.props.children}</BlogContainer>
         <Footer />
       </Fragment>
