@@ -18,7 +18,7 @@ const StyledFeatureSmall = styled.div`
       line-height: 1.25;
       margin: 0.3rem 0 0.25rem;
       padding: 0;
-      font-family: 'Merriweather', serif;
+      font-family: Arial, Helvetica, sans-serif;
       text-align: left;
     }
 
