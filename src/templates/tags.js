@@ -7,13 +7,21 @@ import BlogLayout from "../components/Blog/BlogLayout";
 import Seo from "../components/Seo";
 
 const StyledTagsSection = styled.section`
-  padding: 1rem;
+  
+
+  div.content {
+    padding: 0;
+  }
 
   h2 {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1.7rem;
     font-weight: normal;
     line-height: 1.4;
+    background: rgba(140,140,140,0.1);
+    padding: 1rem;
+    margin-top: -2rem;
+    text-shadow: 1px 2px 2px rgba(30,30,30,0.8);
   }
 
   ul.taglist {
@@ -21,7 +29,7 @@ const StyledTagsSection = styled.section`
 
     li {
       margin: 0 0 0.75rem;
-      padding: 0 0 0.75rem;
+      padding: 0 0 0.75rem 1rem;
       border-bottom: 1px solid rgba(250, 250, 250, 0.1);
 
       &:last-child {
@@ -33,7 +41,7 @@ const StyledTagsSection = styled.section`
       font-family: Arial, Helvetica, sans-serif;
       font-size: 1.2rem;
       line-height: 1.2;
-      margin: 0 0 1rem;
+      margin: 0 0 0.33rem;
       padding: 1rem 0 0;
       text-align: left;
 
@@ -49,7 +57,7 @@ const StyledTagsSection = styled.section`
       flex-direction: row;
       flex-wrap: wrap;
       font-size: 0.9rem;
-      padding: 0.66rem 0 0;
+      padding: 0;
 
       a {
         background-color: rgba(250, 250, 250, 0.07);
@@ -72,6 +80,13 @@ const StyledTagsSection = styled.section`
       margin: 0 0.5rem 0.75rem 0;
       border-right: 1px solid rgba(250, 250, 250, 0.3);
     }
+  }
+
+  p.bottom-nav {
+    margin: 0 1rem;
+    background: rgba(120,120,120,0.15);
+    padding: 1rem;
+    text-align: center;
   }
 `;
 
@@ -115,8 +130,10 @@ class TagRoute extends React.Component {
 
           <div className="content">
             <h2>{tagHeader}</h2>
+
             <ul className="taglist">{postLinks}</ul>
-            <p>
+
+            <p className="bottom-nav">
               <Link to="/tags">Browse all tags</Link> | <Link to="/blog">Back to Blog Home</Link>
             </p>
           </div>

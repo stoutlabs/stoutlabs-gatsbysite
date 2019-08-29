@@ -94,7 +94,7 @@ export const PrevNext = ({ prev, next }) => {
         {prev !== null ? (
           <li>
             <span className="label">Newer</span>
-            <Link to={"/blog" + prev.fields.slug + "#top"} rel="prev">
+            <Link to={"/blog" + prev.fields.slug} rel="prev">
               <span>&larr;</span>
               {prev.frontmatter.title}
             </Link>
@@ -106,7 +106,7 @@ export const PrevNext = ({ prev, next }) => {
         {next !== null ? (
           <li className="next">
             <span className="label">Older</span>
-            <Link to={"/blog" + next.fields.slug + "#top"} rel="next">
+            <Link to={"/blog" + next.fields.slug} rel="next">
               {next.frontmatter.title}
               <span>&rarr;</span>
             </Link>

@@ -8,7 +8,7 @@ const ContainerDiv = styled.div`
   width: 100%;
   background-color: rgba(240, 220, 240, 0.1);
   @media screen and (min-width: 768px) {
-    margin: 2rem auto;
+    margin: 0 auto 2rem;
 
     max-width: 990px;
   }

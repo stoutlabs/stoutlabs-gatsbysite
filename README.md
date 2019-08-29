@@ -11,9 +11,9 @@ Uses Prismic.io as a headless CMS, with gatsby-source-prismic to bring in the da
 ## Other Features:
 
 - Styled Components
-- react-waypoint + react-scrollspy
+- react-waypoint + react-scrollspy (will probably switch to a Hooks solution soon)
 - smoothscroll-polyfill for smooth scrolling
 - SEO via react-helmet
-- FontAwesome icons via react-fontawesome
-- There's a mini-blog in here too, but it's not ready... so it's not really "live" yet.
+- FontAwesome icons via react-fontawesome (Switching to react-icons soon, though!)
+- There's a blog in here, too. It is a constantly evolving WIP at this point. 😄
 - [Netlify.com](http://www.netlify.com) (amazing static site hosting)
