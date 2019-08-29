@@ -1,45 +1,32 @@
-import React, {
-  Component
-} from 'react';
-import {
-  graphql
-} from 'gatsby';
+import React, { Component } from "react";
+import { graphql } from "gatsby";
 
-import BlogLayout from '../components/Blog/BlogLayout';
-import PostsList from '../components/Blog/PostsList';
-import Seo from '../components/Seo';
+import BlogLayout from "../components/Blog/BlogLayout";
+import PostsList from "../components/Blog/PostsList";
+import Seo from "../components/Seo";
 
 export class BlogIndex extends Component {
   render() {
     const seoData = {
       frontmatter: {
-        title: 'StoutLabs Web Design & Development Blog'
+        title: "StoutLabs Web Design & Development Blog"
       }
     };
 
     const posts = this.props.data.allMarkdownRemark.edges;
 
-    return ( <
-      BlogLayout location = {
-        this.props.location
-      } >
-      <
-      Seo postData = {
-        seoData
-      }
-      /> <
-      PostsList posts = {
-        posts
-      }
-      /> <
-      /BlogLayout>
+    return (
+      <BlogLayout location={this.props.location}>
+        <Seo postData={seoData} />
+        <PostsList posts={posts} />
+      </BlogLayout>
     );
   }
 }
 
 export default BlogIndex;
 
-export const pageQuery = graphql `
+export const pageQuery = graphql`
   query BlogIndexQuery {
     allMarkdownRemark(
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }

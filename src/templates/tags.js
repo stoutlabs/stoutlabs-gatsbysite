@@ -1,16 +1,17 @@
-import React from 'react';
-import { Link, graphql } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link, graphql } from "gatsby";
+import { kebabCase } from "lodash";
+import styled from "styled-components";
 
-import BlogLayout from '../components/Blog/BlogLayout';
-import Seo from '../components/Seo';
+import BlogLayout from "../components/Blog/BlogLayout";
+import Seo from "../components/Seo";
 
 const StyledTagsSection = styled.section`
   padding: 1rem;
 
   h2 {
-    font-family: Merriweather, serif;
-    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.7rem;
     font-weight: normal;
     line-height: 1.4;
   }
@@ -29,12 +30,47 @@ const StyledTagsSection = styled.section`
     }
 
     h3 {
-      font-family: Merriweather, serif;
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 1.2rem;
       line-height: 1.2;
       margin: 0 0 1rem;
       padding: 1rem 0 0;
       text-align: left;
+
+      color: #ea5d55;
+
+      /* &:hover {
+        color: #f37b75;
+      } */
+    }
+
+    span.tags {
+      display: inline-flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      padding: 0.66rem 0 0;
+
+      a {
+        background-color: rgba(250, 250, 250, 0.07);
+        border-radius: 6px;
+        display: inline-block;
+        font-size: 0.9rem;
+        font-style: italic;
+        line-height: 1;
+        padding: 0.25rem 0.5rem;
+        margin-right: 0.3rem;
+        margin-bottom: 0.4rem;
+      }
+    }
+
+    span.date {
+      display: inline-block;
+      color: #3096a7;
+      font-size: 1rem;
+      padding-right: 0.5rem;
+      margin: 0 0.5rem 0.75rem 0;
+      border-right: 1px solid rgba(250, 250, 250, 0.3);
     }
   }
 `;
@@ -42,19 +78,28 @@ const StyledTagsSection = styled.section`
 class TagRoute extends React.Component {
   render() {
     const posts = this.props.data.allMarkdownRemark.edges;
-    const postLinks = posts.map(post => (
-      <li key={post.node.fields.slug}>
-        <Link to={'/blog' + post.node.fields.slug}>
-          <h3>{post.node.frontmatter.title}</h3>
-        </Link>
-      </li>
-    ));
+    const postLinks = posts.map(post => {
+      // const [year, month, day] = post.node.frontmatter.date.split("-");
+      return (
+        <li key={post.node.fields.slug}>
+          <h3>
+            <Link to={"/blog" + post.node.fields.slug}>{post.node.frontmatter.title}</Link>
+          </h3>
+          <span className="date">{post.node.frontmatter.date}</span>
+          <span className="tags">
+            {post.node.frontmatter.tags.map(tag => (
+              <Link to={`/tags/${kebabCase(tag)}`} key={tag + `tag`}>
+                {tag}
+              </Link>
+            ))}
+          </span>
+        </li>
+      );
+    });
     const tag = this.props.pageContext.tag;
     const title = `Posts Tagged: ${tag} | StoutLabs Web Design & Development Blog`;
     const totalCount = this.props.data.allMarkdownRemark.totalCount;
-    const tagHeader = `${totalCount} post${
-      totalCount === 1 ? '' : 's'
-    } tagged with “${tag}”:`;
+    const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with “${tag}”:`;
 
     const seoData = {
       frontmatter: {
@@ -72,8 +117,7 @@ class TagRoute extends React.Component {
             <h2>{tagHeader}</h2>
             <ul className="taglist">{postLinks}</ul>
             <p>
-              <Link to="/tags">Browse all tags</Link> |{' '}
-              <Link to="/blog">Back to Blog Home</Link>
+              <Link to="/tags">Browse all tags</Link> | <Link to="/blog">Back to Blog Home</Link>
             </p>
           </div>
         </StyledTagsSection>
@@ -103,7 +147,9 @@ export const tagPageQuery = graphql`
             slug
           }
           frontmatter {
+            date(formatString: "YYYY-MM-DD")
             title
+            tags
           }
         }
       }
