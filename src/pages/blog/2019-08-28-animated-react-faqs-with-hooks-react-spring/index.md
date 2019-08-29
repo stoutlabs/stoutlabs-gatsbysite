@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Build an Animated FAQs Component with react-spring, styled-components, and React Hooks
+title: Create an Animated FAQs Component with react-spring, styled-components, and React Hooks
 date: 2019-08-28
 description: Learn how to combine react spring, styled-components, and react hooks to make an animated FAQ component.
 featureimg: react-faqs-img.jpg
