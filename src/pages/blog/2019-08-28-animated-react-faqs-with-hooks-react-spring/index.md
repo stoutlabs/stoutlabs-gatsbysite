@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: Build an Animated FAQs Component with React Spring, React Hooks, and Styled-Components 
+title: Build an Animated FAQs Component with react-spring, styled-components, and React Hooks
 date: 2019-08-28
 description: Learn how to combine react spring, styled-components, and react hooks to make an animated FAQ component.
 featureimg: react-faqs-img.jpg
@@ -30,6 +30,7 @@ Let's install both of those now:
 ```sh
 $ yarn add react-spring styled-components
 ```
+
 Afterwards, you will likely need to configure `styled-components` to work with your React site. For example, in a Gatsby site we would need to install an additional Gatsby plugin, and modify the `gatsby-config.js` file. I wrote a full post on [using styled-components with Gatsby](https://alligator.io/gatsbyjs/using-styled-components-in-gatsbyjs/) at Alligator.io, if you're interested.
 
 We are also going to make use of React's new `hooks` feature, so be sure that you are using React version `16.8.0` or higher. (At the time of writing this post, React is at version 16.9.0.)
