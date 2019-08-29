@@ -295,8 +295,10 @@ Go ahead and give it a try, if you haven't already. Each FAQ item should now ani
 
 We are finished! I hope that helps a few of you out there, and maybe even gives you some ideas to try on your own.
 
-### Download Source:
-I made a repo for this post, so please feel free to view/clone it from https://github.com/stoutlabs/demo-spring-hooks.
+### Preview/Download Source:
+You can preview a demo here: https://stoutlabs-faqs-demo.netlify.com/
+
+I also made a repo for this post, so please feel free to view/clone it: https://github.com/stoutlabs/demo-spring-hooks.
 
 Catch you on the next post... I'm off to make coffee! ☕ 
 
