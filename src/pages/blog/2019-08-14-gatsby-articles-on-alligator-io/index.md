@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: My Gatsby Articles on Alligator.io
 date: 2019-08-14
-description: I've been writing some developer posts on Gatsby over at Alliator.io, and you should go check 'em out!
+description: I've been writing some developer posts on Gatsby over at Alligator.io, and you should go check 'em out!
 featureimg: gatsby_alligator.jpg
 tags:
   - gatsbyjs
@@ -19,6 +19,6 @@ In the meanwhile, you should go check out the catalyst for this urge: my article
 * [Using Airtable With Gatsby](https://alligator.io/gatsbyjs/using-airtable-with-gatsby/)
 * [Adding Sitemapts to Gatsby Websites](https://alligator.io/gatsbyjs/adding-sitemaps-to-gatsby/)
 * [Using Styled Components in Gatsby](https://alligator.io/gatsbyjs/using-styled-components-in-gatsbyjs/)
-* Coming in the next day or two: a detailed intro to MDX with Gatsby!
+* [Intro to MDX in Gatsby](https://alligator.io/gatsbyjs/mdx-in-gatsby/)
 
 Stay tuned for more over at Alligator.io, but also keep an eye out on my blog here! 👀
