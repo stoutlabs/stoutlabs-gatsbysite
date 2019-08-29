@@ -14,11 +14,10 @@ const StyledFeatureSmall = styled.div`
 
     h3 {
       font-size: 1.6rem;
-
+      font-family: Arial, Helvetica, sans-serif;
       line-height: 1.25;
       margin: 0.3rem 0 0.25rem;
       padding: 0;
-      font-family: 'Merriweather', serif;
       text-align: left;
     }
 
