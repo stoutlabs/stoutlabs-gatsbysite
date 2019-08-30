@@ -94,7 +94,8 @@ module.exports = {
               destinationDir: "images"
             }
           }
-        ]
+        ],
+        plugins: [ `gatsby-remark-images` ]
       }
     },
     `gatsby-plugin-sitemap`,
