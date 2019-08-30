@@ -13,7 +13,7 @@ exports.onCreateWebpackConfig = ({ stage, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'MarkdownRemark') {
+  if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
@@ -28,7 +28,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   const allBlogPosts = await graphql(`
     {
-      allMarkdownRemark(
+      allMdx(
         filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
         sort: { order: DESC, fields: [frontmatter___date, frontmatter___title] }
         limit: 1000
@@ -52,7 +52,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
   //create blog pages, tag pages
   try {
-    const posts = allBlogPosts.data.allMarkdownRemark.edges;
+    const posts = allBlogPosts.data.allMdx.edges;
 
     posts.forEach((post, index) => {
       // set up prev/next links for each article
@@ -62,8 +62,12 @@ exports.createPages = async ({ actions, graphql }) => {
       createPage({
         path: `blog${post.node.fields.slug}`,
         tags: post.node.frontmatter.tags,
+        // component: path.resolve(
+        //   `src/templates/${String(post.node.frontmatter.templateKey)}.js`
+        // ),
+        // updated to MDX, and don't want to change the template string on old posts
         component: path.resolve(
-          `src/templates/${String(post.node.frontmatter.templateKey)}.js`
+          `src/templates/mdx-blog-post.js`
         ),
         context: {
           id: post.node.id,

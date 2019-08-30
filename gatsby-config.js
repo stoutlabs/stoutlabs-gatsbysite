@@ -5,8 +5,9 @@ const config = require("./config/index");
 
 module.exports = {
   siteMetadata: {
-    title: "Daniel Stout: JavaScript Web Developer and Consultant - Tri-Cities TN and Remote",
-    siteUrl: `https://www.stoutlabs.com`
+    title: config.title,
+    siteUrl: config.url,
+    description: config.description
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -15,8 +16,15 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/src/pages/blog`,
-        name: `blog-pages`
+        name: `blog`,
+        path: `${__dirname}/src/blog`
+      }
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages`
       }
     },
     {
@@ -54,9 +62,21 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     {
-      resolve: `gatsby-transformer-remark`,
+      resolve: `gatsby-plugin-mdx`,
       options: {
-        plugins: [
+        extensions: [`.mdx`, `.md`],
+        gatsbyRemarkPlugins: [
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 800,
+              linkImagesToOriginal: false,
+              quality: 81,
+              withWebp: {
+                quality: 81
+              }
+            }
+          },
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
@@ -72,17 +92,6 @@ module.exports = {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
               destinationDir: "images"
-            }
-          },
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false,
-              quality: 85,
-              withWebp: {
-                quality: 85
-              }
             }
           }
         ]
@@ -101,6 +110,70 @@ module.exports = {
         //respectDNT: true,
         // Avoids sending pageview hits from custom paths
         //exclude: ["/preview/**", "/do-not-track/me/too/"],
+      }
+    },
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                site_url: siteUrl
+              }
+            }
+          }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allMdx } }) => {
+              return allMdx.edges.map(edge => {
+                return Object.assign({}, edge.node.frontmatter, {
+                  description: edge.node.excerpt,
+                  date: edge.node.frontmatter.date,
+                  url: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                  guid: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
+                  enclosure: {
+                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.featureimg.publicURL
+                  },
+                  custom_elements: [{ "content:encoded": edge.node.html }]
+                });
+              });
+            },
+            query: `
+              {
+                allMdx(
+                  sort: { order: DESC, fields: [frontmatter___date] },
+                ) {
+                  edges {
+                    node {
+                      excerpt
+                      html
+                      fields { slug }
+                      frontmatter {
+                        title
+                        date
+                        featureimg {
+                          publicURL
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            `,
+            output: "/rss.xml",
+            title: "Stoutlabs - Web Development Blog | RSS Feed",
+            // optional configuration to insert feed reference in pages:
+            // if `string` is used, it will be used to create RegExp and then test if pathname of
+            // current page satisfied this regular expression;
+            // if not provided or `undefined`, all pages will have feed reference inserted
+            match: "^/blog/"
+          }
+        ]
       }
     },
     {
