@@ -13,7 +13,7 @@ export class BlogIndex extends Component {
       }
     };
 
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const posts = this.props.data.allMdx.edges;
 
     return (
       <BlogLayout location={this.props.location}>
@@ -28,7 +28,7 @@ export default BlogIndex;
 
 export const pageQuery = graphql`
   query BlogIndexQuery {
-    allMarkdownRemark(
+    allMdx(
       filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {

@@ -43,7 +43,7 @@ const TagsPage = () => {
         title
       }
     }
-    allMarkdownRemark(limit: 1000) {
+    allMdx(limit: 1000) {
       group(field: frontmatter___tags) {
         fieldValue
         totalCount
@@ -53,7 +53,7 @@ const TagsPage = () => {
   `);
 
   // destructure and sort tags by count
-  const sortedTags = data.allMarkdownRemark.group.sort((a, b) => b.totalCount - a.totalCount);
+  const sortedTags = data.allMdx.group.sort((a, b) => b.totalCount - a.totalCount);
 
   return (
     <BlogLayout>

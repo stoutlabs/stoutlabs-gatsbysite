@@ -92,7 +92,7 @@ const StyledTagsSection = styled.section`
 
 class TagRoute extends React.Component {
   render() {
-    const posts = this.props.data.allMarkdownRemark.edges;
+    const posts = this.props.data.allMdx.edges;
     const postLinks = posts.map(post => {
       // const [year, month, day] = post.node.frontmatter.date.split("-");
       return (
@@ -113,7 +113,7 @@ class TagRoute extends React.Component {
     });
     const tag = this.props.pageContext.tag;
     const title = `Posts Tagged: ${tag} | StoutLabs Web Design & Development Blog`;
-    const totalCount = this.props.data.allMarkdownRemark.totalCount;
+    const totalCount = this.props.data.allMdx.totalCount;
     const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with “${tag}”:`;
 
     const seoData = {
@@ -152,7 +152,7 @@ export const tagPageQuery = graphql`
         title
       }
     }
-    allMarkdownRemark(
+    allMdx(
       limit: 1000
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { tags: { in: [$tag] } } }

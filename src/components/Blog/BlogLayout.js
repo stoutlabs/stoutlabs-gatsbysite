@@ -65,7 +65,9 @@ class Layout extends Component {
         <BlogHeader siteTitle={config.title} />
         <BlogNav sticky={this.state.stickyNav} className="mininav" />
         <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
-        <StyledHeading>StoutLabs Blog: (Mostly) Web Development &amp; Design</StyledHeading>
+        <StyledHeading>
+          StoutLabs Blog: (Mostly) Web Development &amp; Design
+        </StyledHeading>
         <CategoriesNav />
         <BlogContainer>{this.props.children}</BlogContainer>
         <Footer />
