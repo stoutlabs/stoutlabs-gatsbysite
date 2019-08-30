@@ -15,6 +15,12 @@ const NotFoundPage = () => (
         &gt; Back to home
       </Link>
     </p>
+    
+    <p>
+      <Link to="/blog" alt="back to home">
+        &gt; Check out the blog?
+      </Link>
+    </p>
   </Layout>
 );
 

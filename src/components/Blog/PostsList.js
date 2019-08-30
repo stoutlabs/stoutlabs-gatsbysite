@@ -23,14 +23,17 @@ const PostsList = styled.div`
   }
 `;
 
-export default ({ posts }) => {
+export default ({ posts, currentPage }) => {
   //const featuredPosts = posts.slice(0, 2);
-  const featuredPosts = posts.slice(0, 1);
-  const otherPosts = posts.slice(1);
+  // const featuredPosts = posts.slice(0, 1);
+  const featuredPosts = currentPage === 1 ? posts.slice(0,2) : null;
+  const otherPosts = currentPage === 1 ? posts.slice(2) : posts;
 
   return (
     <PostsList className="blog">
-      <FeaturedPosts posts={featuredPosts} />
+      {currentPage === 1 && (
+        <FeaturedPosts posts={featuredPosts} />
+      )}
 
       {otherPosts.length > 0 && (
         <div className="posts-list">

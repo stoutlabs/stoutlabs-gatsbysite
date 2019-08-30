@@ -80,12 +80,12 @@ export const BlogNav = ({ sticky, className }) => {
     <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
       <ul>
         <li>
-          <Link to="/blog" activeClassName="active">
+          <Link to="/blog/" activeClassName="active">
             All Posts
           </Link>
         </li>
         <li>
-          <Link to="/tags" activeClassName="active">
+          <Link to="/tags/" activeClassName="active">
             All Tags
           </Link>
         </li>
