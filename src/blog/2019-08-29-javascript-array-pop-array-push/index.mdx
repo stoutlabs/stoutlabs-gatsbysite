@@ -1,0 +1,60 @@
+---
+templateKey: blog-post
+title: JavaScript Arrays - the Pop and Push Methods
+date: 2019-08-29
+description: An explanation and demo of the pop and push methods for JavaScript arrays.
+featureimg: js-pop-push.jpg
+tags:
+  - quick lesson
+  - javascript
+---
+
+The [Array.pop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pops" the last element off an array and returns it. This _mutates_ (a.k.a. changes) the array that it's used on.
+
+The [Array.push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pushes" a new element on to the end of an array, and returns the new length. This method also mutates the array, obviously. 😄
+
+## Example: Array.pop
+
+Here's an array of food emojis we will use in the examples below:
+
+```js
+const foodEmojis = ["🍕", "🥨", "🌮", "🍔"];
+```
+
+Let's remove the last element, and save it to a new variable:
+
+```js
+const removedItem = foodEmojis.pop();
+```
+
+The `removedItem` variable now contains 🍔, and the `foodEmojis` array contains:
+
+```js
+["🍕", "🥨", "🌮"];
+```
+
+Easy, right? 😎
+
+## Example: Array.push
+
+Let's add the `removedItem`, a.k.a the hamburger (🍔), back to our array:
+
+```js
+foodEmojis.push(removedItem);
+```
+
+And then we'll add some cake (🍰) to our array, because this stuff is a piece of cake:
+
+```js
+let arrayLength = foodEmojis.push("🍰"); // result: 5
+```
+
+### YAJG: Yet Another JavaScript 'Gotcha!'
+
+Don't forget, `Array.push` does not return the updated array - it returns the *_length_* of the updated array! (This has tripped me up several times...ugh.)
+
+## Final Words
+
+Today's post was an extra short one... and there will be lots of these! This is part of my attempt to write VERY frequently, and sometimes I only have a few extra moments in my day. (Like today... 😅)
+
+But don't worry: there will be plenty of longer/more complex posts coming, too! (I have a TON of cooler/more interesting stuff I want to write about... I just need the time. ⌚)
