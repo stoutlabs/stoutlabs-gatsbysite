@@ -51,9 +51,9 @@ exports.createPages = async ({ actions, graphql }) => {
   `);
 
   //create blog pages, tag pages
+  const posts = allBlogPosts.data.allMdx.edges;
+  
   try {
-    const posts = allBlogPosts.data.allMdx.edges;
-
     posts.forEach((post, index) => {
       // set up prev/next links for each article
       const next = index === posts.length - 1 ? null : posts[index + 1].node;
@@ -77,21 +77,25 @@ exports.createPages = async ({ actions, graphql }) => {
         }
       });
     });
+  } catch (e) {
+    console.log("Error creating blog posts: ", e);
+  }
 
+  try {
     let tags = [];
-
+  
     posts.forEach(({ node }) => {
       if (node.frontmatter.tags !== undefined) {
         tags = tags.concat(node.frontmatter.tags);
       }
     });
-
+  
     const uniqueTags = [...new Set(tags)];
-
+  
     uniqueTags.forEach(tag => {
       // console.log("tag: ", tag);
       const tagPath = `/tags/${slugify(tag)}/`;
-
+  
       createPage({
         path: tagPath,
         component: path.resolve(`src/templates/tags.js`),
@@ -101,6 +105,26 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     });
   } catch (e) {
-    console.log('Error: ', e);
+    console.log('Error creating tags: ', e);
+  }
+
+  try {
+    // Create blog-list pages
+    const postsPerPage = 8;
+    const numPages = Math.ceil(posts.length / postsPerPage);
+    Array.from({ length: numPages }).forEach((_, i) => {
+      createPage({
+        path: i === 0 ? `/blog` : `/blog/${i + 1}`,
+        component: path.resolve("./src/templates/mdx-posts-list.js"),
+        context: {
+          limit: postsPerPage,
+          skip: i * postsPerPage,
+          numPages,
+          currentPage: i + 1
+        }
+      });
+    });
+  } catch(e) {
+    console.log("Error creating blog index pages: ", e);
   }
 };
