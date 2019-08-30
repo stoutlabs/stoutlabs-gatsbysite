@@ -48,10 +48,17 @@ And then we'll add some cake (🍰) to our array, because this stuff is a piece 
 ```js
 let arrayLength = foodEmojis.push("🍰"); // result: 5
 ```
+The final contents of `foodEmojis` would now be:
+
+```js
+[ "🍕", "🥨", "🌮", "🍔", "🍰"]
+```
+
+Nice!
 
 ### YAJG: Yet Another JavaScript 'Gotcha!'
 
-Don't forget, `Array.push` does not return the updated array - it returns the *_length_* of the updated array! (This has tripped me up several times...ugh.)
+Don't forget, `Array.push` does not return the updated array - it returns the *_length_* of the updated array! (This is somewhat counterintuitive, and has tripped me up several times...ugh.)
 
 ## Final Words
 
