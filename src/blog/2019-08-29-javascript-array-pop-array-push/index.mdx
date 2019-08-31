@@ -1,6 +1,6 @@
 ---
 templateKey: blog-post
-title: JavaScript Arrays - the Pop and Push Methods
+title: "JavaScript Array Methods: Pop and Push"
 date: 2019-08-29
 description: An explanation and demo of the pop and push methods for JavaScript arrays.
 featureimg: js-pop-push.jpg
@@ -9,11 +9,11 @@ tags:
   - javascript
 ---
 
-The [Array.pop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pops" the last element off an array and returns it. This _mutates_ (a.k.a. changes) the array that it's used on.
+In this quick post, we'll go over two more widely used JavaScript array methods: `pop` and `push`.
 
-The [Array.push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pushes" a new element on to the end of an array, and returns the new length. This method also mutates the array, obviously. 😄
+## Array.pop Method
 
-## Example: Array.pop
+The [Array.pop](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pops" the last element from an array and returns it. This _mutates_ (a.k.a. changes) the array that it's used on.
 
 Here's an array of food emojis we will use in the examples below:
 
@@ -35,7 +35,9 @@ The `removedItem` variable now contains 🍔, and the `foodEmojis` array contain
 
 Easy, right? 😎
 
-## Example: Array.push
+## Array.push Method
+
+The [Array.push](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) method in JavaScript "pushes" one or more new elements on to the end of an array, and returns the new length. This method also mutates the array, obviously. 😄
 
 Let's add the `removedItem`, a.k.a the hamburger (🍔), back to our array:
 
@@ -43,15 +45,15 @@ Let's add the `removedItem`, a.k.a the hamburger (🍔), back to our array:
 foodEmojis.push(removedItem);
 ```
 
-And then we'll add some cake (🍰) to our array, because this stuff is a piece of cake:
+And then we'll add some cakes (🍰 & 🎂) to our array, because this stuff is a piece of cake:
 
 ```js
-let arrayLength = foodEmojis.push("🍰"); // result: 5
+let arrayLength = foodEmojis.push("🍰", "🎂"); // result: 6
 ```
 The final contents of `foodEmojis` would now be:
 
 ```js
-[ "🍕", "🥨", "🌮", "🍔", "🍰"]
+[ "🍕", "🥨", "🌮", "🍔", "🍰", "🎂"]
 ```
 
 Nice!

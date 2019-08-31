@@ -1,6 +1,8 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`
 });
+
+const path = require("path");
 const config = require("./config/index");
 
 module.exports = {
@@ -12,6 +14,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-sass`,
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        src: path.join(__dirname, "src"),
+        components: path.join(__dirname, "src/components")
+      }
+    },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
@@ -95,7 +104,15 @@ module.exports = {
             }
           }
         ],
-        plugins: [ `gatsby-remark-images` ]
+        plugins: [
+          `gatsby-remark-images`,
+          {
+            resolve: "gatsby-plugin-root-import",
+            options: {
+              src: path.join(__dirname, "src"),
+            }
+          }
+        ]
       }
     },
     `gatsby-plugin-sitemap`,

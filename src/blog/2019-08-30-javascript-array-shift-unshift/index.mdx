@@ -1,0 +1,75 @@
+---
+templateKey: blog-post
+title: "More JavaScript Array Methods: Shift and Unshift"
+date: 2019-08-30
+description: Here's another short post explaning the shift and unshift methods for JavaScript arrays.
+featureimg: js-shift-unshift.jpg
+tags:
+  - quick lesson
+  - javascript
+---
+
+import BigGear from "src/components/BigGear/BigGear.js";
+
+In this short post, we'll quickly go over the [Array.shift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) and [Array.unshift](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) methods. 
+
+You can think of these as nearly identical to [Array.pop and Array.push](/blog/2019-08-29-javascript-array-pop-array-push), but on the front of the array instead of the end.
+
+## Array.shift Method
+
+The `Array.shift` method removes the first element of an array. It accepts no parameters, and it returns the *removed element* — not the updated array! (The "shift" name is because all the values shift down one index.)
+
+Think of a vending machine that contains canned drinks. When you purchase a drink, the first can in the stack is released and given to you at the bottom of the machine. The rest of the cans inside the machine then "shift" downward, because gravity is a thing!
+
+Let's do a quick example. First, we need an array to use:
+
+```js
+const myBreakfast = [ "grits", "eggs", "hashbrowns", "toast", "bacon", "juice" ];
+```
+
+That's way too many carbs for me today... I would need a nap 30 minutes later! 😴 Let's remove those `grits` from the array. We just need to do this:
+
+```js
+const removedItem = myBreakfast.shift();
+```
+
+The `removedItem` variable would contain `grits`, and the `myBreakfast` array would contain:
+
+```js
+[ "eggs", "hashbrowns", "toast", "bacon", "juice" ]
+```
+
+Easy enough, right? But wait, I forgot about my coffee — and I want (read: need) that first! ☕ 
+
+That's no problem, as this is a *perfect* use-case for `Array.unshift`. Let's move to that now...
+
+## Array.unshift Method
+
+The `Array.unshift` method adds one or more elements to the beginning of an array. The accepted parameters are the elements to add, of course. And like `Array.push`, this returns the length of the updated array — and NOT the updated array itself.
+
+Let's get back to my breakfast... ha! I'd like my coffee and a glass of water before the food, and we can use `Array.unshift` to make that happen:
+
+```js
+const newLength = myBreakfast.unshift("coffee", "water");  // value is 7
+```
+
+And all is well again! I now get my coffee before the food:
+
+```js
+[ "coffee", "water", "eggs", "hashbrowns", "toast", "bacon", "juice" ]
+```
+
+## Conclusion
+
+And we are done! That's two more simple but useful JavaScript array methods for your toolbelt, and another short post for my blog. That's a win/win! 
+
+Catch you on the next post... 😎
+
+
+<p style="display: flex; flex-direction: row; align-items: center; justify-content: center;">
+  <BigGear /> Also... MDX is now live on my site. Expect cooler stuff in my posts soon!
+</p>
+
+
+
+
