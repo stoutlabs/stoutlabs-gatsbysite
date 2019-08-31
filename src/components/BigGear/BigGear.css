@@ -1,13 +1,16 @@
 .BigGear {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  top: -33px;
-  right: -10px;
+  /* position: absolute; */
+  width: 90px;
+  height: 90px;
+  margin-right: 10px;
+  /* top: -33px;
+  right: -10px; */
+  display: inline-block;
 }
 
 .BigGear img {
   animation: BigGear-spin infinite 40s linear;
+  max-width: 100%;
 }
 
 @keyframes BigGear-spin {
