@@ -10,8 +10,13 @@ const PreviewPage = ({ location }) => {
     repositoryName: "stoutlabs2018"
   });
 
+  console.log("path: ", path);
+  console.log("previewData: ", previewData);
+
   useEffect(() => {
     if (previewData && path) {
+      console.log("path here: ", path);
+      console.log("previewData here: ", previewData);
       window.__PRISMIC_PREVIEW_DATA__ = previewData;
       navigate(path);
     }
