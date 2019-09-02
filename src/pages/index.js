@@ -11,7 +11,7 @@ import RecentsList from "../components/Projects/RecentsList";
 import Seo from "../components/Seo";
 import Tools from "../components/Tools/Tools.js";
 
-const IS_BROWSER = typeof window !== "undefined";
+
 
 const StyledHR = styled.hr`
   border: none;
@@ -35,6 +35,7 @@ class IndexPage extends Component {
   }
 
   render() {
+    const IS_BROWSER = typeof window !== "undefined";
     const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
     const staticData = this.props.data.prismicHomepage.data;
 
