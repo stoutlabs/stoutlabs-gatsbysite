@@ -1,42 +1,21 @@
 // src/pages/preview.js
-import React, { useEffect, useStaticQuery } from "react";
+import React, { useEffect } from "react";
 import { navigate } from "gatsby";
 import { usePrismicPreview } from "gatsby-source-prismic";
 
-export const PreviewPage = ({ location }) => {
-  const { allPrismicHomePage } = useStaticQuery(graphql`
-    {
-      allPrismicHomepage {
-        nodes {
-          id
-        }
-      }
-    }
-  `);
-  // const pageUIDs = allPrismicHomePage.nodes.map(node => node.id);
+// import { Spinner } from "../components/Spinner";
 
-  const pathResolver = () => doc => {
-    // const previewedUID = doc.prismicPage.uid;
-
-    // if (pageUIDs.includes(previewedUID)) {
-    //   return previewedUID;
-    // } else {
-    //   return "/unpublishedPreview";
-    // }
-    return "homepage";
-  };
-
+const PreviewPage = ({ location }) => {
   const { previewData, path } = usePrismicPreview(location, {
-    repositoryName: "stoutlabs2018",
-    pathResolver
+    repositoryName: "stoutlabs2018"
   });
 
   useEffect(() => {
     if (previewData && path) {
-      window.__PRISMIC_PREVIEW_DATA = previewData;
+      window.__PRISMIC_PREVIEW_DATA__ = previewData;
       navigate(path);
     }
-  }, [path, previewData]);
+  }, [previewData, path]);
 
   return <div>Loading preview...</div>;
 };
