@@ -14,7 +14,8 @@ const PreviewPage = ({ location }) => {
   console.log("previewData: ", previewData);
 
   useEffect(() => {
-    if (previewData && path) {
+    const tempPath = "/";
+    if (previewData && (path || tempPath)) {
       console.log("path here: ", path);
       console.log("previewData here: ", previewData);
       window.__PRISMIC_PREVIEW_DATA__ = previewData;
