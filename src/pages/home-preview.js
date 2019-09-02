@@ -4,15 +4,15 @@ import { navigate } from "gatsby";
 import { usePrismicPreview } from "gatsby-source-prismic";
 
 export const PreviewPage = ({ location }) => {
-  const { allPrismicHomePage } = useStaticQuery(graphql`
-    {
-      allPrismicHomepage {
-        nodes {
-          id
-        }
-      }
-    }
-  `);
+  // const { allPrismicHomePage } = useStaticQuery(graphql`
+  //   {
+  //     allPrismicHomepage {
+  //       nodes {
+  //         id
+  //       }
+  //     }
+  //   }
+  // `);
   // const pageUIDs = allPrismicHomePage.nodes.map(node => node.uid);
 
   const pathResolver = () => doc => {
