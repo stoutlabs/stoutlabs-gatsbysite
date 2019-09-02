@@ -16,7 +16,7 @@ module.exports = {
     `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/unpublishedPreview/*`] },
+      options: { prefixes: [`/previews/*`] },
     },
     {
       resolve: "gatsby-plugin-root-import",
