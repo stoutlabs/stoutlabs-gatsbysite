@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
+import { mergePrismicPreviewData } from "gatsby-source-prismic";
 
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -32,7 +33,12 @@ class IndexPage extends Component {
   }
 
   render() {
-    const content = this.props.data.prismicHomepage.data;
+    const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
+    const staticData = this.props.data.prismicHomepage.data;
+
+    // const content = this.props.data.prismicHomepage.data;
+    const content = mergePrismicPreviewData({ staticData, previewData });
+
     const { main_title: title, featured_projects } = content;
 
     //console.log('projects_index: ', content.featured_projects);
