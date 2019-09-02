@@ -13,15 +13,15 @@ const PreviewPage = ({ location }) => {
   console.log("path: ", path);
   console.log("previewData: ", previewData);
 
+  const tempPath = "/";
   useEffect(() => {
-    const tempPath = "/";
-    if (previewData && (path || tempPath)) {
-      console.log("path here: ", path);
+    if (previewData && (tempPath)) {
+      console.log("path here: ", tempPath);
       console.log("previewData here: ", previewData);
       window.__PRISMIC_PREVIEW_DATA__ = previewData;
-      navigate(path);
+      navigate(tempPath);
     }
-  }, [previewData, path]);
+  }, [previewData, tempPath]);
 
   return <div>Loading preview...</div>;
 };
