@@ -11,6 +11,8 @@ import RecentsList from "../components/Projects/RecentsList";
 import Seo from "../components/Seo";
 import Tools from "../components/Tools/Tools.js";
 
+const IS_BROWSER = typeof window !== "undefined";
+
 const StyledHR = styled.hr`
   border: none;
   height: 1px;
