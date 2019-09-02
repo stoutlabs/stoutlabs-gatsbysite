@@ -37,10 +37,12 @@ class IndexPage extends Component {
   render() {
     const IS_BROWSER = typeof window !== "undefined";
     const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
-    const staticData = this.props.data.prismicHomepage.data;
+    // const staticData = this.props.data.prismicHomepage.data;
+    const staticData = this.props.data;
 
     // const content = this.props.data.prismicHomepage.data;
-    const content = mergePrismicPreviewData({ staticData, previewData });
+    const contentMerged = mergePrismicPreviewData({ staticData, previewData });
+    const content = contentMerged.prismicHomepage.data;
 
     const { main_title: title, featured_projects } = content;
 
