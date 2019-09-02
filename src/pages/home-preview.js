@@ -40,3 +40,5 @@ export const PreviewPage = ({ location }) => {
 
   return <div>Loading preview...</div>;
 };
+
+export default PreviewPage;
