@@ -1,13 +1,14 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+// import Img from 'gatsby-image';
 
-import { HTMLContent } from '../Content';
+import Img from "../Image";
+import { HTMLContent } from "../Content";
 
 const StyledRecentItem = styled.article`
   width: 100%;
   min-height: 200px;
-  ${'' /* background: #f4f4f4; */} /* test */
+  ${"" /* background: #f4f4f4; */} /* test */
   margin: 0 0 1rem 0;
   position: relative;
 
@@ -72,20 +73,18 @@ const StyledRecentItem = styled.article`
 export const RecentItem = props => {
   //console.log('props.details.thumbnail', props.details.thumbnail);
   return (
-    <StyledRecentItem
-      className={`recent-item ${props.isActive ? 'active' : ''}`}
-    >
-      <div
-        className="thumbnail"
-        onClick={() => props.handleClick(props.uid, props.details)}
-      >
+    <StyledRecentItem className={`recent-item ${props.isActive ? "active" : ""}`}>
+      <div className="thumbnail" onClick={() => props.handleClick(props.uid, props.details)}>
         {props.details.thumbnail.localFile ? (
           <Img
             fluid={props.details.thumbnail.localFile.childImageSharp.fluid}
             title={props.details.title}
             alt={props.details.title}
             className="thumbnail-img-wrap"
-            style={{ margin: '0' }}
+            style={{ margin: "0" }}
+            src={
+              props.details.thumbnail.localFile.url ? props.details.thumbnail.localFile.url : null
+            }
             // imgStyle={{}}
           />
         ) : (
@@ -108,8 +107,13 @@ export const RecentItem = props => {
               title={props.details.title}
               alt={props.details.title}
               className="featured-img"
-              style={{ margin: '0' }}
+              style={{ margin: "0" }}
               // imgStyle={{}}
+              src={
+                props.details.full_image.localFile.url
+                  ? props.details.full_image.localFile.url
+                  : null
+              }
             />
           )}
         </div>

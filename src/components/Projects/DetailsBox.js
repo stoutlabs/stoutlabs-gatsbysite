@@ -178,7 +178,7 @@ const StyledDetails = styled.div`
       max-width: 700px;
       margin: 0 auto 2rem;
     }
-  }
+  
 
   
 `;

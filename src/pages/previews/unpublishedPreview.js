@@ -9,7 +9,7 @@ export const UnpublishedPage = props => {
 
   // => Perform any logic from previewData to determine the correct page or template component to use.
 
-  return <Layout {...props} />;
+  return <Layout {...props} data={previewData} />;
 };
 
 export default UnpublishedPage;

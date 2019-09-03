@@ -1,13 +1,14 @@
 import React from 'react';
 import styled from 'styled-components';
-import Img  from "gatsby-image";
+
+import Img from "../Image";
 
 // import ReactLogo from '../../assets/images/react.svg';
 // import GatsbyLogo from '../../assets/images/gatsby.svg';
 // import NodeLogo from '../../assets/images/nodejs.svg';
 // import GraphQLogo from '../../assets/images/graphql.svg';
 
-import theme from '../../utils/theme';
+// import myTheme from '../../utils/theme';
 
 const ToolsSection = styled.section`
   display: flex;
@@ -22,7 +23,7 @@ const ToolsSection = styled.section`
 
   div.tools {
     margin: 0 1.5rem 1.5rem 0;
-    ${'' /* background-color: ${props => props.theme.colorWhite}; */} padding: 0;
+    padding: 0;
     width: 100%;
 
     @media screen and (min-width: 768px) {
@@ -108,7 +109,7 @@ export const Tools = ({ content }) => {
   const boxes = content.boxes;
 
   return (
-    <ToolsSection theme={theme} id="tools">
+    <ToolsSection id="tools">
       <h3>My Toolbelt:</h3>
 
       <div className="tools faves">
@@ -124,7 +125,10 @@ export const Tools = ({ content }) => {
             return (
               <li key={item.tool_name}>
                 {/* <img src={ReactLogo} alt="ReactJS" /> */}
-                <Img fixed={item.logo.localFile.childImageSharp.fixed} />
+                <Img
+                  fixed={item.logo.localFile.childImageSharp.fixed}
+                  src={item.logo.localFile.url ? item.logo.localFile.url : null}
+                />
                 {/* <Img fluid={item.logo.localFile.childImageSharp.fluid} /> */}
 
                 {/* <img src={item.logo.localFile.publicURL} alt={item.tool_name} /> */}

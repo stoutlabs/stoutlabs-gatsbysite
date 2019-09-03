@@ -1,29 +1,29 @@
 // src/pages/preview.js
-import React, { useEffect, useStaticQuery } from "react";
-import { navigate } from "gatsby";
+import React, { useEffect } from "react";
+import { useStaticQuery, navigate, graphql } from "gatsby";
 import { usePrismicPreview } from "gatsby-source-prismic";
 
 export const PreviewPage = ({ location }) => {
-  // const { allPrismicHomePage } = useStaticQuery(graphql`
-  //   {
-  //     allPrismicHomepage {
-  //       nodes {
-  //         id
-  //       }
-  //     }
-  //   }
-  // `);
-  // const pageUIDs = allPrismicHomePage.nodes.map(node => node.uid);
+  const { allPrismicHomePage } = useStaticQuery(graphql`
+    query {
+      allPrismicHomepage {
+        nodes {
+          id
+        }
+      }
+    }
+  `);
+  const pageUIDs = allPrismicHomePage ? allPrismicHomePage.nodes.map(node => node.uid) : [];
 
   const pathResolver = () => doc => {
-    // const previewedUID = doc.prismicPage.uid;
+    const previewedUID = doc.prismicPage.uid || "/";
 
-    // if (pageUIDs.includes(previewedUID)) {
-    //   return previewedUID;
-    // } else {
-    //   return "/unpublishedPreview"; 
-    // }
-    return "homepage"
+    if (pageUIDs.includes(previewedUID)) {
+      return previewedUID;
+    } else {
+      return "/unpublishedPreview";
+    }
+    return "/";
   };
 
   const { previewData, path } = usePrismicPreview(location, {
