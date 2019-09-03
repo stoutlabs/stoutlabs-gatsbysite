@@ -75,16 +75,17 @@ export const RecentItem = props => {
   return (
     <StyledRecentItem className={`recent-item ${props.isActive ? "active" : ""}`}>
       <div className="thumbnail" onClick={() => props.handleClick(props.uid, props.details)}>
-        {props.details.thumbnail.localFile ? (
+        {props.details.thumbnail ? (
           <Img
-            fluid={props.details.thumbnail.localFile.childImageSharp.fluid}
+            fluid={
+              props.details.thumbnail.localFile &&
+              props.details.thumbnail.localFile.childImageSharp.fluid
+            }
             title={props.details.title}
             alt={props.details.title}
             className="thumbnail-img-wrap"
             style={{ margin: "0" }}
-            src={
-              props.details.thumbnail.localFile.url ? props.details.thumbnail.localFile.url : null
-            }
+            src={!props.details.thumbnail.localFile && props.details.thumbnail.url}
             // imgStyle={{}}
           />
         ) : (
@@ -101,19 +102,18 @@ export const RecentItem = props => {
         <HTMLContent content={props.details.body.html} className="desc" />
 
         <div className="big-pic">
-          {props.details.full_image.localFile && (
+          {props.details.full_image && (
             <Img
-              fluid={props.details.full_image.localFile.childImageSharp.fluid}
+              fluid={
+                props.details.full_image.localFile &&
+                props.details.full_image.localFile.childImageSharp.fluid
+              }
               title={props.details.title}
               alt={props.details.title}
               className="featured-img"
               style={{ margin: "0" }}
               // imgStyle={{}}
-              src={
-                props.details.full_image.localFile.url
-                  ? props.details.full_image.localFile.url
-                  : null
-              }
+              src={!props.details.full_image.localFile && props.details.full_image.url}
             />
           )}
         </div>

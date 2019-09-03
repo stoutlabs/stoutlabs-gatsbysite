@@ -126,8 +126,10 @@ export const Tools = ({ content }) => {
               <li key={item.tool_name}>
                 {/* <img src={ReactLogo} alt="ReactJS" /> */}
                 <Img
-                  fixed={item.logo.localFile.childImageSharp.fixed}
-                  src={item.logo.localFile.url ? item.logo.localFile.url : null}
+                  fixed={
+                    item.logo.localFile && item.logo.localFile.childImageSharp.fixed
+                  }
+                  src={!item.logo.localFile && item.logo.url}
                 />
                 {/* <Img fluid={item.logo.localFile.childImageSharp.fluid} /> */}
 
