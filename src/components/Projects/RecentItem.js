@@ -1,13 +1,14 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
+// import Img from 'gatsby-image';
 
-import { HTMLContent } from '../Content';
+import Img from "../Image";
+import { HTMLContent } from "../Content";
 
 const StyledRecentItem = styled.article`
   width: 100%;
   min-height: 200px;
-  ${'' /* background: #f4f4f4; */} /* test */
+  ${"" /* background: #f4f4f4; */} /* test */
   margin: 0 0 1rem 0;
   position: relative;
 
@@ -72,20 +73,19 @@ const StyledRecentItem = styled.article`
 export const RecentItem = props => {
   //console.log('props.details.thumbnail', props.details.thumbnail);
   return (
-    <StyledRecentItem
-      className={`recent-item ${props.isActive ? 'active' : ''}`}
-    >
-      <div
-        className="thumbnail"
-        onClick={() => props.handleClick(props.uid, props.details)}
-      >
-        {props.details.thumbnail.localFile ? (
+    <StyledRecentItem className={`recent-item ${props.isActive ? "active" : ""}`}>
+      <div className="thumbnail" onClick={() => props.handleClick(props.uid, props.details)}>
+        {props.details.thumbnail ? (
           <Img
-            fluid={props.details.thumbnail.localFile.childImageSharp.fluid}
+            fluid={
+              props.details.thumbnail.localFile &&
+              props.details.thumbnail.localFile.childImageSharp.fluid
+            }
             title={props.details.title}
             alt={props.details.title}
             className="thumbnail-img-wrap"
-            style={{ margin: '0' }}
+            style={{ margin: "0" }}
+            src={!props.details.thumbnail.localFile && props.details.thumbnail.url}
             // imgStyle={{}}
           />
         ) : (
@@ -102,14 +102,18 @@ export const RecentItem = props => {
         <HTMLContent content={props.details.body.html} className="desc" />
 
         <div className="big-pic">
-          {props.details.full_image.localFile && (
+          {props.details.full_image && (
             <Img
-              fluid={props.details.full_image.localFile.childImageSharp.fluid}
+              fluid={
+                props.details.full_image.localFile &&
+                props.details.full_image.localFile.childImageSharp.fluid
+              }
               title={props.details.title}
               alt={props.details.title}
               className="featured-img"
-              style={{ margin: '0' }}
+              style={{ margin: "0" }}
               // imgStyle={{}}
+              src={!props.details.full_image.localFile && props.details.full_image.url}
             />
           )}
         </div>

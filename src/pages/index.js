@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { graphql } from "gatsby";
+import { mergePrismicPreviewData } from "gatsby-source-prismic";
 
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
@@ -9,6 +10,8 @@ import Layout from "../components/Layout";
 import RecentsList from "../components/Projects/RecentsList";
 import Seo from "../components/Seo";
 import Tools from "../components/Tools/Tools.js";
+
+
 
 const StyledHR = styled.hr`
   border: none;
@@ -32,7 +35,15 @@ class IndexPage extends Component {
   }
 
   render() {
-    const content = this.props.data.prismicHomepage.data;
+    const IS_BROWSER = typeof window !== "undefined";
+    const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
+    // const staticData = this.props.data.prismicHomepage.data;
+    const staticData = this.props.data;
+
+    // const content = this.props.data.prismicHomepage.data;
+    const contentMerged = mergePrismicPreviewData({ staticData, previewData });
+    const content = contentMerged.prismicHomepage.data;
+
     const { main_title: title, featured_projects } = content;
 
     //console.log('projects_index: ', content.featured_projects);
