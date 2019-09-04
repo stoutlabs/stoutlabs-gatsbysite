@@ -38,16 +38,23 @@ const PreviewPage = ({ location }) => {
   `);
   // const pageUIDs = allPrismicPage.nodes.map(node => node.uid);
   const pageUIDs = allPrismicHomepage.nodes.map(node => node.uid);
+  
+  // console.log("TCL: PreviewPage -> pageUIDs", pageUIDs)
+  // console.log("allPrismicHomepage: ", allPrismicHomepage);
 
     
 
   const pathResolver = () => doc => {
-    const previewedUID = doc.prismicHomepage.uid;
+    const previewedUID = doc.uid;
+    // console.log(doc);
+    // console.log("TCL: PreviewPage -> previewedUID", previewedUID);
+
+    // FIXME: this is a bit broken right now for unpublished pages. Will look more into it soon!
 
     if (pageUIDs.includes(previewedUID)) {
       return previewedUID;
     } else {
-      return "/unpublishedPreview";
+      return "/previews/unpublishedPreview";
     }
   };
 
@@ -56,17 +63,17 @@ const PreviewPage = ({ location }) => {
     pathResolver
   });
 
-  console.log("path: ", path);
-  console.log("previewData: ", previewData);
-  
+  // console.log("path: ", path);
+  // console.log("previewData: ", previewData);
+
   // fix path for homepage (Since I can't use "/" as a UID in prismic, understandably.)
   if(path === "home" || path === "homepage"){
-    patch = "/";
+    path = "/";
   }
 
   useEffect(() => {
     if (previewData && path) {
-      console.log("path here: ", tempPath);
+      console.log("path here: ", path);
       console.log("previewData here: ", previewData);
       window.__PRISMIC_PREVIEW_DATA = previewData;
       navigate(path);
