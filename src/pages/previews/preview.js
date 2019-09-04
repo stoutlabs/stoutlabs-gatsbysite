@@ -39,6 +39,9 @@ const PreviewPage = ({ location }) => {
   // const pageUIDs = allPrismicPage.nodes.map(node => node.uid);
   const pageUIDs = allPrismicHomepage.nodes.map(node => node.uid);
 
+    console.log("path: ", path);
+    console.log("previewData: ", previewData);
+
   const pathResolver = () => doc => {
     const previewedUID = doc.prismicHomepage.uid;
 
@@ -49,13 +52,20 @@ const PreviewPage = ({ location }) => {
     }
   };
 
-  const { previewData, path } = usePrismicPreview(location, {
+  let { previewData, path } = usePrismicPreview(location, {
     repositoryName: "stoutlabs2018",
     pathResolver
   });
 
+  // fix path for homepage (Since I can't use "/" as a UID in prismic, understandably.)
+  if(path === "home" || path === "homepage"){
+    patch = "/";
+  }
+
   useEffect(() => {
     if (previewData && path) {
+      console.log("path here: ", tempPath);
+      console.log("previewData here: ", previewData);
       window.__PRISMIC_PREVIEW_DATA = previewData;
       navigate(path);
     }
