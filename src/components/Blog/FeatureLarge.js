@@ -134,7 +134,7 @@ export default ({ node, title }) => {
       {node.frontmatter.featureimg && (
         <div className="thumbnail">
           <Link to={`/blog${node.fields.slug}`}>
-            <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} />
+            <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} alt={title} />
           </Link>
         </div>
       )}

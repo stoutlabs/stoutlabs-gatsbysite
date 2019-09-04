@@ -1,6 +1,6 @@
 // src/pages/preview.js
-import React, { useEffect, useStaticQuery } from "react";
-import { navigate, graphql } from "gatsby";
+import React, { useEffect } from "react";
+import { navigate, graphql, useStaticQuery } from "gatsby";
 import { usePrismicPreview } from "gatsby-source-prismic";
 
 // import { Spinner } from "../components/Spinner";
