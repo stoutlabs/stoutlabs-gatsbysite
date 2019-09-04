@@ -1,5 +1,11 @@
 {
   "Main": {
+    "uid" : {
+      "type" : "UID",
+      "config" : {
+        "label" : "Unique ID"
+      }
+    },
     "main_title": {
       "type": "Text",
       "config": {

@@ -23,7 +23,7 @@ export const PreviewPage = ({ location }) => {
     } else {
       return "/unpublishedPreview";
     }
-    return "/";
+    // return "/";
   };
 
   const { previewData, path } = usePrismicPreview(location, {
