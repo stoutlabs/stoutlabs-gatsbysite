@@ -38,15 +38,18 @@ const PreviewPage = ({ location }) => {
   `);
   // const pageUIDs = allPrismicPage.nodes.map(node => node.uid);
   const pageUIDs = allPrismicHomepage.nodes.map(node => node.uid);
-  console.log("TCL: PreviewPage -> pageUIDs", pageUIDs)
-  console.log("allPrismicHomepage: ", allPrismicHomepage);
+  
+  // console.log("TCL: PreviewPage -> pageUIDs", pageUIDs)
+  // console.log("allPrismicHomepage: ", allPrismicHomepage);
 
     
 
   const pathResolver = () => doc => {
-    console.log(doc);
     const previewedUID = doc.uid;
-    console.log("TCL: PreviewPage -> previewedUID", previewedUID)
+    // console.log(doc);
+    // console.log("TCL: PreviewPage -> previewedUID", previewedUID);
+
+    // FIXME: this is a bit broken right now for unpublished pages. Will look more into it soon!
 
     if (pageUIDs.includes(previewedUID)) {
       return previewedUID;
@@ -60,8 +63,8 @@ const PreviewPage = ({ location }) => {
     pathResolver
   });
 
-  console.log("path: ", path);
-  console.log("previewData: ", previewData);
+  // console.log("path: ", path);
+  // console.log("previewData: ", previewData);
 
   // fix path for homepage (Since I can't use "/" as a UID in prismic, understandably.)
   if(path === "home" || path === "homepage"){
