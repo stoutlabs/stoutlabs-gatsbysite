@@ -5,6 +5,7 @@ const Image = ({
   src,
   fixed,
   fluid,
+  alt,
   objectFit = "cover",
   objectPosition = "50% 50%",
   ...props
@@ -16,6 +17,7 @@ const Image = ({
       src={src}
       loading="lazy"
       style={{ objectFit, objectPosition }}
+      alt={alt ? alt : ""}
       {...props}
     />
   ) : (

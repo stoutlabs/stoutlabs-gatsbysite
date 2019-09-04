@@ -210,7 +210,7 @@ const Post = ({
 
           {featureimg && (
             <div className="featured-image">
-              <Img fluid={featureimg.childImageSharp.fluid} />
+              <Img fluid={featureimg.childImageSharp.fluid} alt={title} />
             </div>
           )}
 
