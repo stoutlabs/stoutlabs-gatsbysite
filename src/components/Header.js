@@ -46,10 +46,11 @@ const StyledHeader = styled.div`
     padding: 2rem 0 0;
 
     img {
-      width: 100%;
+      max-width: 100%;
+      max-height: 150px;
 
       @media screen and (min-width: 960px) {
-        width: 100%;
+        max-width: 100%;
         max-width: 370px;
       }
     }

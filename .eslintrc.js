@@ -1,6 +1,9 @@
 module.exports = {
   "extends": ["wesbos"],
   "rules": {
+    "no-console": [
+      "error", {allow: ["warn", "error"]}
+    ],
     "quotes": [
       2,
       "double",
@@ -29,6 +32,6 @@ module.exports = {
     "react/destructuring-assignment": [1],
     "no-nested-ternary": [0],
     "no-plusplus": [0],
-    "camelcase": [0]
+    "camelcase": [0],
   }
 }

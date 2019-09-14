@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+// import { graphql } from "gatsby";
 
 import BlogLayout from "../components/Blog/BlogLayout";
 import Post from "../components/Blog/Post";
@@ -10,8 +10,6 @@ import "../assets/styles/dracula.css";
 
 const BlogPost = ({ data, pageContext }) => {
   const { mdx: post } = data;
-  // console.log('context: ', pageContext);
-  console.log("post: ", post);
 
   return (
     <BlogLayout>

@@ -2,7 +2,7 @@ const slugify = require("slugify");
 const path = require("path");
 const { createFilePath } = require("gatsby-source-filesystem");
 
-exports.onCreateWebpackConfig = ({ stage, actions }) => {
+exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: { "react-dom": "@hot-loader/react-dom" },
@@ -76,7 +76,7 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     });
   } catch (e) {
-    console.log("Error creating blog posts: ", e);
+    console.error("Error creating blog posts: ", e);
   }
 
   try {
@@ -103,7 +103,7 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     });
   } catch (e) {
-    console.log("Error creating tags: ", e);
+    console.error("Error creating tags: ", e);
   }
 
   try {
@@ -123,6 +123,6 @@ exports.createPages = async ({ actions, graphql }) => {
       });
     });
   } catch (e) {
-    console.log("Error creating blog index pages: ", e);
+    console.error("Error creating blog index pages: ", e);
   }
 };

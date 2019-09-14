@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
 import BlogLayout from "../components/Blog/BlogLayout";

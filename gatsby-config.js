@@ -54,16 +54,19 @@ module.exports = {
           project: projectSchema,
           toolbelt: toolbeltSchema,
         },
+        // eslint-disable-next-line
         linkResolver: ({ node, key, value }) => doc => {
           // Your link resolver
         },
         fetchLinks: [
           // Your list of links
         ],
+        // eslint-disable-next-line
         htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
           // Your HTML serializer
         },
         lang: "*",
+        // eslint-disable-next-line
         shouldNormalizeImage: ({ node, key, value }) =>
           // Return true to normalize the image or false to skip.
           // console.log("value: ", value);

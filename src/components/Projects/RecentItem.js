@@ -70,56 +70,50 @@ const StyledRecentItem = styled.article`
   }
 `;
 
-export const RecentItem = props => {
-  //console.log('props.details.thumbnail', props.details.thumbnail);
-  return (
-    <StyledRecentItem className={`recent-item ${props.isActive ? "active" : ""}`}>
-      <div className="thumbnail" onClick={() => props.handleClick(props.uid, props.details)}>
-        {props.details.thumbnail ? (
+export const RecentItem = ({ details, isActive, handleClick, uid }) => (
+  // console.log('props.details.thumbnail', props.details.thumbnail);
+  <StyledRecentItem className={`recent-item ${isActive ? "active" : ""}`}>
+    <div className="thumbnail" onClick={() => handleClick(uid, details)} role="presentation">
+      {details.thumbnail ? (
+        <Img
+          fluid={details.thumbnail.localFile && details.thumbnail.localFile.childImageSharp.fluid}
+          title={details.title}
+          alt={details.title}
+          className="thumbnail-img-wrap"
+          style={{ margin: "0" }}
+          src={!details.thumbnail.localFile && details.thumbnail.url}
+          // imgStyle={{}}
+        />
+      ) : (
+        <span>No pic</span>
+      )}
+    </div>
+
+    <h5>{details.title}</h5>
+    <p className="tools-used">
+      <b>Built With:</b> {details.tools}
+    </p>
+
+    <div className="inner-content">
+      <HTMLContent content={details.body.html} className="desc" />
+
+      <div className="big-pic">
+        {details.full_image && (
           <Img
             fluid={
-              props.details.thumbnail.localFile &&
-              props.details.thumbnail.localFile.childImageSharp.fluid
+              details.full_image.localFile && details.full_image.localFile.childImageSharp.fluid
             }
-            title={props.details.title}
-            alt={props.details.title}
-            className="thumbnail-img-wrap"
+            title={details.title}
+            alt={details.title}
+            className="featured-img"
             style={{ margin: "0" }}
-            src={!props.details.thumbnail.localFile && props.details.thumbnail.url}
             // imgStyle={{}}
+            src={!details.full_image.localFile && details.full_image.url}
           />
-        ) : (
-          <span>No pic</span>
         )}
       </div>
-
-      <h5>{props.details.title}</h5>
-      <p className="tools-used">
-        <b>Built With:</b> {props.details.tools}
-      </p>
-
-      <div className="inner-content">
-        <HTMLContent content={props.details.body.html} className="desc" />
-
-        <div className="big-pic">
-          {props.details.full_image && (
-            <Img
-              fluid={
-                props.details.full_image.localFile &&
-                props.details.full_image.localFile.childImageSharp.fluid
-              }
-              title={props.details.title}
-              alt={props.details.title}
-              className="featured-img"
-              style={{ margin: "0" }}
-              // imgStyle={{}}
-              src={!props.details.full_image.localFile && props.details.full_image.url}
-            />
-          )}
-        </div>
-      </div>
-    </StyledRecentItem>
-  );
-};
+    </div>
+  </StyledRecentItem>
+);
 
 export default RecentItem;

@@ -102,8 +102,6 @@ const TagRoute = ({ data, pageContext }) => {
     },
   };
 
-  console.log("posts:", { posts });
-
   return (
     <BlogLayout>
       <StyledTagsSection>
