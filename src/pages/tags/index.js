@@ -3,8 +3,8 @@ import { kebabCase } from "lodash";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import styled from "styled-components";
 
-import BlogLayout from "../../components/Blog/BlogLayout";
-import Seo from "../../components/Seo";
+import BlogLayout from "components/Blog/BlogLayout";
+import Seo from "components/Seo";
 
 const TagIndexSection = styled.section`
   padding: 1rem;

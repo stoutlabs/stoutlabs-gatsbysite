@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "gatsby";
 import styled from "styled-components";
 
-import Layout from "../components/Layout";
+import Layout from "components/Layout";
 
 const StyledSuccess = styled.div`
   padding: 2rem 0;

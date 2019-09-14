@@ -43,15 +43,18 @@ const StyledHeader = styled.div`
 
   div.logo {
     overflow: hidden;
-    padding: 2rem 0 0;
+    margin: 2rem 0 0;
 
     img {
       max-width: 100%;
-      max-height: 150px;
+
+      @media screen and (max-width: 800px) and (orientation: landscape) {
+        max-height: 120px;
+      }
 
       @media screen and (min-width: 960px) {
-        max-width: 100%;
         max-width: 370px;
+        max-height: unset;
       }
     }
 
@@ -79,18 +82,26 @@ const StyledHeader = styled.div`
   }
 
   div.header-intro-text {
-    margin: 2rem 0;
+    margin: 1.2rem 0;
+
+    @media screen and (max-width: 800px) and (orientation: landscape) {
+      margin: 0.5rem 0;
+    }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       line-height: 1.5;
-      margin: 0 0 1.6rem;
+      margin: 0 0 1rem;
       color: #febcb8;
       text-align: center;
 
+      @media screen and (max-width: 800px) and (orientation: landscape) {
+        font-size: 1rem;
+      }
+
       @media screen and (min-width: 1200px) {
         text-align: right;
-        font-size: 1.4rem;
+        font-size: 1.35rem;
       }
 
       em {

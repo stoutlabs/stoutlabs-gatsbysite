@@ -3,13 +3,13 @@ import styled from "styled-components";
 import { graphql } from "gatsby";
 import { mergePrismicPreviewData } from "gatsby-source-prismic";
 
-import Contact from "../components/Contact";
-import { Footer } from "../components/Footer";
-import { IntroContent } from "../components/IntroContent";
-import Layout from "../components/Layout";
-import { RecentsList } from "../components/Projects/RecentsList";
-import Seo from "../components/Seo";
-import { Tools } from "../components/Tools/Tools.js";
+import Contact from "components/Contact";
+import { Footer } from "components/Footer";
+import { IntroContent } from "components/IntroContent";
+import Layout from "components/Layout";
+import { RecentsList } from "components/Projects/RecentsList";
+import Seo from "components/Seo";
+import { Tools } from "components/Tools/Tools.js";
 
 const StyledHR = styled.hr`
   border: none;

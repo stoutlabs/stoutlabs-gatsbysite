@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-import BlogLayout from "../components/Blog/BlogLayout";
-import PostsList from "../components/Blog/PostsList";
-import PaginatorLinks from "../components/Blog/PaginatorLinks";
-import Seo from "../components/Seo";
+import BlogLayout from "components/Blog/BlogLayout";
+import PostsList from "components/Blog/PostsList";
+import PaginatorLinks from "components/Blog/PaginatorLinks";
+import Seo from "components/Seo";
 
 const BlogIndex = ({ data, location, pageContext }) => {
   const seoData = {

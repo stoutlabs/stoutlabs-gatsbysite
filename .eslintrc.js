@@ -33,5 +33,12 @@ module.exports = {
     "no-nested-ternary": [0],
     "no-plusplus": [0],
     "camelcase": [0],
-  }
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"]
+      }
+    }
+  },
 }

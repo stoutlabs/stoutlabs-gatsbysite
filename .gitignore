@@ -11,8 +11,5 @@ yarn-error.log
 .env.development
 .env.production
 
-# vs code settings
-.vscode
-
 # Dev stuff
 dev

@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import Helmet from "react-helmet";
 // import { graphql } from "gatsby";
-import Layout from "../components/Layout";
-import ProjectLayout from "../components/Projects/ProjectLayout";
-import { HTMLContent } from "../components/Content";
+
+import Layout from "components/Layout";
+import ProjectLayout from "components/Projects/ProjectLayout";
+import { HTMLContent } from "components/Content";
 
 const Project = ({ data }) => {
   const { markdownRemark: post } = data;

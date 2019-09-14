@@ -25,12 +25,17 @@ const ToolsSection = styled.section`
 
     h4 {
       background: linear-gradient(180deg, #3096a7, #216571 80%);
-      padding: 1.6rem 1.4rem;
+      padding: 1.2rem 1rem;
       margin: 0 0 0.4rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #d7eff3;
       text-align: center;
       text-transform: uppercase;
+
+      @media and (min-width: 768px) {
+        font-size: 1.1rem;
+        padding: 1.6rem 1.4rem;
+      }
     }
 
     p {
@@ -48,10 +53,14 @@ const ToolsSection = styled.section`
       li {
         background-color: #d7eff3;
         margin: 0.5rem;
-        padding: 0.8rem 1rem;
+        padding: 0.3rem 0.5rem;
         border: 1px solid #fff;
         display: inline-block;
         border-radius: 0.5rem;
+
+        @media (min-width: 768px) {
+          padding: 0.5rem 1rem;
+        }
 
         &:last-child {
           border-bottom: none;
@@ -63,10 +72,17 @@ const ToolsSection = styled.section`
 
         p {
           margin: 0;
-          line-height: 1.66;
+          line-height: 1.4;
           text-align: center;
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: #216571;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+            Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+          @media (min-width: 768px) {
+            line-height: 1.5;
+            font-size: 1rem;
+          }
         }
       }
     }

@@ -5,7 +5,11 @@ const { createFilePath } = require("gatsby-source-filesystem");
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      alias: { "react-dom": "@hot-loader/react-dom" },
+      modules: [path.resolve(__dirname, "src"), "node_modules"],
+      alias: {
+        "react-dom": "@hot-loader/react-dom",
+        react: path.resolve("./node_modules/react"),
+      },
     },
   });
 };

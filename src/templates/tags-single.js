@@ -3,8 +3,8 @@ import { Link, graphql } from "gatsby";
 import kebabCase from "lodash/kebabCase";
 import styled from "styled-components";
 
-import BlogLayout from "../components/Blog/BlogLayout";
-import Seo from "../components/Seo";
+import BlogLayout from "components/Blog/BlogLayout";
+import Seo from "components/Seo";
 
 const StyledTagsSection = styled.section`
   div.content {
