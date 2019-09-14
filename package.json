@@ -1,7 +1,7 @@
 {
   "name": "stoutlabs-gatsbysite",
   "description": "StoutLabs.com website, built with Gatsby v2",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Daniel Stout <daniel@stoutlabs.com>",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.21",
@@ -12,6 +12,7 @@
     "@mdx-js/mdx": "^1.4.0",
     "@mdx-js/react": "^1.4.0",
     "babel-plugin-styled-components": "^1.10.6",
+    "dotenv": "^8.1.0",
     "gatsby": "^2.13.67",
     "gatsby-image": "^2.2.8",
     "gatsby-plugin-create-client-paths": "^2.1.6",
@@ -37,6 +38,7 @@
     "gatsby-source-prismic": "^3.0.0-beta.10",
     "gatsby-transformer-remark": "^2.6.14",
     "gatsby-transformer-sharp": "^2.2.6",
+    "lodash": "^4.17.15",
     "node-sass": "^4.12.0",
     "prismjs": "^1.17.1",
     "prop-types": "^15.7.2",
@@ -64,7 +66,18 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "dotenv": "^8.1.0"
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.3.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-config-wesbos": "^0.0.19",
+    "eslint-plugin-html": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^2.0.1",
+    "prettier": "^1.18.2"
   },
   "resolutions": {
     "lodash": "^4.17.13"

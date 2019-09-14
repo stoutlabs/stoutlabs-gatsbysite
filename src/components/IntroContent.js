@@ -1,20 +1,20 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import { HTMLContent } from './Content';
-import BioPic from '../components/BioPic';
-import CTA from '../components/CTA';
+import { HTMLContent } from "./Content";
+import BioPic from "./BioPic";
+import { CTA } from "./CTA";
 
-import theme from '../utils/theme';
-import SmBioPic from '../assets/images/profile_pic_alt.jpg';
-import MatchPic from '../assets/images/match_pic.png';
+import theme from "../utils/theme";
+import SmBioPic from "../assets/images/profile_pic_alt.jpg";
+import MatchPic from "../assets/images/match_pic.png";
 
 const StyledIntroDiv = styled.div`
   padding: 2rem 0;
   margin: 0 0 1rem;
-  ${'' /* min-height: 100vh; */} text-align: center;
+  ${"" /* min-height: 100vh; */} text-align: center;
 
   @media screen and (min-width: 960px) {
     text-align: left;
@@ -122,41 +122,27 @@ const StyledIntroDiv = styled.div`
   }
 `;
 
-export const IntroContent = ({ content }) => {
-  return (
-    <StyledIntroDiv theme={theme} className="intro" id="intro">
-      <h2>{content.title}</h2>
+export const IntroContent = ({ content }) => (
+  <StyledIntroDiv theme={theme} className="intro" id="intro">
+    <h2>{content.title}</h2>
 
-      <HTMLContent
-        content={content.introSummary.html}
-        className="intro-summary"
-      />
-      <div className="intro-box">
-        <BioPic className="intro-pic" imgSrc={SmBioPic} />
-        <HTMLContent
-          content={content.introBox1.html}
-          className="intro-content"
-        />
-      </div>
+    <HTMLContent content={content.introSummary.html} className="intro-summary" />
+    <div className="intro-box">
+      <BioPic className="intro-pic" imgSrc={SmBioPic} />
+      <HTMLContent content={content.introBox1.html} className="intro-content" />
+    </div>
 
-      <div className="intro-box">
-        <BioPic className="intro-pic" imgSrc={MatchPic} />
-        <HTMLContent
-          content={content.introBox2.html}
-          className="intro-content"
-        />
-      </div>
+    <div className="intro-box">
+      <BioPic className="intro-pic" imgSrc={MatchPic} />
+      <HTMLContent content={content.introBox2.html} className="intro-content" />
+    </div>
 
-      <div className="intro-box">
-        <HTMLContent
-          content={content.currently.html}
-          className="intro-content"
-        />
-      </div>
+    <div className="intro-box">
+      <HTMLContent content={content.currently.html} className="intro-content" />
+    </div>
 
-      <CTA url={'#projects'} element="projects" title="View My Work" isAnchor />
-    </StyledIntroDiv>
-  );
-};
+    <CTA url="#projects" element="projects" title="View My Work" isAnchor />
+  </StyledIntroDiv>
+);
 
 export default IntroContent;

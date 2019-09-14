@@ -1,12 +1,12 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { Waypoint } from "react-waypoint";
 import styled from "styled-components";
 
 import BlogContainer from "./BlogContainer";
 import BlogHeader from "./BlogHeader";
-import BlogNav from "./BlogNav";
-import Footer from "../Footer";
+import { BlogNav } from "./BlogNav";
+import { Footer } from "../Footer";
 import CategoriesNav from "./CategoriesNav";
 
 import "typeface-emilys-candy";
@@ -31,13 +31,11 @@ const StyledHeading = styled.h1`
   }
 `;
 
-
-
 class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stickyNav: false
+      stickyNav: false,
     };
   }
 
@@ -50,28 +48,26 @@ class Layout extends Component {
   };
 
   render() {
+    const { stickyNav } = this.state;
+    const { children } = this.props;
     return (
-      <Fragment>
+      <>
         <Helmet
           title="Web Design and Development Blog | StoutLabs"
-          meta={[
-            { name: "description", content: config.description }
-          ]}
+          meta={[{ name: "description", content: config.description }]}
         >
           <link rel="shortcut icon" href={favicon} />
           <link rel="apple-touch-icon" href={appleTouchIcon} />
         </Helmet>
 
         <BlogHeader siteTitle={config.title} />
-        <BlogNav sticky={this.state.stickyNav} className="mininav" />
+        <BlogNav sticky={stickyNav} className="mininav" />
         <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
-        <StyledHeading>
-          StoutLabs Blog: (Mostly) Web Development &amp; Design
-        </StyledHeading>
+        <StyledHeading>StoutLabs Blog: (Mostly) Web Development &amp; Design</StyledHeading>
         <CategoriesNav />
-        <BlogContainer>{this.props.children}</BlogContainer>
+        <BlogContainer>{children}</BlogContainer>
         <Footer />
-      </Fragment>
+      </>
     );
   }
 }

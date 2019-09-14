@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import Nav from './Nav';
-import Logo from '../assets/images/logo_svg_2018.svg';
-import SocialIcons from './SocialIcons';
+import { Nav } from "./Nav";
+import Logo from "../assets/images/logo_svg_2018.svg";
+import { SocialIcons } from "./SocialIcons";
 
 const StyledHeader = styled.div`
   background: linear-gradient(#971640, #eb5e55);
@@ -117,8 +117,8 @@ const Header = () => (
       <div className="header-content">
         <div className="header-intro-text">
           <p>
-            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
-            hobbyist chef, disc golfer, and music nerd living in East TN.
+            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent, hobbyist chef, disc
+            golfer, and music nerd living in East TN.
           </p>
         </div>
 

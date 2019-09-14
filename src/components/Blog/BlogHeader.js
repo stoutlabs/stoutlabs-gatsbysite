@@ -1,9 +1,9 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import BlogNav from './BlogNav';
-import Logo from '../../assets/images/blog_logo.svg';
+import { BlogNav } from "./BlogNav";
+import Logo from "../../assets/images/blog_logo.svg";
 
 const StyledHeader = styled.div`
   background: linear-gradient(#971640, #eb5e55);

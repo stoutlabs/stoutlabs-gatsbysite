@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 const StyledCategoryLinks = styled.div`
   padding: 0.5rem;
-  background-color: rgba(120,120,120,0.1);
+  background-color: rgba(120, 120, 120, 0.1);
   margin: 0 0 2rem;
 
   ul {
@@ -34,28 +34,26 @@ const StyledCategoryLinks = styled.div`
   }
 `;
 
-const CategoriesNav = () => {
-  return (
-    <StyledCategoryLinks>
-      <ul className="category-links">
-        <li>
-          <Link to="/tags/javascript/" activeClassName="active">
-            JavaScript
-          </Link>
-        </li>
-        <li>
-          <Link to="/tags/gatsbyjs/" activeClassName="active">
-            Gatsby.js
-          </Link>
-        </li>
-        <li>
-          <Link to="/tags/quick-lesson/" activeClassName="active">
-            Quick Lessons
-          </Link>
-        </li>
-      </ul>
-    </StyledCategoryLinks>
-  );
-};
+const CategoriesNav = () => (
+  <StyledCategoryLinks>
+    <ul className="category-links">
+      <li>
+        <Link to="/tags/javascript/" activeClassName="active">
+          JavaScript
+        </Link>
+      </li>
+      <li>
+        <Link to="/tags/gatsbyjs/" activeClassName="active">
+          Gatsby.js
+        </Link>
+      </li>
+      <li>
+        <Link to="/tags/quick-lesson/" activeClassName="active">
+          Quick Lessons
+        </Link>
+      </li>
+    </ul>
+  </StyledCategoryLinks>
+);
 
 export default CategoriesNav;

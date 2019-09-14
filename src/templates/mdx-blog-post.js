@@ -1,7 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-
 import BlogLayout from "../components/Blog/BlogLayout";
 import Post from "../components/Blog/Post";
 import { MdxContent } from "../components/Content";
@@ -13,7 +12,7 @@ export default function PageTemplate({ pageContext, data: { mdx } }) {
     <BlogLayout>
       <Seo
         postData={mdx}
-        isBlogPage={true}
+        isBlogPage
         postImage={
           mdx.frontmatter.featureimg ? mdx.frontmatter.featureimg.childImageSharp.fluid.src : null
         }

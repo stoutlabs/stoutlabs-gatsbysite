@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
 const StyledNav = styled.nav`
   ul {
@@ -56,8 +56,7 @@ const StyledNav = styled.nav`
     width: 100vw;
     opacity: 0;
     z-index: 99;
-    transition: visibility 1ms 300ms linear, opacity 200ms 20ms linear,
-      transform 200ms 2ms linear;
+    transition: visibility 1ms 300ms linear, opacity 200ms 20ms linear, transform 200ms 2ms linear;
 
     &.sticky {
       @media screen and (max-width: 767px) {
@@ -75,23 +74,21 @@ const StyledNav = styled.nav`
   }
 `;
 
-export const BlogNav = ({ sticky, className }) => {
-  return (
-    <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
-      <ul>
-        <li>
-          <Link to="/blog/" activeClassName="active">
-            All Posts
-          </Link>
-        </li>
-        <li>
-          <Link to="/tags/" activeClassName="active">
-            All Tags
-          </Link>
-        </li>
-      </ul>
-    </StyledNav>
-  );
-};
+export const BlogNav = ({ sticky, className }) => (
+  <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
+    <ul>
+      <li>
+        <Link to="/blog/" activeClassName="active">
+          All Posts
+        </Link>
+      </li>
+      <li>
+        <Link to="/tags/" activeClassName="active">
+          All Tags
+        </Link>
+      </li>
+    </ul>
+  </StyledNav>
+);
 
 export default BlogNav;

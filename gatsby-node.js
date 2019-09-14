@@ -1,24 +1,24 @@
-const slugify = require('slugify');
-const path = require('path');
-const { createFilePath } = require('gatsby-source-filesystem');
+const slugify = require("slugify");
+const path = require("path");
+const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
   actions.setWebpackConfig({
     resolve: {
-      alias: { "react-dom": "@hot-loader/react-dom" }
-    }
+      alias: { "react-dom": "@hot-loader/react-dom" },
+    },
   });
 };
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  if (node.internal.type === 'Mdx') {
+  if (node.internal.type === "Mdx") {
     const value = createFilePath({ node, getNode });
     createNodeField({
       name: `slug`,
       node,
-      value
+      value,
     });
   }
 };
@@ -50,9 +50,9 @@ exports.createPages = async ({ actions, graphql }) => {
     }
   `);
 
-  //create blog pages, tag pages
+  // create blog pages, tag pages
   const posts = allBlogPosts.data.allMdx.edges;
-  
+
   try {
     posts.forEach((post, index) => {
       // set up prev/next links for each article
@@ -66,15 +66,13 @@ exports.createPages = async ({ actions, graphql }) => {
         //   `src/templates/${String(post.node.frontmatter.templateKey)}.js`
         // ),
         // updated to MDX, and don't want to change the template string on old posts
-        component: path.resolve(
-          `src/templates/mdx-blog-post.js`
-        ),
+        component: path.resolve(`src/templates/mdx-blog-post.js`),
         context: {
           id: post.node.id,
           slug: post.node.fields.slug,
           previous,
-          next
-        }
+          next,
+        },
       });
     });
   } catch (e) {
@@ -83,34 +81,34 @@ exports.createPages = async ({ actions, graphql }) => {
 
   try {
     let tags = [];
-  
+
     posts.forEach(({ node }) => {
       if (node.frontmatter.tags !== undefined) {
         tags = tags.concat(node.frontmatter.tags);
       }
     });
-  
+
     const uniqueTags = [...new Set(tags)];
-  
+
     uniqueTags.forEach(tag => {
       // console.log("tag: ", tag);
       const tagPath = `/tags/${slugify(tag)}/`;
-  
+
       createPage({
         path: tagPath,
-        component: path.resolve(`src/templates/tags.js`),
+        component: path.resolve(`src/templates/tags-single.js`),
         context: {
-          tag
-        }
+          tag,
+        },
       });
     });
   } catch (e) {
-    console.log('Error creating tags: ', e);
+    console.log("Error creating tags: ", e);
   }
 
   try {
     // Create blog-list pages
-    const postsPerPage = 8;
+    const postsPerPage = 20;
     const numPages = Math.ceil(posts.length / postsPerPage);
     Array.from({ length: numPages }).forEach((_, i) => {
       createPage({
@@ -120,11 +118,11 @@ exports.createPages = async ({ actions, graphql }) => {
           limit: postsPerPage,
           skip: i * postsPerPage,
           numPages,
-          currentPage: i + 1
-        }
+          currentPage: i + 1,
+        },
       });
     });
-  } catch(e) {
+  } catch (e) {
     console.log("Error creating blog index pages: ", e);
   }
 };

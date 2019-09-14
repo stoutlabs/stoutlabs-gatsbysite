@@ -1,8 +1,8 @@
-import path from 'path';
-import React from 'react';
-import Helmet from 'react-helmet';
-import PropTypes from 'prop-types';
-import config from '../../config';
+import path from "path";
+import React from "react";
+import Helmet from "react-helmet";
+import PropTypes from "prop-types";
+import config from "../../config";
 
 const getSchemaOrgJSONLD = ({
   isProjectPage,
@@ -11,55 +11,54 @@ const getSchemaOrgJSONLD = ({
   title,
   image,
   description,
-  datePublished
+  datePublished,
 }) => {
   const schemaOrgJSONLD = [
     {
-      '@context': 'http://schema.org',
-      '@type': 'WebSite',
-      url: url,
+      "@context": "http://schema.org",
+      "@type": "WebSite",
+      url,
       name: title,
       alternateName: config.title,
       author: {
-        '@type': 'Person',
-        name: 'Daniel Stout'
+        "@type": "Person",
+        name: "Daniel Stout",
       },
-      description:
-        'Daniel Stout is a freelance JavaScript developer in Kingsport, TN.',
-      publisher: 'StoutLabs'
-    }
+      description: "Daniel Stout is a freelance JavaScript developer in Kingsport, TN.",
+      publisher: "StoutLabs",
+    },
   ];
 
   if (url === config.url) {
     return [
       ...schemaOrgJSONLD,
       {
-        '@context': 'http://schema.org',
-        '@type': 'LocalBusiness',
+        "@context": "http://schema.org",
+        "@type": "LocalBusiness",
         address: {
-          '@type': 'PostalAddress',
-          addressLocality: 'Kingsport',
-          addressRegion: 'TN',
-          postalCode: '37664',
-          streetAddress: '1509 Lamont St.'
+          "@type": "PostalAddress",
+          addressLocality: "Kingsport",
+          addressRegion: "TN",
+          postalCode: "37664",
+          streetAddress: "1509 Lamont St.",
         },
         description:
-          'Freelance JavaScript web developer and consultant. Located in the Tri-Cities, TN.',
-        name: 'StoutLabs',
-        telephone: '423-343-4274',
-        openingHours: 'Mo,Tu,We,Th,Fr 10:00-18:00',
+          "Freelance JavaScript web developer and consultant. Located in the Tri-Cities, TN.",
+        name: "StoutLabs",
+        telephone: "423-343-4274",
+        openingHours: "Mo,Tu,We,Th,Fr 10:00-18:00",
         image: config.image,
         geo: {
-          '@type': 'GeoCoordinates',
-          latitude: '36.542',
-          longitude: '-82.536'
+          "@type": "GeoCoordinates",
+          latitude: "36.542",
+          longitude: "-82.536",
         },
         sameAs: [
-          'http://www.facebook.com/stoutlabs',
-          'http://www.twitter.com/stoutlabs',
-          'https://plus.google.com/u/1/117064599559622613582'
-        ]
-      }
+          "http://www.facebook.com/stoutlabs",
+          "http://www.twitter.com/stoutlabs",
+          "https://plus.google.com/u/1/117064599559622613582",
+        ],
+      },
     ];
   }
 
@@ -67,52 +66,52 @@ const getSchemaOrgJSONLD = ({
     return [
       ...schemaOrgJSONLD,
       {
-        '@context': 'http://schema.org',
-        '@type': 'BreadcrumbList',
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
         itemListElement: [
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             position: 1,
             item: {
-              '@id': url,
+              "@id": url,
               name: title,
-              image
-            }
-          }
-        ]
+              image,
+            },
+          },
+        ],
       },
       {
-        '@context': 'http://schema.org',
-        '@type': 'Article',
+        "@context": "http://schema.org",
+        "@type": "Article",
         url,
         name: title,
         alternateName: config.title,
         headline: title,
         image: {
-          '@type': 'ImageObject',
-          url: image
+          "@type": "ImageObject",
+          url: image,
         },
         description,
         author: {
-          '@type': 'Person',
-          name: 'Daniel Stout'
+          "@type": "Person",
+          name: "Daniel Stout",
         },
         mainEntityOfPage: {
-          '@type': 'WebPage',
-          '@id': url
+          "@type": "WebPage",
+          "@id": url,
         },
-        datePublished: datePublished,
+        datePublished,
         publisher: {
-          '@type': 'Organization',
-          name: 'StoutLabs',
+          "@type": "Organization",
+          name: "StoutLabs",
           logo: {
-            '@type': 'ImageObject',
+            "@type": "ImageObject",
             width: 226,
             height: 60,
-            url: config.publisherlogo
-          }
-        }
-      }
+            url: config.publisherlogo,
+          },
+        },
+      },
     ];
   }
 
@@ -120,42 +119,42 @@ const getSchemaOrgJSONLD = ({
     return [
       ...schemaOrgJSONLD,
       {
-        '@context': 'http://schema.org',
-        '@type': 'BreadcrumbList',
+        "@context": "http://schema.org",
+        "@type": "BreadcrumbList",
         itemListElement: [
           {
-            '@type': 'ListItem',
+            "@type": "ListItem",
             position: 1,
             item: {
-              '@id': url,
+              "@id": url,
               name: title,
-              image
-            }
-          }
-        ]
+              image,
+            },
+          },
+        ],
       },
       {
-        '@context': 'http://schema.org',
-        '@type': 'WebPage',
+        "@context": "http://schema.org",
+        "@type": "WebPage",
         url,
         name: title,
         alternateName: config.title,
         headline: title,
         image: {
-          '@type': 'ImageObject',
-          url: image
+          "@type": "ImageObject",
+          url: image,
         },
         description,
         author: {
-          '@type': 'Person',
-          name: 'Daniel Stout'
+          "@type": "Person",
+          name: "Daniel Stout",
         },
         mainEntityOfPage: {
-          '@type': 'WebSite',
-          '@id': config.url
+          "@type": "WebSite",
+          "@id": config.url,
         },
-        datePublished: datePublished
-      }
+        datePublished,
+      },
     ];
   }
 
@@ -166,19 +165,16 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
   const postMeta = postData.frontmatter || {};
 
   const title = isBlogPage
-    ? postMeta.title + ' | StoutLabs Blog'
+    ? `${postMeta.title} | StoutLabs Blog`
     : postMeta.title
-      ? postMeta.title
-      : config.title;
+    ? postMeta.title
+    : config.title;
 
-  const description =
-    postMeta.description || postData.excerpt || config.description;
+  const description = postMeta.description || postData.excerpt || config.description;
 
   const image = postImage ? `${config.url}${postImage}` : config.image;
 
-  const url = isBlogPage
-    ? `${config.url}${path.sep}blog${postData.fields.slug}`
-    : config.url;
+  const url = isBlogPage ? `${config.url}${path.sep}blog${postData.fields.slug}` : config.url;
 
   const datePublished = isBlogPage ? postMeta.date : false;
 
@@ -189,7 +185,7 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
     title,
     image,
     description,
-    datePublished
+    datePublished,
   });
 
   return (
@@ -198,15 +194,10 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
       <html lang="en" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
-      <meta
-        name="google-site-verification"
-        content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo"
-      />
+      <meta name="google-site-verification" content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo" />
 
       {/* Schema.org tags */}
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
+      <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={url} />
@@ -231,17 +222,18 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
 };
 
 SEO.propTypes = {
-  isBlogPost: PropTypes.bool,
+  isBlogPage: PropTypes.bool,
+  isProjectPage: PropTypes.bool,
   postData: PropTypes.shape({
     frontmatter: PropTypes.any,
-    excerpt: PropTypes.any
+    excerpt: PropTypes.any,
+    fields: PropTypes.any,
   }).isRequired,
-  postImage: PropTypes.string
+  postImage: PropTypes.string,
 };
 
 SEO.defaultProps = {
-  isProjectPage: false,
-  postImage: null
+  postImage: null,
 };
 
 export default SEO;

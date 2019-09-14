@@ -1,10 +1,10 @@
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { Waypoint } from "react-waypoint";
 
-import Container from "./Container";
+import { Container } from "./Container";
 import Header from "./Header";
-import Nav from "../components/Nav";
+import { Nav } from "./Nav";
 
 import "../assets/styles/index.scss";
 import config from "../../config/index";
@@ -15,7 +15,7 @@ class Layout extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      stickyNav: false
+      stickyNav: false,
     };
   }
 
@@ -28,8 +28,11 @@ class Layout extends Component {
   };
 
   render() {
+    const { stickyNav } = this.state;
+    const { children } = this.props;
+
     return (
-      <Fragment>
+      <>
         <Helmet
           title={config.title}
           meta={[
@@ -37,19 +40,19 @@ class Layout extends Component {
             { name: "keywords", content: config.keywords },
             {
               name: "google-site-verification",
-              content: "1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo"
-            }
+              content: "1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo",
+            },
           ]}
         >
           <link rel="shortcut icon" href={favicon} />
           <link rel="apple-touch-icon" href={appleTouchIcon} />
         </Helmet>
         <Header siteTitle={config.title} />
-        <Nav sticky={this.state.stickyNav} className="mininav" />
+        <Nav sticky={stickyNav} className="mininav" />
         <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
 
-        <Container>{this.props.children}</Container>
-      </Fragment>
+        <Container>{children}</Container>
+      </>
     );
   }
 }

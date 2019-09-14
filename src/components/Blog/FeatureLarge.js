@@ -126,7 +126,7 @@ const StyledFeatureLarge = styled.div`
   }
 `;
 
-export default ({ node, title }) => {
+const FeaturedLarge = ({ node, title }) => {
   const [year, month, day] = node.frontmatter.rawdate.split("-");
 
   return (
@@ -158,7 +158,7 @@ export default ({ node, title }) => {
             </span>
             <span className="tags">
               {node.frontmatter.tags.map(tag => (
-                <Link to={`/tags/${kebabCase(tag)}`} key={tag + `tag`}>
+                <Link to={`/tags/${kebabCase(tag)}`} key={`${tag}tag`}>
                   {tag}
                 </Link>
               ))}
@@ -171,3 +171,5 @@ export default ({ node, title }) => {
     </StyledFeatureLarge>
   );
 };
+
+export default FeaturedLarge;

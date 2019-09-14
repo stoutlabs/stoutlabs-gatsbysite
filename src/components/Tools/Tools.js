@@ -1,14 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 import Img from "../Image";
-
-// import ReactLogo from '../../assets/images/react.svg';
-// import GatsbyLogo from '../../assets/images/gatsby.svg';
-// import NodeLogo from '../../assets/images/nodejs.svg';
-// import GraphQLogo from '../../assets/images/graphql.svg';
-
-// import myTheme from '../../utils/theme';
 
 const ToolsSection = styled.section`
   display: flex;
@@ -106,7 +99,7 @@ const ToolsSection = styled.section`
 
 export const Tools = ({ content }) => {
   const faves = content.faves.document.data;
-  const boxes = content.boxes;
+  const { boxes } = content;
 
   return (
     <ToolsSection id="tools">
@@ -114,30 +107,22 @@ export const Tools = ({ content }) => {
 
       <div className="tools faves">
         <h4>
-          Currently{' '}
+          Currently{" "}
           <span role="img" aria-label="heart">
             💗
           </span>
           s:
         </h4>
         <ul>
-          {faves.toolbelt_item.map(item => {
-            return (
-              <li key={item.tool_name}>
-                {/* <img src={ReactLogo} alt="ReactJS" /> */}
-                <Img
-                  fixed={
-                    item.logo.localFile && item.logo.localFile.childImageSharp.fixed
-                  }
-                  src={!item.logo.localFile && item.logo.url}
-                />
-                {/* <Img fluid={item.logo.localFile.childImageSharp.fluid} /> */}
-
-                {/* <img src={item.logo.localFile.publicURL} alt={item.tool_name} /> */}
-                <p>{item.tool_name}</p>
-              </li>
-            );
-          })}
+          {faves.toolbelt_item.map(item => (
+            <li key={item.tool_name}>
+              <Img
+                fixed={item.logo.localFile && item.logo.localFile.childImageSharp.fixed}
+                src={!item.logo.localFile && item.logo.url}
+              />
+              <p>{item.tool_name}</p>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -145,16 +130,13 @@ export const Tools = ({ content }) => {
         const boxContent = box.document.data;
         return (
           <div className="tools sub" key={boxContent.toolbelt_title}>
-            {/*  eslint-disable-next-line */}
             <h4>{boxContent.toolbelt_title}</h4>
             <ul>
-              {boxContent.toolbelt_item.map(item => {
-                return (
-                  <li key={item.tool_name}>
-                    <p>{item.tool_name}</p>
-                  </li>
-                );
-              })}
+              {boxContent.toolbelt_item.map(item => (
+                <li key={item.tool_name}>
+                  <p>{item.tool_name}</p>
+                </li>
+              ))}
             </ul>
           </div>
         );

@@ -20,15 +20,15 @@ export const PreviewPage = ({ location }) => {
 
     if (pageUIDs.includes(previewedUID)) {
       return previewedUID;
-    } else {
-      return "/unpublishedPreview";
     }
+    return "/unpublishedPreview";
+
     // return "/";
   };
 
   const { previewData, path } = usePrismicPreview(location, {
     repositoryName: "stoutlabs2018",
-    pathResolver
+    pathResolver,
   });
 
   useEffect(() => {

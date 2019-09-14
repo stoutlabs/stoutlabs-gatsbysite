@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledBioPic = styled.div`
   img {
@@ -9,10 +9,10 @@ const StyledBioPic = styled.div`
   }
 `;
 
-export default props => {
-  return (
-    <StyledBioPic className={`${props.className} bio-pic`}>
-      <img src={props.imgSrc} alt="" />
-    </StyledBioPic>
-  );
-};
+const BioPic = ({ className, imgSrc }) => (
+  <StyledBioPic className={`${className} bio-pic`}>
+    <img src={imgSrc} alt="" />
+  </StyledBioPic>
+);
+
+export default BioPic;

@@ -17,7 +17,7 @@ const Image = ({
       src={src}
       loading="lazy"
       style={{ objectFit, objectPosition }}
-      alt={alt ? alt : ""}
+      alt={alt || ""}
       {...props}
     />
   ) : (
