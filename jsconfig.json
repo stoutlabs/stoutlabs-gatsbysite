@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "target": "es2018",
+    "jsx": "preserve",
+    "baseUrl": "./src"
+  },
+  "exclude": ["node_modules", "dev", "**/node_modules/*", "public", ".cache"]
+}

@@ -86,7 +86,7 @@ const StyledForm = styled.form`
 
 function encode(data) {
   return Object.keys(data)
-    .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+    .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
     .join("&");
 }
 
@@ -104,23 +104,25 @@ export class HomeForm extends Component {
     super(props);
     this.state = {
       isSpammer: true,
-      spamvals: spamQuestion()
+      spamvals: spamQuestion(),
     };
   }
 
   handleChange = e => {
-    //const stripLinksTags = '';
+    // const stripLinksTags = '';
     const val = e.target.value.trim();
-    const name = e.target.name;
+    const { name } = e.target;
+    const { spamvals } = this.state;
+
     if (name === "idiotremover") {
-      if (parseInt(val) === parseInt(this.state.spamvals.answer)) {
+      if (parseInt(val) === parseInt(spamvals.answer)) {
         this.setState({
           [`${name}`]: val,
-          isSpammer: false
+          isSpammer: false,
         });
       } else {
         this.setState({
-          isSpammer: true
+          isSpammer: true,
         });
       }
     } else {
@@ -129,7 +131,7 @@ export class HomeForm extends Component {
   };
 
   handleSpammer = () => {
-    console.log("think again, roboprick.");
+    // console.log("think again, roboprick.");
     const newQuestion = spamQuestion();
     this.setState(() => ({ spamvals: newQuestion }));
   };
@@ -142,14 +144,16 @@ export class HomeForm extends Component {
     e.preventDefault();
     const form = e.target;
 
-    if (!this.state.isSpammer) {
+    const { isSpammer } = this.state;
+
+    if (!isSpammer) {
       fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": form.getAttribute("name"),
-          ...this.state
-        })
+          ...this.state,
+        }),
       })
         .then(() => navigate(form.getAttribute("action")))
         .catch(error => alert(error));
@@ -159,6 +163,8 @@ export class HomeForm extends Component {
   };
 
   render() {
+    const { spamvals } = this.state;
+
     return (
       <StyledForm
         name="contact"
@@ -175,7 +181,7 @@ export class HomeForm extends Component {
             name="name"
             placeholder="Your Name"
             aria-label="Name"
-            required={true}
+            required
             onChange={this.handleChange}
           />
           <input
@@ -183,7 +189,7 @@ export class HomeForm extends Component {
             name="email"
             placeholder="Email Address"
             aria-label="Email"
-            required={true}
+            required
             onChange={this.handleChange}
           />
           <input
@@ -191,16 +197,16 @@ export class HomeForm extends Component {
             name="phone"
             placeholder="Phone Number"
             aria-label="Phone"
-            required={true}
+            required
             onChange={this.handleChange}
           />
           <div>
-            <label htmlFor="idiotremover">{this.state.spamvals.question}</label>
+            <label htmlFor="idiotremover">{spamvals.question}</label>
             <input
               type="text"
               name="idiotremover"
               aria-label="idiotremover"
-              required={true}
+              required
               onChange={this.handleChange}
             />
           </div>
@@ -210,7 +216,7 @@ export class HomeForm extends Component {
             rows="5"
             cols="80"
             aria-label="Message"
-            required={true}
+            required
             onChange={this.handleChange}
           />
         </fieldset>

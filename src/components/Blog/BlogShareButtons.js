@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import {
   FacebookIcon,
   FacebookShareButton,
@@ -6,12 +6,12 @@ import {
   TwitterIcon,
   TwitterShareButton,
   EmailIcon,
-  EmailShareButton
-} from 'react-share';
-import styled from 'styled-components';
-import urljoin from 'url-join';
+  EmailShareButton,
+} from "react-share";
+import styled from "styled-components";
+import urljoin from "url-join";
 
-import config from '../../../config';
+import config from "../../../config";
 
 const StyledShareButtons = styled.div`
   margin: 0 auto;
@@ -53,12 +53,10 @@ export class BlogShareButtons extends Component {
   render() {
     const { postNode, postPath, mobile } = this.props;
     const post = postNode.frontmatter;
-    const url = urljoin(config.url, config.pathPrefix, 'blog', postPath);
+    const url = urljoin(config.url, config.pathPrefix, "blog", postPath);
     const iconSize = mobile ? 36 : 48;
-    const filter = count => (count > 0 ? count : '');
-    const renderShareCount = count => (
-      <div className="share-count">{filter(count)}</div>
-    );
+    const filter = count => (count > 0 ? count : "");
+    const renderShareCount = count => <div className="share-count">{filter(count)}</div>;
 
     return (
       <StyledShareButtons>
@@ -76,10 +74,7 @@ export class BlogShareButtons extends Component {
             </FacebookShareCount>
           </FacebookShareButton>
 
-          <EmailShareButton
-            subject="Check Out This Link From StoutLabs.com"
-            url={url}
-          >
+          <EmailShareButton subject="Check Out This Link From StoutLabs.com" url={url}>
             <EmailIcon round size={iconSize} />
           </EmailShareButton>
         </div>

@@ -1,33 +1,30 @@
-import React, { Component } from "react";
+import React from "react";
 import { graphql } from "gatsby";
 
-import BlogLayout from "../components/Blog/BlogLayout";
-import PostsList from "../components/Blog/PostsList";
-import PaginatorLinks from "../components/Blog/PaginatorLinks";
-import Seo from "../components/Seo";
+import BlogLayout from "components/Blog/BlogLayout";
+import PostsList from "components/Blog/PostsList";
+import PaginatorLinks from "components/Blog/PaginatorLinks";
+import Seo from "components/Seo";
 
-export class BlogIndex extends Component {
-  render() {
-    const seoData = {
-      frontmatter: {
-        title: "StoutLabs Web Design & Development Blog"
-      }
-    };
+const BlogIndex = ({ data, location, pageContext }) => {
+  const seoData = {
+    frontmatter: {
+      title: "StoutLabs Web Design & Development Blog",
+    },
+  };
 
-    const posts = this.props.data.allMdx.edges;
+  const posts = data.allMdx.edges;
 
-    return (
-      <BlogLayout location={this.props.location}>
-        <Seo postData={seoData} />
-        <PostsList posts={posts} currentPage={this.props.pageContext.currentPage} />
-        <PaginatorLinks
-          currentPage={this.props.pageContext.currentPage}
-          totalPages={this.props.pageContext.numPages}
-        />
-      </BlogLayout>
-    );
-  }
-}
+  return (
+    <BlogLayout location={location}>
+      <Seo postData={seoData} />
+      <PostsList posts={posts} currentPage={pageContext.currentPage} />
+      {pageContext.numPages > 1 && (
+        <PaginatorLinks currentPage={pageContext.currentPage} totalPages={pageContext.numPages} />
+      )}
+    </BlogLayout>
+  );
+};
 
 export default BlogIndex;
 

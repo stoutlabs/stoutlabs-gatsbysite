@@ -1,19 +1,18 @@
 import React from "react";
 import { graphql } from "gatsby";
 
-
-import BlogLayout from "../components/Blog/BlogLayout";
-import Post from "../components/Blog/Post";
-import { MdxContent } from "../components/Content";
-import Seo from "../components/Seo";
-import "../assets/styles/dracula.css";
+import BlogLayout from "components/Blog/BlogLayout";
+import Post from "components/Blog/Post";
+import { MdxContent } from "components/Content";
+import Seo from "components/Seo";
+import "assets/styles/dracula.css"; // prismjs theme
 
 export default function PageTemplate({ pageContext, data: { mdx } }) {
   return (
     <BlogLayout>
       <Seo
         postData={mdx}
-        isBlogPage={true}
+        isBlogPage
         postImage={
           mdx.frontmatter.featureimg ? mdx.frontmatter.featureimg.childImageSharp.fluid.src : null
         }

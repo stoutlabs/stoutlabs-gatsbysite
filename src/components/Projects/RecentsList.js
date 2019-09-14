@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 
-import RecentItem from "./RecentItem";
-import DetailsBox from "./DetailsBox";
+import { RecentItem } from "./RecentItem";
+import { DetailsBox } from "./DetailsBox";
 
 const StyledRecents = styled.section`
   div.recents-list {
@@ -52,39 +52,35 @@ export class RecentsList extends Component {
     isViewing: false,
     isLoaded: false,
     activeItem: null,
-    activeDetails: null
+    activeDetails: null,
   };
 
   componentDidMount = () => {
-    this.setState(() => {
-      return {
-        projects: this.props.projects,
-        isLoaded: true,
-        activeDetails: this.props.projects[0].project.document.data
-      };
-    });
+    const { projects } = this.props;
+    this.setState(() => ({
+      projects,
+      isLoaded: true,
+      activeDetails: projects[0].project.document.data,
+    }));
   };
 
   handleClick = (id, details = null) => {
-    this.setState(() => {
-      return {
-        activeItem: id,
-        isViewing: true,
-        activeDetails: details
-      };
-    });
+    this.setState(() => ({
+      activeItem: id,
+      isViewing: true,
+      activeDetails: details,
+    }));
   };
 
   hideDetails = () => {
-    this.setState(() => {
-      return {
-        activeItem: null,
-        isViewing: false
-      };
-    });
+    this.setState(() => ({
+      activeItem: null,
+      isViewing: false,
+    }));
   };
 
   render() {
+    const { isLoaded, projects, activeDetails, activeItem, isViewing } = this.state;
     return (
       <StyledRecents id="projects">
         <h3>Recent Projects</h3>
@@ -95,14 +91,14 @@ export class RecentsList extends Component {
         </p>
 
         <div className="recents-list">
-          {this.state.isLoaded &&
-            this.state.projects.map((itemRaw, index) => {
+          {isLoaded &&
+            projects.map((itemRaw, index) => {
               const item = itemRaw.project.document.data;
-              const uid = itemRaw.project.document.uid;
+              const { uid } = itemRaw.project.document;
 
               return (
                 <RecentItem
-                  isActive={this.state.activeItem === uid ? true : false}
+                  isActive={activeItem === uid}
                   key={index}
                   details={item}
                   uid={uid}
@@ -116,13 +112,10 @@ export class RecentsList extends Component {
           <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP) available upon request.
         </p>
 
-        <ProjectOverlay
-          className={this.state.isViewing ? "show" : "hide"}
-          onClick={this.hideDetails}
-        />
+        <ProjectOverlay className={isViewing ? "show" : "hide"} onClick={this.hideDetails} />
         <DetailsBox
-          details={this.state.activeDetails}
-          className={this.state.isViewing ? "active" : ""}
+          details={activeDetails}
+          className={isViewing ? "active" : ""}
           handleClose={this.hideDetails}
         />
       </StyledRecents>

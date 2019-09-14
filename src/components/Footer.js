@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const StyledFooter = styled.footer`
   padding: 1.5rem 0;
@@ -13,12 +13,10 @@ const StyledFooter = styled.footer`
   }
 `;
 
-export const Footer = () => {
-  return (
-    <StyledFooter>
-      <p>&copy; {new Date().getFullYear()} StoutLabs</p>
-    </StyledFooter>
-  );
-};
+export const Footer = () => (
+  <StyledFooter>
+    <p>&copy; {new Date().getFullYear()} StoutLabs</p>
+  </StyledFooter>
+);
 
 export default Footer;

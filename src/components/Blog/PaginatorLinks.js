@@ -18,7 +18,7 @@ const StyledPaginationLinks = styled.div`
       display: inline-block;
       padding: 0.5rem;
       margin: 0 0.33rem;
-      border: 1px solid rgba(120,120,120,0.3);
+      border: 1px solid rgba(120, 120, 120, 0.3);
     }
   }
 `;
@@ -30,7 +30,7 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
   const currentPageBlock = Math.ceil(currentPage / pageBlockSize);
 
   const renderPageNumbersInBlock = () => {
-    let linksArr = [];
+    const linksArr = [];
     for (let x = 1; x <= pageBlockSize; x++) {
       let theNumLink;
       const theNum = x + pageBlockSize * (currentPageBlock - 1);
@@ -39,7 +39,7 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
       if (theNum === 1) {
         theNumLink = (
           <li className={`page-item ${currentPage === 1 && "active"}`} key={theNum}>
-            <Link to={`/blog/`} className={`page-link`}>
+            <Link to="/blog/" className="page-link">
               1
             </Link>
           </li>
@@ -66,8 +66,8 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
   return (
     <StyledPaginationLinks>
       <ul className="pagination">
-        <li className={`page-item`}>
-          <Link to={`/blog/`} className="page-link">
+        <li className="page-item">
+          <Link to="/blog/" className="page-link">
             First
           </Link>
         </li>
@@ -91,7 +91,7 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
           </li>
         )}
 
-        <li className={`page-item`}>
+        <li className="page-item">
           <Link to={`/blog/${totalPages}`} className="page-link">
             Last
           </Link>

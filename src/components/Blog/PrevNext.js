@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
 const StyledPrevNext = styled.div`
   margin: 2.5rem 0;
@@ -87,34 +87,32 @@ const StyledPrevNext = styled.div`
   }
 `;
 
-export const PrevNext = ({ prev, next }) => {
-  return (
-    <StyledPrevNext className="prevnext">
-      <ul>
-        {prev !== null ? (
-          <li>
-            <span className="label">Newer</span>
-            <Link to={"/blog" + prev.fields.slug} rel="prev">
-              <span>&larr;</span>
-              {prev.frontmatter.title}
-            </Link>
-          </li>
-        ) : (
-          <li>&nbsp;</li>
-        )}
+export const PrevNext = ({ prev, next }) => (
+  <StyledPrevNext className="prevnext">
+    <ul>
+      {prev !== null ? (
+        <li>
+          <span className="label">Newer</span>
+          <Link to={`/blog${prev.fields.slug}`} rel="prev">
+            <span>&larr;</span>
+            {prev.frontmatter.title}
+          </Link>
+        </li>
+      ) : (
+        <li>&nbsp;</li>
+      )}
 
-        {next !== null ? (
-          <li className="next">
-            <span className="label">Older</span>
-            <Link to={"/blog" + next.fields.slug} rel="next">
-              {next.frontmatter.title}
-              <span>&rarr;</span>
-            </Link>
-          </li>
-        ) : null}
-      </ul>
-    </StyledPrevNext>
-  );
-};
+      {next !== null ? (
+        <li className="next">
+          <span className="label">Older</span>
+          <Link to={`/blog${next.fields.slug}`} rel="next">
+            {next.frontmatter.title}
+            <span>&rarr;</span>
+          </Link>
+        </li>
+      ) : null}
+    </ul>
+  </StyledPrevNext>
+);
 
 export default PrevNext;

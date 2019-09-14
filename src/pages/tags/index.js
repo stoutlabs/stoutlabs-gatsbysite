@@ -1,10 +1,10 @@
-import React from 'react';
-import { kebabCase } from 'lodash';
+import React from "react";
+import { kebabCase } from "lodash";
 import { Link, useStaticQuery, graphql } from "gatsby";
-import styled from 'styled-components';
+import styled from "styled-components";
 
-import BlogLayout from '../../components/Blog/BlogLayout';
-import Seo from '../../components/Seo';
+import BlogLayout from "components/Blog/BlogLayout";
+import Seo from "components/Seo";
 
 const TagIndexSection = styled.section`
   padding: 1rem;
@@ -31,25 +31,25 @@ const TagIndexSection = styled.section`
 const seoData = {
   frontmatter: {
     title: `All Tags | StoutLabs Web Design & Development Blog`,
-    description: 'List of all tags used in my blog.'
-  }
+    description: "List of all tags used in my blog.",
+  },
 };
 
 const TagsPage = () => {
   const data = useStaticQuery(graphql`
     query TagsQuery {
-    site {
-      siteMetadata {
-        title
+      site {
+        siteMetadata {
+          title
+        }
+      }
+      allMdx(limit: 1000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+          totalCount
+        }
       }
     }
-    allMdx(limit: 1000) {
-      group(field: frontmatter___tags) {
-        fieldValue
-        totalCount
-      }
-    }
-  }
   `);
 
   // destructure and sort tags by count
@@ -77,6 +77,6 @@ const TagsPage = () => {
       </TagIndexSection>
     </BlogLayout>
   );
-}
+};
 
 export default TagsPage;

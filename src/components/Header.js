@@ -1,10 +1,10 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import styled from "styled-components";
 
-import Nav from './Nav';
-import Logo from '../assets/images/logo_svg_2018.svg';
-import SocialIcons from './SocialIcons';
+import { Nav } from "./Nav";
+import Logo from "../assets/images/logo_svg_2018.svg";
+import { SocialIcons } from "./SocialIcons";
 
 const StyledHeader = styled.div`
   background: linear-gradient(#971640, #eb5e55);
@@ -43,14 +43,18 @@ const StyledHeader = styled.div`
 
   div.logo {
     overflow: hidden;
-    padding: 2rem 0 0;
+    margin: 2rem 0 0;
 
     img {
-      width: 100%;
+      max-width: 100%;
+
+      @media screen and (max-width: 800px) and (orientation: landscape) {
+        max-height: 120px;
+      }
 
       @media screen and (min-width: 960px) {
-        width: 100%;
         max-width: 370px;
+        max-height: unset;
       }
     }
 
@@ -78,18 +82,26 @@ const StyledHeader = styled.div`
   }
 
   div.header-intro-text {
-    margin: 2rem 0;
+    margin: 1.2rem 0;
+
+    @media screen and (max-width: 800px) and (orientation: landscape) {
+      margin: 0.5rem 0;
+    }
 
     p {
-      font-size: 1.25rem;
+      font-size: 1.15rem;
       line-height: 1.5;
-      margin: 0 0 1.6rem;
+      margin: 0 0 1rem;
       color: #febcb8;
       text-align: center;
 
+      @media screen and (max-width: 800px) and (orientation: landscape) {
+        font-size: 1rem;
+      }
+
       @media screen and (min-width: 1200px) {
         text-align: right;
-        font-size: 1.4rem;
+        font-size: 1.35rem;
       }
 
       em {
@@ -117,8 +129,8 @@ const Header = () => (
       <div className="header-content">
         <div className="header-intro-text">
           <p>
-            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
-            hobbyist chef, disc golfer, and music nerd living in East TN.
+            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent, hobbyist chef, disc
+            golfer, and music nerd living in East TN.
           </p>
         </div>
 

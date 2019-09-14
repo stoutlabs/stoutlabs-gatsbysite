@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const ContainerDiv = styled.div`
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   box-sizing: border-box;
   overflow: hidden;
   width: 100%;
@@ -14,8 +14,8 @@ const ContainerDiv = styled.div`
   }
 `;
 
-export const Container = ({ children }) => {
-  return <ContainerDiv className={`container`}>{children}</ContainerDiv>;
-};
+export const Container = ({ children }) => (
+  <ContainerDiv className="container">{children}</ContainerDiv>
+);
 
 export default Container;

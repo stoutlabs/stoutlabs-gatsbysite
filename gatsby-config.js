@@ -1,15 +1,19 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`
+  path: `.env.${process.env.NODE_ENV}`,
 });
 
 const path = require("path");
 const config = require("./config/index");
 
+const homepageSchema = require("./src/schemas/homepage.json");
+const projectSchema = require("./src/schemas/project.json");
+const toolbeltSchema = require("./src/schemas/toolbelt.json");
+
 module.exports = {
   siteMetadata: {
     title: config.title,
     siteUrl: config.url,
-    description: config.description
+    description: config.description,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -22,23 +26,23 @@ module.exports = {
       resolve: "gatsby-plugin-root-import",
       options: {
         src: path.join(__dirname, "src"),
-        components: path.join(__dirname, "src/components")
-      }
+        components: path.join(__dirname, "src/components"),
+      },
     },
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
-        path: `${__dirname}/src/blog`
-      }
+        path: `${__dirname}/src/blog`,
+      },
     },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `pages`,
-        path: `${__dirname}/src/pages`
-      }
+        path: `${__dirname}/src/pages`,
+      },
     },
     {
       resolve: "gatsby-source-prismic",
@@ -46,31 +50,33 @@ module.exports = {
         repositoryName: "stoutlabs2018",
         accessToken: `${process.env.API_KEY}`,
         schemas: {
-          homepage: require("./src/schemas/homepage.json"),
-          project: require("./src/schemas/project.json"),
-          toolbelt: require("./src/schemas/toolbelt.json")
+          homepage: homepageSchema,
+          project: projectSchema,
+          toolbelt: toolbeltSchema,
         },
+        // eslint-disable-next-line
         linkResolver: ({ node, key, value }) => doc => {
           // Your link resolver
         },
         fetchLinks: [
           // Your list of links
         ],
+        // eslint-disable-next-line
         htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
           // Your HTML serializer
         },
         lang: "*",
-        shouldNormalizeImage: ({ node, key, value }) => {
+        // eslint-disable-next-line
+        shouldNormalizeImage: ({ node, key, value }) =>
           // Return true to normalize the image or false to skip.
           // console.log("value: ", value);
           // if (value.url && value.url.includes(".svg")) {
           //   console.log("value: ", value);
           //   return false;
           // }
-          return true;
-        },
-        typePathsFilenamePrefix: "prismic-typepaths-stoutlabs"
-      }
+          true,
+        typePathsFilenamePrefix: "prismic-typepaths-stoutlabs",
+      },
     },
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
@@ -86,9 +92,9 @@ module.exports = {
               linkImagesToOriginal: false,
               quality: 81,
               withWebp: {
-                quality: 81
-              }
-            }
+                quality: 81,
+              },
+            },
           },
           {
             resolve: `gatsby-remark-prismjs`,
@@ -97,16 +103,16 @@ module.exports = {
               inlineCodeMarker: "›",
               aliases: {
                 js: "javascript",
-                sh: "bash"
-              }
-            }
+                sh: "bash",
+              },
+            },
           },
           {
             resolve: "gatsby-remark-copy-linked-files",
             options: {
-              destinationDir: "images"
-            }
-          }
+              destinationDir: "images",
+            },
+          },
         ],
         plugins: [
           `gatsby-remark-images`,
@@ -114,10 +120,10 @@ module.exports = {
             resolve: "gatsby-plugin-root-import",
             options: {
               src: path.join(__dirname, "src"),
-            }
-          }
-        ]
-      }
+            },
+          },
+        ],
+      },
     },
     `gatsby-plugin-sitemap`,
     {
@@ -125,14 +131,14 @@ module.exports = {
       options: {
         trackingId: `UA-1076375-4`,
         // Puts tracking script in the head instead of the body
-        head: false
+        head: false,
         // Setting this parameter is optional
-        //anonymize: true,
+        // anonymize: true,
         // Setting this parameter is also optional
-        //respectDNT: true,
+        // respectDNT: true,
         // Avoids sending pageview hits from custom paths
-        //exclude: ["/preview/**", "/do-not-track/me/too/"],
-      }
+        // exclude: ["/preview/**", "/do-not-track/me/too/"],
+      },
     },
     {
       resolve: `gatsby-plugin-feed`,
@@ -151,20 +157,18 @@ module.exports = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
-                return Object.assign({}, edge.node.frontmatter, {
-                  description: edge.node.excerpt,
-                  date: edge.node.frontmatter.date,
-                  url: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
-                  guid: site.siteMetadata.siteUrl + "/blog" + edge.node.fields.slug,
-                  enclosure: {
-                    url: site.siteMetadata.siteUrl + edge.node.frontmatter.featureimg.publicURL
-                  },
-                  custom_elements: [{ "content:encoded": edge.node.html }]
-                });
-              });
-            },
+            serialize: ({ query: { site, allMdx } }) =>
+              allMdx.edges.map(edge => ({
+                ...edge.node.frontmatter,
+                description: edge.node.excerpt,
+                date: edge.node.frontmatter.date,
+                url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
+                enclosure: {
+                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.featureimg.publicURL,
+                },
+                custom_elements: [{ "content:encoded": edge.node.html }],
+              })),
             query: `
               {
                 allMdx(
@@ -193,10 +197,10 @@ module.exports = {
             // if `string` is used, it will be used to create RegExp and then test if pathname of
             // current page satisfied this regular expression;
             // if not provided or `undefined`, all pages will have feed reference inserted
-            match: "^/blog/"
-          }
-        ]
-      }
+            match: "^/blog/",
+          },
+        ],
+      },
     },
     {
       resolve: "gatsby-plugin-robots-txt",
@@ -205,13 +209,13 @@ module.exports = {
         sitemap: "https://www.stoutlabs.com/sitemap.xml",
         env: {
           development: {
-            policy: [{ userAgent: "*", disallow: ["/"] }]
+            policy: [{ userAgent: "*", disallow: ["/"] }],
           },
           production: {
-            policy: [{ userAgent: "*", allow: "/" }]
-          }
-        }
-      }
+            policy: [{ userAgent: "*", allow: "/" }],
+          },
+        },
+      },
     },
     {
       resolve: `gatsby-plugin-manifest`,
@@ -227,17 +231,17 @@ module.exports = {
           {
             src: `/site-images/android-chrome-192x192.jpg`,
             sizes: `192x192`,
-            type: `image/png`
+            type: `image/png`,
           },
           {
             src: `/site-images/android-chrome-512x512.jpg`,
             sizes: `512x512`,
-            type: `image/png`
-          }
-        ]
-      }
+            type: `image/png`,
+          },
+        ],
+      },
     },
 
-    `gatsby-plugin-netlify`
-  ]
+    `gatsby-plugin-netlify`,
+  ],
 };

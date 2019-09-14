@@ -1,17 +1,18 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { graphql } from 'gatsby';
-import Layout from '../components/Layout';
-import ProjectTemplate from '../components/Projects/ProjectTemplate';
-import { HTMLContent } from '../components/Content';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+// import { graphql } from "gatsby";
+
+import Layout from "components/Layout";
+import ProjectLayout from "components/Projects/ProjectLayout";
+import { HTMLContent } from "components/Content";
 
 const Project = ({ data }) => {
   const { markdownRemark: post } = data;
 
   return (
     <Layout>
-      <ProjectTemplate
+      <ProjectLayout
         content={post.html}
         contentComponent={HTMLContent}
         description={post.frontmatter.description}
@@ -26,8 +27,8 @@ const Project = ({ data }) => {
 
 Project.propTypes = {
   data: PropTypes.shape({
-    markdownRemark: PropTypes.object
-  })
+    markdownRemark: PropTypes.object,
+  }),
 };
 
 export default Project;

@@ -1,14 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 import Img from "../Image";
-
-// import ReactLogo from '../../assets/images/react.svg';
-// import GatsbyLogo from '../../assets/images/gatsby.svg';
-// import NodeLogo from '../../assets/images/nodejs.svg';
-// import GraphQLogo from '../../assets/images/graphql.svg';
-
-// import myTheme from '../../utils/theme';
 
 const ToolsSection = styled.section`
   display: flex;
@@ -32,12 +25,17 @@ const ToolsSection = styled.section`
 
     h4 {
       background: linear-gradient(180deg, #3096a7, #216571 80%);
-      padding: 1.6rem 1.4rem;
+      padding: 1.2rem 1rem;
       margin: 0 0 0.4rem;
-      font-size: 1.1rem;
+      font-size: 1rem;
       color: #d7eff3;
       text-align: center;
       text-transform: uppercase;
+
+      @media and (min-width: 768px) {
+        font-size: 1.1rem;
+        padding: 1.6rem 1.4rem;
+      }
     }
 
     p {
@@ -55,10 +53,14 @@ const ToolsSection = styled.section`
       li {
         background-color: #d7eff3;
         margin: 0.5rem;
-        padding: 0.8rem 1rem;
+        padding: 0.3rem 0.5rem;
         border: 1px solid #fff;
         display: inline-block;
         border-radius: 0.5rem;
+
+        @media (min-width: 768px) {
+          padding: 0.5rem 1rem;
+        }
 
         &:last-child {
           border-bottom: none;
@@ -70,10 +72,17 @@ const ToolsSection = styled.section`
 
         p {
           margin: 0;
-          line-height: 1.66;
+          line-height: 1.4;
           text-align: center;
-          font-size: 1rem;
+          font-size: 0.95rem;
           color: #216571;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+            Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+          @media (min-width: 768px) {
+            line-height: 1.5;
+            font-size: 1rem;
+          }
         }
       }
     }
@@ -106,7 +115,7 @@ const ToolsSection = styled.section`
 
 export const Tools = ({ content }) => {
   const faves = content.faves.document.data;
-  const boxes = content.boxes;
+  const { boxes } = content;
 
   return (
     <ToolsSection id="tools">
@@ -114,30 +123,22 @@ export const Tools = ({ content }) => {
 
       <div className="tools faves">
         <h4>
-          Currently{' '}
+          Currently{" "}
           <span role="img" aria-label="heart">
             💗
           </span>
           s:
         </h4>
         <ul>
-          {faves.toolbelt_item.map(item => {
-            return (
-              <li key={item.tool_name}>
-                {/* <img src={ReactLogo} alt="ReactJS" /> */}
-                <Img
-                  fixed={
-                    item.logo.localFile && item.logo.localFile.childImageSharp.fixed
-                  }
-                  src={!item.logo.localFile && item.logo.url}
-                />
-                {/* <Img fluid={item.logo.localFile.childImageSharp.fluid} /> */}
-
-                {/* <img src={item.logo.localFile.publicURL} alt={item.tool_name} /> */}
-                <p>{item.tool_name}</p>
-              </li>
-            );
-          })}
+          {faves.toolbelt_item.map(item => (
+            <li key={item.tool_name}>
+              <Img
+                fixed={item.logo.localFile && item.logo.localFile.childImageSharp.fixed}
+                src={!item.logo.localFile && item.logo.url}
+              />
+              <p>{item.tool_name}</p>
+            </li>
+          ))}
         </ul>
       </div>
 
@@ -145,16 +146,13 @@ export const Tools = ({ content }) => {
         const boxContent = box.document.data;
         return (
           <div className="tools sub" key={boxContent.toolbelt_title}>
-            {/*  eslint-disable-next-line */}
             <h4>{boxContent.toolbelt_title}</h4>
             <ul>
-              {boxContent.toolbelt_item.map(item => {
-                return (
-                  <li key={item.tool_name}>
-                    <p>{item.tool_name}</p>
-                  </li>
-                );
-              })}
+              {boxContent.toolbelt_item.map(item => (
+                <li key={item.tool_name}>
+                  <p>{item.tool_name}</p>
+                </li>
+              ))}
             </ul>
           </div>
         );

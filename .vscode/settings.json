@@ -1,0 +1,12 @@
+{
+  "editor.formatOnSave": true,
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "eslint.autoFixOnSave": true,
+  "markdown.styles": ["preview-styles.css"],
+  "prettier.disableLanguages": ["javascript", "javascriptreact"]
+}

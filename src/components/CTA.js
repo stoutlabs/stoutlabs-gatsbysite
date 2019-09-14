@@ -1,12 +1,12 @@
-import React from 'react';
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowDown } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
 
-import Scroll from './Scroll';
+import Scroll from "./Scroll";
 
 const CTAdiv = styled.div`
   margin: 0;
@@ -18,7 +18,7 @@ const CTAdiv = styled.div`
     color: #fff;
     display: inline-block;
     font-size: 1.3rem;
-    font-family: 'Merriweather', sans-serif;
+    font-family: "Merriweather", sans-serif;
     padding: 1.25rem 2.75rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -48,20 +48,21 @@ export const CTA = ({ url, title, isAnchor, element }) => {
         </Scroll>
       </CTAdiv>
     );
-  } else {
-    return (
-      <CTAdiv>
-        <Link to={url}>
-          {title} <FontAwesomeIcon icon={faArrowDown} />
-        </Link>
-      </CTAdiv>
-    );
   }
+  return (
+    <CTAdiv>
+      <Link to={url}>
+        {title} <FontAwesomeIcon icon={faArrowDown} />
+      </Link>
+    </CTAdiv>
+  );
 };
 
 CTA.propTypes = {
   url: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  title: PropTypes.string.isRequired,
+  isAnchor: PropTypes.bool,
+  element: PropTypes.any,
 };
 
 export default CTA;

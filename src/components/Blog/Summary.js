@@ -1,8 +1,8 @@
-import React from 'react';
-import Img from 'gatsby-image';
-import { Link } from 'gatsby';
-import styled from 'styled-components';
-//import { months } from 'moment';
+import React from "react";
+import Img from "gatsby-image";
+import { Link } from "gatsby";
+import styled from "styled-components";
+// import { months } from 'moment';
 
 const StyledSummary = styled.article`
   display: flex;
@@ -91,32 +91,30 @@ const StyledSummary = styled.article`
   }
 `;
 
-export const Summary = ({ node, title }) => {
-  //const [year, month, day] = node.frontmatter.rawdate.split('-');
+export const Summary = ({ node, title }) => (
+  // const [year, month, day] = node.frontmatter.rawdate.split('-');
 
-  return (
-    <StyledSummary className="post-summary">
-      <div className="thumbnail">
-        <Link to={`/blog${node.fields.slug}`}>
-          <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} alt={title} />
-        </Link>
-      </div>
+  <StyledSummary className="post-summary">
+    <div className="thumbnail">
+      <Link to={`/blog${node.fields.slug}`}>
+        <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} alt={title} />
+      </Link>
+    </div>
 
-      <div className="summary-content">
-        <h3>
-          <Link to={`/blog${node.fields.slug}`}>{title}</Link>
-        </h3>
-        <div className="post-meta">
-          <span className="date">{node.frontmatter.date}</span>
-          <span className="readtime">
-            time to read: {node.timeToRead} min
-            {node.timeToRead > 1 ? 's' : ''}
-          </span>
-        </div>
-        <p className="desc">{node.frontmatter.description} </p>
+    <div className="summary-content">
+      <h3>
+        <Link to={`/blog${node.fields.slug}`}>{title}</Link>
+      </h3>
+      <div className="post-meta">
+        <span className="date">{node.frontmatter.date}</span>
+        <span className="readtime">
+          time to read: {node.timeToRead} min
+          {node.timeToRead > 1 ? "s" : ""}
+        </span>
       </div>
-    </StyledSummary>
-  );
-};
+      <p className="desc">{node.frontmatter.description} </p>
+    </div>
+  </StyledSummary>
+);
 
 export default Summary;

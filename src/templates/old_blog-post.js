@@ -1,24 +1,24 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+// import { graphql } from "gatsby";
 
-import BlogLayout from '../components/Blog/BlogLayout';
-import Post from '../components/Blog/Post';
-import { HTMLContent } from '../components/Content';
-import Seo from '../components/Seo';
-import '../assets/styles/dracula.css';
+import BlogLayout from "../components/Blog/BlogLayout";
+import Post from "../components/Blog/Post";
+import { HTMLContent } from "../components/Content";
+import Seo from "../components/Seo";
+import "../assets/styles/dracula.css";
 
 const BlogPost = ({ data, pageContext }) => {
   const { mdx: post } = data;
-  //console.log('context: ', pageContext);
-  console.log("post: ", post);
 
   return (
     <BlogLayout>
       <Seo
         postData={post}
-        isBlogPage={true}
-        postImage={post.frontmatter.featureimg ? post.frontmatter.featureimg.childImageSharp.fluid.src : null}
+        isBlogPage
+        postImage={
+          post.frontmatter.featureimg ? post.frontmatter.featureimg.childImageSharp.fluid.src : null
+        }
       />
       <Post
         content={post.html}
@@ -43,8 +43,12 @@ const BlogPost = ({ data, pageContext }) => {
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
-    mdx: PropTypes.object
-  })
+    mdx: PropTypes.object,
+  }),
+  pageContext: PropTypes.shape({
+    previous: PropTypes.any,
+    next: PropTypes.any,
+  }),
 };
 
 export default BlogPost;
