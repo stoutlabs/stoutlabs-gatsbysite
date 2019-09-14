@@ -131,7 +131,7 @@ export class HomeForm extends Component {
   };
 
   handleSpammer = () => {
-    console.log("think again, roboprick.");
+    // console.log("think again, roboprick.");
     const newQuestion = spamQuestion();
     this.setState(() => ({ spamvals: newQuestion }));
   };
