@@ -36,7 +36,9 @@ const PostsList = ({ posts, currentPage }) => {
       {otherPosts.length > 0 && (
         <div className="posts-list">
           {otherPosts.map(({ node }) => {
-            const title = node.frontmatter.title ? node.frontmatter.title : node.fields.slug;
+            const title = node.frontmatter.title
+              ? node.frontmatter.title
+              : node.fields.slug;
 
             return <Summary node={node} key={node.fields.slug} title={title} />;
           })}

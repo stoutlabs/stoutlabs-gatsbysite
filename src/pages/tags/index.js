@@ -53,7 +53,9 @@ const TagsPage = () => {
   `);
 
   // destructure and sort tags by count
-  const sortedTags = data.allMdx.group.sort((a, b) => b.totalCount - a.totalCount);
+  const sortedTags = data.allMdx.group.sort(
+    (a, b) => b.totalCount - a.totalCount
+  );
 
   return (
     <BlogLayout>

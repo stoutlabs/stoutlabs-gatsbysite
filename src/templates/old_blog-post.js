@@ -17,7 +17,9 @@ const BlogPost = ({ data, pageContext }) => {
         postData={post}
         isBlogPage
         postImage={
-          post.frontmatter.featureimg ? post.frontmatter.featureimg.childImageSharp.fluid.src : null
+          post.frontmatter.featureimg
+            ? post.frontmatter.featureimg.childImageSharp.fluid.src
+            : null
         }
       />
       <Post
@@ -34,7 +36,9 @@ const BlogPost = ({ data, pageContext }) => {
         slug={post.fields.slug}
         allNode={post}
         shareImg={
-          post.frontmatter.featureimg ? post.frontmatter.featureimg.childImageSharp.fluid.src : null
+          post.frontmatter.featureimg
+            ? post.frontmatter.featureimg.childImageSharp.fluid.src
+            : null
         }
       />
     </BlogLayout>

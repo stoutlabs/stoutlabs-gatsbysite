@@ -126,7 +126,10 @@ export const IntroContent = ({ content }) => (
   <StyledIntroDiv theme={theme} className="intro" id="intro">
     <h2>{content.title}</h2>
 
-    <HTMLContent content={content.introSummary.html} className="intro-summary" />
+    <HTMLContent
+      content={content.introSummary.html}
+      className="intro-summary"
+    />
     <div className="intro-box">
       <BioPic className="intro-pic" imgSrc={SmBioPic} />
       <HTMLContent content={content.introBox1.html} className="intro-content" />

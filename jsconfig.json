@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "target": "es2018",
-    "jsx": "preserve",
-    "baseUrl": "./src"
+    "target": "es5",
+    "jsx": "react",
+    "module": "commonjs",
+    "baseUrl": "src"
   },
-  "exclude": ["node_modules", "dev", "**/node_modules/*", "public", ".cache"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "public"]
 }

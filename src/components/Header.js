@@ -129,8 +129,8 @@ const Header = () => (
       <div className="header-content">
         <div className="header-intro-text">
           <p>
-            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent, hobbyist chef, disc
-            golfer, and music nerd living in East TN.
+            Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
+            hobbyist chef, disc golfer, and music nerd living in East TN.
           </p>
         </div>
 

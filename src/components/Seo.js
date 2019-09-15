@@ -24,7 +24,8 @@ const getSchemaOrgJSONLD = ({
         "@type": "Person",
         name: "Daniel Stout",
       },
-      description: "Daniel Stout is a freelance JavaScript developer in Kingsport, TN.",
+      description:
+        "Daniel Stout is a freelance JavaScript developer in Kingsport, TN.",
       publisher: "StoutLabs",
     },
   ];
@@ -170,11 +171,14 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
     ? postMeta.title
     : config.title;
 
-  const description = postMeta.description || postData.excerpt || config.description;
+  const description =
+    postMeta.description || postData.excerpt || config.description;
 
   const image = postImage ? `${config.url}${postImage}` : config.image;
 
-  const url = isBlogPage ? `${config.url}${path.sep}blog${postData.fields.slug}` : config.url;
+  const url = isBlogPage
+    ? `${config.url}${path.sep}blog${postData.fields.slug}`
+    : config.url;
 
   const datePublished = isBlogPage ? postMeta.date : false;
 
@@ -194,10 +198,15 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
       <html lang="en" />
       <meta name="description" content={description} />
       <meta name="image" content={image} />
-      <meta name="google-site-verification" content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo" />
+      <meta
+        name="google-site-verification"
+        content="1Uqm6h9_iawEMYdHmb86lBBUQv_1CJTzeXmcOiLuOpo"
+      />
 
       {/* Schema.org tags */}
-      <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
 
       {/* OpenGraph tags */}
       <meta property="og:url" content={url} />

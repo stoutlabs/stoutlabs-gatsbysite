@@ -56,7 +56,9 @@ export class BlogShareButtons extends Component {
     const url = urljoin(config.url, config.pathPrefix, "blog", postPath);
     const iconSize = mobile ? 36 : 48;
     const filter = count => (count > 0 ? count : "");
-    const renderShareCount = count => <div className="share-count">{filter(count)}</div>;
+    const renderShareCount = count => (
+      <div className="share-count">{filter(count)}</div>
+    );
 
     return (
       <StyledShareButtons>
@@ -74,7 +76,10 @@ export class BlogShareButtons extends Component {
             </FacebookShareCount>
           </FacebookShareButton>
 
-          <EmailShareButton subject="Check Out This Link From StoutLabs.com" url={url}>
+          <EmailShareButton
+            subject="Check Out This Link From StoutLabs.com"
+            url={url}
+          >
             <EmailIcon round size={iconSize} />
           </EmailShareButton>
         </div>

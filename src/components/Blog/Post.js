@@ -32,8 +32,8 @@ const StyledPostContainer = styled.div`
     h3,
     h4 {
       font-size: 1.6rem;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell,
-        "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       line-height: 1.33;
 
       @media screen and (min-width: 960px) {
@@ -215,7 +215,12 @@ const Post = ({
 
           <PostContent content={content} className="post-content" />
 
-          <BlogShareButtons postPath={slug} postNode={allNode} mobile={false} shareImg={shareImg} />
+          <BlogShareButtons
+            postPath={slug}
+            postNode={allNode}
+            mobile={false}
+            shareImg={shareImg}
+          />
 
           {tags && tags.length ? (
             <div className="post-tags">

@@ -20,8 +20,9 @@ export const Success = () => (
       <p>Thanks for contacting me. I'll get back to you soon!</p>
 
       <p style={{ fontStyle: "italic" }}>
-        Note: This new setup is still in a "testing" phase... so if you don't hear back after a few
-        hours, please feel free to email me at daniel@stoutlabs.com!
+        Note: This new setup is still in a "testing" phase... so if you don't
+        hear back after a few hours, please feel free to email me at
+        daniel@stoutlabs.com!
       </p>
 
       <p>

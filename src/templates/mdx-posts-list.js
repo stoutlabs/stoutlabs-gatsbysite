@@ -20,7 +20,10 @@ const BlogIndex = ({ data, location, pageContext }) => {
       <Seo postData={seoData} />
       <PostsList posts={posts} currentPage={pageContext.currentPage} />
       {pageContext.numPages > 1 && (
-        <PaginatorLinks currentPage={pageContext.currentPage} totalPages={pageContext.numPages} />
+        <PaginatorLinks
+          currentPage={pageContext.currentPage}
+          totalPages={pageContext.numPages}
+        />
       )}
     </BlogLayout>
   );

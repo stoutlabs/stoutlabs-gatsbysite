@@ -76,8 +76,8 @@ const ToolsSection = styled.section`
           text-align: center;
           font-size: 0.95rem;
           color: #216571;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
-            Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
           @media (min-width: 768px) {
             line-height: 1.5;
@@ -133,7 +133,10 @@ export const Tools = ({ content }) => {
           {faves.toolbelt_item.map(item => (
             <li key={item.tool_name}>
               <Img
-                fixed={item.logo.localFile && item.logo.localFile.childImageSharp.fixed}
+                fixed={
+                  item.logo.localFile &&
+                  item.logo.localFile.childImageSharp.fixed
+                }
                 src={!item.logo.localFile && item.logo.url}
               />
               <p>{item.tool_name}</p>

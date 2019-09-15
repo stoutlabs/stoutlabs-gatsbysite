@@ -38,7 +38,10 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
       // edge case: first item in the first block has a different link ('/blog' instead of '/blog/1')
       if (theNum === 1) {
         theNumLink = (
-          <li className={`page-item ${currentPage === 1 && "active"}`} key={theNum}>
+          <li
+            className={`page-item ${currentPage === 1 && "active"}`}
+            key={theNum}
+          >
             <Link to="/blog/" className="page-link">
               1
             </Link>
@@ -50,7 +53,10 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
       // remaining items
       else if (theNum <= totalPages) {
         theNumLink = (
-          <li className={`page-item ${theNum === currentPage && "active"}`} key={theNum}>
+          <li
+            className={`page-item ${theNum === currentPage && "active"}`}
+            key={theNum}
+          >
             <Link to={`/blog/${theNum}`} className="page-link">
               {theNum}
             </Link>
@@ -74,7 +80,10 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
 
         {currentPageBlock > 1 && (
           <li className="page-item">
-            <Link to={`/blog/${(currentPageBlock - 1) * pageBlockSize}`} className="page-link">
+            <Link
+              to={`/blog/${(currentPageBlock - 1) * pageBlockSize}`}
+              className="page-link"
+            >
               ...
             </Link>
           </li>
@@ -85,7 +94,10 @@ const PaginatorLinks = ({ totalPages, currentPage }) => {
 
         {totalPages > pageBlockSize && currentPageBlock < totalBlocks && (
           <li className="page-item">
-            <Link to={`/blog/${currentPageBlock * pageBlockSize + 1}`} className="page-link">
+            <Link
+              to={`/blog/${currentPageBlock * pageBlockSize + 1}`}
+              className="page-link"
+            >
               ...
             </Link>
           </li>

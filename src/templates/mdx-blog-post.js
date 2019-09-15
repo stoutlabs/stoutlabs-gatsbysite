@@ -14,7 +14,9 @@ export default function PageTemplate({ pageContext, data: { mdx } }) {
         postData={mdx}
         isBlogPage
         postImage={
-          mdx.frontmatter.featureimg ? mdx.frontmatter.featureimg.childImageSharp.fluid.src : null
+          mdx.frontmatter.featureimg
+            ? mdx.frontmatter.featureimg.childImageSharp.fluid.src
+            : null
         }
       />
       <Post
@@ -31,7 +33,9 @@ export default function PageTemplate({ pageContext, data: { mdx } }) {
         slug={mdx.fields.slug}
         allNode={mdx}
         shareImg={
-          mdx.frontmatter.featureimg ? mdx.frontmatter.featureimg.childImageSharp.fluid.src : null
+          mdx.frontmatter.featureimg
+            ? mdx.frontmatter.featureimg.childImageSharp.fluid.src
+            : null
         }
       />
     </BlogLayout>

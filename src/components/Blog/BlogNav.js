@@ -56,7 +56,8 @@ const StyledNav = styled.nav`
     width: 100vw;
     opacity: 0;
     z-index: 99;
-    transition: visibility 1ms 300ms linear, opacity 200ms 20ms linear, transform 200ms 2ms linear;
+    transition: visibility 1ms 300ms linear, opacity 200ms 20ms linear,
+      transform 200ms 2ms linear;
 
     &.sticky {
       @media screen and (max-width: 767px) {
