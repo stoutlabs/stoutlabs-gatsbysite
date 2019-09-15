@@ -93,7 +93,9 @@ const TagRoute = ({ data, pageContext }) => {
   const { tag } = pageContext;
   const title = `Posts Tagged: ${tag} | StoutLabs Web Design & Development Blog`;
   const { totalCount } = data.allMdx;
-  const tagHeader = `${totalCount} post${totalCount === 1 ? "" : "s"} tagged with “${tag}”:`;
+  const tagHeader = `${totalCount} post${
+    totalCount === 1 ? "" : "s"
+  } tagged with “${tag}”:`;
 
   const seoData = {
     frontmatter: {
@@ -114,12 +116,17 @@ const TagRoute = ({ data, pageContext }) => {
             {posts.map(post => (
               <li key={post.node.fields.slug}>
                 <h3>
-                  <Link to={`/blog${post.node.fields.slug}`}>{post.node.frontmatter.title}</Link>
+                  <Link to={`/blog${post.node.fields.slug}`}>
+                    {post.node.frontmatter.title}
+                  </Link>
                 </h3>
                 <span className="date">{post.node.frontmatter.date}</span>
                 <span className="tags">
                   {post.node.frontmatter.tags.map(theTag => (
-                    <Link to={`/tags/${kebabCase(theTag)}`} key={`${theTag}_${tag}`}>
+                    <Link
+                      to={`/tags/${kebabCase(theTag)}`}
+                      key={`${theTag}_${tag}`}
+                    >
                       {theTag}
                     </Link>
                   ))}
@@ -129,7 +136,8 @@ const TagRoute = ({ data, pageContext }) => {
           </ul>
 
           <p className="bottom-nav">
-            <Link to="/tags">Browse all tags</Link> | <Link to="/blog">Back to Blog Home</Link>
+            <Link to="/tags">Browse all tags</Link> |{" "}
+            <Link to="/blog">Back to Blog Home</Link>
           </p>
         </div>
       </StyledTagsSection>

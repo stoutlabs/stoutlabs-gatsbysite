@@ -97,7 +97,10 @@ export const Summary = ({ node, title }) => (
   <StyledSummary className="post-summary">
     <div className="thumbnail">
       <Link to={`/blog${node.fields.slug}`}>
-        <Img fluid={node.frontmatter.featureimg.childImageSharp.fluid} alt={title} />
+        <Img
+          fluid={node.frontmatter.featureimg.childImageSharp.fluid}
+          alt={title}
+        />
       </Link>
     </div>
 

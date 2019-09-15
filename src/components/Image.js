@@ -1,3 +1,4 @@
+// custom Image component to work with Prismic previews OR normal Gatsby images
 import React from "react";
 import Img from "gatsby-image";
 

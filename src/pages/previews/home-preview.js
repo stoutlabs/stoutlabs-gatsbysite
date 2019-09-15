@@ -13,7 +13,9 @@ export const PreviewPage = ({ location }) => {
       }
     }
   `);
-  const pageUIDs = allPrismicHomePage ? allPrismicHomePage.nodes.map(node => node.uid) : [];
+  const pageUIDs = allPrismicHomePage
+    ? allPrismicHomePage.nodes.map(node => node.uid)
+    : [];
 
   const pathResolver = () => doc => {
     const previewedUID = doc.prismicPage.uid || "/";

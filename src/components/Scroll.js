@@ -36,7 +36,9 @@ class Scroll extends React.Component {
   };
 
   scrollTo = (element, offSet = 0, timeout = null) => {
-    const elemPos = element ? element.getBoundingClientRect().top + window.pageYOffset : 0;
+    const elemPos = element
+      ? element.getBoundingClientRect().top + window.pageYOffset
+      : 0;
     if (timeout) {
       setTimeout(() => {
         window.scroll({ top: elemPos + offSet, left: 0, behavior: "smooth" });

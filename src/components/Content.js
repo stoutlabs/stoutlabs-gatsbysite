@@ -12,7 +12,9 @@ export const MdxContent = ({ content, className }) => (
   </div>
 );
 
-const Content = ({ content, className }) => <div className={className}>{content}</div>;
+const Content = ({ content, className }) => (
+  <div className={className}>{content}</div>
+);
 
 Content.propTypes = {
   content: PropTypes.string,

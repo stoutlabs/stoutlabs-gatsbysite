@@ -49,7 +49,10 @@ class Layout extends Component {
         </Helmet>
         <Header siteTitle={config.title} />
         <Nav sticky={stickyNav} className="mininav" />
-        <Waypoint onEnter={this._handleWaypointEnter} onLeave={this._handleWaypointLeave} />
+        <Waypoint
+          onEnter={this._handleWaypointEnter}
+          onLeave={this._handleWaypointLeave}
+        />
 
         <Container>{children}</Container>
       </>

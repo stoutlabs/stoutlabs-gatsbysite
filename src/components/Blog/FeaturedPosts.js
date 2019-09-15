@@ -10,7 +10,9 @@ const StyledFeatures = styled.div`
 const FeaturedPosts = ({ posts }) => (
   <StyledFeatures className="featured-posts">
     {posts.map(({ node }, index) => {
-      const title = node.frontmatter.title ? node.frontmatter.title : node.fields.slug;
+      const title = node.frontmatter.title
+        ? node.frontmatter.title
+        : node.fields.slug;
 
       return <FeatureLarge node={node} key={index} title={title} />;
     })}
