@@ -48,7 +48,7 @@ const StyledHeader = styled.div`
     img {
       max-width: 100%;
 
-      @media screen and (max-width: 800px) and (orientation: landscape) {
+      @media screen and (max-width: 816px) and (orientation: landscape) {
         max-height: 120px;
       }
 
