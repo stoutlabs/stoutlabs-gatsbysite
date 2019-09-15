@@ -165,7 +165,9 @@ module.exports = {
                 url: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                 guid: `${site.siteMetadata.siteUrl}/blog${edge.node.fields.slug}`,
                 enclosure: {
-                  url: site.siteMetadata.siteUrl + edge.node.frontmatter.featureimg.publicURL,
+                  url:
+                    site.siteMetadata.siteUrl +
+                    edge.node.frontmatter.featureimg.publicURL,
                 },
                 custom_elements: [{ "content:encoded": edge.node.html }],
               })),

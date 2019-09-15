@@ -2,24 +2,32 @@ import React from "react";
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { FaArrowDown } from "react-icons/fa";
 
 import Scroll from "./Scroll";
 
 const CTAdiv = styled.div`
   margin: 0;
   padding: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media (min-width: 768px) {
+    justify-content: flex-start;
+  }
 
   a {
     background: #971640;
     border-radius: 8px;
     color: #fff;
-    display: inline-block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-size: 1.3rem;
     font-family: "Merriweather", sans-serif;
-    padding: 1.25rem 2.75rem;
+    padding: 1.25rem 1rem;
     text-decoration: none;
     text-transform: uppercase;
     outline: none;
@@ -32,7 +40,7 @@ const CTAdiv = styled.div`
     }
 
     svg {
-      max-width: 40px;
+      margin-left: 0.5rem;
     }
   }
 `;
@@ -43,7 +51,7 @@ export const CTA = ({ url, title, isAnchor, element }) => {
       <CTAdiv>
         <Scroll type="id" element={element} offset={0}>
           <a href={url}>
-            {title} <FontAwesomeIcon icon={faArrowDown} />
+            {title} <FaArrowDown />
           </a>
         </Scroll>
       </CTAdiv>
@@ -52,7 +60,7 @@ export const CTA = ({ url, title, isAnchor, element }) => {
   return (
     <CTAdiv>
       <Link to={url}>
-        {title} <FontAwesomeIcon icon={faArrowDown} />
+        {title} <FaArrowDown />
       </Link>
     </CTAdiv>
   );

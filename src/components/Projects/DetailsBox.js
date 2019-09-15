@@ -1,9 +1,7 @@
 import React from "react";
 import Img from "gatsby-image";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTimes, faWrench, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FaTimes, FaWrench, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
 import { HTMLContent } from "../Content";
 
@@ -48,12 +46,16 @@ const StyledDetails = styled.div`
     margin-bottom: 1rem;
 
     button.closer-btn {
-      font-size: 1.6rem;
+      font-size: 1.3rem;
       border: 1px solid rgba(250, 250, 250, 0.8);
-      padding: 0.35rem 0.75rem;
+      padding: 0.3rem;
       background-color: #971640;
       color: #fff;
       transition: background-color 150ms linear;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         background-color: #e95c54;
@@ -94,11 +96,18 @@ const StyledDetails = styled.div`
       line-height: 1.5;
       color: #ea5d55;
       font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       &:hover {
         color: #ed726b;
         text-decoration: underline;
         cursor: pointer;
+      }
+
+      svg {
+        margin-left: 0.4rem;
       }
     }
   }
@@ -168,8 +177,15 @@ const StyledDetails = styled.div`
 export const DetailsBox = ({ details, className, handleClose }) => {
   if (details) {
     return (
-      <StyledDetails className={`project-details ${className}`} onClick={handleClose}>
-        <div className="inner" onClick={e => e.stopPropagation()} role="presentation">
+      <StyledDetails
+        className={`project-details ${className}`}
+        onClick={handleClose}
+      >
+        <div
+          className="inner"
+          onClick={e => e.stopPropagation()}
+          role="presentation"
+        >
           <div className="closer">
             <span>close</span>
             <button
@@ -178,7 +194,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
               aria-label="Close details"
               type="button"
             >
-              <FontAwesomeIcon icon={faTimes} />
+              <FaTimes />
             </button>
           </div>
 
@@ -200,26 +216,34 @@ export const DetailsBox = ({ details, className, handleClose }) => {
           <div className="details-boxes">
             <div className="tools-list">
               <h4>
-                <FontAwesomeIcon icon={faWrench} /> Tools Used:
+                <FaWrench /> Tools Used:
               </h4>
               <p>{details.tools}</p>
             </div>
 
             <div className="source-url">
               <h4>
-                <FontAwesomeIcon icon={faExternalLinkAlt} /> Links:
+                <FaExternalLinkAlt /> Links:
               </h4>
               {details.source && details.source.url ? (
                 <p>
-                  <a href={details.source.url} rel="noopener noreferrer" target="_blank">
-                    view source on <FontAwesomeIcon icon={faGithub} />
+                  <a
+                    href={details.source.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    view source on <FaGithub />
                   </a>
                 </p>
               ) : null}
               {details.url ? (
                 <p>
-                  <a href={details.url.url} rel="noopener noreferrer" target="_blank">
-                    launch project <FontAwesomeIcon icon={faExternalLinkAlt} />
+                  <a
+                    href={details.url.url}
+                    rel="noopener noreferrer"
+                    target="_blank"
+                  >
+                    launch project <FaExternalLinkAlt />
                   </a>
                 </p>
               ) : null}
@@ -230,7 +254,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
 
           <div className="closer-lower">
             <span onClick={handleClose} role="presentation">
-              close <FontAwesomeIcon icon={faTimes} />
+              close <FaTimes />
             </span>
           </div>
         </div>

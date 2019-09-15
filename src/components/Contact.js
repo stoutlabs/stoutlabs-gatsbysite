@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faPhone, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
 import { HomeForm } from "./HomeForm";
 
@@ -108,8 +107,8 @@ const Contact = () => (
     <div className="contact-inner">
       <div className="box form">
         <p className="contact-intro">
-          Have a question or comment, or want to discuss a project/job? I would love to hear from
-          you!
+          Have a question or comment, or want to discuss a project/job? I would
+          love to hear from you!
         </p>
 
         <HomeForm />
@@ -118,17 +117,21 @@ const Contact = () => (
       <div className="box info">
         <h5>Contact Info:</h5>
         <p>
-          <FontAwesomeIcon icon={faPhone} /> <a href="tel:+14233434274">423.343.4274</a>
+          <FaPhone /> <a href="tel:+14233434274">423.343.4274</a>
         </p>
         <p>
-          <FontAwesomeIcon icon={faEnvelope} />{" "}
+          <FaEnvelope />{" "}
           <a href="mailto:daniel@stoutlabs.com">daniel@stoutlabs.com</a>
         </p>
         <hr />
         <h5>Location:</h5>
         <p>
-          <FontAwesomeIcon icon={faMapMarkerAlt} />{" "}
-          <a href="https://goo.gl/maps/oK1sSMfLCnT2" rel="noopener noreferrer" target="_blank">
+          <FaMapMarkerAlt />{" "}
+          <a
+            href="https://goo.gl/maps/oK1sSMfLCnT2"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             Kingsport, TN
           </a>
         </p>

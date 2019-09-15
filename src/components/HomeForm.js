@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { FaEnvelope } from "react-icons/fa";
 
 const StyledForm = styled.form`
   margin-bottom: 2rem;
@@ -62,9 +61,13 @@ const StyledForm = styled.form`
     outline: none;
     border-radius: 8px;
     color: #fff;
-    display: block;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     font-size: 1.3rem;
     font-family: "Merriweather", sans-serif;
+    line-height: 1;
     padding: 1.1rem 2.5rem;
     text-decoration: none;
     text-transform: uppercase;
@@ -80,6 +83,10 @@ const StyledForm = styled.form`
     &:hover {
       color: #fef1f1;
       background-color: #e95c54;
+    }
+
+    svg {
+      margin-left: 0.5rem;
     }
   }
 `;
@@ -226,7 +233,7 @@ export class HomeForm extends Component {
         </div>
 
         <button type="submit">
-          Send <FontAwesomeIcon icon={faEnvelope} />
+          Send <FaEnvelope />
         </button>
       </StyledForm>
     );
