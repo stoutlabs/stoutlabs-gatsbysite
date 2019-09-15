@@ -4601,10 +4601,10 @@ eslint-config-react-app@^4.0.1:
   dependencies:
     confusing-browser-globals "^1.0.7"
 
-eslint-config-wesbos@^0.0.19:
-  version "0.0.19"
-  resolved "https://registry.yarnpkg.com/eslint-config-wesbos/-/eslint-config-wesbos-0.0.19.tgz#e89a7ce5c27562295234088176346daf2b12e8b7"
-  integrity sha512-2NTh0BzSMd1VEE5jEgC40T3QQTrdCEe19mm15m/CV1/314lYtPp5GmM2t26AojxrjfKhBkJR9Thiv6w1U8i/zg==
+eslint-config-stoutlabs@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/eslint-config-stoutlabs/-/eslint-config-stoutlabs-0.0.2.tgz#bff589a4c9061297e4b2ef822e0ef9ab9c8982a3"
+  integrity sha512-bl3OXKgAeYR74N+BWnQXLTxGkMmBlPLG1w5/aFhs6b4jBmxsDKwDqrr89szll4qXoFXSOIe7olsfT+tIumXhXw==
 
 eslint-import-resolver-node@^0.3.2:
   version "0.3.2"
@@ -4789,7 +4789,7 @@ eslint@^5.16.0:
     table "^5.2.3"
     text-table "^0.2.0"
 
-eslint@^6.3.0:
+eslint@^6.4.0:
   version "6.4.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-6.4.0.tgz#5aa9227c3fbe921982b2eda94ba0d7fae858611a"
   integrity sha512-WTVEzK3lSFoXUovDHEbkJqCVPEPwbhCq4trDktNI6ygs7aO41d4cDT0JFAT5MivzZeVLWlg7vHL+bgrQv/t3vA==
