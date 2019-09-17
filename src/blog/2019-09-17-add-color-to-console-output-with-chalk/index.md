@@ -85,8 +85,8 @@ const successStyle = chalk.bold.green;
 const vaporStyle = chalk.bgMagenta.bold.cyan;
 
 // easy styled error/success messages!
-console.error(errorStyle("Hey! This is an error message!"));
-console.log(errorStyle("Hey! This is an error message!"));
+console.error(successStyle("Yay! This is a success message!"));
+console.log(errorStyle("Oops! This is an error message!"));
 
 // or, something... different
 console.log(vaporStyle("****************"));
