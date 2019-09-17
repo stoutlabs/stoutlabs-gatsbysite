@@ -55,7 +55,7 @@ export const blogListQuery = graphql`
             description
             featureimg {
               childImageSharp {
-                fluid(maxWidth: 800, quality: 81) {
+                fluid(maxWidth: 950, quality: 80) {
                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
