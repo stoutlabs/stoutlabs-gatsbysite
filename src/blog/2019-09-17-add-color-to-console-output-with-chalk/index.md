@@ -146,5 +146,5 @@ And there you have it, easy styled output right in the console. 🎨💻
 
 I hope this article helped, as it should be more than enough to get you going. But as always, I definitely recommend looking at their official docs for the most up-to-date info.
 
-- Visit the [Chalk](https://www.npmjs.com/package/chalk) on npm
+- Visit the [Chalk npm page](https://www.npmjs.com/package/chalk)
 - Drop by and give their [Github repo](https://github.com/chalk/chalk) a well-earned star! 🌟
