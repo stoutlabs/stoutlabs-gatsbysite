@@ -20,41 +20,6 @@ const StyledIntroDiv = styled.div`
     text-align: left;
   }
 
-  h2 {
-    text-align: center;
-    font-size: 2.4rem;
-    margin: 1rem 0;
-    padding: 0 0 3rem;
-
-    @media screen and (min-width: 960px) {
-      text-align: left;
-      font-size: 3.5rem;
-      margin-top: 3rem;
-    }
-  }
-
-  div.intro-box {
-    display: flex;
-    flex-direction: column;
-
-    @media screen and (min-width: 768px) {
-      flex-direction: row;
-      align-items: center;
-    }
-
-    div.intro-pic {
-      @media screen and (min-width: 768px) {
-        width: 150px;
-      }
-    }
-
-    div.intro-content {
-      @media screen and (min-width: 768px) {
-        width: 80%;
-      }
-    }
-  }
-
   h3 {
     color: #3096a7;
     font-size: 2.5rem;
@@ -95,17 +60,6 @@ const StyledIntroDiv = styled.div`
     }
   }
 
-  div.intro-summary {
-    p {
-      font-size: 1.3rem;
-      text-align: center;
-
-      @media screen and (min-width: 960px) {
-        text-align: left;
-      }
-    }
-  }
-
   ul {
     list-style: square;
     margin: 0 0 0 1rem;
@@ -122,27 +76,69 @@ const StyledIntroDiv = styled.div`
   }
 `;
 
+const StyledIntroBox = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  div.intro-pic {
+    @media screen and (min-width: 768px) {
+      width: 150px;
+    }
+  }
+
+  div.intro-content {
+    @media screen and (min-width: 768px) {
+      width: 80%;
+    }
+  }
+`;
+
+const StyledIntroSummary = styled(HTMLContent)`
+  p {
+    font-size: 1.3rem;
+  }
+`;
+
+const IntroH2 = styled.h2`
+  text-align: center;
+  font-size: 2.4rem;
+  margin: 1rem 0;
+  padding: 0 0 3rem;
+
+  @media screen and (min-width: 960px) {
+    text-align: left;
+    font-size: 3.5rem;
+    margin-top: 3rem;
+  }
+`;
+
 export const IntroContent = ({ content }) => (
   <StyledIntroDiv theme={theme} className="intro" id="intro">
-    <h2>{content.title}</h2>
+    <IntroH2>{content.title}</IntroH2>
 
-    <HTMLContent
+    <StyledIntroSummary
       content={content.introSummary.html}
       className="intro-summary"
     />
-    <div className="intro-box">
+
+    <StyledIntroBox>
       <BioPic className="intro-pic" imgSrc={SmBioPic} />
       <HTMLContent content={content.introBox1.html} className="intro-content" />
-    </div>
+    </StyledIntroBox>
 
-    <div className="intro-box">
+    <StyledIntroBox>
       <BioPic className="intro-pic" imgSrc={MatchPic} />
       <HTMLContent content={content.introBox2.html} className="intro-content" />
-    </div>
+    </StyledIntroBox>
 
-    <div className="intro-box">
+    <StyledIntroBox>
       <HTMLContent content={content.currently.html} className="intro-content" />
-    </div>
+    </StyledIntroBox>
 
     <CTA url="#projects" element="projects" title="View My Work" isAnchor />
   </StyledIntroDiv>

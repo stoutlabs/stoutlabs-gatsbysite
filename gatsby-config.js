@@ -67,14 +67,7 @@ module.exports = {
         },
         lang: "*",
         // eslint-disable-next-line
-        shouldNormalizeImage: ({ node, key, value }) =>
-          // Return true to normalize the image or false to skip.
-          // console.log("value: ", value);
-          // if (value.url && value.url.includes(".svg")) {
-          //   console.log("value: ", value);
-          //   return false;
-          // }
-          true,
+        shouldNormalizeImage: ({ node, key, value }) => true,
         typePathsFilenamePrefix: "prismic-typepaths-stoutlabs",
       },
     },

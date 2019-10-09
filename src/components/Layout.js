@@ -2,14 +2,15 @@ import React, { Component } from "react";
 import Helmet from "react-helmet";
 import { Waypoint } from "react-waypoint";
 
-import { Container } from "./Container";
-import Header from "./Header";
-import { Nav } from "./Nav";
+import appleTouchIcon from "assets/apple-touch-icon.png";
+import favicon from "assets/favicon.ico";
 
-import "../assets/styles/index.scss";
+import { Container } from "components/Container";
+import Header from "components/Header";
+import { Nav } from "components/Nav";
+
+import "assets/styles/index.scss";
 import config from "../../config/index";
-import appleTouchIcon from "../assets/apple-touch-icon.png";
-import favicon from "../assets/favicon.ico";
 
 class Layout extends Component {
   constructor(props) {

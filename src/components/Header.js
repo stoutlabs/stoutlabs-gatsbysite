@@ -41,47 +41,47 @@ const StyledHeader = styled.div`
     }
   }
 
-  div.logo {
-    overflow: hidden;
-    margin: 2rem 0 0;
-
-    img {
-      max-width: 100%;
-
-      @media screen and (max-width: 816px) and (orientation: landscape) {
-        max-height: 120px;
-      }
-
-      @media screen and (min-width: 960px) {
-        max-width: 370px;
-        max-height: unset;
-      }
-    }
-
-    h1,
-    h2 {
-      text-indent: -2000px;
-      display: none;
-      position: absolute;
-    }
-
-    a {
-      display: block;
-      img {
-        max-width: 100%;
-      }
-    }
-  }
-
-  div.header-content {
-    padding: 0 0 2rem;
-  }
-
   div.header-photo {
     margin: 0;
   }
+`;
 
-  div.header-intro-text {
+const StyledLogo = styled.div`
+  overflow: hidden;
+  margin: 2rem 0 0;
+
+  img {
+    max-width: 100%;
+
+    @media screen and (max-width: 816px) and (orientation: landscape) {
+      max-height: 120px;
+    }
+
+    @media screen and (min-width: 960px) {
+      max-width: 370px;
+      max-height: unset;
+    }
+  }
+
+  h1,
+  h2 {
+    text-indent: -2000px;
+    display: none;
+    position: absolute;
+  }
+
+  a {
+    display: block;
+    img {
+      max-width: 100%;
+    }
+  }
+`;
+
+const HeaderContent = styled.div`
+  padding: 0 0 2rem;
+
+  div.intro-content {
     margin: 1.2rem 0;
 
     @media screen and (max-width: 800px) and (orientation: landscape) {
@@ -119,15 +119,15 @@ const StyledHeader = styled.div`
 const Header = () => (
   <StyledHeader className="header">
     <div className="inner">
-      <div className="logo">
+      <StyledLogo>
         <h1>Web Development Services</h1>
         <Link to="/">
           <img src={Logo} alt="StoutLabs logo" className="logosvg" />
         </Link>
-      </div>
+      </StyledLogo>
 
-      <div className="header-content">
-        <div className="header-intro-text">
+      <HeaderContent>
+        <div className="intro-content">
           <p>
             Hi, I’m Daniel Stout. <em>Freelance web developer</em>, dog parent,
             hobbyist chef, disc golfer, and music nerd living in East TN.
@@ -137,7 +137,7 @@ const Header = () => (
         <Nav />
 
         <SocialIcons />
-      </div>
+      </HeaderContent>
     </div>
   </StyledHeader>
 );

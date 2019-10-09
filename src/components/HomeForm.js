@@ -54,40 +54,40 @@ const StyledForm = styled.form`
     font-size: 1.1rem;
     line-height: 1.75;
   }
+`;
 
-  button[type="submit"] {
-    background: #971640;
-    border: none;
-    outline: none;
-    border-radius: 8px;
-    color: #fff;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.3rem;
-    font-family: "Merriweather", sans-serif;
-    line-height: 1;
-    padding: 1.1rem 2.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-    outline: none;
-    width: auto;
-    margin: 0 auto;
-    transition: background-color 200ms ease-out;
+const StyledSubmit = styled.button`
+  background: #971640;
+  border: none;
+  outline: none;
+  border-radius: 8px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-family: "Merriweather", sans-serif;
+  line-height: 1;
+  padding: 1.1rem 2.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  outline: none;
+  width: auto;
+  margin: 0 auto;
+  transition: background-color 200ms ease-out;
 
-    @media screen and (min-width: 960px) {
-      margin: 0;
-    }
+  @media screen and (min-width: 960px) {
+    margin: 0;
+  }
 
-    &:hover {
-      color: #fef1f1;
-      background-color: #e95c54;
-    }
+  &:hover {
+    color: #fef1f1;
+    background-color: #e95c54;
+  }
 
-    svg {
-      margin-left: 0.5rem;
-    }
+  svg {
+    margin-left: 0.5rem;
   }
 `;
 
@@ -232,9 +232,9 @@ export class HomeForm extends Component {
           <input name="bot-field" aria-label="Must leave blank" />
         </div>
 
-        <button type="submit">
+        <StyledSubmit>
           Send <FaEnvelope />
-        </button>
+        </StyledSubmit>
       </StyledForm>
     );
   }

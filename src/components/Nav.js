@@ -19,34 +19,6 @@ const StyledNav = styled.nav`
     @media screen and (min-width: 1200px) {
       justify-content: flex-end;
     }
-
-    li {
-      margin: 0 0.5rem 0.66rem 0;
-      padding-right: 0.5rem;
-      border-right: 1px solid rgba(254, 241, 241, 0.5);
-
-      &:last-child {
-        margin-right: 0;
-        border-right: none;
-        padding-right: 0;
-      }
-
-      a {
-        color: #fef1f1;
-        opacity: 0.85;
-        text-decoration: none;
-
-        font-size: 1.2rem;
-
-        &:hover {
-          color: rgba(250, 250, 250, 0.9);
-        }
-      }
-
-      &.active a {
-        text-decoration: underline;
-      }
-    }
   }
 
   &.mininav {
@@ -79,37 +51,75 @@ const StyledNav = styled.nav`
   }
 `;
 
-export const Nav = ({ sticky, className }) => (
+const StyledNavItem = styled.li`
+  margin: 0 0.5rem 0.66rem 0;
+  padding-right: 0.5rem;
+  border-right: 1px solid rgba(254, 241, 241, 0.5);
+
+  &:last-child {
+    margin-right: 0;
+    border-right: none;
+    padding-right: 0;
+  }
+
+  a {
+    color: #fef1f1;
+    opacity: 0.85;
+    text-decoration: none;
+
+    font-size: 1.2rem;
+
+    &:hover {
+      color: rgba(250, 250, 250, 0.9);
+    }
+  }
+
+  &.active a {
+    text-decoration: underline;
+  }
+`;
+
+const NavLink = ({
+  className,
+  children,
+  scrolltoID,
+  sticky,
+  scrollOffset = -50,
+}) => (
+  <StyledNavItem className={className}>
+    <Scroll type="id" element={scrolltoID} offset={sticky ? scrollOffset : 0}>
+      <a href={`#${scrolltoID}`}>{children}</a>
+    </Scroll>
+  </StyledNavItem>
+);
+
+export const Nav = ({ sticky, className = "" }) => (
   <StyledNav className={sticky ? `sticky ${className}` : `${className}`}>
     <Scrollspy
       items={["intro", "projects", "tools", "contact"]}
       currentClassName="active"
       offset={sticky ? -50 : 0}
+      className={sticky ? `sticky ${className}` : `${className}`}
     >
-      <li>
-        <Scroll type="id" element="intro" offset={sticky ? -10 : 0}>
-          <a href="#intro">Intro</a>
-        </Scroll>
-      </li>
+      <NavLink sticky={sticky} scrollOffset={-10} scrolltoID="intro">
+        Intro
+      </NavLink>
 
-      <li>
-        <Scroll type="id" element="projects" offset={sticky ? -50 : 0}>
-          <a href="#projects">Work</a>
-        </Scroll>
-      </li>
-      <li>
-        <Scroll type="id" element="tools" offset={sticky ? -50 : 0}>
-          <a href="#tools">Skills</a>
-        </Scroll>
-      </li>
-      <li>
-        <Scroll type="id" element="contact" offset={sticky ? -50 : 0}>
-          <a href="#contact">Contact</a>
-        </Scroll>
-      </li>
-      <li>
+      <NavLink sticky={sticky} scrolltoID="projects">
+        Work
+      </NavLink>
+
+      <NavLink sticky={sticky} scrolltoID="tools">
+        Skills
+      </NavLink>
+
+      <NavLink sticky={sticky} scrolltoID="contact">
+        Contact
+      </NavLink>
+
+      <StyledNavItem>
         <Link to="/blog">Blog</Link>
-      </li>
+      </StyledNavItem>
     </Scrollspy>
   </StyledNav>
 );

@@ -5,10 +5,10 @@ import PropTypes from "prop-types";
 const Element = props => props.children;
 
 class Scroll extends React.Component {
-  constructor() {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
+  // constructor() {
+  //   super();
+  //   this.handleClick = this.handleClick.bind(this);
+  // }
 
   componentDidMount() {
     smoothscroll.polyfill();
