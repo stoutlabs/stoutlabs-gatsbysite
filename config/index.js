@@ -13,6 +13,8 @@ module.exports = {
   pathPrefix: "",
 
   author: {
+    email: "daniel@stoutlabs.com",
+    phone: "423.343.4274",
     minibio: `
     I'm Daniel Stout, and I have provided professional freelance/contract web development and web design services nationwide since 2004! After several years of PHP-based development work, I made the move over to a full JavaScript stack in 2017. I now make use of (and really enjoy) amazing tools like React and Node, and open source projects like Gatsby. I'm available to help you and/or your company in many areas, including: web development, progressive web apps (PWAs), automated bots, and much more!
     `,

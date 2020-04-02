@@ -8,5 +8,11 @@
   },
   "eslint.autoFixOnSave": true,
   "markdown.styles": ["preview-styles.css"],
-  "prettier.disableLanguages": ["javascript", "javascriptreact"]
+  "prettier.disableLanguages": [
+    "javascript",
+    "javascriptreact"
+  ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
 }

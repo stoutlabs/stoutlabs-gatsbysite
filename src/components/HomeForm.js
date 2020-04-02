@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { navigate } from "gatsby";
 import { FaEnvelope } from "react-icons/fa";
@@ -106,52 +106,48 @@ const spamQuestion = () => {
   return { question, answer };
 };
 
-export class HomeForm extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isSpammer: true,
-      spamvals: spamQuestion(),
-    };
-  }
+const HomeForm = props => {
+  // this.state = {
+  //   isSpammer: true,
+  //   spamvals: spamQuestion(),
+  // };
 
-  handleChange = e => {
-    // const stripLinksTags = '';
+  const [formVals, setFormVals] = useState({});
+  const [gCaptchaResponse, setGCaptcha] = useState();
+  const [isSpammer, setSpammer] = useState(true);
+  const [spamvals, setSpamvals] = useState(spamQuestion());
+
+  const handleChange = e => {
     const val = e.target.value.trim();
     const { name } = e.target;
-    const { spamvals } = this.state;
 
     if (name === "idiotremover") {
       if (parseInt(val) === parseInt(spamvals.answer)) {
-        this.setState({
-          [`${name}`]: val,
-          isSpammer: false,
-        });
+        setFormVals({ ...formVals, [`${name}`]: val });
+        setSpammer(false);
       } else {
-        this.setState({
-          isSpammer: true,
-        });
+        setSpammer(true);
       }
     } else {
-      this.setState({ [`${name}`]: val });
+      setFormVals({ ...formVals, [`${name}`]: val });
     }
   };
 
-  handleSpammer = () => {
-    // console.log("think again, roboprick.");
+  const handleSpammer = () => {
     const newQuestion = spamQuestion();
-    this.setState(() => ({ spamvals: newQuestion }));
+    setSpamvals(newQuestion);
   };
 
-  handleRecaptcha = value => {
-    this.setState({ "g-recaptcha-response": value });
-  };
+  // const handleRecaptcha = value => {
+  //   // this.setState({ "g-recaptcha-response": value });
+  //   setGCaptcha(value);
+  // };
 
-  handleSubmit = e => {
+  const handleSubmit = e => {
     e.preventDefault();
     const form = e.target;
 
-    const { isSpammer } = this.state;
+    // const { isSpammer } = this.state;
 
     if (!isSpammer) {
       fetch("/", {
@@ -159,85 +155,82 @@ export class HomeForm extends Component {
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: encode({
           "form-name": form.getAttribute("name"),
-          ...this.state,
+          ...formVals,
+          // "g-recaptcha-response": gCaptchaResponse,
         }),
       })
         .then(() => navigate(form.getAttribute("action")))
         .catch(error => alert(error));
     } else {
-      this.handleSpammer();
+      handleSpammer();
     }
   };
 
-  render() {
-    const { spamvals } = this.state;
-
-    return (
-      <StyledForm
-        name="contact"
-        method="post"
-        data-netlify="true"
-        action="/success"
-        data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
-      >
-        <input type="hidden" name="form-name" value="contact" />
-        <fieldset>
+  return (
+    <StyledForm
+      name="contact"
+      method="post"
+      data-netlify="true"
+      action="/success"
+      data-netlify-honeypot="bot-field"
+      onSubmit={handleSubmit}
+    >
+      <input type="hidden" name="form-name" value="contact" />
+      <fieldset>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          aria-label="Name"
+          required
+          onChange={handleChange}
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email Address"
+          aria-label="Email"
+          required
+          onChange={handleChange}
+        />
+        <input
+          type="tel"
+          name="phone"
+          placeholder="Phone Number"
+          aria-label="Phone"
+          required
+          onChange={handleChange}
+        />
+        <div>
+          <label htmlFor="idiotremover">{spamvals.question}</label>
           <input
             type="text"
-            name="name"
-            placeholder="Your Name"
-            aria-label="Name"
+            name="idiotremover"
+            aria-label="idiotremover"
             required
-            onChange={this.handleChange}
+            onChange={handleChange}
           />
-          <input
-            type="email"
-            name="email"
-            placeholder="Email Address"
-            aria-label="Email"
-            required
-            onChange={this.handleChange}
-          />
-          <input
-            type="tel"
-            name="phone"
-            placeholder="Phone Number"
-            aria-label="Phone"
-            required
-            onChange={this.handleChange}
-          />
-          <div>
-            <label htmlFor="idiotremover">{spamvals.question}</label>
-            <input
-              type="text"
-              name="idiotremover"
-              aria-label="idiotremover"
-              required
-              onChange={this.handleChange}
-            />
-          </div>
-          <textarea
-            name="message"
-            placeholder="Your message"
-            rows="5"
-            cols="80"
-            aria-label="Message"
-            required
-            onChange={this.handleChange}
-          />
-        </fieldset>
-
-        <div className="nope-holder">
-          <input name="bot-field" aria-label="Must leave blank" />
         </div>
+        <textarea
+          name="message"
+          placeholder="Your message"
+          rows="5"
+          cols="80"
+          aria-label="Message"
+          required
+          onChange={handleChange}
+        />
+      </fieldset>
 
-        <StyledSubmit>
-          Send <FaEnvelope />
-        </StyledSubmit>
-      </StyledForm>
-    );
-  }
-}
+      <div className="nope-holder">
+        <input name="bot-field" aria-label="Must leave blank" />
+      </div>
+
+      <StyledSubmit>
+        Send <FaEnvelope />
+      </StyledSubmit>
+    </StyledForm>
+  );
+};
 
 export default HomeForm;

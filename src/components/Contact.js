@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 
-import { HomeForm } from "./HomeForm";
+import HomeForm from "./HomeForm";
 
 const ContactSection = styled.section`
   p {

@@ -14,6 +14,8 @@ module.exports = {
     title: config.title,
     siteUrl: config.url,
     description: config.description,
+    email: config.author.email,
+    phone: config.author.phone,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -67,7 +69,8 @@ module.exports = {
         },
         lang: "*",
         // eslint-disable-next-line
-        shouldNormalizeImage: ({ node, key, value }) => true,
+        // shouldNormalizeImage: ({ node, key, value }) => true,
+        shouldDownloadImage: ({ node, key, value }) => true,
         typePathsFilenamePrefix: "prismic-typepaths-stoutlabs",
       },
     },
@@ -151,7 +154,7 @@ module.exports = {
         feeds: [
           {
             serialize: ({ query: { site, allMdx } }) =>
-              allMdx.edges.map(edge => ({
+              allMdx.edges.map((edge) => ({
                 ...edge.node.frontmatter,
                 description: edge.node.excerpt,
                 date: edge.node.frontmatter.date,
