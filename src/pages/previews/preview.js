@@ -15,9 +15,9 @@ const PreviewPage = ({ location }) => {
       }
     }
   `);
-  const pageUIDs = allPrismicHomepage.nodes.map(node => node.uid);
+  const pageUIDs = allPrismicHomepage.nodes.map((node) => node.uid);
 
-  const pathResolver = () => doc => {
+  const pathResolver = () => (doc) => {
     const previewedUID = doc.uid;
     // FIXME: this is a bit broken right now for unpublished pages. Will look more into it soon!
 

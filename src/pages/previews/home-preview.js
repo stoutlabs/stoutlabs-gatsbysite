@@ -14,16 +14,18 @@ export const PreviewPage = ({ location }) => {
     }
   `);
   const pageUIDs = allPrismicHomePage
-    ? allPrismicHomePage.nodes.map(node => node.uid)
+    ? allPrismicHomePage.nodes.map((node) => node.uid)
     : [];
 
-  const pathResolver = () => doc => {
-    const previewedUID = doc.prismicPage.uid || "/";
+  console.log("PreviewPage -> pageUIDs", pageUIDs);
+  const pathResolver = () => (doc) => {
+    console.log("doc: ", doc);
+    const previewedUID = doc.uid || "/";
 
     if (pageUIDs.includes(previewedUID)) {
       return previewedUID;
     }
-    return "/unpublishedPreview";
+    return "/previews/unpublishedPreview";
 
     // return "/";
   };
