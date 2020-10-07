@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+import { MarkdownContent } from "../Content";
 import Img from "../Image";
 
 const ToolsSection = styled.section`
@@ -57,9 +58,17 @@ const ToolsSection = styled.section`
         border: 1px solid #fff;
         display: inline-block;
         border-radius: 0.5rem;
+        line-height: 1.4;
+        text-align: center;
+        font-size: 0.95rem;
+        color: #216571;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
         @media (min-width: 768px) {
           padding: 0.5rem 1rem;
+          line-height: 1.5;
+          font-size: 1rem;
         }
 
         &:last-child {
@@ -68,21 +77,6 @@ const ToolsSection = styled.section`
 
         img {
           max-width: 40px;
-        }
-
-        p {
-          margin: 0;
-          line-height: 1.4;
-          text-align: center;
-          font-size: 0.95rem;
-          color: #216571;
-          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-            Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-          @media (min-width: 768px) {
-            line-height: 1.5;
-            font-size: 1rem;
-          }
         }
       }
     }
@@ -107,6 +101,22 @@ const ToolsSection = styled.section`
           div.gatsby-image-wrapper {
             margin: 0 0.4rem 0 0;
           }
+
+          p {
+            margin: 0;
+            line-height: 1.4;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #216571;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+              sans-serif;
+
+            @media (min-width: 768px) {
+              line-height: 1.5;
+              font-size: 1rem;
+            }
+          }
         }
       }
     }
@@ -114,8 +124,9 @@ const ToolsSection = styled.section`
 `;
 
 export const Tools = ({ content }) => {
-  const faves = content.faves.document.data;
+  const { faves } = content;
   const { boxes } = content;
+  console.log("Tools -> boxes", boxes);
 
   return (
     <ToolsSection id="tools">
@@ -130,36 +141,28 @@ export const Tools = ({ content }) => {
           s:
         </h4>
         <ul>
-          {faves.toolbelt_item.map(item => (
-            <li key={item.tool_name}>
+          {faves.map((item) => (
+            <li key={item.title}>
               <Img
-                fixed={
-                  item.logo.localFile &&
-                  item.logo.localFile.childImageSharp.fixed
-                }
-                src={!item.logo.localFile && item.logo.url}
+                fixed={item.icon && item.icon.childImageSharp.fixed}
+                // src={!item.logo.localFile && item.logo.url}
               />
-              <p>{item.tool_name}</p>
+              <p>{item.title}</p>
             </li>
           ))}
         </ul>
       </div>
 
-      {boxes.map(({ box }) => {
-        const boxContent = box.document.data;
-        return (
-          <div className="tools sub" key={boxContent.toolbelt_title}>
-            <h4>{boxContent.toolbelt_title}</h4>
-            <ul>
-              {boxContent.toolbelt_item.map(item => (
-                <li key={item.tool_name}>
-                  <p>{item.tool_name}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        );
-      })}
+      {boxes &&
+        boxes.map((box) => {
+          const boxContent = box.listing;
+          return (
+            <div className="tools sub" key={box.Heading}>
+              <h4>{box.Heading}</h4>
+              <MarkdownContent content={boxContent} />
+            </div>
+          );
+        })}
     </ToolsSection>
   );
 };

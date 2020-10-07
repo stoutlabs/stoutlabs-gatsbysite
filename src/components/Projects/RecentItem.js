@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import Img from 'gatsby-image';
 
 import Img from "../Image";
-import { HTMLContent } from "../Content";
+import { MarkdownContent } from "../Content";
 
 const StyledRecentItem = styled.article`
   width: 100%;
@@ -70,18 +70,26 @@ const StyledRecentItem = styled.article`
   }
 `;
 
-export const RecentItem = ({ details, isActive, handleClick, uid }) => (
+export const RecentItem = ({ details, isActive, handleClick, slug }) => (
   // console.log('props.details.thumbnail', props.details.thumbnail);
   <StyledRecentItem className={`recent-item ${isActive ? "active" : ""}`}>
-    <div className="thumbnail" onClick={() => handleClick(uid, details)} role="presentation">
-      {details.thumbnail ? (
+    <div
+      className="thumbnail"
+      onClick={() => handleClick(slug, details)}
+      role="presentation"
+    >
+      {details.projectThumb ? (
         <Img
-          fluid={details.thumbnail.localFile && details.thumbnail.localFile.childImageSharp.fluid}
+          fluid={
+            details.projectThumb && details.projectThumb.childImageSharp.fluid
+          }
           title={details.title}
           alt={details.title}
           className="thumbnail-img-wrap"
           style={{ margin: "0" }}
-          src={!details.thumbnail.localFile && details.thumbnail.url}
+          // src={
+          //   !details.projectThumb.childImageSharp && details.projectThumb.url
+          // }
           // imgStyle={{}}
         />
       ) : (
@@ -91,24 +99,25 @@ export const RecentItem = ({ details, isActive, handleClick, uid }) => (
 
     <h5>{details.title}</h5>
     <p className="tools-used">
-      <b>Built With:</b> {details.tools}
+      <b>Built With:</b>{" "}
+      {details.project_cats.map((cat, i) => cat.title).join(", ")}
     </p>
 
     <div className="inner-content">
-      <HTMLContent content={details.body.html} className="desc" />
+      <MarkdownContent content={details.description} className="desc" />
 
       <div className="big-pic">
-        {details.full_image && (
+        {details.projectThumb && (
           <Img
             fluid={
-              details.full_image.localFile && details.full_image.localFile.childImageSharp.fluid
+              details.projectThumb && details.projectThumb.childImageSharp.fluid
             }
             title={details.title}
             alt={details.title}
             className="featured-img"
             style={{ margin: "0" }}
             // imgStyle={{}}
-            src={!details.full_image.localFile && details.full_image.url}
+            // src={!details.full_image.localFile && details.full_image.url}
           />
         )}
       </div>

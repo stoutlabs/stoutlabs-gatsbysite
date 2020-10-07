@@ -7,7 +7,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, "src"), "node_modules"],
       alias: {
-        "react-dom": "@hot-loader/react-dom",
+        // "react-dom": "@hot-loader/react-dom",
         react: path.resolve("./node_modules/react"),
       },
     },
@@ -94,7 +94,7 @@ exports.createPages = async ({ actions, graphql }) => {
 
     const uniqueTags = [...new Set(tags)];
 
-    uniqueTags.forEach(tag => {
+    uniqueTags.forEach((tag) => {
       // console.log("tag: ", tag);
       const tagPath = `/tags/${slugify(tag)}/`;
 

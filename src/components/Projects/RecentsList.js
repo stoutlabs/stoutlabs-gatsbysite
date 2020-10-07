@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 
 import { RecentItem } from "./RecentItem";
@@ -46,81 +46,76 @@ const ProjectOverlay = styled.div`
   }
 `;
 
-export class RecentsList extends Component {
-  state = {
-    projects: [],
-    isViewing: false,
-    isLoaded: false,
-    activeItem: null,
-    activeDetails: null,
+export const RecentsList = ({ projects }) => {
+  // const [projects, setProjects] = useState([]);
+  const [isViewing, setIsViewing] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [activeItem, setActiveItem] = useState(null);
+  const [activeDetails, setActiveDetails] = useState(null);
+
+  useEffect(() => {
+    // setProjects(projects);
+    if (projects.length > 0) {
+      setIsLoaded(true);
+      setActiveDetails(projects[0].description);
+    }
+  }, [projects]);
+
+  const handleClick = (slug, details = null) => {
+    setActiveItem(slug);
+    setIsViewing(true);
+    setActiveDetails(details);
   };
 
-  componentDidMount = () => {
-    const { projects } = this.props;
-    this.setState(() => ({
-      projects,
-      isLoaded: true,
-      activeDetails: projects[0].project.document.data,
-    }));
+  const hideDetails = () => {
+    setActiveItem(null);
+    setIsViewing(false);
   };
 
-  handleClick = (id, details = null) => {
-    this.setState(() => ({
-      activeItem: id,
-      isViewing: true,
-      activeDetails: details,
-    }));
-  };
+  return (
+    <StyledRecents id="projects">
+      <h3>Recent Projects</h3>
 
-  hideDetails = () => {
-    this.setState(() => ({
-      activeItem: null,
-      isViewing: false,
-    }));
-  };
+      <p>
+        Below are several of my <i>public-facing</i> projects. Please keep in
+        mind that much of my work is <b>privately</b> contracted, and is under
+        NDA and/or not publicly accessible.
+      </p>
 
-  render() {
-    const { isLoaded, projects, activeDetails, activeItem, isViewing } = this.state;
-    return (
-      <StyledRecents id="projects">
-        <h3>Recent Projects</h3>
+      <div className="recents-list">
+        {isLoaded &&
+          projects.map((itemRaw, index) => {
+            const item = itemRaw;
+            const { slug } = itemRaw.slug;
 
-        <p>
-          Below are several of my <i>public-facing</i> projects. Please keep in mind that much of my
-          work is <b>privately</b> contracted, and is under NDA and/or not publicly accessible.
-        </p>
+            return (
+              <RecentItem
+                isActive={activeItem === slug}
+                key={index}
+                details={item}
+                slug={slug}
+                handleClick={handleClick}
+              />
+            );
+          })}
+      </div>
 
-        <div className="recents-list">
-          {isLoaded &&
-            projects.map((itemRaw, index) => {
-              const item = itemRaw.project.document.data;
-              const { uid } = itemRaw.project.document;
+      <p className="other-projects">
+        <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP)
+        available upon request.
+      </p>
 
-              return (
-                <RecentItem
-                  isActive={activeItem === uid}
-                  key={index}
-                  details={item}
-                  uid={uid}
-                  handleClick={this.handleClick}
-                />
-              );
-            })}
-        </div>
-
-        <p className="other-projects">
-          <sup>*</sup>Note: Older projects (mostly WordPress and CakePHP) available upon request.
-        </p>
-
-        <ProjectOverlay className={isViewing ? "show" : "hide"} onClick={this.hideDetails} />
-        <DetailsBox
-          details={activeDetails}
-          className={isViewing ? "active" : ""}
-          handleClose={this.hideDetails}
-        />
-      </StyledRecents>
-    );
-  }
-}
+      <ProjectOverlay
+        className={isViewing ? "show" : "hide"}
+        onClick={hideDetails}
+      />
+      <DetailsBox
+        details={activeDetails}
+        className={isViewing ? "active" : ""}
+        handleClose={hideDetails}
+      />
+    </StyledRecents>
+  );
+};
 
 export default RecentsList;

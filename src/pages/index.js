@@ -25,26 +25,14 @@ const StyledHR = styled.hr`
 `;
 
 const IndexPage = ({ data }) => {
-  const IS_BROWSER = typeof window !== "undefined";
-  const previewData = IS_BROWSER && window.__PRISMIC_PREVIEW_DATA__;
-  const staticData = data;
-
-  const contentMerged = mergePrismicPreviewData({ staticData, previewData });
-  const content = contentMerged.prismicHomepage.data;
-
-  const { main_title: title, featured_projects } = content;
-
-  const introData = {
-    title,
-    introBox1: content.intro_content_1,
-    introBox2: content.intro_content_2,
-    introSummary: content.intro_summary,
-    currently: content.currently,
-  };
+  const strapiContent = data.strapiHomepage;
+  const strapiProjects = data.allStrapiProjects.nodes;
+  const strapiFaveTools = data.allStrapiFavoriteTools.nodes;
+  const strapiSkills = data.allStrapiSkills.nodes;
 
   const toolData = {
-    faves: content.best_tools,
-    boxes: content.tools_boxes,
+    faves: strapiFaveTools,
+    boxes: strapiSkills,
   };
 
   const seoData = {
@@ -56,9 +44,9 @@ const IndexPage = ({ data }) => {
   return (
     <Layout>
       <Seo postData={seoData} />
-      <IntroContent content={introData} />
+      <IntroContent content={strapiContent} />
       <StyledHR />
-      <RecentsList projects={featured_projects} />
+      <RecentsList projects={strapiProjects} />
       <StyledHR />
       <Tools content={toolData} />
       <StyledHR />
@@ -72,97 +60,58 @@ export default IndexPage;
 
 export const query = graphql`
   query homePageQuery {
-    prismicHomepage {
-      data {
-        main_title
-        intro_content_1 {
-          html
+    strapiHomepage {
+      title
+      intro
+      quickBio {
+        Body
+      }
+      seeking {
+        Body
+      }
+      status
+    }
+
+    allStrapiProjects(sort: { order: DESC, fields: launchDate }) {
+      nodes {
+        updated_at
+        title
+        slug
+        project_cats {
+          title
+          slug
         }
-        intro_content_2 {
-          html
-        }
-        intro_summary {
-          html
-        }
-        currently {
-          html
-        }
-        featured_projects {
-          project {
-            document {
-              ... on PrismicProject {
-                uid
-                data {
-                  title
-                  thumbnail {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 650, quality: 85) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
-                  }
-                  full_image {
-                    localFile {
-                      childImageSharp {
-                        fluid(maxWidth: 800, quality: 81) {
-                          ...GatsbyImageSharpFluid_withWebp
-                        }
-                      }
-                    }
-                  }
-                  body {
-                    html
-                  }
-                  tools
-                  url {
-                    url
-                  }
-                  source {
-                    url
-                  }
-                }
-              }
+        launchDate
+        description
+        sourceUrl
+        viewUrl
+        projectThumb {
+          childImageSharp {
+            fluid(maxWidth: 650, quality: 85) {
+              ...GatsbyImageSharpFluid_withWebp
             }
           }
         }
-        best_tools {
-          document {
-            ... on PrismicToolbelt {
-              id
-              data {
-                toolbelt_title
-                toolbelt_item {
-                  tool_name
-                  logo {
-                    localFile {
-                      childImageSharp {
-                        fixed(width: 40, quality: 90) {
-                          ...GatsbyImageSharpFixed
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+      }
+    }
+
+    allStrapiFavoriteTools(sort: { fields: id, order: ASC }) {
+      nodes {
+        title
+        icon {
+          childImageSharp {
+            fixed(width: 40, quality: 90) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
-        tools_boxes {
-          box {
-            document {
-              ... on PrismicToolbelt {
-                data {
-                  toolbelt_title
-                  toolbelt_item {
-                    tool_name
-                  }
-                }
-              }
-            }
-          }
-        }
+      }
+    }
+
+    allStrapiSkills {
+      nodes {
+        Heading
+        listing
       }
     }
   }

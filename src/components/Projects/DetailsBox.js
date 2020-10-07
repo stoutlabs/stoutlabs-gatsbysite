@@ -3,7 +3,7 @@ import Img from "gatsby-image";
 import styled from "styled-components";
 import { FaTimes, FaWrench, FaExternalLinkAlt, FaGithub } from "react-icons/fa";
 
-import { HTMLContent } from "../Content";
+import { MarkdownContent } from "../Content";
 
 const StyledDetails = styled.div`
   background-color: rgba(30, 30, 30, 0.9);
@@ -183,7 +183,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
       >
         <div
           className="inner"
-          onClick={e => e.stopPropagation()}
+          onClick={(e) => e.stopPropagation()}
           role="presentation"
         >
           <div className="closer">
@@ -200,9 +200,9 @@ export const DetailsBox = ({ details, className, handleClose }) => {
 
           <h3>{details.title}</h3>
           <div className="big-pic">
-            {details.full_image.localFile && (
+            {details.projectThumb && (
               <Img
-                fluid={details.full_image.localFile.childImageSharp.fluid}
+                fluid={details.projectThumb.childImageSharp.fluid}
                 title={details.title}
                 alt={details.title}
                 className="featured-img"
@@ -218,17 +218,20 @@ export const DetailsBox = ({ details, className, handleClose }) => {
               <h4>
                 <FaWrench /> Tools Used:
               </h4>
-              <p>{details.tools}</p>
+              <p>
+                {details.project_cats &&
+                  details.project_cats.map((x) => x.title).join(", ")}
+              </p>
             </div>
 
             <div className="source-url">
               <h4>
                 <FaExternalLinkAlt /> Links:
               </h4>
-              {details.source && details.source.url ? (
+              {details.sourceUrl ? (
                 <p>
                   <a
-                    href={details.source.url}
+                    href={details.sourceUrl}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -236,10 +239,10 @@ export const DetailsBox = ({ details, className, handleClose }) => {
                   </a>
                 </p>
               ) : null}
-              {details.url ? (
+              {details.viewUrl ? (
                 <p>
                   <a
-                    href={details.url.url}
+                    href={details.viewUrl}
                     rel="noopener noreferrer"
                     target="_blank"
                   >
@@ -250,7 +253,7 @@ export const DetailsBox = ({ details, className, handleClose }) => {
             </div>
           </div>
 
-          <HTMLContent content={details.body.html} className="desc" />
+          <MarkdownContent content={details.description} className="desc" />
 
           <div className="closer-lower">
             <span onClick={handleClose} role="presentation">
