@@ -47,31 +47,17 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-prismic",
+      resolve: `gatsby-source-strapi`,
       options: {
-        repositoryName: "stoutlabs2018",
-        accessToken: `${process.env.API_KEY}`,
-        schemas: {
-          homepage: homepageSchema,
-          project: projectSchema,
-          toolbelt: toolbeltSchema,
+        apiURL: process.env.STRAPI_URL,
+        queryLimit: 1000, // Default to 100
+        contentTypes: ["projects", "project-cats", "skills", "favorite-tools"],
+        singleTypes: [`homepage`, "sidebar"],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: "",
+          password: "",
         },
-        // eslint-disable-next-line
-        linkResolver: ({ node, key, value }) => doc => {
-          // Your link resolver
-        },
-        fetchLinks: [
-          // Your list of links
-        ],
-        // eslint-disable-next-line
-        htmlSerializer: ({ node, key, value }) => (type, element, content, children) => {
-          // Your HTML serializer
-        },
-        lang: "*",
-        // eslint-disable-next-line
-        // shouldNormalizeImage: ({ node, key, value }) => true,
-        shouldDownloadImage: ({ node, key, value }) => true,
-        typePathsFilenamePrefix: "prismic-typepaths-stoutlabs",
       },
     },
     `gatsby-plugin-sharp`,

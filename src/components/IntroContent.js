@@ -3,7 +3,7 @@ import styled from "styled-components";
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-import { HTMLContent } from "./Content";
+import { HTMLContent, MarkdownContent } from "./Content";
 import BioPic from "./BioPic";
 import { CTA } from "./CTA";
 
@@ -98,7 +98,7 @@ const StyledIntroBox = styled.div`
   }
 `;
 
-const StyledIntroSummary = styled(HTMLContent)`
+const StyledIntroSummary = styled(MarkdownContent)`
   p {
     font-size: 1.3rem;
   }
@@ -121,23 +121,26 @@ export const IntroContent = ({ content }) => (
   <StyledIntroDiv theme={theme} className="intro" id="intro">
     <IntroH2>{content.title}</IntroH2>
 
-    <StyledIntroSummary
-      content={content.introSummary.html}
-      className="intro-summary"
-    />
+    <StyledIntroSummary content={content.intro} className="intro-summary" />
 
     <StyledIntroBox>
       <BioPic className="intro-pic" imgSrc={SmBioPic} />
-      <HTMLContent content={content.introBox1.html} className="intro-content" />
+      <MarkdownContent
+        content={content.quickBio.Body}
+        className="intro-content"
+      />
     </StyledIntroBox>
 
     <StyledIntroBox>
       <BioPic className="intro-pic" imgSrc={MatchPic} />
-      <HTMLContent content={content.introBox2.html} className="intro-content" />
+      <MarkdownContent
+        content={content.seeking.Body}
+        className="intro-content"
+      />
     </StyledIntroBox>
 
     <StyledIntroBox>
-      <HTMLContent content={content.currently.html} className="intro-content" />
+      <MarkdownContent content={content.status} className="intro-content" />
     </StyledIntroBox>
 
     <CTA url="#projects" element="projects" title="View My Work" isAnchor />
