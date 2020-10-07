@@ -126,7 +126,7 @@ const ToolsSection = styled.section`
 export const Tools = ({ content }) => {
   const { faves } = content;
   const { boxes } = content;
-  console.log("Tools -> boxes", boxes);
+  // console.log("Tools -> boxes", boxes);
 
   return (
     <ToolsSection id="tools">
