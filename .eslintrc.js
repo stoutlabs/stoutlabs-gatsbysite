@@ -1,11 +1,11 @@
 module.exports = {
-  "extends": ["stoutlabs"],
-  "rules": {},
-  "settings": {
+  extends: ["stoutlabs"],
+  rules: {},
+  settings: {
     "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    }
+      node: {
+        paths: ["src"],
+      },
+    },
   },
-}
+};

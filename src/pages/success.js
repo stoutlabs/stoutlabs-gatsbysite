@@ -13,7 +13,7 @@ const StyledSuccess = styled.div`
   }
 `;
 
-export const Success = () => (
+const Success = () => (
   <Layout>
     <StyledSuccess className="success">
       <h2>Email Sent!</h2>

@@ -1,5 +1,4 @@
 [build.environment]
-  YARN_VERSION = "1.22.4"
+  YARN_VERSION = "1.22.5"
   YARN_FLAGS = "--no-ignore-optional"
-  NODE_VERSION = "12.15.0"
-  RUBY_VERSION = "2.6.2"
+  NODE_VERSION = "14.15.5"

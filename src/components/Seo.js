@@ -1,4 +1,3 @@
-import path from "path";
 import React from "react";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
@@ -177,7 +176,7 @@ const SEO = ({ postData, postImage, isProjectPage, isBlogPage }) => {
   const image = postImage ? `${config.url}${postImage}` : config.image;
 
   const url = isBlogPage
-    ? `${config.url}${path.sep}blog${postData.fields.slug}`
+    ? `${config.url}/blog${postData.fields.slug}`
     : config.url;
 
   const datePublished = isBlogPage ? postMeta.date : false;

@@ -14,7 +14,7 @@ export const MdxContent = ({ content, className }) => (
 );
 
 export const MarkdownContent = ({ content, className }) => (
-  <ReactMarkdown source={content} className={className} />
+  <ReactMarkdown children={content} className={className} />
 );
 
 const Content = ({ content, className }) => (
