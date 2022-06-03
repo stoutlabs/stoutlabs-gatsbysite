@@ -16,7 +16,7 @@
     "gatsby-plugin-force-file-loader": "^0.1.1",
     "gatsby-plugin-google-analytics": "^3.4.0",
     "gatsby-plugin-manifest": "^3.4.0",
-    "gatsby-plugin-mdx": "^2.4.0",
+    "gatsby-plugin-mdx": "^2.14.1",
     "gatsby-plugin-netlify": "^3.4.0",
     "gatsby-plugin-offline": "^4.4.0",
     "gatsby-plugin-react-helmet": "^4.4.0",
