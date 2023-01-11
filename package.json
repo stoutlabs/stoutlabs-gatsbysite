@@ -33,7 +33,7 @@
     "gatsby-source-filesystem": "^3.4.0",
     "gatsby-source-prismic": "^3.3.6",
     "gatsby-source-strapi": "^0.0.12",
-    "gatsby-transformer-remark": "^4.1.0",
+    "gatsby-transformer-remark": "^5.25.1",
     "gatsby-transformer-sharp": "^3.4.0",
     "lodash": "^4.17.21",
     "node-sass": "^5.0.0",
